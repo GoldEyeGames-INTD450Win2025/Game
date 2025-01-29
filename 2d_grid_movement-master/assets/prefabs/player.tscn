@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0wysm6c2nqgj"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_26y8w"]
-[ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/sokoban_character.png" id="2_47llq"]
+[ext_resource type="Script" path="res://assets/prefabs/player.gd" id="1_26y8w"]
+[ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/art_tilesprites/sokoban_character.png" id="2_47llq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
 size = Vector2(32, 32)

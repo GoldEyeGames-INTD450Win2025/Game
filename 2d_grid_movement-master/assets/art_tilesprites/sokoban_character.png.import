@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fn3ats00hpd7"
-path="res://.godot/imported/sokoban_character.png-db20e081c3ea15b476d3a83e0251c071.ctex"
+path="res://.godot/imported/sokoban_character.png-9b324726b28fda2218af20d87352def1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sokoban_character.png"
-dest_files=["res://.godot/imported/sokoban_character.png-db20e081c3ea15b476d3a83e0251c071.ctex"]
+source_file="res://assets/art_tilesprites/sokoban_character.png"
+dest_files=["res://.godot/imported/sokoban_character.png-9b324726b28fda2218af20d87352def1.ctex"]
 
 [params]
 
