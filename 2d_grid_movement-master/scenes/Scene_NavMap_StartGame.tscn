@@ -7337,8 +7337,7 @@ tile_set = SubResource("TileSet_50wsq")
 rendering_quadrant_size = 32
 
 [node name="Player_Char2D" parent="." instance=ExtResource("1_df47m")]
-position = Vector2(869, -73)
-speed = 30000
+position = Vector2(828, -100)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
 position_smoothing_enabled = true
@@ -7358,6 +7357,7 @@ bus = &"SFX"
 
 [node name="Frog_CharBody2D" parent="." instance=ExtResource("10_u4p8x")]
 position = Vector2(403, -437)
+scale = Vector2(2, 2)
 speed = 4000
 
 [node name="Area2D_PuzMap_GridTester" type="Area2D" parent="."]
