@@ -1,0 +1,258 @@
+{
+	"textures": [
+		{
+			"image": "texture001.png",
+			"size": {
+				"w": 2048,
+				"h": 2048
+			},
+			"sprites": [
+				{
+					"filename": "tree_8.png",
+					"region": {
+						"x": 15,
+						"y": 15,
+						"w": 337,
+						"h": 501
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_9.png",
+					"region": {
+						"x": 15,
+						"y": 546,
+						"w": 378,
+						"h": 443
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_11.png",
+					"region": {
+						"x": 382,
+						"y": 15,
+						"w": 206,
+						"h": 367
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "greenery_7.png",
+					"region": {
+						"x": 382,
+						"y": 412,
+						"w": 96,
+						"h": 89
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_2.png",
+					"region": {
+						"x": 15,
+						"y": 1019,
+						"w": 235,
+						"h": 358
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_4.png",
+					"region": {
+						"x": 15,
+						"y": 1407,
+						"w": 123,
+						"h": 323
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_6.png",
+					"region": {
+						"x": 15,
+						"y": 1760,
+						"w": 205,
+						"h": 255
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_12.png",
+					"region": {
+						"x": 168,
+						"y": 1407,
+						"w": 221,
+						"h": 301
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_7.png",
+					"region": {
+						"x": 250,
+						"y": 1738,
+						"w": 224,
+						"h": 281
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_1.png",
+					"region": {
+						"x": 419,
+						"y": 1407,
+						"w": 285,
+						"h": 297
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_5.png",
+					"region": {
+						"x": 504,
+						"y": 1734,
+						"w": 187,
+						"h": 244
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_3.png",
+					"region": {
+						"x": 721,
+						"y": 1734,
+						"w": 181,
+						"h": 234
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "tree_10.png",
+					"region": {
+						"x": 932,
+						"y": 1734,
+						"w": 218,
+						"h": 172
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "greenery_6.png",
+					"region": {
+						"x": 932,
+						"y": 1936,
+						"w": 84,
+						"h": 73
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "greenery_10.png",
+					"region": {
+						"x": 1046,
+						"y": 1936,
+						"w": 85,
+						"h": 72
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "greenery_8.png",
+					"region": {
+						"x": 382,
+						"y": 412,
+						"w": 96,
+						"h": 89
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

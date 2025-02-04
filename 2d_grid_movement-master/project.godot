@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="grid_movement"
-run/main_scene="res://assets/scenes/main.tscn"
+run/main_scene="res://scenes/Scene_NavMap_StartGame.tscn"
 config/features=PackedStringArray("4.3")
-config/icon="res://assets/art_scenic/icon.svg"
+config/icon="res://assets/art_free/icon.svg"
 
 [audio]
 
@@ -21,7 +21,9 @@ buses/default_bus_layout="res://assets/audio/audio_settings/default_bus_layout.t
 
 [display]
 
-window/size/viewport_height=640
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 window/dpi/allow_hidpi=false
 
 [dotnet]
@@ -58,3 +60,6 @@ right={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
