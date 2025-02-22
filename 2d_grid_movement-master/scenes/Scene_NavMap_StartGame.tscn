@@ -1,4 +1,4 @@
-[gd_scene load_steps=223 format=4 uid="uid://k2wn23us48hi"]
+[gd_scene load_steps=224 format=4 uid="uid://k2wn23us48hi"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_df47m"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="1_p848o"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cpfia2gojext2" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_11.png" id="32_3p12a"]
 [ext_resource type="Texture2D" uid="uid://yd3qepafya63" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/decor_1.png" id="34_jaj0h"]
 [ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="34_kkp7j"]
+[ext_resource type="Texture2D" uid="uid://wutwnmcjkxah" path="res://assets/art_drawn_tile/tallgrass2.png" id="34_yj2ae"]
 [ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="35_kksbl"]
 [ext_resource type="Texture2D" uid="uid://b8sfeafiaud6u" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00003.png" id="36_l47l1"]
 [ext_resource type="Texture2D" uid="uid://c1knm7gott75p" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00004.png" id="37_dj27g"]
@@ -10904,7 +10905,6 @@ y_sort_enabled = true
 position = Vector2(437, -96)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
-position_smoothing_enabled = true
 
 [node name="Audio_Music" type="AudioStreamPlayer2D" parent="Player_Char2D"]
 stream = ExtResource("19_f8mh7")
@@ -11151,7 +11151,7 @@ position = Vector2(1255, -4354)
 texture = ExtResource("17_2x46y")
 
 [node name="Tree27" type="Sprite2D" parent="TileMap2"]
-position = Vector2(1068, -4399)
+position = Vector2(1240, -4436)
 texture = ExtResource("18_3dwcs")
 
 [node name="Tree28" type="Sprite2D" parent="TileMap2"]
@@ -11274,13 +11274,13 @@ position = Vector2(56, -6052.5)
 scale = Vector2(1.18354, 0.586364)
 texture = ExtResource("28_rmry6")
 
-[node name="Stones20" type="Sprite2D" parent="TileMap2"]
-position = Vector2(2709, -6306)
-texture = ExtResource("32_3p12a")
-
 [node name="Stones21" type="Sprite2D" parent="TileMap2"]
 position = Vector2(2302, -6047)
 texture = ExtResource("28_rmry6")
+
+[node name="Stones20" type="Sprite2D" parent="TileMap2"]
+position = Vector2(2709, -6306)
+texture = ExtResource("32_3p12a")
 
 [node name="Stones22" type="Sprite2D" parent="TileMap2"]
 position = Vector2(2934, -6052)
@@ -11328,6 +11328,10 @@ texture = ExtResource("16_tg5hg")
 [node name="Tree5" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31/Tree31/Tree31/Tree5"]
 position = Vector2(1504, 1556)
 texture = ExtResource("16_tg5hg")
+
+[node name="Tallgrass2" type="Sprite2D" parent="TileMap2"]
+position = Vector2(1846, -5938)
+texture = ExtResource("34_yj2ae")
 
 [node name="Area2D_PuzMap_GridTester" type="Area2D" parent="."]
 visible = false

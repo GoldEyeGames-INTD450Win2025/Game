@@ -5,8 +5,8 @@
 [sub_resource type="GDScript" id="GDScript_v4oy0"]
 script/source = "extends Control
 
+# PauseMenu logic put here (see if later it can be moved to PauseMenu node)
 @onready var pause_menu = $PauseMenu  # Reference to the Pause Menu UI
-
 var is_paused = false
 
 func _ready():
@@ -19,26 +19,27 @@ func _process(_delta):
 		toggle_pause()
 
 	if is_paused and Input.is_action_just_pressed(\"next\"):
-		toggle_pause()  # Press 'N' to resume
+		toggle_pause()
 
 func toggle_pause():
 	is_paused = !is_paused
 	#get_tree().paused = is_paused  # Freeze game logic
+	Engine.time_scale = !is_paused # Freeze game logic
 	pause_menu.visible = is_paused  # Show or hide menu
+	#if is_paused:
+		#disable_wasd()
+		#
+	#else:
+		#enable_wasd()
 
-	if is_paused:
-		disable_wasd()
-	else:
-		enable_wasd()
-
-func disable_wasd():
-	InputMap.action_erase_event(\"ui_up\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_down\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_left\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_right\", InputEventKey.new())
-
-func enable_wasd():
-	InputMap.load_from_project_settings()  # Reloads default inputs
+#func disable_wasd():
+	#InputMap.action_erase_event(\"ui_up\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_down\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_left\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_right\", InputEventKey.new())
+#
+#func enable_wasd():
+	#InputMap.load_from_project_settings()  # Reloads default inputs
 "
 
 [node name="MainUI" type="Control"]
