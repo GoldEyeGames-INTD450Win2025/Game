@@ -125,7 +125,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7syd"]
 radius = 20.0
-height = 84.0
+height = 109.375
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10u8g"]
 atlas = ExtResource("2_watrc")
@@ -509,6 +509,8 @@ frame_progress = 0.452726
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
+position = Vector2(2, 30)
+scale = Vector2(0.66, 0.26)
 shape = SubResource("CapsuleShape2D_s7syd")
 
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="."]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://27fdgijk4nqi"]
+[gd_scene load_steps=31 format=3 uid="uid://27fdgijk4nqi"]
 
 [ext_resource type="Texture2D" uid="uid://bshfbm3bxs8nf" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet.png" id="1_kiyo8"]
 [ext_resource type="Script" path="res://assets/prefabs_w_art/npcs/frog/frog_char_body_2d.gd" id="1_p18vq"]
 [ext_resource type="Texture2D" uid="uid://dc7egs0k3p3ju" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet_flipped.png" id="3_8njhm"]
 [ext_resource type="AudioStream" uid="uid://drhflhcbat1so" path="res://assets/prefabs_w_art/npcs/frog/frog.wav" id="3_ljefn"]
+[ext_resource type="Texture2D" uid="uid://b2byg2jqo3xkq" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet_flipped_scared.png" id="4_4kdph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_um23c"]
 atlas = ExtResource("1_kiyo8")
@@ -64,6 +65,38 @@ region = Rect2(0, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhdn4"]
 atlas = ExtResource("3_8njhm")
 region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qkuj"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj6qy"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwfky"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8nyn"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1w7f"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w46b"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8568f"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je463"]
+atlas = ExtResource("4_4kdph")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5l3dq"]
 animations = [{
@@ -153,6 +186,35 @@ animations = [{
 "loop": true,
 "name": &"run_right",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qkuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj6qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwfky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8nyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1w7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w46b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8568f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je463")
+}],
+"loop": true,
+"name": &"run_right_scared",
+"speed": 25.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghwjs"]
@@ -171,7 +233,8 @@ position = Vector2(-2.38418e-07, -2.38418e-07)
 scale = Vector2(0.3125, 0.3125)
 sprite_frames = SubResource("SpriteFrames_5l3dq")
 animation = &"idle"
-frame_progress = 0.152549
+autoplay = "idle"
+frame_progress = 0.961619
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1

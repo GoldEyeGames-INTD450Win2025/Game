@@ -1,0 +1,4 @@
+﻿DialogueText,Character,Trigger,Next
+"Oh, my head.",Masika,testtrigger1,yes
+What happened? Where am I?,Masika,,
+Meow…,Eshe,testtrigger2,

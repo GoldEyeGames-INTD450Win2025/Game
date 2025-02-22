@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://428iyflu81nw"]
+
+[ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/pause_menu.tscn" id="1_iht1a"]
+
+[sub_resource type="GDScript" id="GDScript_v4oy0"]
+script/source = "extends Control
+
+@onready var pause_menu = $PauseMenu  # Reference to the Pause Menu UI
+
+var is_paused = false
+
+func _ready():
+	pause_menu = get_node_or_null(\"PauseMenu\")
+	if pause_menu:
+		pause_menu.visible = false  # Hide pause menu at start
+
+func _process(_delta):
+	if Input.is_action_just_pressed(\"pause\"):
+		toggle_pause()
+
+	if is_paused and Input.is_action_just_pressed(\"next\"):
+		toggle_pause()  # Press 'N' to resume
+
+func toggle_pause():
+	is_paused = !is_paused
+	#get_tree().paused = is_paused  # Freeze game logic
+	pause_menu.visible = is_paused  # Show or hide menu
+
+	if is_paused:
+		disable_wasd()
+	else:
+		enable_wasd()
+
+func disable_wasd():
+	InputMap.action_erase_event(\"ui_up\", InputEventKey.new())
+	InputMap.action_erase_event(\"ui_down\", InputEventKey.new())
+	InputMap.action_erase_event(\"ui_left\", InputEventKey.new())
+	InputMap.action_erase_event(\"ui_right\", InputEventKey.new())
+
+func enable_wasd():
+	InputMap.load_from_project_settings()  # Reloads default inputs
+"
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = SubResource("GDScript_v4oy0")
+
+[node name="Label" type="Label" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.56
+offset_top = -12.26
+offset_right = 64.44
+offset_bottom = 36.74
+grow_horizontal = 2
+grow_vertical = 2
+text = "P to Pause
+"
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_iht1a")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -230.48
+offset_right = -400.0
+offset_bottom = -190.48
+grow_horizontal = 2
+grow_vertical = 2
