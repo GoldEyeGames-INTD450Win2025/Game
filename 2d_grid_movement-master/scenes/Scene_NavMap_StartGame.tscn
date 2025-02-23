@@ -1,4 +1,4 @@
-[gd_scene load_steps=224 format=4 uid="uid://k2wn23us48hi"]
+[gd_scene load_steps=226 format=4 uid="uid://k2wn23us48hi"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_df47m"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="1_p848o"]
@@ -121,43 +121,23 @@
 [ext_resource type="Texture2D" uid="uid://bnn5q22umsjmc" path="res://assets/art_free/skristi_catgray/32x32/idle.png" id="117_o1uem"]
 [ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="118_yl6h4"]
 
-[sub_resource type="GDScript" id="GDScript_qj0mm"]
-script/source = "extends RichTextLabel
+[sub_resource type="GDScript" id="GDScript_m5elh"]
+script/source = "extends Node2D
 
-var dialogues = {}
 
-func _ready():
-	load_csv(\"res://scenes/dialogue.csv\")  # Update path to match your CSV location
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print(\"Game started. Waiting 2 seconds before triggering starting dialogue...\")
+	await get_tree().create_timer(2.0).timeout
+	#trigger_starting_dialogue()
 
-func load_csv(file_path):
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	if not file:
-		print(\"Failed to open CSV file!\")
-		return
-	
-	var first_line = true
-	while not file.eof_reached():
-		var line = file.get_line()
-		if first_line:  # Skip header
-			first_line = false
-			continue
 
-		var data = line.split(\",\", false)  # Splitting by comma
-		if data.size() < 3:
-			continue  # Ignore malformed lines
-
-		var character = data[0].strip_edges()
-		var trigger = data[1].strip_edges()
-		var dialogue = data[2].strip_edges()
-
-		# Store dialogues in a dictionary
-		if not dialogues.has(character):
-			dialogues[character] = {}
-
-		dialogues[character][trigger] = dialogue
-
-	file.close()
-	print(dialogues)  # Debugging to check if it loaded correctly
+#func trigger_starting_dialogue() -> void:
+	#print(\"trigger_starting_dialogue\")  # Replace with actual logic
+	#var dialogue_area1 = get_node(\"/root/Scene_NavMap_StartGame/Activator1_Area2D\")  # Change the path accordingly
+	#if dialogue_area1:
+		#dialogue_area1.player_near_frog.connect(_on_player_at_dialogue_area1)
+		#print(\"Connected to dialogue_area1 signal\")
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63j72"]
@@ -9458,7 +9438,6 @@ shader = ExtResource("7_qqpfa")
 shader_parameter/speed = 4.0
 shader_parameter/strength = 2.0
 shader_parameter/frequency = 3.0
-shader_parameter/base_y = 0.0
 shader_parameter/tree_height = 32.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d08mx"]
@@ -10179,7 +10158,20 @@ shader = ExtResource("7_qqpfa")
 shader_parameter/speed = 2.0
 shader_parameter/strength = 5.0
 shader_parameter/frequency = 3.0
-shader_parameter/base_y = 0.0
+shader_parameter/tree_height = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0ai2"]
+shader = ExtResource("7_qqpfa")
+shader_parameter/speed = 2.0
+shader_parameter/strength = 5.0
+shader_parameter/frequency = 3.0
+shader_parameter/tree_height = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxxra"]
+shader = ExtResource("7_qqpfa")
+shader_parameter/speed = 2.0
+shader_parameter/strength = 5.0
+shader_parameter/frequency = 3.0
 shader_parameter/tree_height = 32.0
 
 [sub_resource type="GDScript" id="GDScript_dhgql"]
@@ -10205,11 +10197,13 @@ func _on_body_entered(body):
 [sub_resource type="GDScript" id="GDScript_1tm53"]
 script/source = "extends Area2D
 signal player_near_frog  # Define signal to later emit
+
 func _on_body_entered(body):
 	if body.name == \"Player_Char2D\":  
 		print(\"Entered by: \", body.name)
 		# activate frog running away
 		player_near_frog.emit()
+		
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7c2b"]
@@ -10891,6 +10885,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwq0c"]
 
 [node name="Scene_NavMap_StartGame" type="Node2D"]
+script = SubResource("GDScript_m5elh")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -10926,27 +10921,6 @@ offset_left = -218.5
 offset_top = -176.5
 offset_right = -178.5
 offset_bottom = -136.5
-
-[node name="PauseMenu" parent="Player_Char2D/MainUI" index="1"]
-z_index = 101
-custom_minimum_size = Vector2(720, 0)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Player_Char2D/MainUI"]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 152.0
-offset_right = 369.0
-offset_bottom = 216.0
-text = "dialogue placeholder"
-script = SubResource("GDScript_qj0mm")
-
-[node name="Button" type="Button" parent="Player_Char2D/MainUI/RichTextLabel"]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 35.0
-offset_right = 229.0
-offset_bottom = 61.0
-text = "OK"
 
 [node name="Frog_CharBody2D_scared" parent="." instance=ExtResource("10_u4p8x")]
 position = Vector2(417, -742)
@@ -11032,12 +11006,17 @@ texture = ExtResource("8_lw8dc")
 
 [node name="Tree5" type="Sprite2D" parent="TileMap2"]
 z_index = 3
-position = Vector2(-367, -1161)
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_m0ai2")
+position = Vector2(213, -1066)
 texture = ExtResource("9_ppswy")
+centered = false
+offset = Vector2(161.77, 24.705)
 
 [node name="Tree3" type="Sprite2D" parent="TileMap2"]
 z_index = 3
-position = Vector2(-244, -421)
+material = SubResource("ShaderMaterial_yxxra")
+position = Vector2(455, -1223)
 texture = ExtResource("9_ppswy")
 
 [node name="Tree4" type="Sprite2D" parent="TileMap2"]
@@ -11147,7 +11126,7 @@ position = Vector2(1837, -4369)
 texture = ExtResource("17_2x46y")
 
 [node name="Tree26" type="Sprite2D" parent="TileMap2"]
-position = Vector2(1255, -4354)
+position = Vector2(1316, -4366)
 texture = ExtResource("17_2x46y")
 
 [node name="Tree27" type="Sprite2D" parent="TileMap2"]
@@ -11643,6 +11622,5 @@ texture = ExtResource("22_aarcb")
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator1_Area2D3" to="Activator1_Area2D3" method="_on_body_entered"]
 
-[editable path="Player_Char2D/MainUI"]
 [editable path="Frog_CharBody2D_scared"]
 [editable path="FrogforCat_CharBody2D"]
