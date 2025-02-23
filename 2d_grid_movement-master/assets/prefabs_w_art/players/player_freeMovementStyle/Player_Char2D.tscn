@@ -123,9 +123,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7syd"]
-radius = 20.0
-height = 109.375
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cn8e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10u8g"]
 atlas = ExtResource("2_watrc")
@@ -492,7 +490,8 @@ animations = [{
 }]
 
 [node name="Player_Char2D" type="CharacterBody2D"]
-z_index = 2
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(2, 2)
 collision_layer = 128
 collision_mask = 2
@@ -503,18 +502,18 @@ speed = 10000
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_0a7o5")
-animation = &"idle"
+animation = &"run_down"
 autoplay = "idle"
-frame_progress = 0.452726
+frame_progress = 0.9025
+offset = Vector2(0, -70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(2, 30)
-scale = Vector2(0.66, 0.26)
-shape = SubResource("CapsuleShape2D_s7syd")
+shape = SubResource("RectangleShape2D_6cn8e")
 
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="."]
 visible = false
+position = Vector2(0, -28.5)
 sprite_frames = SubResource("SpriteFrames_02cq5")
 animation = &"idle"
 autoplay = "idle"

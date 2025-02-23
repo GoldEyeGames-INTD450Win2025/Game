@@ -1,4 +1,4 @@
-[gd_resource type="Shader" format=3 uid="uid://bweqk1tsbehxw"]
+[gd_resource type="Shader" format=3 uid="uid://si68x387fof0"]
 
 [resource]
 code = "shader_type canvas_item;
@@ -6,7 +6,7 @@ code = "shader_type canvas_item;
 uniform float speed = 2.0;    // How fast the sway happens
 uniform float strength = 5.0; // How much the trees sway
 uniform float frequency = 3.0; // Controls the wave frequency
-uniform float tree_height = 100.0; // Estimated tree height in pixels
+uniform float tree_height = 32.0; // Estimated tree height in pixels
 //uniform float base_y = 0.0;   // Y-position where movement starts
 //uniform float base_y = tree_height / 2.0;   // Y-position where movement starts
 

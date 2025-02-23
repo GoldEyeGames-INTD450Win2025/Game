@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://428iyflu81nw"]
 
 [ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/pause_menu.tscn" id="1_iht1a"]
-[ext_resource type="PackedScene" uid="uid://bgmb47x40xceq" path="res://scenes/dialogue_box.tscn" id="2_3bnrt"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_3bnrt"]
 
 [sub_resource type="GDScript" id="GDScript_v4oy0"]
 script/source = "extends Control
