@@ -1,126 +1,126 @@
-[gd_scene load_steps=213 format=4 uid="uid://k2wn23us48hi"]
+[gd_scene load_steps=213 format=4 uid="uid://dvy8ii0dyvted"]
 
-[ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_df47m"]
-[ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="1_p848o"]
-[ext_resource type="Texture2D" uid="uid://r0utkw4btnr4" path="res://assets/art_free/CraftpixDesert_tile/desert_trees.png" id="2_4y0v8"]
-[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="2_qaqg1"]
-[ext_resource type="Texture2D" uid="uid://cyduoh3ffb4ey" path="res://assets/art_free/CraftpixDesert_tile/desert_paths.png" id="3_jxma7"]
-[ext_resource type="Texture2D" uid="uid://xiydl30xw8al" path="res://assets/art_free/CraftpixDesert_tile/desert_stuff1.png" id="4_1m4j7"]
-[ext_resource type="Texture2D" uid="uid://cuj54ghuryj3h" path="res://assets/art_free/CraftpixDesert_tile/desert_levels.png" id="5_646j4"]
-[ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="6_1b4ah"]
-[ext_resource type="Texture2D" uid="uid://d15st2dfuskq" path="res://assets/art_free/OGABeastDesert_tile/ogabeastdesert32px.png" id="6_2m3xv"]
-[ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="7_qqpfa"]
-[ext_resource type="AudioStream" uid="uid://b0pjv6cxuevca" path="res://assets/audio/audio_free_music/OGASpringySpringo_sand/watch_the_sand.mp3" id="8_j1vu8"]
-[ext_resource type="Texture2D" uid="uid://dopkrw3dvagfw" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/greenery_1.png" id="8_lw8dc"]
-[ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="9_o45dd"]
-[ext_resource type="Texture2D" uid="uid://r28dnssqudht" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_2.png" id="9_ppswy"]
-[ext_resource type="PackedScene" uid="uid://27fdgijk4nqi" path="res://assets/prefabs_w_art/npcs/frog/Frog_CharBody2D.tscn" id="10_u4p8x"]
-[ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="13_6lx7e"]
-[ext_resource type="Shader" uid="uid://si68x387fof0" path="res://assets/scripts_backups/mirage_fullsway.tres" id="15_36u5j"]
-[ext_resource type="Texture2D" uid="uid://cehbs7c40ps2y" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_5.png" id="16_tg5hg"]
-[ext_resource type="Texture2D" uid="uid://bm2srb2nh2ult" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_6.png" id="17_2x46y"]
-[ext_resource type="Texture2D" uid="uid://b6dl6wrckv4dk" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_4.png" id="18_3dwcs"]
-[ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="19_f8mh7"]
-[ext_resource type="Texture2D" uid="uid://bjfcyd7s3kk6v" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_3.png" id="19_vr8iu"]
-[ext_resource type="Texture2D" uid="uid://bm3s8aepn7h45" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_5.png" id="20_bvpk6"]
-[ext_resource type="Texture2D" uid="uid://mqi8eq8l064h" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_6.png" id="21_31w07"]
-[ext_resource type="Texture2D" uid="uid://rw011sivpddl" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_7.png" id="22_aarcb"]
-[ext_resource type="Texture2D" uid="uid://w37qf0fe2o4e" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_8.png" id="23_mw2tr"]
-[ext_resource type="Texture2D" uid="uid://fgvnjajoff5u" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_9.png" id="24_7p1t1"]
-[ext_resource type="Texture2D" uid="uid://ky4s0giktfgu" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_4.png" id="25_bjorr"]
-[ext_resource type="Texture2D" uid="uid://dikc2b5c4776m" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_2.png" id="26_xpvx1"]
-[ext_resource type="Texture2D" uid="uid://beto2i8wtk7ej" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_3.png" id="27_7pwdb"]
-[ext_resource type="Texture2D" uid="uid://phl4b71s4mhm" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_12.png" id="28_rmry6"]
-[ext_resource type="Texture2D" uid="uid://bqax7hrt5pwi6" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/lake.png" id="29_8ge6b"]
-[ext_resource type="Texture2D" uid="uid://cmu6lmvqf1pxm" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_1.png" id="30_82ku6"]
-[ext_resource type="Texture2D" uid="uid://d0j2ufjmoo1hl" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_10.png" id="31_rm0bg"]
-[ext_resource type="Texture2D" uid="uid://cpfia2gojext2" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_11.png" id="32_3p12a"]
-[ext_resource type="Texture2D" uid="uid://yd3qepafya63" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/decor_1.png" id="34_jaj0h"]
-[ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="34_kkp7j"]
-[ext_resource type="Texture2D" uid="uid://wutwnmcjkxah" path="res://assets/art_drawn_tile/tallgrass2.png" id="34_yj2ae"]
-[ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="35_kksbl"]
-[ext_resource type="Texture2D" uid="uid://b8sfeafiaud6u" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00003.png" id="36_l47l1"]
-[ext_resource type="Texture2D" uid="uid://c1knm7gott75p" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00004.png" id="37_dj27g"]
-[ext_resource type="Texture2D" uid="uid://dwk5whfxpltsi" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00005.png" id="38_pxcbj"]
-[ext_resource type="Texture2D" uid="uid://c0onjbnwblfmq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00006.png" id="39_srvhj"]
-[ext_resource type="Texture2D" uid="uid://cgth42sukf787" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00007.png" id="40_hq51a"]
-[ext_resource type="Texture2D" uid="uid://bird7e4xo8jr0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00008.png" id="41_ig5m0"]
-[ext_resource type="Texture2D" uid="uid://sxllayupwfod" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00009.png" id="42_embd6"]
-[ext_resource type="Texture2D" uid="uid://ctk3dseg707c5" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00010.png" id="43_f4w3w"]
-[ext_resource type="Texture2D" uid="uid://cv5k3ry0khwo3" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00011.png" id="44_nr3mg"]
-[ext_resource type="Texture2D" uid="uid://blvx3y3coxqrs" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00012.png" id="45_vo8c8"]
-[ext_resource type="Texture2D" uid="uid://bcl2kej0pb34h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00013.png" id="46_au5lu"]
-[ext_resource type="Texture2D" uid="uid://c62qtwlbb06uq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00014.png" id="47_26nbr"]
-[ext_resource type="Texture2D" uid="uid://jvam40ytfew7" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00015.png" id="48_u5oni"]
-[ext_resource type="Texture2D" uid="uid://knwryb4km75h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00016.png" id="49_ga4r2"]
-[ext_resource type="Texture2D" uid="uid://cjhrwentkj72t" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00017.png" id="50_xodty"]
-[ext_resource type="Texture2D" uid="uid://0d1ovbt4ijeo" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00018.png" id="51_mnf5r"]
-[ext_resource type="Texture2D" uid="uid://dqh1gkgyh6i1l" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00019.png" id="52_thdg5"]
-[ext_resource type="Texture2D" uid="uid://bk7pj8v6i3icy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00020.png" id="53_uuh2g"]
-[ext_resource type="Texture2D" uid="uid://bv6t4s1nd68pf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00021.png" id="54_aplkn"]
-[ext_resource type="Texture2D" uid="uid://c0mtabuoglaxa" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00022.png" id="55_7i47p"]
-[ext_resource type="Texture2D" uid="uid://dk01ydjyiqi81" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00023.png" id="56_q4o2a"]
-[ext_resource type="Texture2D" uid="uid://cu2y8u3jhkagf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00024.png" id="57_awn0b"]
-[ext_resource type="Texture2D" uid="uid://bbnf4stkfqh7r" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00025.png" id="58_kj6g6"]
-[ext_resource type="Texture2D" uid="uid://beyedh8odnoh" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00026.png" id="59_y6p65"]
-[ext_resource type="Texture2D" uid="uid://comvjm3dqnlca" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00027.png" id="60_towwp"]
-[ext_resource type="Texture2D" uid="uid://dkr23dj4pkcuu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00028.png" id="61_4y74a"]
-[ext_resource type="Texture2D" uid="uid://ckx8vl8ilcosy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00029.png" id="62_fiqf0"]
-[ext_resource type="Texture2D" uid="uid://dw0is24ewpwu4" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00030.png" id="63_e5c8n"]
-[ext_resource type="Texture2D" uid="uid://dv434gs3nu251" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00031.png" id="64_2chh6"]
-[ext_resource type="Texture2D" uid="uid://dbumbucwssqao" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00032.png" id="65_av2v1"]
-[ext_resource type="Texture2D" uid="uid://ekej3t2dpgh0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00033.png" id="66_khggt"]
-[ext_resource type="Texture2D" uid="uid://cisfw83vm8nd1" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00034.png" id="67_7skkw"]
-[ext_resource type="Texture2D" uid="uid://cmgqptcaahq82" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00035.png" id="68_civba"]
-[ext_resource type="Texture2D" uid="uid://3jso2y7m1qkv" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00036.png" id="69_3cncc"]
-[ext_resource type="Texture2D" uid="uid://dwd0xiu4exd31" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00037.png" id="70_yprey"]
-[ext_resource type="Texture2D" uid="uid://chi622gt3o8ld" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00038.png" id="71_7s7id"]
-[ext_resource type="Texture2D" uid="uid://bt4ipxqaxhulu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00039.png" id="72_u0f4r"]
-[ext_resource type="Texture2D" uid="uid://cd6fxkhrhedli" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00040.png" id="73_5oxwv"]
-[ext_resource type="Texture2D" uid="uid://c3noge48wgw4k" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00041.png" id="74_ijch1"]
-[ext_resource type="Texture2D" uid="uid://cpfjgt75pywtp" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00001.png" id="76_86tqo"]
-[ext_resource type="Texture2D" uid="uid://d2cfeaiwt7t6a" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00002.png" id="77_qeq5v"]
-[ext_resource type="Texture2D" uid="uid://2g3sl4cknuk3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00003.png" id="78_am5do"]
-[ext_resource type="Texture2D" uid="uid://d0sua41dpt1fq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00004.png" id="79_d18ex"]
-[ext_resource type="Texture2D" uid="uid://bgtt1ak45n5qx" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00005.png" id="80_qvmg5"]
-[ext_resource type="Texture2D" uid="uid://cgioyfsfnyl31" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00006.png" id="81_3suqp"]
-[ext_resource type="Texture2D" uid="uid://b4uptge468f5e" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00007.png" id="82_khj3p"]
-[ext_resource type="Texture2D" uid="uid://b4i663jd3mm42" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00008.png" id="83_g72if"]
-[ext_resource type="Texture2D" uid="uid://cqyxkoe8spfg3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00009.png" id="84_sdyk6"]
-[ext_resource type="Texture2D" uid="uid://c2kuwetwu1166" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00010.png" id="85_xqudp"]
-[ext_resource type="Texture2D" uid="uid://17q1vtrv1gfv" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00011.png" id="86_xxvh1"]
-[ext_resource type="Texture2D" uid="uid://bpgaxi12hb0l3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00012.png" id="87_o57ix"]
-[ext_resource type="Texture2D" uid="uid://cwkamidk571b0" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00013.png" id="88_lwwvr"]
-[ext_resource type="Texture2D" uid="uid://bn10xd6rstt02" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00014.png" id="89_g15rh"]
-[ext_resource type="Texture2D" uid="uid://cjfcq61uq41jr" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00015.png" id="90_ekx40"]
-[ext_resource type="Texture2D" uid="uid://d17sh3c851g5u" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00016.png" id="91_1spwn"]
-[ext_resource type="Texture2D" uid="uid://d3q75q0ym1duc" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00017.png" id="92_xd7v5"]
-[ext_resource type="Texture2D" uid="uid://dx5fddshoj4is" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00018.png" id="93_yqnlr"]
-[ext_resource type="Texture2D" uid="uid://cos58fdfgluff" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00019.png" id="94_niamh"]
-[ext_resource type="Texture2D" uid="uid://catrt84y877he" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00020.png" id="95_enfj6"]
-[ext_resource type="Texture2D" uid="uid://bar1tm3uh0qy3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00021.png" id="96_y6ma8"]
-[ext_resource type="Texture2D" uid="uid://datcxdxyp762x" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00022.png" id="97_ms2sp"]
-[ext_resource type="Texture2D" uid="uid://b8hnp3wlltmx0" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00023.png" id="98_u775q"]
-[ext_resource type="Texture2D" uid="uid://c14y70qqiktt3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00024.png" id="99_bxuox"]
-[ext_resource type="Texture2D" uid="uid://bi0y1e1ps3caq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00025.png" id="100_l7a86"]
-[ext_resource type="Texture2D" uid="uid://yormrgdyqpb" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00026.png" id="101_f62qx"]
-[ext_resource type="Texture2D" uid="uid://dvvcm4nlqbeco" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00027.png" id="102_1kwlw"]
-[ext_resource type="Texture2D" uid="uid://cxsf5im2mngyy" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00028.png" id="103_71cv6"]
-[ext_resource type="Texture2D" uid="uid://c8r61dg2gj4jn" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00029.png" id="104_vcit1"]
-[ext_resource type="Texture2D" uid="uid://uvmdin3htxe6" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00030.png" id="105_jclok"]
-[ext_resource type="Texture2D" uid="uid://c3ff241afwhgc" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00031.png" id="106_lyayo"]
-[ext_resource type="Texture2D" uid="uid://bipv0vee5pijm" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00032.png" id="107_31c6t"]
-[ext_resource type="Texture2D" uid="uid://rrx5renk8k7n" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00033.png" id="108_8verg"]
-[ext_resource type="Texture2D" uid="uid://c0xsamtuavkpg" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00034.png" id="109_vrk5n"]
-[ext_resource type="Texture2D" uid="uid://dmofq36y8ou37" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00035.png" id="110_wp20x"]
-[ext_resource type="Texture2D" uid="uid://cpwuyudok10xf" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00036.png" id="111_vswbg"]
-[ext_resource type="Texture2D" uid="uid://cqmuat0ncxfu2" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00037.png" id="112_o24pc"]
-[ext_resource type="Texture2D" uid="uid://imt681hydfp4" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00038.png" id="113_x7hni"]
-[ext_resource type="Texture2D" uid="uid://bkjw7te6ej3dv" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00039.png" id="114_lkqj6"]
-[ext_resource type="Texture2D" uid="uid://dux6c3ragtosq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00040.png" id="115_05map"]
-[ext_resource type="Texture2D" uid="uid://dvq1ebojk26ih" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00041.png" id="116_ovrls"]
-[ext_resource type="Texture2D" uid="uid://bnn5q22umsjmc" path="res://assets/art_free/skristi_catgray/32x32/idle.png" id="117_o1uem"]
-[ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="118_yl6h4"]
+[ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_act2j"]
+[ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="2_w3qwj"]
+[ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_c1aca"]
+[ext_resource type="AudioStream" uid="uid://b0pjv6cxuevca" path="res://assets/audio/audio_free_music/OGASpringySpringo_sand/watch_the_sand.mp3" id="4_qfyq5"]
+[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="5_gmpf2"]
+[ext_resource type="PackedScene" uid="uid://27fdgijk4nqi" path="res://assets/prefabs_w_art/npcs/frog/Frog_CharBody2D.tscn" id="6_d1cp2"]
+[ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="7_i7gp2"]
+[ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="8_kyfbn"]
+[ext_resource type="Texture2D" uid="uid://r0utkw4btnr4" path="res://assets/art_free/CraftpixDesert_tile/desert_trees.png" id="9_seqcc"]
+[ext_resource type="Texture2D" uid="uid://cyduoh3ffb4ey" path="res://assets/art_free/CraftpixDesert_tile/desert_paths.png" id="10_tyiod"]
+[ext_resource type="Texture2D" uid="uid://xiydl30xw8al" path="res://assets/art_free/CraftpixDesert_tile/desert_stuff1.png" id="11_ujwv3"]
+[ext_resource type="Texture2D" uid="uid://cuj54ghuryj3h" path="res://assets/art_free/CraftpixDesert_tile/desert_levels.png" id="12_0y2vt"]
+[ext_resource type="Texture2D" uid="uid://d15st2dfuskq" path="res://assets/art_free/OGABeastDesert_tile/ogabeastdesert32px.png" id="13_v6lra"]
+[ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="14_6oxdi"]
+[ext_resource type="Shader" uid="uid://si68x387fof0" path="res://assets/scripts_backups/mirage_fullsway.tres" id="15_tsyfx"]
+[ext_resource type="Texture2D" uid="uid://dopkrw3dvagfw" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/greenery_1.png" id="16_ivq67"]
+[ext_resource type="Texture2D" uid="uid://r28dnssqudht" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_2.png" id="17_0lult"]
+[ext_resource type="Texture2D" uid="uid://cehbs7c40ps2y" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_5.png" id="18_qam87"]
+[ext_resource type="Texture2D" uid="uid://bm2srb2nh2ult" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_6.png" id="19_2htrf"]
+[ext_resource type="Texture2D" uid="uid://b6dl6wrckv4dk" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_4.png" id="20_b1q87"]
+[ext_resource type="Texture2D" uid="uid://bjfcyd7s3kk6v" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/tree_3.png" id="21_n26to"]
+[ext_resource type="Texture2D" uid="uid://bm3s8aepn7h45" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_5.png" id="22_87ads"]
+[ext_resource type="Texture2D" uid="uid://mqi8eq8l064h" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_6.png" id="23_5hdlf"]
+[ext_resource type="Texture2D" uid="uid://rw011sivpddl" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_7.png" id="24_1sk1f"]
+[ext_resource type="Texture2D" uid="uid://w37qf0fe2o4e" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_8.png" id="25_l05r6"]
+[ext_resource type="Texture2D" uid="uid://fgvnjajoff5u" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_9.png" id="26_58i2v"]
+[ext_resource type="Texture2D" uid="uid://ky4s0giktfgu" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_4.png" id="27_gxp3a"]
+[ext_resource type="Texture2D" uid="uid://dikc2b5c4776m" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_2.png" id="28_4jr2b"]
+[ext_resource type="Texture2D" uid="uid://beto2i8wtk7ej" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_3.png" id="29_1voer"]
+[ext_resource type="Texture2D" uid="uid://phl4b71s4mhm" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_12.png" id="30_djhn5"]
+[ext_resource type="Texture2D" uid="uid://bqax7hrt5pwi6" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/lake.png" id="31_mp4ap"]
+[ext_resource type="Texture2D" uid="uid://cmu6lmvqf1pxm" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_1.png" id="32_egt4l"]
+[ext_resource type="Texture2D" uid="uid://d0j2ufjmoo1hl" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_10.png" id="33_wx8vj"]
+[ext_resource type="Texture2D" uid="uid://cpfia2gojext2" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_11.png" id="34_42buk"]
+[ext_resource type="Texture2D" uid="uid://wutwnmcjkxah" path="res://assets/art_drawn_tile/tallgrass2.png" id="35_e02wj"]
+[ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="36_8jftb"]
+[ext_resource type="Texture2D" uid="uid://yd3qepafya63" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/decor_1.png" id="37_84bkh"]
+[ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="38_4m7sg"]
+[ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="39_4kgun"]
+[ext_resource type="Texture2D" uid="uid://b8sfeafiaud6u" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00003.png" id="40_1a501"]
+[ext_resource type="Texture2D" uid="uid://c1knm7gott75p" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00004.png" id="41_i87jv"]
+[ext_resource type="Texture2D" uid="uid://dwk5whfxpltsi" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00005.png" id="42_2yu4u"]
+[ext_resource type="Texture2D" uid="uid://c0onjbnwblfmq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00006.png" id="43_ocgy3"]
+[ext_resource type="Texture2D" uid="uid://cgth42sukf787" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00007.png" id="44_5smia"]
+[ext_resource type="Texture2D" uid="uid://bird7e4xo8jr0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00008.png" id="45_xenp8"]
+[ext_resource type="Texture2D" uid="uid://sxllayupwfod" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00009.png" id="46_63yro"]
+[ext_resource type="Texture2D" uid="uid://ctk3dseg707c5" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00010.png" id="47_gxqsm"]
+[ext_resource type="Texture2D" uid="uid://cv5k3ry0khwo3" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00011.png" id="48_cn4ww"]
+[ext_resource type="Texture2D" uid="uid://blvx3y3coxqrs" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00012.png" id="49_a4pud"]
+[ext_resource type="Texture2D" uid="uid://bcl2kej0pb34h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00013.png" id="50_wb5j1"]
+[ext_resource type="Texture2D" uid="uid://c62qtwlbb06uq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00014.png" id="51_wv4aq"]
+[ext_resource type="Texture2D" uid="uid://jvam40ytfew7" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00015.png" id="52_nfrak"]
+[ext_resource type="Texture2D" uid="uid://knwryb4km75h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00016.png" id="53_048nh"]
+[ext_resource type="Texture2D" uid="uid://cjhrwentkj72t" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00017.png" id="54_3ifaa"]
+[ext_resource type="Texture2D" uid="uid://0d1ovbt4ijeo" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00018.png" id="55_6s2x3"]
+[ext_resource type="Texture2D" uid="uid://dqh1gkgyh6i1l" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00019.png" id="56_k1uk8"]
+[ext_resource type="Texture2D" uid="uid://bk7pj8v6i3icy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00020.png" id="57_64v71"]
+[ext_resource type="Texture2D" uid="uid://bv6t4s1nd68pf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00021.png" id="58_8q2lx"]
+[ext_resource type="Texture2D" uid="uid://c0mtabuoglaxa" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00022.png" id="59_aff6f"]
+[ext_resource type="Texture2D" uid="uid://dk01ydjyiqi81" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00023.png" id="60_b2q3u"]
+[ext_resource type="Texture2D" uid="uid://cu2y8u3jhkagf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00024.png" id="61_bfa62"]
+[ext_resource type="Texture2D" uid="uid://bbnf4stkfqh7r" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00025.png" id="62_timqi"]
+[ext_resource type="Texture2D" uid="uid://beyedh8odnoh" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00026.png" id="63_ttb3t"]
+[ext_resource type="Texture2D" uid="uid://comvjm3dqnlca" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00027.png" id="64_t7qvn"]
+[ext_resource type="Texture2D" uid="uid://dkr23dj4pkcuu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00028.png" id="65_tlxer"]
+[ext_resource type="Texture2D" uid="uid://ckx8vl8ilcosy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00029.png" id="66_odi3l"]
+[ext_resource type="Texture2D" uid="uid://dw0is24ewpwu4" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00030.png" id="67_7yocl"]
+[ext_resource type="Texture2D" uid="uid://dv434gs3nu251" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00031.png" id="68_01hyn"]
+[ext_resource type="Texture2D" uid="uid://dbumbucwssqao" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00032.png" id="69_wrs6h"]
+[ext_resource type="Texture2D" uid="uid://ekej3t2dpgh0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00033.png" id="70_sm1xm"]
+[ext_resource type="Texture2D" uid="uid://cisfw83vm8nd1" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00034.png" id="71_kohvi"]
+[ext_resource type="Texture2D" uid="uid://cmgqptcaahq82" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00035.png" id="72_h7tsw"]
+[ext_resource type="Texture2D" uid="uid://3jso2y7m1qkv" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00036.png" id="73_nlr5u"]
+[ext_resource type="Texture2D" uid="uid://dwd0xiu4exd31" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00037.png" id="74_erai7"]
+[ext_resource type="Texture2D" uid="uid://chi622gt3o8ld" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00038.png" id="75_nt6u2"]
+[ext_resource type="Texture2D" uid="uid://bt4ipxqaxhulu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00039.png" id="76_omvn6"]
+[ext_resource type="Texture2D" uid="uid://cd6fxkhrhedli" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00040.png" id="77_u4feg"]
+[ext_resource type="Texture2D" uid="uid://c3noge48wgw4k" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00041.png" id="78_2mwyi"]
+[ext_resource type="Texture2D" uid="uid://cpfjgt75pywtp" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00001.png" id="79_yufj1"]
+[ext_resource type="Texture2D" uid="uid://d2cfeaiwt7t6a" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00002.png" id="80_tjvqo"]
+[ext_resource type="Texture2D" uid="uid://2g3sl4cknuk3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00003.png" id="81_akx40"]
+[ext_resource type="Texture2D" uid="uid://d0sua41dpt1fq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00004.png" id="82_h0st5"]
+[ext_resource type="Texture2D" uid="uid://bgtt1ak45n5qx" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00005.png" id="83_gus1s"]
+[ext_resource type="Texture2D" uid="uid://cgioyfsfnyl31" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00006.png" id="84_jn5r0"]
+[ext_resource type="Texture2D" uid="uid://b4uptge468f5e" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00007.png" id="85_fbw77"]
+[ext_resource type="Texture2D" uid="uid://b4i663jd3mm42" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00008.png" id="86_4ncwd"]
+[ext_resource type="Texture2D" uid="uid://cqyxkoe8spfg3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00009.png" id="87_ekvo5"]
+[ext_resource type="Texture2D" uid="uid://c2kuwetwu1166" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00010.png" id="88_d44bq"]
+[ext_resource type="Texture2D" uid="uid://17q1vtrv1gfv" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00011.png" id="89_likv1"]
+[ext_resource type="Texture2D" uid="uid://bpgaxi12hb0l3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00012.png" id="90_pd86l"]
+[ext_resource type="Texture2D" uid="uid://cwkamidk571b0" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00013.png" id="91_5h55x"]
+[ext_resource type="Texture2D" uid="uid://bn10xd6rstt02" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00014.png" id="92_tl40e"]
+[ext_resource type="Texture2D" uid="uid://cjfcq61uq41jr" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00015.png" id="93_05in8"]
+[ext_resource type="Texture2D" uid="uid://d17sh3c851g5u" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00016.png" id="94_uerak"]
+[ext_resource type="Texture2D" uid="uid://d3q75q0ym1duc" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00017.png" id="95_3ccc0"]
+[ext_resource type="Texture2D" uid="uid://dx5fddshoj4is" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00018.png" id="96_pj4p1"]
+[ext_resource type="Texture2D" uid="uid://cos58fdfgluff" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00019.png" id="97_40mad"]
+[ext_resource type="Texture2D" uid="uid://catrt84y877he" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00020.png" id="98_voiqu"]
+[ext_resource type="Texture2D" uid="uid://bar1tm3uh0qy3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00021.png" id="99_dgckx"]
+[ext_resource type="Texture2D" uid="uid://datcxdxyp762x" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00022.png" id="100_2tp7i"]
+[ext_resource type="Texture2D" uid="uid://b8hnp3wlltmx0" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00023.png" id="101_54ne1"]
+[ext_resource type="Texture2D" uid="uid://c14y70qqiktt3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00024.png" id="102_mdol5"]
+[ext_resource type="Texture2D" uid="uid://bi0y1e1ps3caq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00025.png" id="103_g5ulo"]
+[ext_resource type="Texture2D" uid="uid://yormrgdyqpb" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00026.png" id="104_5uhmb"]
+[ext_resource type="Texture2D" uid="uid://dvvcm4nlqbeco" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00027.png" id="105_drw53"]
+[ext_resource type="Texture2D" uid="uid://cxsf5im2mngyy" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00028.png" id="106_eqw0p"]
+[ext_resource type="Texture2D" uid="uid://c8r61dg2gj4jn" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00029.png" id="107_ipb1d"]
+[ext_resource type="Texture2D" uid="uid://uvmdin3htxe6" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00030.png" id="108_71bdd"]
+[ext_resource type="Texture2D" uid="uid://c3ff241afwhgc" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00031.png" id="109_8snh0"]
+[ext_resource type="Texture2D" uid="uid://bipv0vee5pijm" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00032.png" id="110_rpi2g"]
+[ext_resource type="Texture2D" uid="uid://rrx5renk8k7n" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00033.png" id="111_4mlhk"]
+[ext_resource type="Texture2D" uid="uid://c0xsamtuavkpg" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00034.png" id="112_cb7ei"]
+[ext_resource type="Texture2D" uid="uid://dmofq36y8ou37" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00035.png" id="113_ox7xa"]
+[ext_resource type="Texture2D" uid="uid://cpwuyudok10xf" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00036.png" id="114_8x104"]
+[ext_resource type="Texture2D" uid="uid://cqmuat0ncxfu2" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00037.png" id="115_f67su"]
+[ext_resource type="Texture2D" uid="uid://imt681hydfp4" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00038.png" id="116_2njfs"]
+[ext_resource type="Texture2D" uid="uid://bkjw7te6ej3dv" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00039.png" id="117_4ulfm"]
+[ext_resource type="Texture2D" uid="uid://dux6c3ragtosq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00040.png" id="118_to5i4"]
+[ext_resource type="Texture2D" uid="uid://dvq1ebojk26ih" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00041.png" id="119_dabq0"]
+[ext_resource type="Texture2D" uid="uid://bnn5q22umsjmc" path="res://assets/art_free/skristi_catgray/32x32/idle.png" id="120_beav0"]
+[ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="121_j8qmi"]
 
 [sub_resource type="GDScript" id="GDScript_m5elh"]
 script/source = "extends Node2D
@@ -141,8 +141,8 @@ func _ready() -> void:
 		#print(\"Connected to dialogue_area1 signal\")
 "
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yx7cj"]
-texture = ExtResource("6_1b4ah")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63j72"]
+texture = ExtResource("7_i7gp2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/z_index = 2
@@ -1703,8 +1703,8 @@ polygon = PackedVector2Array(10.25, 16, 13, 13.5, 16, 16, 16, 16, 12.5, 16)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ylsf6"]
 polygon = PackedVector2Array(6.75, -11.75, 16, -16, 16, 16, -7.25, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ape6s"]
-texture = ExtResource("1_p848o")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcfq0"]
+texture = ExtResource("8_kyfbn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/z_index = 2
@@ -2965,8 +2965,8 @@ texture_region_size = Vector2i(32, 32)
 12:4/size_in_atlas = Vector2i(4, 4)
 12:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb8oo"]
-texture = ExtResource("2_4y0v8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bxbx"]
+texture = ExtResource("9_seqcc")
 texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
@@ -3705,8 +3705,8 @@ texture_region_size = Vector2i(32, 32)
 10:63/0 = 0
 11:63/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ob4by"]
-texture = ExtResource("3_jxma7")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81tgb"]
+texture = ExtResource("10_tyiod")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -3813,8 +3813,8 @@ texture_region_size = Vector2i(32, 32)
 8:9/0 = 0
 9:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jwn70"]
-texture = ExtResource("4_1m4j7")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yyw8"]
+texture = ExtResource("11_ujwv3")
 texture_region_size = Vector2i(32, 32)
 17:0/0 = 0
 18:0/0 = 0
@@ -6997,8 +6997,8 @@ texture_region_size = Vector2i(32, 32)
 61:63/0 = 0
 62:63/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh0ro"]
-texture = ExtResource("5_646j4")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3jtcj"]
+texture = ExtResource("12_0y2vt")
 texture_region_size = Vector2i(32, 32)
 8:0/0 = 0
 9:0/0 = 0
@@ -8195,8 +8195,8 @@ texture_region_size = Vector2i(32, 32)
 2:5/0 = 0
 5:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqucs"]
-texture = ExtResource("6_2m3xv")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0i567"]
+texture = ExtResource("13_v6lra")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/z_index = 2
@@ -8825,14 +8825,14 @@ sources/7 = SubResource("TileSetAtlasSource_0i567")
 sources/0 = SubResource("TileSetAtlasSource_63j72")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ywmw"]
-shader = ExtResource("7_qqpfa")
+shader = ExtResource("14_6oxdi")
 shader_parameter/speed = 4.0
 shader_parameter/strength = 4.0
 shader_parameter/frequency = 3.0
 shader_parameter/tree_height = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d08mx"]
-texture = ExtResource("6_1b4ah")
+texture = ExtResource("7_i7gp2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -9545,21 +9545,21 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_d08mx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7g3h"]
-shader = ExtResource("15_36u5j")
+shader = ExtResource("15_tsyfx")
 shader_parameter/speed = 2.0
 shader_parameter/strength = 5.0
 shader_parameter/frequency = 3.0
 shader_parameter/tree_height = 32.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m0ai2"]
-shader = ExtResource("15_36u5j")
+shader = ExtResource("15_tsyfx")
 shader_parameter/speed = 2.0
 shader_parameter/strength = 5.0
 shader_parameter/frequency = 3.0
 shader_parameter/tree_height = 32.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yxxra"]
-shader = ExtResource("15_36u5j")
+shader = ExtResource("15_tsyfx")
 shader_parameter/speed = 2.0
 shader_parameter/strength = 5.0
 shader_parameter/frequency = 3.0
@@ -9648,127 +9648,127 @@ shader_parameter/max_dist = 110.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_kksbl")
+"texture": ExtResource("39_4kgun")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_l47l1")
+"texture": ExtResource("40_1a501")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_dj27g")
+"texture": ExtResource("41_i87jv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_pxcbj")
+"texture": ExtResource("42_2yu4u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_srvhj")
+"texture": ExtResource("43_ocgy3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_hq51a")
+"texture": ExtResource("44_5smia")
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_ig5m0")
+"texture": ExtResource("45_xenp8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_embd6")
+"texture": ExtResource("46_63yro")
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_f4w3w")
+"texture": ExtResource("47_gxqsm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("44_nr3mg")
+"texture": ExtResource("48_cn4ww")
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_vo8c8")
+"texture": ExtResource("49_a4pud")
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_au5lu")
+"texture": ExtResource("50_wb5j1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_26nbr")
+"texture": ExtResource("51_wv4aq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_u5oni")
+"texture": ExtResource("52_nfrak")
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_ga4r2")
+"texture": ExtResource("53_048nh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_xodty")
+"texture": ExtResource("54_3ifaa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_mnf5r")
+"texture": ExtResource("55_6s2x3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_thdg5")
+"texture": ExtResource("56_k1uk8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_uuh2g")
+"texture": ExtResource("57_64v71")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_aplkn")
+"texture": ExtResource("58_8q2lx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_7i47p")
+"texture": ExtResource("59_aff6f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("56_q4o2a")
+"texture": ExtResource("60_b2q3u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("57_awn0b")
+"texture": ExtResource("61_bfa62")
 }, {
 "duration": 1.0,
-"texture": ExtResource("58_kj6g6")
+"texture": ExtResource("62_timqi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_y6p65")
+"texture": ExtResource("63_ttb3t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_towwp")
+"texture": ExtResource("64_t7qvn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_4y74a")
+"texture": ExtResource("65_tlxer")
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_fiqf0")
+"texture": ExtResource("66_odi3l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("63_e5c8n")
+"texture": ExtResource("67_7yocl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("64_2chh6")
+"texture": ExtResource("68_01hyn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_av2v1")
+"texture": ExtResource("69_wrs6h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_khggt")
+"texture": ExtResource("70_sm1xm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_7skkw")
+"texture": ExtResource("71_kohvi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("68_civba")
+"texture": ExtResource("72_h7tsw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("69_3cncc")
+"texture": ExtResource("73_nlr5u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("70_yprey")
+"texture": ExtResource("74_erai7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("71_7s7id")
+"texture": ExtResource("75_nt6u2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("72_u0f4r")
+"texture": ExtResource("76_omvn6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("73_5oxwv")
+"texture": ExtResource("77_u4feg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("74_ijch1")
+"texture": ExtResource("78_2mwyi")
 }],
 "loop": true,
 "name": &"aggressive",
@@ -9776,58 +9776,58 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_kksbl")
+"texture": ExtResource("39_4kgun")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_l47l1")
+"texture": ExtResource("40_1a501")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_dj27g")
+"texture": ExtResource("41_i87jv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_pxcbj")
+"texture": ExtResource("42_2yu4u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_srvhj")
+"texture": ExtResource("43_ocgy3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_hq51a")
+"texture": ExtResource("44_5smia")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_hq51a")
+"texture": ExtResource("44_5smia")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_srvhj")
+"texture": ExtResource("43_ocgy3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_pxcbj")
+"texture": ExtResource("42_2yu4u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_dj27g")
+"texture": ExtResource("41_i87jv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_l47l1")
+"texture": ExtResource("40_1a501")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_kksbl")
+"texture": ExtResource("39_4kgun")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_kkp7j")
+"texture": ExtResource("38_4m7sg")
 }],
 "loop": true,
 "name": &"default_slow_stable",
@@ -9840,127 +9840,127 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_86tqo")
+"texture": ExtResource("79_yufj1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_qeq5v")
+"texture": ExtResource("80_tjvqo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_am5do")
+"texture": ExtResource("81_akx40")
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_d18ex")
+"texture": ExtResource("82_h0st5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_qvmg5")
+"texture": ExtResource("83_gus1s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("81_3suqp")
+"texture": ExtResource("84_jn5r0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("82_khj3p")
+"texture": ExtResource("85_fbw77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("83_g72if")
+"texture": ExtResource("86_4ncwd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_sdyk6")
+"texture": ExtResource("87_ekvo5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_xqudp")
+"texture": ExtResource("88_d44bq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("86_xxvh1")
+"texture": ExtResource("89_likv1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_o57ix")
+"texture": ExtResource("90_pd86l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_lwwvr")
+"texture": ExtResource("91_5h55x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_g15rh")
+"texture": ExtResource("92_tl40e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("90_ekx40")
+"texture": ExtResource("93_05in8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("91_1spwn")
+"texture": ExtResource("94_uerak")
 }, {
 "duration": 1.0,
-"texture": ExtResource("92_xd7v5")
+"texture": ExtResource("95_3ccc0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("93_yqnlr")
+"texture": ExtResource("96_pj4p1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("94_niamh")
+"texture": ExtResource("97_40mad")
 }, {
 "duration": 1.0,
-"texture": ExtResource("95_enfj6")
+"texture": ExtResource("98_voiqu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("96_y6ma8")
+"texture": ExtResource("99_dgckx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("97_ms2sp")
+"texture": ExtResource("100_2tp7i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("98_u775q")
+"texture": ExtResource("101_54ne1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("99_bxuox")
+"texture": ExtResource("102_mdol5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("100_l7a86")
+"texture": ExtResource("103_g5ulo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("101_f62qx")
+"texture": ExtResource("104_5uhmb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("102_1kwlw")
+"texture": ExtResource("105_drw53")
 }, {
 "duration": 1.0,
-"texture": ExtResource("103_71cv6")
+"texture": ExtResource("106_eqw0p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("104_vcit1")
+"texture": ExtResource("107_ipb1d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("105_jclok")
+"texture": ExtResource("108_71bdd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("106_lyayo")
+"texture": ExtResource("109_8snh0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("107_31c6t")
+"texture": ExtResource("110_rpi2g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("108_8verg")
+"texture": ExtResource("111_4mlhk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("109_vrk5n")
+"texture": ExtResource("112_cb7ei")
 }, {
 "duration": 1.0,
-"texture": ExtResource("110_wp20x")
+"texture": ExtResource("113_ox7xa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("111_vswbg")
+"texture": ExtResource("114_8x104")
 }, {
 "duration": 1.0,
-"texture": ExtResource("112_o24pc")
+"texture": ExtResource("115_f67su")
 }, {
 "duration": 1.0,
-"texture": ExtResource("113_x7hni")
+"texture": ExtResource("116_2njfs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("114_lkqj6")
+"texture": ExtResource("117_4ulfm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("115_05map")
+"texture": ExtResource("118_to5i4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("116_ovrls")
+"texture": ExtResource("119_dabq0")
 }],
 "loop": true,
 "name": &"agressive_move",
@@ -9968,127 +9968,127 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_86tqo")
+"texture": ExtResource("79_yufj1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_qeq5v")
+"texture": ExtResource("80_tjvqo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_am5do")
+"texture": ExtResource("81_akx40")
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_d18ex")
+"texture": ExtResource("82_h0st5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_qvmg5")
+"texture": ExtResource("83_gus1s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("81_3suqp")
+"texture": ExtResource("84_jn5r0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("82_khj3p")
+"texture": ExtResource("85_fbw77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("83_g72if")
+"texture": ExtResource("86_4ncwd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_sdyk6")
+"texture": ExtResource("87_ekvo5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("85_xqudp")
+"texture": ExtResource("88_d44bq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("86_xxvh1")
+"texture": ExtResource("89_likv1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("87_o57ix")
+"texture": ExtResource("90_pd86l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_lwwvr")
+"texture": ExtResource("91_5h55x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_g15rh")
+"texture": ExtResource("92_tl40e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("90_ekx40")
+"texture": ExtResource("93_05in8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("91_1spwn")
+"texture": ExtResource("94_uerak")
 }, {
 "duration": 1.0,
-"texture": ExtResource("92_xd7v5")
+"texture": ExtResource("95_3ccc0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("93_yqnlr")
+"texture": ExtResource("96_pj4p1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("94_niamh")
+"texture": ExtResource("97_40mad")
 }, {
 "duration": 1.0,
-"texture": ExtResource("95_enfj6")
+"texture": ExtResource("98_voiqu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("96_y6ma8")
+"texture": ExtResource("99_dgckx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("97_ms2sp")
+"texture": ExtResource("100_2tp7i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("98_u775q")
+"texture": ExtResource("101_54ne1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("99_bxuox")
+"texture": ExtResource("102_mdol5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("100_l7a86")
+"texture": ExtResource("103_g5ulo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("101_f62qx")
+"texture": ExtResource("104_5uhmb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("102_1kwlw")
+"texture": ExtResource("105_drw53")
 }, {
 "duration": 1.0,
-"texture": ExtResource("103_71cv6")
+"texture": ExtResource("106_eqw0p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("104_vcit1")
+"texture": ExtResource("107_ipb1d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("105_jclok")
+"texture": ExtResource("108_71bdd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("106_lyayo")
+"texture": ExtResource("109_8snh0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("107_31c6t")
+"texture": ExtResource("110_rpi2g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("108_8verg")
+"texture": ExtResource("111_4mlhk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("109_vrk5n")
+"texture": ExtResource("112_cb7ei")
 }, {
 "duration": 1.0,
-"texture": ExtResource("110_wp20x")
+"texture": ExtResource("113_ox7xa")
 }, {
 "duration": 1.0,
-"texture": ExtResource("111_vswbg")
+"texture": ExtResource("114_8x104")
 }, {
 "duration": 1.0,
-"texture": ExtResource("112_o24pc")
+"texture": ExtResource("115_f67su")
 }, {
 "duration": 1.0,
-"texture": ExtResource("113_x7hni")
+"texture": ExtResource("116_2njfs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("114_lkqj6")
+"texture": ExtResource("117_4ulfm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("115_05map")
+"texture": ExtResource("118_to5i4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("116_ovrls")
+"texture": ExtResource("119_dabq0")
 }],
 "loop": true,
 "name": &"default_slow",
@@ -10156,63 +10156,63 @@ func _physics_process(delta: float):
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pk8kr"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdrcl"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bpi8"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vcssl"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvjmm"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c82ch"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_suasv"]
-atlas = ExtResource("117_o1uem")
+atlas = ExtResource("120_beav0")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kvyj"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rpca"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_erqax"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkosc"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itbgu"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05d4x"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwn5l"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufx2n"]
-atlas = ExtResource("118_yl6h4")
+atlas = ExtResource("121_j8qmi")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eortx"]
@@ -10288,7 +10288,7 @@ z_as_relative = false
 y_sort_enabled = true
 color = Color(0.898039, 0.701961, 0.603922, 1)
 
-[node name="Player_Char2D" parent="." instance=ExtResource("1_df47m")]
+[node name="Player_Char2D" parent="." instance=ExtResource("1_act2j")]
 texture_filter = 4
 position = Vector2(179, -199)
 
@@ -10296,27 +10296,27 @@ position = Vector2(179, -199)
 zoom = Vector2(3, 3)
 
 [node name="Audio_Music" type="AudioStreamPlayer2D" parent="Player_Char2D"]
-stream = ExtResource("19_f8mh7")
+stream = ExtResource("2_w3qwj")
 autoplay = true
 bus = &"Music"
 
 [node name="Audio_SFX_Walking" type="AudioStreamPlayer2D" parent="Player_Char2D"]
-stream = ExtResource("9_o45dd")
+stream = ExtResource("3_c1aca")
 bus = &"SFX"
 
 [node name="Audio_Music2" type="AudioStreamPlayer2D" parent="Player_Char2D"]
 visible = false
-stream = ExtResource("8_j1vu8")
+stream = ExtResource("4_qfyq5")
 bus = &"Music"
 
-[node name="MainUI" parent="Player_Char2D" instance=ExtResource("2_qaqg1")]
+[node name="MainUI" parent="Player_Char2D" instance=ExtResource("5_gmpf2")]
 z_index = 100
 offset_left = -218.5
 offset_top = -176.5
 offset_right = -178.5
 offset_bottom = -136.5
 
-[node name="Frog_CharBody2D_scared" parent="." instance=ExtResource("10_u4p8x")]
+[node name="Frog_CharBody2D_scared" parent="." instance=ExtResource("6_d1cp2")]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(417, -742)
@@ -10414,7 +10414,7 @@ z_as_relative = false
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_t7g3h")
 position = Vector2(926, -845)
-texture = ExtResource("8_lw8dc")
+texture = ExtResource("16_ivq67")
 
 [node name="Tree5" type="Sprite2D" parent="TileMap2"]
 z_index = 3
@@ -10422,7 +10422,7 @@ z_as_relative = false
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_m0ai2")
 position = Vector2(213, -1066)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 centered = false
 offset = Vector2(161.77, 24.705)
 
@@ -10432,254 +10432,254 @@ z_as_relative = false
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_yxxra")
 position = Vector2(455, -1223)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree4" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-329, -889)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree6" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-600, -246)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree2" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-304, -1638)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree7" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-558, -1486)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree8" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-273, -1990)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree9" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-251, -1395)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree10" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-408, -424)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree11" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-453, -1965)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree12" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-210, -1206)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree13" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-394, -2282)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree14" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-593, -1765)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree15" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-615, -1123)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree16" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-575, -34)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree17" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-216, -2448)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree18" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-408, -750)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree19" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-615, -753)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree20" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-403, -134)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree21" type="Sprite2D" parent="TileMap2"]
 z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-204, -34)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree22" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1121, -4394)
-texture = ExtResource("16_tg5hg")
+texture = ExtResource("18_qam87")
 
 [node name="Tree23" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1273, -4437)
-texture = ExtResource("16_tg5hg")
+texture = ExtResource("18_qam87")
 
 [node name="Tree24" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1638, -4432)
-texture = ExtResource("16_tg5hg")
+texture = ExtResource("18_qam87")
 
 [node name="Tree25" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1837, -4369)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree26" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1316, -4366)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree27" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1240, -4436)
-texture = ExtResource("18_3dwcs")
+texture = ExtResource("20_b1q87")
 
 [node name="Tree28" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1812, -4442)
-texture = ExtResource("18_3dwcs")
+texture = ExtResource("20_b1q87")
 
 [node name="Tree29" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1716, -4503)
-texture = ExtResource("9_ppswy")
+texture = ExtResource("17_0lult")
 
 [node name="Tree30" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1149, -4465)
-texture = ExtResource("19_vr8iu")
+texture = ExtResource("21_n26to")
 
 [node name="Stones10" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1270, -6825)
-texture = ExtResource("20_bvpk6")
+texture = ExtResource("22_87ads")
 
 [node name="Stones11" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1262, -6957)
-texture = ExtResource("21_31w07")
+texture = ExtResource("23_5hdlf")
 
 [node name="Stones13" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1778, -6937)
-texture = ExtResource("22_aarcb")
+texture = ExtResource("24_1sk1f")
 
 [node name="Stones14" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1751, -7114)
 scale = Vector2(0.374233, 1.07767)
-texture = ExtResource("23_mw2tr")
+texture = ExtResource("25_l05r6")
 
 [node name="Stones15" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1270, -7130)
-texture = ExtResource("24_7p1t1")
+texture = ExtResource("26_58i2v")
 
 [node name="Stones16" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1625, -6735)
-texture = ExtResource("25_bjorr")
+texture = ExtResource("27_gxp3a")
 
 [node name="Stones5" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1250, -7038)
-texture = ExtResource("20_bvpk6")
+texture = ExtResource("22_87ads")
 
 [node name="Stones6" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1447, -6724)
-texture = ExtResource("21_31w07")
+texture = ExtResource("23_5hdlf")
 
 [node name="Stones7" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1363, -6683)
-texture = ExtResource("22_aarcb")
+texture = ExtResource("24_1sk1f")
 
 [node name="Stones8" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1778, -6766)
-texture = ExtResource("23_mw2tr")
+texture = ExtResource("25_l05r6")
 
 [node name="Stones9" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1763, -7032)
-texture = ExtResource("24_7p1t1")
+texture = ExtResource("26_58i2v")
 
 [node name="Stones4" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
@@ -10687,7 +10687,7 @@ y_sort_enabled = true
 position = Vector2(1304, -6775)
 rotation = -0.690865
 scale = Vector2(0.347328, 0.883521)
-texture = ExtResource("25_bjorr")
+texture = ExtResource("27_gxp3a")
 
 [node name="Pedastal" type="Sprite2D" parent="TileMap2"]
 modulate = Color(0.992157, 0.662745, 0, 1)
@@ -10695,7 +10695,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1535, -6547)
 scale = Vector2(2.24, 2.36)
-texture = ExtResource("26_xpvx1")
+texture = ExtResource("28_4jr2b")
 
 [node name="PuzzleTablet" type="Sprite2D" parent="TileMap2"]
 modulate = Color(0.984314, 1, 0, 1)
@@ -10703,7 +10703,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1530, -6637)
 scale = Vector2(1.4, 0.92001)
-texture = ExtResource("27_7pwdb")
+texture = ExtResource("29_1voer")
 
 [node name="PuzzleTablet2" type="Sprite2D" parent="TileMap2"]
 modulate = Color(0.84214, 0.92515, 0.326378, 1)
@@ -10711,7 +10711,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-1070, -5109)
 scale = Vector2(0.92, 0.48001)
-texture = ExtResource("27_7pwdb")
+texture = ExtResource("29_1voer")
 
 [node name="PuzzleTablet3" type="Sprite2D" parent="TileMap2"]
 modulate = Color(0.843137, 0.92549, 0.32549, 1)
@@ -10719,20 +10719,20 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(3250, -5129)
 scale = Vector2(0.68, 0.72001)
-texture = ExtResource("27_7pwdb")
+texture = ExtResource("29_1voer")
 
 [node name="Stones12" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(526, -6292)
-texture = ExtResource("28_rmry6")
+texture = ExtResource("30_djhn5")
 
 [node name="Lake2" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(3543, -6166)
 scale = Vector2(5.05286, 3.85651)
-texture = ExtResource("29_8ge6b")
+texture = ExtResource("31_mp4ap")
 
 [node name="Lake" type="Sprite2D" parent="TileMap2"]
 z_index = 2
@@ -10740,118 +10740,118 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(922, -6015)
 scale = Vector2(1.22182, 1.9638)
-texture = ExtResource("29_8ge6b")
+texture = ExtResource("31_mp4ap")
 
 [node name="Stones1" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1790, -6874.18)
 scale = Vector2(1.18868, 1.35443)
-texture = ExtResource("30_82ku6")
+texture = ExtResource("32_egt4l")
 
 [node name="Stones17" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1726, -6701)
-texture = ExtResource("30_82ku6")
+texture = ExtResource("32_egt4l")
 
 [node name="Stones18" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(73, -6459)
-texture = ExtResource("31_rm0bg")
+texture = ExtResource("33_wx8vj")
 
 [node name="Stones19" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(56, -6052.5)
 scale = Vector2(1.18354, 0.586364)
-texture = ExtResource("28_rmry6")
+texture = ExtResource("30_djhn5")
 
 [node name="Stones21" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(2302, -6047)
-texture = ExtResource("28_rmry6")
+texture = ExtResource("30_djhn5")
 
 [node name="Stones20" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(2709, -6306)
-texture = ExtResource("32_3p12a")
+texture = ExtResource("34_42buk")
 
 [node name="Stones22" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(2934, -6052)
-texture = ExtResource("31_rm0bg")
+texture = ExtResource("33_wx8vj")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1120, -2)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(18, -300)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(18, -300)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(18, -300)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(200, -223)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(213, 9)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree31" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31/Tree31/Tree31"]
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(277, 9)
-texture = ExtResource("17_2x46y")
+texture = ExtResource("19_2htrf")
 
 [node name="Tree5" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31/Tree31/Tree31"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-2039, -1511)
-texture = ExtResource("16_tg5hg")
+texture = ExtResource("18_qam87")
 
 [node name="Tree5" type="Sprite2D" parent="TileMap2/Tree31/Tree31/Tree31/Tree31/Tree31/Tree31/Tree5"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1504, 1556)
-texture = ExtResource("16_tg5hg")
+texture = ExtResource("18_qam87")
 
 [node name="Tallgrass2" type="Sprite2D" parent="TileMap2"]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1846, -5938)
-texture = ExtResource("34_yj2ae")
+texture = ExtResource("35_e02wj")
 
 [node name="Area2D_PuzMap_GridTester" type="Area2D" parent="."]
 visible = false
@@ -10936,7 +10936,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -10975,7 +10975,7 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_bbpp1")
 polygon = PackedVector2Array(-1967, -2961, 4047, -2891, 4040, 1312, -2087, 1312)
 
-[node name="Frog_CharBody2D3" parent="." instance=ExtResource("10_u4p8x")]
+[node name="Frog_CharBody2D3" parent="." instance=ExtResource("6_d1cp2")]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1462, -3359)
@@ -10992,7 +10992,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
@@ -11005,7 +11005,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
@@ -11018,7 +11018,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="Decor1" type="Sprite2D" parent="."]
@@ -11026,7 +11026,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1508, -7601)
 scale = Vector2(3.56, 3.92)
-texture = ExtResource("34_jaj0h")
+texture = ExtResource("37_84bkh")
 
 [node name="Stones1" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -11034,7 +11034,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1502, -7301)
 scale = Vector2(2, 2.87999)
-texture = ExtResource("30_82ku6")
+texture = ExtResource("32_egt4l")
 
 [node name="PointLight2D6" type="PointLight2D" parent="."]
 z_index = 2
@@ -11048,7 +11048,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="PointLight2D5" type="PointLight2D" parent="."]
@@ -11061,7 +11061,7 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
-texture = ExtResource("13_6lx7e")
+texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
 [node name="Hippo_CharBody2D_stationary" type="CharacterBody2D" parent="."]
@@ -11171,7 +11171,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-1550, -5879)
 scale = Vector2(1.68, 1)
-texture = ExtResource("29_8ge6b")
+texture = ExtResource("31_mp4ap")
 
 [node name="Cat_CharBody2D" type="CharacterBody2D" parent="."]
 modulate = Color(0.529067, 0.529067, 0.529067, 1)
@@ -11190,7 +11190,7 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_rwq0c")
 disabled = true
 
-[node name="FrogforCat_CharBody2D" parent="." instance=ExtResource("10_u4p8x")]
+[node name="FrogforCat_CharBody2D" parent="." instance=ExtResource("6_d1cp2")]
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(897, -1646)
@@ -11204,11 +11204,7 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(743.352, -1728.5)
 scale = Vector2(1.296, 1.43)
-texture = ExtResource("22_aarcb")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Node2D2" type="Node2D" parent="."]
+texture = ExtResource("24_1sk1f")
 
 [connection signal="body_entered" from="Area2D_PuzMap_GridTester" to="Area2D_PuzMap_GridTester" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D_NavMap_GridTester" to="Area2D_NavMap_GridTester" method="_on_body_entered"]
