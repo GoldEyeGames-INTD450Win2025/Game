@@ -1,82 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://428iyflu81nw"]
+[gd_scene load_steps=4 format=3 uid="uid://428iyflu81nw"]
 
 [ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/pause_menu.tscn" id="1_iht1a"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_3bnrt"]
 
 [sub_resource type="GDScript" id="GDScript_v4oy0"]
 script/source = "extends Control
 
-@onready var pause_menu = $PauseMenu  # Reference to the Pause Menu UI
-
+# PauseMenu logic put here (see if later it can be moved to PauseMenu node)
+@onready var pause_menu = $PauseMenu/CanvasLayer/Panel
 var is_paused = false
 
 func _ready():
-	pause_menu = get_node_or_null(\"PauseMenu\")
+	is_paused = false
 	if pause_menu:
-		pause_menu.visible = false  # Hide pause menu at start
+		pause_menu.hide()
 
 func _process(_delta):
 	if Input.is_action_just_pressed(\"pause\"):
 		toggle_pause()
-
-	if is_paused and Input.is_action_just_pressed(\"next\"):
-		toggle_pause()  # Press 'N' to resume
+	#if is_paused and Input.is_action_just_pressed(\"next\"):
+		#toggle_pause()
 
 func toggle_pause():
 	is_paused = !is_paused
+	print(\"is_paused = \" + str(is_paused))
 	#get_tree().paused = is_paused  # Freeze game logic
+	# * Stop Player Movement: Ensure that your player node's process_mode is set to PROCESS_MODE_PAUSABLE.
+	Engine.time_scale = !is_paused # Freeze game logic
 	pause_menu.visible = is_paused  # Show or hide menu
+	#if is_paused:
+		#disable_wasd()
+		#
+	#else:
+		#enable_wasd()
 
-	if is_paused:
-		disable_wasd()
-	else:
-		enable_wasd()
-
-func disable_wasd():
-	InputMap.action_erase_event(\"ui_up\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_down\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_left\", InputEventKey.new())
-	InputMap.action_erase_event(\"ui_right\", InputEventKey.new())
-
-func enable_wasd():
-	InputMap.load_from_project_settings()  # Reloads default inputs
+#func disable_wasd():
+	#InputMap.action_erase_event(\"ui_up\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_down\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_left\", InputEventKey.new())
+	#InputMap.action_erase_event(\"ui_right\", InputEventKey.new())
+#
+#func enable_wasd():
+	#InputMap.load_from_project_settings()  # Reloads default inputs
 "
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = SubResource("GDScript_v4oy0")
 
 [node name="Label" type="Label" parent="."]
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.56
-offset_top = -12.26
-offset_right = 64.44
-offset_bottom = 36.74
-grow_horizontal = 2
-grow_vertical = 2
-text = "P to Pause
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 23.0
+text = "Hit P to Pause
 "
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_iht1a")]
+layout_mode = 0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_3bnrt")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -440.0
-offset_top = -230.48
-offset_right = -400.0
-offset_bottom = -190.48
-grow_horizontal = 2
-grow_vertical = 2

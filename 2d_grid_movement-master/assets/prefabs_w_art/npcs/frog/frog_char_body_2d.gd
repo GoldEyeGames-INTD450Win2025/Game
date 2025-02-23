@@ -42,7 +42,8 @@ func get_npc_input(delta: float) -> void:
 			else: 
 				animated_sprited_2d.animation = "run_left" if vector.x < 0 else "run_right"
 		else:
-			animated_sprited_2d.animation = "run_up" if vector.y < 0 else "run_down"
+			pass
+			#animated_sprited_2d.animation = "run_up" if vector.y < 0 else "run_down"
 		audio_sfx_walking.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
 		if not audio_sfx_walking.playing:  # prevents overlapping sounds
 			audio_sfx_walking.play()
@@ -51,6 +52,6 @@ func get_npc_input(delta: float) -> void:
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
 	get_npc_input(delta)
 	move_and_slide()
-func _on_player_nearby(): # Function that is triggered by the signa
+func _on_player_nearby(): # Function that is triggered by the signal
 	print("Frog is scared!")
 	current_state = State.SCARED
