@@ -10235,8 +10235,10 @@ tile_map_data = PackedByteArray("AABAAFb/AAACABgAAABAAFf/AAACABkAAABAAFj/AAACABo
 tile_set = SubResource("TileSet_2l6wq")
 
 [node name="Node2D" type="Node2D" parent="TileMap2"]
+visible = false
 
 [node name="SepSprites" type="Node2D" parent="TileMap2"]
+visible = false
 
 [node name="Greenery1" type="Sprite2D" parent="TileMap2/SepSprites"]
 visible = false
