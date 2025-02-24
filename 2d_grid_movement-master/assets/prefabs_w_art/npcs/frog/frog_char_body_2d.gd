@@ -12,12 +12,12 @@ enum State { TRAVEL, SCARED }
 # function code:
 func _ready():
 	# Connect the timer for normal movement
-	timer.timeout.connect(_on_timer_timeout)
-	# Find the ScareZone (Area2D) and connect its signal
-	var scare_zone = get_node_or_null("../Activator1_Area2D")  # Adjust path as needed
-	if scare_zone:
-		scare_zone.player_near_frog.connect(_on_player_nearby)
-		print("Connected to ScareZone signal")
+	#timer.timeout.connect(_on_timer_timeout)
+	# Find the Activator1 (Area2D) and connect its signal
+	var zone_Activator1_Area2D = get_node_or_null("../Activator1_Area2D")  # Adjust path as needed
+	if zone_Activator1_Area2D:
+		zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
+		print("Connected to signal: Activator1_Area2D")
 func _on_timer_timeout():
 	if current_state == State.TRAVEL:
 		# Randomly choose between left, right, or zero
@@ -42,7 +42,8 @@ func get_npc_input(delta: float) -> void:
 			else: 
 				animated_sprited_2d.animation = "run_left" if vector.x < 0 else "run_right"
 		else:
-			animated_sprited_2d.animation = "run_up" if vector.y < 0 else "run_down"
+			pass
+			#animated_sprited_2d.animation = "run_up" if vector.y < 0 else "run_down"
 		audio_sfx_walking.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
 		if not audio_sfx_walking.playing:  # prevents overlapping sounds
 			audio_sfx_walking.play()
@@ -51,6 +52,6 @@ func get_npc_input(delta: float) -> void:
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
 	get_npc_input(delta)
 	move_and_slide()
-func _on_player_nearby(): # Function that is triggered by the signa
+func _on_player_nearby_Activator1(): # Function that is triggered by the signal
 	print("Frog is scared!")
 	current_state = State.SCARED

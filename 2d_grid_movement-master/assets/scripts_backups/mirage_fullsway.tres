@@ -1,0 +1,22 @@
+[gd_resource type="Shader" format=3 uid="uid://si68x387fof0"]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform float speed = 2.0;    // How fast the sway happens
+uniform float strength = 5.0; // How much the trees sway
+uniform float frequency = 3.0; // Controls the wave frequency
+uniform float tree_height = 32.0; // Estimated tree height in pixels
+//uniform float base_y = 0.0;   // Y-position where movement starts
+//uniform float base_y = tree_height / 2.0;   // Y-position where movement starts
+
+void vertex() {
+    // Create a sway effect that starts small at the base and grows stronger at the top
+    float factor = clamp((VERTEX.y - (tree_height / 2.0)) / tree_height, 0.0, 1.0);
+    
+    // Invert the factor so the trunk (bottom) moves the least and the top moves the most
+    factor = 1.0 - factor;
+    
+    float wave = sin(TIME * speed + VERTEX.y * frequency) * strength * factor;
+    VERTEX.x += wave;
+}"

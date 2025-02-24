@@ -232,9 +232,9 @@ z_index = 2
 position = Vector2(-2.38418e-07, -2.38418e-07)
 scale = Vector2(0.3125, 0.3125)
 sprite_frames = SubResource("SpriteFrames_5l3dq")
-animation = &"idle"
+animation = &"run_left"
 autoplay = "idle"
-frame_progress = 0.961619
+frame_progress = 0.638809
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
@@ -244,6 +244,7 @@ shape = SubResource("RectangleShape2D_ghwjs")
 stream = ExtResource("3_ljefn")
 volume_db = -10.0
 autoplay = true
+max_distance = 200.0
 bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]

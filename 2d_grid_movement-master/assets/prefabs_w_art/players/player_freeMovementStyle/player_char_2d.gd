@@ -68,6 +68,7 @@ func get_player_input(delta: float) -> void:
 		if not audio_sfx_walking.playing:  # prevents overlapping sounds
 			audio_sfx_walking.play()
 	animated_sprited_2d.play()
+	
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
 	get_player_input(delta)
 	move_and_slide()
