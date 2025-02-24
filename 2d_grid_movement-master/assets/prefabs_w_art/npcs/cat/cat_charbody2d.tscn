@@ -1,0 +1,294 @@
+[gd_scene load_steps=27 format=3 uid="uid://dhu28sp1ltyqf"]
+
+[ext_resource type="Texture2D" uid="uid://lp6snehvc1ur" path="res://assets/prefabs_w_art/npcs/cat/cat_sprite.png" id="1_p8l1g"]
+[ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="2_0nrcc"]
+
+[sub_resource type="GDScript" id="GDScript_ho0mx"]
+script/source = "extends CharacterBody2D
+
+# States
+enum State { IDLE, MOVING, RUNNING_TO_FROG, CAUGHT }
+
+@export var speed: int = 200
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx_moving: AudioStreamPlayer2D = $Audio_catwalking
+@onready var sfx_ambient: AudioStreamPlayer2D = $Audio_meowpurr
+var current_state = State.IDLE
+var frog_position: Vector2 = Vector2.ZERO  # The frog's position
+var velocity_vector: Vector2 = Vector2.ZERO
+var frog: Node2D = null
+
+func _ready():
+	# Frog interaction, using Area2D trigger: 
+	# Find the Area2D and connect the signal
+	var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
+	if call_zone:
+		call_zone.player_near_cat.connect(_on_player_nearby)
+		print(\"Cat is now listening for the signal.\")
+	# Find the Frog node
+	frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
+	if frog:
+		frog_position = frog.global_position
+	else:
+		print(\"Warning: No frog found!\")
+
+func _on_player_nearby():
+	print(\"Cat is running to the frog!\")
+	current_state = State.RUNNING_TO_FROG
+
+
+func _physics_process(delta: float):
+	if current_state == State.RUNNING_TO_FROG:
+		# Move toward the frog's location
+		var direction = (frog_position - global_position).normalized()
+		velocity_vector = direction * speed * delta
+		if direction == Vector2(0, 0):
+			animated_sprite.animation = \"idle\"
+			sfx_moving.stop()
+		else:
+			if abs(direction.x) > abs(direction.y):
+				animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+			else:
+				animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+			sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+			if not sfx_moving.playing:  # prevents overlapping sounds
+				sfx_moving.play()
+		# Set animation
+		#animated_sprite.animation = \"run_to_frog\"
+		animated_sprite.play()
+	elif current_state == State.CAUGHT:
+		velocity_vector = Vector2.ZERO
+		animated_sprite.animation = \"idle\"
+		animated_sprite.play()
+	else:
+		# default state is IDLE (but that is infered from 'else'
+		velocity_vector = Vector2.ZERO
+		animated_sprite.animation = \"idle\"
+		animated_sprite.play()
+
+	# NOTE: 'velocity' is a builtin parameter for move_and_slide()
+	velocity = velocity_vector
+	move_and_slide()
+	
+	# Adjust closeness threshold as needed
+	if global_position.distance_to(frog.global_position) < 2:  
+		print(\"Cat is at frog!\")
+		current_state = State.CAUGHT
+		frog.visible = false
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myk0e"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qwpn"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmf68"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0guqk"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5txe7"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy50v"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nr67"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cep5t"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf6f7"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hahu6"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhaiv"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqqgr"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxt4s"]
+atlas = ExtResource("1_p8l1g")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kvyj"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rpca"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erqax"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkosc"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itbgu"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05d4x"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwn5l"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufx2n"]
+atlas = ExtResource("2_0nrcc")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eortx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myk0e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qwpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmf68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0guqk")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5txe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy50v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nr67")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cep5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf6f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hahu6")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhaiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqqgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxt4s")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kvyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rpca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erqax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkosc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itbgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05d4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwn5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufx2n")
+}],
+"loop": true,
+"name": &"run_to_frog",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwq0c"]
+size = Vector2(30, 30)
+
+[node name="Cat_CharBody2D" type="CharacterBody2D"]
+modulate = Color(0.529067, 0.529067, 0.529067, 1)
+z_as_relative = false
+y_sort_enabled = true
+motion_mode = 1
+script = SubResource("GDScript_ho0mx")
+speed = 10000
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eortx")
+animation = &"move_down"
+autoplay = "idle"
+frame_progress = 0.444651
+offset = Vector2(0, -48)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_eortx")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rwq0c")
+disabled = true
+
+[node name="Audio_catwalking" type="AudioStreamPlayer2D" parent="."]
+max_distance = 200.0
+bus = &"SFX"
+
+[node name="Audio_meowpurr" type="AudioStreamPlayer2D" parent="."]
+max_distance = 200.0
+bus = &"SFX"

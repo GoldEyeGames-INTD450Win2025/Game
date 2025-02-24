@@ -7,7 +7,7 @@ var dialogue_data = []
 var matched_row = []
 var matched_index = -1
 @onready var dialogue_box = $CanvasLayer/DialogueBox
-@onready var dialogue_text = $CanvasLayer/DialogueBox/DialogueText
+@onready var dialoguebox_text = $CanvasLayer/DialogueBox/DialogueText
 @onready var npc_icon = $CanvasLayer/DialogueBox/CharIcon
 @onready var next_button = $CanvasLayer/DialogueBox/Button_Next
 
@@ -23,10 +23,6 @@ func _ready() -> void:
 		dialogue_area1.player_near_frog.connect(_on_player_at_dialogue_area1)
 		print(\"Connected to dialogue_area1 signal\")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_player_at_dialogue_area1():
 	print(\"do_dialogue_trigger_action(testtrigger1)\")
@@ -89,7 +85,7 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 	while expected_end:
 		if matched_row[3].to_lower() != \"yes\":
 			expected_end = false
-			dialogue_text.text = matched_row[2]  # Set dialogue text
+			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Done.\"
 			dialogue_box.show()
@@ -97,7 +93,7 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			await wait_for_button_press()
 			dialogue_box.hide()
 		else:
-			dialogue_text.text = matched_row[2]  # Set dialogue text
+			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Next...\"
 			dialogue_box.show()
@@ -121,7 +117,7 @@ func wait_for_button_press() -> void:
 # Function to populate the dialogue box with the next row's data
 func do_dialogue_next_action(index: int):
 	matched_row = dialogue_data[index]
-	dialogue_text.text = matched_row[2]  # Set dialogue text
+	dialoguebox_text.text = matched_row[2]  # Set dialogue text
 	npc_icon.texture = load(\"res://path_to_character_icons/%s.png\" % matched_row[1])  # Example loading character icon
 "
 
@@ -150,6 +146,8 @@ offset_left = 272.0
 offset_top = 16.0
 offset_right = -40.0
 offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 26
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
 

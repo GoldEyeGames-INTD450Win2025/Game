@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://dvy8ii0dyvted"]
+[gd_scene load_steps=196 format=4 uid="uid://dvy8ii0dyvted"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_act2j"]
 [ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="2_w3qwj"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="36_8jftb"]
 [ext_resource type="Texture2D" uid="uid://yd3qepafya63" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/decor_1.png" id="37_84bkh"]
 [ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="38_4m7sg"]
+[ext_resource type="PackedScene" uid="uid://cj6imhlg5i1hj" path="res://assets/prefabs_w_art/npcs/hippo_charbody2d.tscn" id="38_iyyjf"]
 [ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="39_4kgun"]
 [ext_resource type="Texture2D" uid="uid://b8sfeafiaud6u" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00003.png" id="40_1a501"]
 [ext_resource type="Texture2D" uid="uid://c1knm7gott75p" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00004.png" id="41_i87jv"]
@@ -78,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://bt4ipxqaxhulu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00039.png" id="76_omvn6"]
 [ext_resource type="Texture2D" uid="uid://cd6fxkhrhedli" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00040.png" id="77_u4feg"]
 [ext_resource type="Texture2D" uid="uid://c3noge48wgw4k" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00041.png" id="78_2mwyi"]
+[ext_resource type="PackedScene" uid="uid://tnn6ky0jp0sh" path="res://assets/prefabs_w_art/npcs/croc_charbody2d.tscn" id="79_f0ao5"]
 [ext_resource type="Texture2D" uid="uid://cpfjgt75pywtp" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00001.png" id="79_yufj1"]
 [ext_resource type="Texture2D" uid="uid://d2cfeaiwt7t6a" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00002.png" id="80_tjvqo"]
 [ext_resource type="Texture2D" uid="uid://2g3sl4cknuk3" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00003.png" id="81_akx40"]
@@ -119,8 +121,7 @@
 [ext_resource type="Texture2D" uid="uid://bkjw7te6ej3dv" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00039.png" id="117_4ulfm"]
 [ext_resource type="Texture2D" uid="uid://dux6c3ragtosq" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00040.png" id="118_to5i4"]
 [ext_resource type="Texture2D" uid="uid://dvq1ebojk26ih" path="res://assets/art_free/lawnjelly_junglecreatures/crocodile/swim/crocodile_swim00041.png" id="119_dabq0"]
-[ext_resource type="Texture2D" uid="uid://bnn5q22umsjmc" path="res://assets/art_free/skristi_catgray/32x32/idle.png" id="120_beav0"]
-[ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="121_j8qmi"]
+[ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="120_khv6q"]
 
 [sub_resource type="GDScript" id="GDScript_m5elh"]
 script/source = "extends Node2D
@@ -9644,198 +9645,6 @@ shader_parameter/color = Color(0.114897, 0.114897, 0.114897, 0.196078)
 shader_parameter/angle = -99.429
 shader_parameter/max_dist = 110.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kj8xn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_4kgun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_1a501")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_i87jv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_2yu4u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_ocgy3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_5smia")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_xenp8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_63yro")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_gxqsm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_cn4ww")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_a4pud")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_wb5j1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_wv4aq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("52_nfrak")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53_048nh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("54_3ifaa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55_6s2x3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("56_k1uk8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57_64v71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("58_8q2lx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("59_aff6f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("60_b2q3u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("61_bfa62")
-}, {
-"duration": 1.0,
-"texture": ExtResource("62_timqi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("63_ttb3t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("64_t7qvn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("65_tlxer")
-}, {
-"duration": 1.0,
-"texture": ExtResource("66_odi3l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("67_7yocl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("68_01hyn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("69_wrs6h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("70_sm1xm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("71_kohvi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("72_h7tsw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("73_nlr5u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("74_erai7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("75_nt6u2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("76_omvn6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("77_u4feg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("78_2mwyi")
-}],
-"loop": true,
-"name": &"aggressive",
-"speed": 45.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_4kgun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_1a501")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_i87jv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_2yu4u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_ocgy3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_5smia")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_5smia")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_ocgy3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_2yu4u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_i87jv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_1a501")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_4kgun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_4m7sg")
-}],
-"loop": true,
-"name": &"default_slow_stable",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6s8a"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhxqw"]
 animations = [{
 "frames": [{
@@ -10097,183 +9906,197 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu06l"]
 
-[sub_resource type="GDScript" id="GDScript_ho0mx"]
-script/source = "extends CharacterBody2D
-
-# States
-enum State { IDLE, RUNNING_TO_FROG, CAUGHT }
-
-@export var speed: int = 200
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-var current_state = State.IDLE
-var frog_position: Vector2 = Vector2.ZERO  # The frog's position
-var velocity_vector: Vector2 = Vector2.ZERO
-var frog: Node2D = null
-
-func _ready():
-	# Find the Area2D and connect the signal
-	var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
-	if call_zone:
-		call_zone.player_near_cat.connect(_on_player_nearby)
-		print(\"Cat is now listening for the signal.\")
-
-	# Find the Frog node
-	frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
-	if frog:
-		frog_position = frog.global_position
-	else:
-		print(\"Warning: No frog found!\")
-
-func _on_player_nearby():
-	print(\"Cat is running to the frog!\")
-	current_state = State.RUNNING_TO_FROG
-
-func _physics_process(delta: float):
-	if current_state == State.RUNNING_TO_FROG:
-		# Move toward the frog's location
-		var direction = (frog_position - global_position).normalized()
-		velocity_vector = direction * speed
-		
-		# Set animation
-		animated_sprite.animation = \"run_to_frog\"
-		animated_sprite.play()
-	elif current_state == State.CAUGHT:
-		velocity_vector = Vector2.ZERO
-		animated_sprite.animation = \"idle\"
-		animated_sprite.play()
-	else:
-		velocity_vector = Vector2.ZERO
-		animated_sprite.animation = \"idle\"
-		animated_sprite.play()
-
-	velocity = velocity_vector
-	move_and_slide()
-	
-	if global_position.distance_to(frog.global_position) < 2:  # Adjust threshold as needed
-		print(\"Cat is at frog!\")
-		current_state = State.CAUGHT
-		frog.visible = false
-"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pk8kr"]
-atlas = ExtResource("120_beav0")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdrcl"]
-atlas = ExtResource("120_beav0")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bpi8"]
-atlas = ExtResource("120_beav0")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcssl"]
-atlas = ExtResource("120_beav0")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvjmm"]
-atlas = ExtResource("120_beav0")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c82ch"]
-atlas = ExtResource("120_beav0")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_suasv"]
-atlas = ExtResource("120_beav0")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2kvyj"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rpca"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_erqax"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkosc"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_itbgu"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05d4x"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pwn5l"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufx2n"]
-atlas = ExtResource("121_j8qmi")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eortx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kj8xn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pk8kr")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cdrcl")
+"texture": ExtResource("39_4kgun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5bpi8")
+"texture": ExtResource("40_1a501")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vcssl")
+"texture": ExtResource("41_i87jv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bvjmm")
+"texture": ExtResource("42_2yu4u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c82ch")
+"texture": ExtResource("43_ocgy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_suasv")
+"texture": ExtResource("44_5smia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_xenp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_63yro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_gxqsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_cn4ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_a4pud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_wb5j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_wv4aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_nfrak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_048nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_3ifaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_6s2x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_k1uk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_64v71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_8q2lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_aff6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_b2q3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_bfa62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_timqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ttb3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_t7qvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_tlxer")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_odi3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_7yocl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_01hyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_wrs6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_sm1xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_kohvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_h7tsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_nlr5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_erai7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_nt6u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_omvn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_u4feg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_2mwyi")
 }],
 "loop": true,
-"name": &"idle",
-"speed": 5.0
+"name": &"aggressive",
+"speed": 45.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2kvyj")
+"texture": ExtResource("38_4m7sg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5rpca")
+"texture": ExtResource("39_4kgun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_erqax")
+"texture": ExtResource("40_1a501")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rkosc")
+"texture": ExtResource("41_i87jv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_itbgu")
+"texture": ExtResource("42_2yu4u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05d4x")
+"texture": ExtResource("43_ocgy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pwn5l")
+"texture": ExtResource("44_5smia")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ufx2n")
+"texture": ExtResource("44_5smia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ocgy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_2yu4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_i87jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_1a501")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_4kgun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4m7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4m7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4m7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4m7sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_4m7sg")
 }],
 "loop": true,
-"name": &"run_to_frog",
-"speed": 12.0
+"name": &"default_slow_stable",
+"speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwq0c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6s8a"]
 
 [node name="Scene_NavMap_StartGame" type="Node2D"]
 z_as_relative = false
@@ -10293,7 +10116,6 @@ texture_filter = 4
 position = Vector2(179, -199)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
-zoom = Vector2(3, 3)
 
 [node name="Audio_Music" type="AudioStreamPlayer2D" parent="Player_Char2D"]
 stream = ExtResource("2_w3qwj")
@@ -11064,44 +10886,9 @@ shadow_item_cull_mask = 2
 texture = ExtResource("36_8jftb")
 texture_scale = 0.87
 
-[node name="Hippo_CharBody2D_stationary" type="CharacterBody2D" parent="."]
-z_index = 4
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(261, -5132)
-scale = Vector2(2, 2)
-motion_mode = 1
+[node name="Hippo_CharBody2D_stationary" parent="." instance=ExtResource("38_iyyjf")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hippo_CharBody2D_stationary"]
-position = Vector2(-2, 0)
-sprite_frames = SubResource("SpriteFrames_kj8xn")
-animation = &"default_slow_stable"
-autoplay = "default_slow_stable"
-frame_progress = 0.991021
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hippo_CharBody2D_stationary"]
-position = Vector2(-7.5, 24.5)
-scale = Vector2(7.6, 2.4)
-shape = SubResource("RectangleShape2D_l6s8a")
-
-[node name="Croc_CharBody2D" type="CharacterBody2D" parent="."]
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(2214, -5206)
-scale = Vector2(1.25, 1.25)
-motion_mode = 1
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Croc_CharBody2D"]
-position = Vector2(0, -44)
-sprite_frames = SubResource("SpriteFrames_mhxqw")
-animation = &"default_slow"
-autoplay = "default_slow"
-frame_progress = 0.470796
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Croc_CharBody2D"]
-scale = Vector2(11.72, 1.80002)
-shape = SubResource("RectangleShape2D_mu06l")
+[node name="Croc_CharBody2D" parent="." instance=ExtResource("79_f0ao5")]
 
 [node name="Croc_CharBody2D2" type="CharacterBody2D" parent="."]
 z_index = 2
@@ -11173,22 +10960,8 @@ position = Vector2(-1550, -5879)
 scale = Vector2(1.68, 1)
 texture = ExtResource("31_mp4ap")
 
-[node name="Cat_CharBody2D" type="CharacterBody2D" parent="."]
-modulate = Color(0.529067, 0.529067, 0.529067, 1)
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(787, -1747)
-scale = Vector2(1.296, 1.43)
-script = SubResource("GDScript_ho0mx")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cat_CharBody2D"]
-sprite_frames = SubResource("SpriteFrames_eortx")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat_CharBody2D"]
-shape = SubResource("RectangleShape2D_rwq0c")
-disabled = true
+[node name="Cat_CharBody2D" parent="." instance=ExtResource("120_khv6q")]
+position = Vector2(761, -1732)
 
 [node name="FrogforCat_CharBody2D" parent="." instance=ExtResource("6_d1cp2")]
 z_as_relative = false

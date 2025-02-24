@@ -13,10 +13,10 @@ uniform float tree_height = 100.0; // Estimated tree height in pixels
 void vertex() {
     // Create a sway effect that starts small at the base and grows stronger at the top
     float factor = clamp((VERTEX.y - (tree_height / 2.0)) / tree_height, 0.0, 1.0);
-    
+
     // Invert the factor so the trunk (bottom) moves the least and the top moves the most
     factor = 1.0 - factor;
-    
+
     float wave = sin(TIME * speed + VERTEX.y * frequency) * strength * factor;
     VERTEX.x += wave;
 }"

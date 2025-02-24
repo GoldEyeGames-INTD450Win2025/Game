@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dinylity15mwo"]
+
+[ext_resource type="PackedScene" uid="uid://27fdgijk4nqi" path="res://assets/prefabs_w_art/npcs/frog/Frog_CharBody2D.tscn" id="1_bxqau"]
+
+[node name="Frog_CharBody2D" instance=ExtResource("1_bxqau")]
