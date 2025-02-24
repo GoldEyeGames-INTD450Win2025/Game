@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=38 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="2_3p3y2"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="17_lk0eo"]
 [ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="17_wio1y"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
+[ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpcwh"]
 texture = ExtResource("6_i4ivv")
@@ -666,6 +667,21 @@ shader_parameter/speed = 2.0
 shader_parameter/strength = 2.5
 shader_parameter/overlay_color = Vector4(0.6, 0.4, 0.2, 0.3)
 
+[sub_resource type="GDScript" id="GDScript_kmcta"]
+script/source = "extends Area2D
+signal player_near_Activator2_Area2D  # Define signal to later emit
+var one_time_trigger = 0
+func _on_body_entered(body):
+	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):  
+		print(\"Entered by: \", body.name)
+		# activate area triggers
+		player_near_Activator2_Area2D.emit()
+		one_time_trigger = 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
+size = Vector2(773, 20)
+
 [node name="Map_Danic" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -674,13 +690,14 @@ metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_os2bo")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-115, -166)
+position = Vector2(398, -551)
 collision_layer = 641
 collision_mask = 6
 
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
 
 [node name="Audio_Music" type="AudioStreamPlayer2D" parent="Player_Char2D"]
+visible = false
 stream = ExtResource("2_3p3y2")
 bus = &"Music"
 
@@ -689,6 +706,7 @@ stream = ExtResource("3_cvpwq")
 bus = &"SFX"
 
 [node name="Audio_Music2" type="AudioStreamPlayer2D" parent="Player_Char2D"]
+visible = false
 stream = ExtResource("4_rgvml")
 bus = &"Music"
 
@@ -703,10 +721,6 @@ offset_bottom = -136.5
 visible = false
 position = Vector2(-89.5, 99.5)
 scale = Vector2(0.5, 0.5)
-
-[node name="Node2D" type="Node2D" parent="."]
-z_as_relative = false
-y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_as_relative = false
@@ -824,7 +838,29 @@ grow_vertical = 2
 texture = ExtResource("18_76hww")
 stretch_mode = 1
 
+[node name="Activator2_Area2D" type="Area2D" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-200, -60)
+collision_layer = 2
+collision_mask = 128
+script = SubResource("GDScript_kmcta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(151.5, 0)
+shape = SubResource("RectangleShape2D_4ijvm")
+
+[node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
+position = Vector2(-438, 107)
+
+[node name="Mural" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-284, 1668)
+
 [connection signal="body_entered" from="Area2D_MapBoundries" to="Player_Char2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D_MapBoundries" to="Area2D_MapBoundries" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
