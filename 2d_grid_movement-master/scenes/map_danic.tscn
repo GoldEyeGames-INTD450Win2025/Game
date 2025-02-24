@@ -662,13 +662,24 @@ size = Vector2(237, 110)
 [sub_resource type="GDScript" id="GDScript_e8wkv"]
 script/source = "extends Area2D
 signal player_near_Activator3_Area2D  # Define signal to later emit
-var one_time_trigger = 0
+var one_time_trigger = false
+var player_inside = false
+@onready var mural_piece_placeholder: ColorRect = $ColorRect
 func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):  
-		print(\"Entered by: \", body.name)
-		# activate area triggers
-		player_near_Activator3_Area2D.emit()
-		one_time_trigger = 1
+	if body.name == \"Player_Char2D\":
+		player_inside = true
+		if not one_time_trigger:
+			print(\"Entered by: \", body.name)
+			player_near_Activator3_Area2D.emit()
+			one_time_trigger = true
+
+func _on_body_exited(body):
+	if body.name == \"Player_Char2D\":
+		player_inside = false
+
+func _process(_delta):
+	if player_inside and Input.is_action_just_pressed(\"action_mural\"):
+		mural_piece_placeholder.visible = not mural_piece_placeholder.visible
 "
 
 [sub_resource type="GDScript" id="GDScript_sjlwo"]
@@ -867,6 +878,14 @@ script = SubResource("GDScript_e8wkv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator3_Area2D"]
 shape = SubResource("RectangleShape2D_4ijvm")
 
+[node name="ColorRect" type="ColorRect" parent="Activator3_Area2D"]
+visible = false
+offset_left = -82.0
+offset_top = -191.0
+offset_right = 18.0
+offset_bottom = -91.0
+color = Color(1, 1, 0, 1)
+
 [node name="Activator5_Area2D" type="Area2D" parent="."]
 z_index = 2
 z_as_relative = false
@@ -918,5 +937,6 @@ stretch_mode = 1
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator3_Area2D" to="Activator3_Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Activator3_Area2D" to="Activator3_Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_exited"]
