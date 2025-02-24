@@ -1,0 +1,340 @@
+[gd_scene load_steps=46 format=3 uid="uid://cj6imhlg5i1hj"]
+
+[ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="1_emwaw"]
+[ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="2_qk7rc"]
+[ext_resource type="Texture2D" uid="uid://b8sfeafiaud6u" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00003.png" id="3_8lvf5"]
+[ext_resource type="Texture2D" uid="uid://c1knm7gott75p" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00004.png" id="4_l0i02"]
+[ext_resource type="Texture2D" uid="uid://dwk5whfxpltsi" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00005.png" id="5_ygus4"]
+[ext_resource type="Texture2D" uid="uid://c0onjbnwblfmq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00006.png" id="6_4r734"]
+[ext_resource type="Texture2D" uid="uid://cgth42sukf787" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00007.png" id="7_5o6fx"]
+[ext_resource type="Texture2D" uid="uid://bird7e4xo8jr0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00008.png" id="8_gvfaj"]
+[ext_resource type="Texture2D" uid="uid://sxllayupwfod" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00009.png" id="9_42ael"]
+[ext_resource type="Texture2D" uid="uid://ctk3dseg707c5" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00010.png" id="10_q7jdq"]
+[ext_resource type="Texture2D" uid="uid://cv5k3ry0khwo3" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00011.png" id="11_4vlat"]
+[ext_resource type="Texture2D" uid="uid://blvx3y3coxqrs" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00012.png" id="12_qhsru"]
+[ext_resource type="Texture2D" uid="uid://bcl2kej0pb34h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00013.png" id="13_fhmwx"]
+[ext_resource type="Texture2D" uid="uid://c62qtwlbb06uq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00014.png" id="14_kh7ar"]
+[ext_resource type="Texture2D" uid="uid://jvam40ytfew7" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00015.png" id="15_w2y4f"]
+[ext_resource type="Texture2D" uid="uid://knwryb4km75h" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00016.png" id="16_18wfj"]
+[ext_resource type="Texture2D" uid="uid://cjhrwentkj72t" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00017.png" id="17_134ua"]
+[ext_resource type="Texture2D" uid="uid://0d1ovbt4ijeo" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00018.png" id="18_a03sx"]
+[ext_resource type="Texture2D" uid="uid://dqh1gkgyh6i1l" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00019.png" id="19_8ljvu"]
+[ext_resource type="Texture2D" uid="uid://bk7pj8v6i3icy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00020.png" id="20_qhlld"]
+[ext_resource type="Texture2D" uid="uid://bv6t4s1nd68pf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00021.png" id="21_1enpl"]
+[ext_resource type="Texture2D" uid="uid://c0mtabuoglaxa" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00022.png" id="22_mp3wc"]
+[ext_resource type="Texture2D" uid="uid://dk01ydjyiqi81" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00023.png" id="23_3t27j"]
+[ext_resource type="Texture2D" uid="uid://cu2y8u3jhkagf" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00024.png" id="24_wuxda"]
+[ext_resource type="Texture2D" uid="uid://bbnf4stkfqh7r" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00025.png" id="25_2ewnf"]
+[ext_resource type="Texture2D" uid="uid://beyedh8odnoh" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00026.png" id="26_7eeky"]
+[ext_resource type="Texture2D" uid="uid://comvjm3dqnlca" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00027.png" id="27_5co7p"]
+[ext_resource type="Texture2D" uid="uid://dkr23dj4pkcuu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00028.png" id="28_msitl"]
+[ext_resource type="Texture2D" uid="uid://ckx8vl8ilcosy" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00029.png" id="29_617n6"]
+[ext_resource type="Texture2D" uid="uid://dw0is24ewpwu4" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00030.png" id="30_rw3nk"]
+[ext_resource type="Texture2D" uid="uid://dv434gs3nu251" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00031.png" id="31_ox3kh"]
+[ext_resource type="Texture2D" uid="uid://dbumbucwssqao" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00032.png" id="32_jvnx5"]
+[ext_resource type="Texture2D" uid="uid://ekej3t2dpgh0" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00033.png" id="33_12thp"]
+[ext_resource type="Texture2D" uid="uid://cisfw83vm8nd1" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00034.png" id="34_o5aaa"]
+[ext_resource type="Texture2D" uid="uid://cmgqptcaahq82" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00035.png" id="35_p8goj"]
+[ext_resource type="Texture2D" uid="uid://3jso2y7m1qkv" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00036.png" id="36_1r1bg"]
+[ext_resource type="Texture2D" uid="uid://dwd0xiu4exd31" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00037.png" id="37_3grdp"]
+[ext_resource type="Texture2D" uid="uid://chi622gt3o8ld" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00038.png" id="38_sal4j"]
+[ext_resource type="Texture2D" uid="uid://bt4ipxqaxhulu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00039.png" id="39_6kqa2"]
+[ext_resource type="Texture2D" uid="uid://cd6fxkhrhedli" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00040.png" id="40_kf6y8"]
+[ext_resource type="Texture2D" uid="uid://c3noge48wgw4k" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00041.png" id="41_v6s4l"]
+[ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="42_3ajuw"]
+
+[sub_resource type="GDScript" id="GDScript_ov052"]
+script/source = "extends CharacterBody2D
+
+# States
+enum State { IDLE, AMBIENT, MOVING, RUNNING_TO}
+
+#@export var speed: int = 200
+#@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var sfx_moving: AudioStreamPlayer2D = $Audio_catwalking
+#@onready var sfx_ambient: AudioStreamPlayer2D = $Audio_meowpurr
+#var current_state = State.IDLE
+#var frog_position: Vector2 = Vector2.ZERO  # The frog's position
+#var velocity_vector: Vector2 = Vector2.ZERO
+#var frog: Node2D = null
+#
+#func _ready():
+	## Frog interaction, using Area2D trigger: 
+	## Find the Area2D and connect the signal
+	#var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
+	#if call_zone:
+		#call_zone.player_near_cat.connect(_on_player_nearby)
+		#print(\"Cat is now listening for the signal.\")
+	## Find the Frog node
+	#frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
+	#if frog:
+		#frog_position = frog.global_position
+	#else:
+		#print(\"Warning: No frog found!\")
+#
+#func _on_player_nearby():
+	#print(\"Cat is running to the frog!\")
+	#current_state = State.RUNNING_TO
+#
+#
+#func _physics_process(delta: float):
+	#if current_state == State.RUNNING_TO:
+		## Move toward the frog's location
+		#var direction = (frog_position - global_position).normalized()
+		#velocity_vector = direction * speed * delta
+		#if direction == Vector2(0, 0):
+			#animated_sprite.animation = \"idle\"
+			#sfx_moving.stop()
+		#else:
+			#if abs(direction.x) > abs(direction.y):
+				#animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+			#else:
+				#animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+			#sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+			#if not sfx_moving.playing:  # prevents overlapping sounds
+				#sfx_moving.play()
+		## Set animation
+		##animated_sprite.animation = \"run_to_frog\"
+		#animated_sprite.play()
+	#elif current_state == State.IDLE:
+		#velocity_vector = Vector2.ZERO
+		#animated_sprite.animation = \"idle\"
+		#animated_sprite.play()
+	#else:
+		## default state is IDLE (but that is infered from 'else'
+		#velocity_vector = Vector2.ZERO
+		#animated_sprite.animation = \"idle\"
+		#animated_sprite.play()
+#
+	## NOTE: 'velocity' is a builtin parameter for move_and_slide()
+	#velocity = velocity_vector
+	#move_and_slide()
+	#
+	## Adjust closeness threshold as needed
+	#if global_position.distance_to(frog.global_position) < 2:  
+		#print(\"Cat is at frog!\")
+		#current_state = State.IDLE
+		#frog.visible = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6s8a"]
+size = Vector2(149.5, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kj8xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qk7rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8lvf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l0i02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ygus4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4r734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5o6fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gvfaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_42ael")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q7jdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4vlat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qhsru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fhmwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kh7ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w2y4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_18wfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_134ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_a03sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8ljvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qhlld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1enpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mp3wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3t27j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_wuxda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2ewnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7eeky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5co7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_msitl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_617n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_rw3nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ox3kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_jvnx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_12thp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_o5aaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_p8goj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_1r1bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3grdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_sal4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_6kqa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_kf6y8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_v6s4l")
+}],
+"loop": true,
+"name": &"aggressive",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qk7rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8lvf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l0i02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ygus4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4r734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5o6fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5o6fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4r734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ygus4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l0i02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8lvf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qk7rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_emwaw")
+}],
+"loop": true,
+"name": &"default_slow_stable",
+"speed": 10.0
+}]
+
+[node name="Hippo_CharBody2D_stationary" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
+motion_mode = 1
+script = SubResource("GDScript_ov052")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.75, -11.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_l6s8a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kj8xn")
+animation = &"default_slow_stable"
+autoplay = "default_slow_stable"
+frame_progress = 0.821754
+offset = Vector2(0, -45)
+
+[node name="Audio_SFX_moving" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("42_3ajuw")
+pitch_scale = 0.69
+max_distance = 200.0
+bus = &"SFX"
+parameters/looping = false
+
+[node name="Audio_SFX_ambient" type="AudioStreamPlayer2D" parent="."]
+max_distance = 200.0

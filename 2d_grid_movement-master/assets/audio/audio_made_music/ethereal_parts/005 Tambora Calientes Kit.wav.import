@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8ybrk6jblekp"
+path="res://.godot/imported/005 Tambora Calientes Kit.wav-2a5af28e736b39e6a41d356c9e86e4bd.sample"
+
+[deps]
+
+source_file="res://assets/audio/audio_made_music/ethereal_parts/005 Tambora Calientes Kit.wav"
+dest_files=["res://.godot/imported/005 Tambora Calientes Kit.wav-2a5af28e736b39e6a41d356c9e86e4bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

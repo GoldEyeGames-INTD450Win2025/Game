@@ -21,10 +21,10 @@ var frog: Node2D = null
 func _ready():
 	# Frog interaction, using Area2D trigger: 
 	# Find the Area2D and connect the signal
-	var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
-	if call_zone:
-		call_zone.player_near_cat.connect(_on_player_nearby)
-		print(\"Cat is now listening for the signal.\")
+	var zone_Activator2_Area2D = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
+	if zone_Activator2_Area2D:
+		zone_Activator2_Area2D.player_near_Activator2_Area2D.connect(_on_player_nearby_Activator2)
+		print(\"Connected to signal: Activator2_Area2D\")
 	# Find the Frog node
 	frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
 	if frog:
@@ -32,7 +32,7 @@ func _ready():
 	else:
 		print(\"Warning: No frog found!\")
 
-func _on_player_nearby():
+func _on_player_nearby_Activator2():
 	print(\"Cat is running to the frog!\")
 	current_state = State.RUNNING_TO_FROG
 

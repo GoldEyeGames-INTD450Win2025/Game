@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cj6imhlg5i1hj"]
+[gd_scene load_steps=46 format=3 uid="uid://cj6imhlg5i1hj"]
 
 [ext_resource type="Texture2D" uid="uid://bmldof4mtbnvq" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00001.png" id="1_emwaw"]
 [ext_resource type="Texture2D" uid="uid://bdd27cmaatfms" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00002.png" id="2_qk7rc"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://bt4ipxqaxhulu" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00039.png" id="39_6kqa2"]
 [ext_resource type="Texture2D" uid="uid://cd6fxkhrhedli" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00040.png" id="40_kf6y8"]
 [ext_resource type="Texture2D" uid="uid://c3noge48wgw4k" path="res://assets/art_free/lawnjelly_junglecreatures/hippo/fight/hippo_fight00041.png" id="41_v6s4l"]
+[ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="42_3ajuw"]
 
 [sub_resource type="GDScript" id="GDScript_ov052"]
 script/source = "extends CharacterBody2D
@@ -48,72 +49,72 @@ script/source = "extends CharacterBody2D
 # States
 enum State { IDLE, AMBIENT, MOVING, RUNNING_TO}
 
-@export var speed: int = 200
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sfx_moving: AudioStreamPlayer2D = $Audio_catwalking
-@onready var sfx_ambient: AudioStreamPlayer2D = $Audio_meowpurr
-var current_state = State.IDLE
-var frog_position: Vector2 = Vector2.ZERO  # The frog's position
-var velocity_vector: Vector2 = Vector2.ZERO
-var frog: Node2D = null
-
-func _ready():
-	# Frog interaction, using Area2D trigger: 
-	# Find the Area2D and connect the signal
-	var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
-	if call_zone:
-		call_zone.player_near_cat.connect(_on_player_nearby)
-		print(\"Cat is now listening for the signal.\")
-	# Find the Frog node
-	frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
-	if frog:
-		frog_position = frog.global_position
-	else:
-		print(\"Warning: No frog found!\")
-
-func _on_player_nearby():
-	print(\"Cat is running to the frog!\")
-	current_state = State.RUNNING_TO_FROG
-
-
-func _physics_process(delta: float):
-	if current_state == State.RUNNING_TO_FROG:
-		# Move toward the frog's location
-		var direction = (frog_position - global_position).normalized()
-		velocity_vector = direction * speed * delta
-		if direction == Vector2(0, 0):
-			animated_sprite.animation = \"idle\"
-			sfx_moving.stop()
-		else:
-			if abs(direction.x) > abs(direction.y):
-				animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
-			else:
-				animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
-			sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
-			if not sfx_moving.playing:  # prevents overlapping sounds
-				sfx_moving.play()
-		# Set animation
-		#animated_sprite.animation = \"run_to_frog\"
-		animated_sprite.play()
-	elif current_state == State.CAUGHT:
-		velocity_vector = Vector2.ZERO
-		animated_sprite.animation = \"idle\"
-		animated_sprite.play()
-	else:
-		# default state is IDLE (but that is infered from 'else'
-		velocity_vector = Vector2.ZERO
-		animated_sprite.animation = \"idle\"
-		animated_sprite.play()
-
-	# NOTE: 'velocity' is a builtin parameter for move_and_slide()
-	velocity = velocity_vector
-	move_and_slide()
-	
-	# Adjust closeness threshold as needed
-	if global_position.distance_to(frog.global_position) < 2:  
-		print(\"Cat is at frog!\")
-		current_state = State.CAUGHT
-		frog.visible = false
+#@export var speed: int = 200
+#@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var sfx_moving: AudioStreamPlayer2D = $Audio_catwalking
+#@onready var sfx_ambient: AudioStreamPlayer2D = $Audio_meowpurr
+#var current_state = State.IDLE
+#var frog_position: Vector2 = Vector2.ZERO  # The frog's position
+#var velocity_vector: Vector2 = Vector2.ZERO
+#var frog: Node2D = null
+#
+#func _ready():
+	## Frog interaction, using Area2D trigger: 
+	## Find the Area2D and connect the signal
+	#var call_zone = get_node_or_null(\"../Activator2_Area2D\")  # Adjust path as needed
+	#if call_zone:
+		#call_zone.player_near_cat.connect(_on_player_nearby)
+		#print(\"Cat is now listening for the signal.\")
+	## Find the Frog node
+	#frog = get_node_or_null(\"../FrogforCat_CharBody2D\")
+	#if frog:
+		#frog_position = frog.global_position
+	#else:
+		#print(\"Warning: No frog found!\")
+#
+#func _on_player_nearby():
+	#print(\"Cat is running to the frog!\")
+	#current_state = State.RUNNING_TO
+#
+#
+#func _physics_process(delta: float):
+	#if current_state == State.RUNNING_TO:
+		## Move toward the frog's location
+		#var direction = (frog_position - global_position).normalized()
+		#velocity_vector = direction * speed * delta
+		#if direction == Vector2(0, 0):
+			#animated_sprite.animation = \"idle\"
+			#sfx_moving.stop()
+		#else:
+			#if abs(direction.x) > abs(direction.y):
+				#animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+			#else:
+				#animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+			#sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+			#if not sfx_moving.playing:  # prevents overlapping sounds
+				#sfx_moving.play()
+		## Set animation
+		##animated_sprite.animation = \"run_to_frog\"
+		#animated_sprite.play()
+	#elif current_state == State.IDLE:
+		#velocity_vector = Vector2.ZERO
+		#animated_sprite.animation = \"idle\"
+		#animated_sprite.play()
+	#else:
+		## default state is IDLE (but that is infered from 'else'
+		#velocity_vector = Vector2.ZERO
+		#animated_sprite.animation = \"idle\"
+		#animated_sprite.play()
+#
+	## NOTE: 'velocity' is a builtin parameter for move_and_slide()
+	#velocity = velocity_vector
+	#move_and_slide()
+	#
+	## Adjust closeness threshold as needed
+	#if global_position.distance_to(frog.global_position) < 2:  
+		#print(\"Cat is at frog!\")
+		#current_state = State.IDLE
+		#frog.visible = false
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6s8a"]
@@ -314,7 +315,6 @@ z_as_relative = false
 y_sort_enabled = true
 motion_mode = 1
 script = SubResource("GDScript_ov052")
-speed = 10000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.75, -11.5)
@@ -326,11 +326,15 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kj8xn")
 animation = &"default_slow_stable"
 autoplay = "default_slow_stable"
-frame_progress = 0.850536
+frame_progress = 0.821754
 offset = Vector2(0, -45)
 
 [node name="Audio_SFX_moving" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("42_3ajuw")
+pitch_scale = 0.69
 max_distance = 200.0
+bus = &"SFX"
+parameters/looping = false
 
 [node name="Audio_SFX_ambient" type="AudioStreamPlayer2D" parent="."]
 max_distance = 200.0

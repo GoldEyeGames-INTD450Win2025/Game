@@ -16,15 +16,15 @@ func _ready() -> void:
 	load_csv_dialogue_data()
 	
 	# Connect the \"pressed\" signal to the handler function
-	next_button.connect(\"pressed\", Callable(self, \"_on_button_next_pressed\"))
+	#next_button.connect(\"pressed\", Callable(self, \"_on_button_next_pressed\"))
 
-	var dialogue_area1 = get_node(\"/root/Scene_NavMap_StartGame/Activator1_Area2D\")  # Change the path accordingly
-	if dialogue_area1:
-		dialogue_area1.player_near_frog.connect(_on_player_at_dialogue_area1)
-		print(\"Connected to dialogue_area1 signal\")
+	var zone_Activator1_Area2D = get_node(\"/root/Scene_NavMap_StartGame/Activator1_Area2D\")  # Adjust path as needed
+	if zone_Activator1_Area2D:
+		zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
+		print(\"Connected to signal: Activator1_Area2D\")
 
 
-func _on_player_at_dialogue_area1():
+func _on_player_nearby_Activator1():
 	print(\"do_dialogue_trigger_action(testtrigger1)\")
 	do_dialogue_trigger_action(\"testtrigger1\")
 
@@ -112,13 +112,13 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 func wait_for_button_press() -> void:
 	# Await until the button press signal is triggered
 	await next_button.pressed
-	print(\"Proceeding to next dialogue...\")
+	print(\"Proceeding to: next dialogue, or Done\")
 
 # Function to populate the dialogue box with the next row's data
 func do_dialogue_next_action(index: int):
 	matched_row = dialogue_data[index]
 	dialoguebox_text.text = matched_row[2]  # Set dialogue text
-	npc_icon.texture = load(\"res://path_to_character_icons/%s.png\" % matched_row[1])  # Example loading character icon
+	npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 "
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ct7gv"]
