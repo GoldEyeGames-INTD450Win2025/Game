@@ -18,16 +18,31 @@ func _ready() -> void:
 	# Connect the \"pressed\" signal to the handler function
 	#next_button.connect(\"pressed\", Callable(self, \"_on_button_next_pressed\"))
 
-	var zone_Activator1_Area2D = get_node(\"/root/Scene_NavMap_StartGame/Activator1_Area2D\")  # Adjust path as needed
+	var zone_Activator1_Area2D = get_node(\"/root/Map_Danic/Activator1_Area2D\")  # Adjust path as needed
 	if zone_Activator1_Area2D:
 		zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
-		print(\"Connected to signal: Activator1_Area2D\")
-
-
+		print(\"Connected to dialogue signal: Activator1_Area2D\")
+	var zone_Activator2_Area2D = get_node(\"/root/Map_Danic/Activator2_Area2D\")  # Adjust path as needed
+	if zone_Activator2_Area2D:
+		zone_Activator2_Area2D.player_near_Activator2_Area2D.connect(_on_player_nearby_Activator2)
+		print(\"Connected to dialogue signal: Activator2_Area2D\")
+	var zone_Activator3_Area2D = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
+	if zone_Activator3_Area2D:
+		zone_Activator3_Area2D.player_near_Activator3_Area2D.connect(_on_player_nearby_Activator3)
+		print(\"Connected to dialogue signal: Activator3_Area2D\")
+		
 func _on_player_nearby_Activator1():
 	print(\"do_dialogue_trigger_action(testtrigger1)\")
 	do_dialogue_trigger_action(\"testtrigger1\")
 
+func _on_player_nearby_Activator2():
+	print(\"do_dialogue_trigger_action(testtrigger2)\")
+	do_dialogue_trigger_action(\"testtrigger2\")
+
+func _on_player_nearby_Activator3():
+	print(\"do_dialogue_trigger_action(testtrigger3)\")
+	do_dialogue_trigger_action(\"testtrigger3\")
+	
 # Regular function to handle the button press signal
 func _on_button_next_pressed() -> void:
 	print(\"Button pressed!\")

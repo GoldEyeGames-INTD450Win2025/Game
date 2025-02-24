@@ -112,10 +112,11 @@ func set_music_scene_4():
 	set_music_layer(6, full)
 
 func _on_player_nearby_Activator1():
-	set_music_scene_2()
+	#set_music_scene_4()
+	pass
 
 func _on_player_nearby_Activator2():
-	set_music_scene_3()
+	set_music_scene_2()
 "
 
 [node name="MusicManager" type="Node2D"]

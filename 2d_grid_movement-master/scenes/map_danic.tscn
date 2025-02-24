@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=41 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="2_3p3y2"]
@@ -629,6 +629,48 @@ shader_parameter/tree_height = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywuu"]
 size = Vector2(2.02811, 7899)
 
+[sub_resource type="GDScript" id="GDScript_aevhm"]
+script/source = "extends Area2D
+signal player_near_Activator1_Area2D  # Define signal to later emit
+var one_time_trigger = 0
+func _on_body_entered(body):
+	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
+		print(\"Entered by: \", body.name)
+		# activate area triggers
+		player_near_Activator1_Area2D.emit()
+		one_time_trigger = 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alirh"]
+size = Vector2(155, 61)
+
+[sub_resource type="GDScript" id="GDScript_kmcta"]
+script/source = "extends Area2D
+signal player_near_Activator2_Area2D  # Define signal to later emit
+var one_time_trigger = 0
+func _on_body_entered(body):
+	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):  
+		print(\"Entered by: \", body.name)
+		# activate area triggers
+		player_near_Activator2_Area2D.emit()
+		one_time_trigger = 1
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
+size = Vector2(237, 110)
+
+[sub_resource type="GDScript" id="GDScript_e8wkv"]
+script/source = "extends Area2D
+signal player_near_Activator3_Area2D  # Define signal to later emit
+var one_time_trigger = 0
+func _on_body_entered(body):
+	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):  
+		print(\"Entered by: \", body.name)
+		# activate area triggers
+		player_near_Activator3_Area2D.emit()
+		one_time_trigger = 1
+"
+
 [sub_resource type="GDScript" id="GDScript_sjlwo"]
 script/source = "extends Area2D
 signal player_near_Activator5_Area2D  # Define signal to later emit
@@ -666,21 +708,6 @@ shader = ExtResource("17_wio1y")
 shader_parameter/speed = 2.0
 shader_parameter/strength = 2.5
 shader_parameter/overlay_color = Vector4(0.6, 0.4, 0.2, 0.3)
-
-[sub_resource type="GDScript" id="GDScript_kmcta"]
-script/source = "extends Area2D
-signal player_near_Activator2_Area2D  # Define signal to later emit
-var one_time_trigger = 0
-func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):  
-		print(\"Entered by: \", body.name)
-		# activate area triggers
-		player_near_Activator2_Area2D.emit()
-		one_time_trigger = 1
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
-size = Vector2(773, 20)
 
 [node name="Map_Danic" type="Node2D"]
 z_as_relative = false
@@ -792,6 +819,54 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_iywuu")
 one_way_collision_margin = 0.0
 
+[node name="Activator1_Area2D" type="Area2D" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(366, -562)
+collision_layer = 2
+collision_mask = 128
+script = SubResource("GDScript_aevhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator1_Area2D"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(32.5, 8.5)
+shape = SubResource("RectangleShape2D_alirh")
+
+[node name="Activator2_Area2D" type="Area2D" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-200, -60)
+collision_layer = 2
+collision_mask = 128
+script = SubResource("GDScript_kmcta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(151.5, 0)
+shape = SubResource("RectangleShape2D_4ijvm")
+
+[node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
+position = Vector2(-438, 107)
+
+[node name="Mural" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-284, 1668)
+
+[node name="Activator3_Area2D" type="Area2D" parent="."]
+z_index = 2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-378, 1722)
+collision_layer = 2
+collision_mask = 128
+script = SubResource("GDScript_e8wkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator3_Area2D"]
+shape = SubResource("RectangleShape2D_4ijvm")
+
 [node name="Activator5_Area2D" type="Area2D" parent="."]
 z_index = 2
 z_as_relative = false
@@ -838,29 +913,10 @@ grow_vertical = 2
 texture = ExtResource("18_76hww")
 stretch_mode = 1
 
-[node name="Activator2_Area2D" type="Area2D" parent="."]
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-200, -60)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_kmcta")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator2_Area2D"]
-position = Vector2(151.5, 0)
-shape = SubResource("RectangleShape2D_4ijvm")
-
-[node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
-position = Vector2(-438, 107)
-
-[node name="Mural" type="Node2D" parent="."]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-284, 1668)
-
 [connection signal="body_entered" from="Area2D_MapBoundries" to="Player_Char2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D_MapBoundries" to="Area2D_MapBoundries" method="_on_body_entered"]
+[connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Activator3_Area2D" to="Activator3_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Activator5_Area2D" to="Activator5_Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
