@@ -1,0 +1,226 @@
+[gd_scene load_steps=26 format=3 uid="uid://bjglu073m3mfx"]
+
+[ext_resource type="Shader" path="res://blur.gdshader" id="1_2ygnb"]
+[ext_resource type="Script" path="res://Puzzle.gd" id="2_lt626"]
+[ext_resource type="Texture2D" uid="uid://c3sdurchpcyjh" path="res://assets/art_drawn_tile/mural_1/mural.png" id="3_fmsjj"]
+[ext_resource type="Texture2D" uid="uid://ixt0r58wt0fa" path="res://assets/art_drawn_tile/mural_1/row-1-column-1.png" id="4_8w68t"]
+[ext_resource type="Script" path="res://piece_1.gd" id="4_stdr5"]
+[ext_resource type="Texture2D" uid="uid://dc1tlnb8u6tny" path="res://assets/art_drawn_tile/mural_1/row-1-column-2.png" id="5_t53w8"]
+[ext_resource type="Texture2D" uid="uid://dujnvphggemcg" path="res://assets/art_drawn_tile/mural_1/row-1-column-3.png" id="6_qk7x1"]
+[ext_resource type="Texture2D" uid="uid://4cvfmreu0bq3" path="res://assets/art_drawn_tile/mural_1/row-1-column-4.png" id="7_ivw51"]
+[ext_resource type="Texture2D" uid="uid://bx2tivask3ak" path="res://assets/art_drawn_tile/mural_1/row-1-column-5.png" id="8_asqir"]
+[ext_resource type="Texture2D" uid="uid://dekhvjo1rfavd" path="res://assets/art_drawn_tile/mural_1/row-2-column-5.png" id="9_7tpdk"]
+[ext_resource type="Texture2D" uid="uid://dmy524c0mhvjc" path="res://assets/art_drawn_tile/mural_1/row-2-column-1.png" id="10_6tg2x"]
+[ext_resource type="Texture2D" uid="uid://c6a4wpsmr286e" path="res://assets/art_drawn_tile/mural_1/row-2-column-2.png" id="11_vox5p"]
+[ext_resource type="Texture2D" uid="uid://cyothm0a1dvaa" path="res://assets/art_drawn_tile/mural_1/row-3-column-1.png" id="12_bvsvx"]
+[ext_resource type="Texture2D" uid="uid://c26ilqacnr1v0" path="res://assets/art_drawn_tile/mural_1/row-3-column-2.png" id="13_ohlrp"]
+[ext_resource type="Texture2D" uid="uid://c7i2ji6lse6cy" path="res://assets/art_drawn_tile/mural_1/row-2-column-3.png" id="14_6hyvh"]
+[ext_resource type="Texture2D" uid="uid://drqw64hehm70u" path="res://assets/art_drawn_tile/mural_1/row-2-column-4.png" id="15_13ot3"]
+[ext_resource type="Texture2D" uid="uid://dmwq2xaoqjlre" path="res://assets/art_drawn_tile/mural_1/row-4-column-1.png" id="16_uexjw"]
+[ext_resource type="Texture2D" uid="uid://bwrqa3klh4fxu" path="res://assets/art_drawn_tile/mural_1/row-4-column-2.png" id="17_nok0y"]
+[ext_resource type="Texture2D" uid="uid://bmh5vugrxx2ss" path="res://assets/art_drawn_tile/mural_1/row-3-column-3.png" id="18_83uk8"]
+[ext_resource type="Texture2D" uid="uid://daglkfgwoyio4" path="res://assets/art_drawn_tile/mural_1/row-3-column-4.png" id="19_rt248"]
+[ext_resource type="Texture2D" uid="uid://dqqs1jxxpgmhu" path="res://assets/art_drawn_tile/mural_1/row-4-column-3.png" id="20_na8qq"]
+[ext_resource type="Texture2D" uid="uid://cvsma2ya3f7oc" path="res://assets/art_drawn_tile/mural_1/row-4-column-4.png" id="21_mid7n"]
+[ext_resource type="Texture2D" uid="uid://beognq8jgkc7l" path="res://assets/art_drawn_tile/mural_1/row-3-column-5.png" id="22_73458"]
+[ext_resource type="Texture2D" uid="uid://dw2dbmyue3t0" path="res://assets/art_drawn_tile/mural_1/row-4-column-5.png" id="23_8rvvf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5i6rp"]
+shader = ExtResource("1_2ygnb")
+shader_parameter/blur = 1.5
+shader_parameter/brightness = 1.0
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_5i6rp")
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("2_lt626")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CenterContainer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/CanvasLayer"]
+custom_minimum_size = Vector2(960, 540)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -240.0
+offset_right = 426.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/CanvasLayer/PanelContainer"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reference" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
+visible = false
+position = Vector2(668, 251)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_fmsjj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
+scale = Vector2(0.8, 0.8)
+
+[node name="Node2D" type="Node2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+scale = Vector2(1, 1)
+script = ExtResource("4_stdr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D"]
+position = Vector2(557.5, 93.75)
+scale = Vector2(1, 1)
+texture = ExtResource("4_8w68t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D"]
+position = Vector2(683.75, 93.75)
+scale = Vector2(1, 1)
+texture = ExtResource("5_t53w8")
+
+[node name="Area2D" type="Area2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D/Area2D"]
+position = Vector2(557.5, 93.75)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-64, 64, -64, -64, 64, -64, 64, 64)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D/Area2D"]
+position = Vector2(683.75, 93.75)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-64, 64, -64, -64, 64, -64, 64, 64)
+
+[node name="Container2" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container2"]
+position = Vector2(835, 92.5)
+texture = ExtResource("6_qk7x1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container2"]
+position = Vector2(961.25, 92.5)
+texture = ExtResource("7_ivw51")
+
+[node name="Container3" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D5" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container3"]
+position = Vector2(517.5, -231.25)
+texture = ExtResource("8_asqir")
+
+[node name="Sprite2D10" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container3"]
+position = Vector2(517.5, -103.75)
+texture = ExtResource("9_7tpdk")
+
+[node name="Container4" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D6" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container4"]
+light_mask = 0
+position = Vector2(-113.75, -153.75)
+texture = ExtResource("10_6tg2x")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container4"]
+position = Vector2(77.5, -89.9999)
+texture = ExtResource("11_vox5p")
+
+[node name="Sprite2D11" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container4"]
+position = Vector2(-50, 37.5)
+texture = ExtResource("12_bvsvx")
+
+[node name="Sprite2D12" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container4"]
+position = Vector2(77.5, 36.25)
+texture = ExtResource("13_ohlrp")
+
+[node name="Container5" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D8" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container5"]
+position = Vector2(233.75, -98.7499)
+texture = ExtResource("14_6hyvh")
+
+[node name="Container6" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D9" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container6"]
+position = Vector2(371.25, -91.2499)
+texture = ExtResource("15_13ot3")
+
+[node name="Container7" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D16" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container7"]
+position = Vector2(-38.75, 172.5)
+texture = ExtResource("16_uexjw")
+
+[node name="Sprite2D17" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container7"]
+position = Vector2(87.5, 172.5)
+texture = ExtResource("17_nok0y")
+
+[node name="Container8" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D13" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container8"]
+position = Vector2(232.5, 38.75)
+texture = ExtResource("18_83uk8")
+
+[node name="Sprite2D14" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container8"]
+position = Vector2(358.75, 38.75)
+texture = ExtResource("19_rt248")
+
+[node name="Sprite2D18" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container8"]
+position = Vector2(232.5, 167.5)
+texture = ExtResource("20_na8qq")
+
+[node name="Sprite2D19" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container8"]
+position = Vector2(360, 166.25)
+texture = ExtResource("21_mid7n")
+
+[node name="Container9" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2"]
+offset_left = 600.0
+offset_top = 337.5
+offset_right = 600.0
+offset_bottom = 337.5
+
+[node name="Sprite2D15" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container9"]
+position = Vector2(513.75, 47.5)
+texture = ExtResource("22_73458")
+
+[node name="Sprite2D20" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Container9"]
+position = Vector2(513.75, 173.75)
+texture = ExtResource("23_8rvvf")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D/Area2D" to="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D/Area2D" to="CenterContainer/CanvasLayer/PanelContainer/CenterContainer/Sprite2D2/Node2D" method="_on_area_2d_mouse_exited"]

@@ -52,10 +52,15 @@ extends CharacterBody2D
 @export var speed: int = 600
 @onready var animated_sprited_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_sfx_walking: AudioStreamPlayer2D = $Audio_SFX_Walking
+@onready var _puzzle = $Puzzle
 # function code:
 func get_player_input(delta: float) -> void:
 	var vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = vector * speed * delta
+	if not _can_walk():
+		velocity = Vector2(0, 0)
+		vector = Vector2(0, 0)
+		
 	if vector == Vector2(0, 0):
 		animated_sprited_2d.animation = "idle"
 		audio_sfx_walking.stop()
@@ -72,3 +77,6 @@ func get_player_input(delta: float) -> void:
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
 	get_player_input(delta)
 	move_and_slide()
+	
+func _can_walk() -> bool:
+	return not _puzzle.visible
