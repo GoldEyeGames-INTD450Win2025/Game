@@ -623,7 +623,6 @@ stream = ExtResource("4_rgvml")
 bus = &"Music"
 
 [node name="Puzzle" parent="Player_Char2D" instance=ExtResource("6_j5id0")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

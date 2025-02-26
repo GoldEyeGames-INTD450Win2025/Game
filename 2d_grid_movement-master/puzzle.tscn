@@ -1,24 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjglu073m3mfx"]
+[gd_scene load_steps=8 format=3 uid="uid://bjglu073m3mfx"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_2ygnb"]
-[ext_resource type="Script" path="res://Puzzle.gd" id="2_lt626"]
 [ext_resource type="Texture2D" uid="uid://c3sdurchpcyjh" path="res://assets/art_drawn_tile/mural_1/mural.png" id="3_fmsjj"]
 [ext_resource type="Script" path="res://puzzle_logic.gd" id="4_88di5"]
 [ext_resource type="Script" path="res://puzzle_grid.gd" id="4_bkivc"]
+[ext_resource type="Texture2D" uid="uid://eqg05oo84v3r" path="res://assets/art_drawn_tile/click_and_drag_logo.png" id="6_kmspi"]
+[ext_resource type="Texture2D" uid="uid://c32xlys5j17vs" path="res://assets/art_drawn_tile/slide_logo.png" id="7_qxwc4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5i6rp"]
 shader = ExtResource("1_2ygnb")
 shader_parameter/blur = 1.5
-shader_parameter/brightness = 1.0
+shader_parameter/brightness = 0.6
 
 [node name="ColorRect" type="ColorRect"]
+visible = false
 material = SubResource("ShaderMaterial_5i6rp")
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
-script = ExtResource("2_lt626")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1280, 720)
@@ -33,6 +34,7 @@ mouse_filter = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="CenterContainer"]
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,29 +49,145 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/CanvasLayer/PanelContainer"]
-custom_minimum_size = Vector2(960, 540)
+[node name="Container" type="Container" parent="CenterContainer/CanvasLayer/PanelContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
 script = ExtResource("4_88di5")
 
-[node name="Left_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
-position = Vector2(50, 100)
+[node name="Left_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/Container"]
+position = Vector2(53, 160)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_bkivc")
 
-[node name="Right_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
-position = Vector2(400, 50)
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Left_Grid"]
+offset_top = 5.0
+offset_right = 294.0
+offset_bottom = 425.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.122252, 0.122252, 0.122252, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Left_Grid/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = -90.0
+offset_right = 85.0
+offset_bottom = 80.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(85, 0)
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.122252, 0.122252, 0.122252, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="slide" type="TextureRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Left_Grid/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_kmspi")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Left_Grid/ColorRect"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -215.0
+offset_right = 152.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.670588, 0.431373, 0.00784314, 0.552941)
+
+[node name="Right_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/Container"]
+position = Vector2(353, 74)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_bkivc")
 
-[node name="Reference" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Right_Grid"]
+offset_top = 5.0
+offset_right = 690.0
+offset_bottom = 555.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.122252, 0.122252, 0.122252, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Right_Grid/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_top = -90.0
+offset_right = 85.0
+offset_bottom = 80.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(85, 0)
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.122252, 0.122252, 0.122252, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="slide" type="TextureRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Right_Grid/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_qxwc4")
+
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer/CanvasLayer/PanelContainer/Container/Right_Grid/ColorRect"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -280.0
+offset_right = 350.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.670588, 0.431373, 0.00784314, 0.552941)
+
+[node name="Reference" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/Container"]
 visible = false
 position = Vector2(668, 251)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_fmsjj")
 
-[node name="Puzzle_Pieces" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
-position = Vector2(400, 50)
+[node name="Puzzle_Pieces" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/Container"]
+position = Vector2(353, 74)
 scale = Vector2(0.8, 0.8)

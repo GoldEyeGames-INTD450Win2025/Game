@@ -1,11 +1,15 @@
-extends CenterContainer
+extends Container
 
 var pieces = []
 var sprites = []
+var hidden_pieces = []
 var init_grid
+var solved_grid
 var left_grid
 var right_grid
 var piece_size = Vector2(128, 128)
+var solved = false
+var to_find = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -108,23 +112,31 @@ func _ready() -> void:
 
 
 	# 0, 2, 4, 5, 7, 8, 15, 12, 14
-	init_grid = [right_grid.slots[0][0], right_grid.slots[0][2], right_grid.slots[0][4],
-				 right_grid.slots[1][0], right_grid.slots[1][2], right_grid.slots[1][3],
-				 right_grid.slots[3][0], right_grid.slots[2][2], right_grid.slots[2][4]]
-
-	for i in pieces.size():
-		pieces[i].position = init_grid[i].position
-		pieces[i]._initialize(right_grid)
-		puzzle_pieces.add_child(pieces[i])
-		_make_grid_occupied(pieces[i], init_grid[i], right_grid)
-		#if i != 3:
-	#		pieces[i].visible = false
+	init_grid = [right_grid.slots[3][0], left_grid.slots[2][0], left_grid.slots[0][1],
+				 right_grid.slots[1][3], right_grid.slots[2][2], right_grid.slots[3][4],
+				 right_grid.slots[0][2], right_grid.slots[0][0], left_grid.slots[0][0]]
 	
+	solved_grid = [right_grid.slots[0][0], right_grid.slots[0][2], right_grid.slots[0][4],
+				   right_grid.slots[1][0], right_grid.slots[1][2], right_grid.slots[1][3],
+				   right_grid.slots[3][0], right_grid.slots[2][2], right_grid.slots[2][4]]
+		
+	for i in pieces.size():
+		puzzle_pieces.add_child(pieces[i])
+		pieces[i]._initialize(right_grid)
+		pieces[i]._set_pos(init_grid[i], true)
+		#_make_grid_occupied(pieces[i], init_grid[i], init_grid[i].get_parent())
+	
+	hidden_pieces = [pieces[8], pieces[2], pieces[1]]
+	for hidden_piece in hidden_pieces:
+		hidden_piece.visible = false
+	Global.pieces_found = 3
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for i in range(Global.pieces_found):
+		hidden_pieces[i].visible = true
+	solved = _puzzle_solved()
 
 func _make_grid_occupied(piece, init_grid_square, grid):
 	for x in range(piece.dims.x):
@@ -133,3 +145,9 @@ func _make_grid_occupied(piece, init_grid_square, grid):
 				piece.anker_ref = grid.slots[x + init_grid_square.grid_pos.x][y + init_grid_square.grid_pos.y]
 			piece.occupying.append(grid.slots[x + init_grid_square.grid_pos.x][y + init_grid_square.grid_pos.y])
 			grid.slots[x + init_grid_square.grid_pos.x][y + init_grid_square.grid_pos.y].is_occupied = true
+
+func _puzzle_solved() -> bool:
+	for i in solved_grid.size():
+		if Global.pieces_found > to_find or pieces[i].anker_ref != solved_grid[i] or Global.is_dragging:
+			return false
+	return true

@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	var color_rect = ColorRect.new()
 	color_rect.size = size
-	color_rect.set_color(Color(Color.DIM_GRAY, 1))
+	color_rect.set_color(Color(Color.GOLDENROD, 0.3))
 	color_rect.position = Vector2(-size.x/2, -size.y/2)
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(color_rect)
