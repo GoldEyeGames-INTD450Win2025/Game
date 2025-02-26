@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfv1j1ekdqp34"]
-
-[ext_resource type="Script" path="res://puzzle_grid.gd" id="1_ybh4k"]
-
-[node name="Grid" type="Sprite2D"]
-scale = Vector2(0.8, 0.8)
-script = ExtResource("1_ybh4k")

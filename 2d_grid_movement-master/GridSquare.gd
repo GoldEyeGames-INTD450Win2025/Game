@@ -2,6 +2,8 @@ class_name GridSquare
 extends StaticBody2D
 
 var size = Vector2(128, 128)
+var is_occupied = false
+var grid_pos = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

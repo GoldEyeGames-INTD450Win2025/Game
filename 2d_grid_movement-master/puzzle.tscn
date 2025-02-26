@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjglu073m3mfx"]
+[gd_scene load_steps=7 format=3 uid="uid://bjglu073m3mfx"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_2ygnb"]
 [ext_resource type="Script" path="res://Puzzle.gd" id="2_lt626"]
 [ext_resource type="Texture2D" uid="uid://c3sdurchpcyjh" path="res://assets/art_drawn_tile/mural_1/mural.png" id="3_fmsjj"]
-[ext_resource type="PackedScene" uid="uid://bfv1j1ekdqp34" path="res://puzzle_grid.tscn" id="3_l0p8p"]
 [ext_resource type="Script" path="res://puzzle_logic.gd" id="4_88di5"]
-[ext_resource type="Script" path="res://left_grid.gd" id="4_saghk"]
+[ext_resource type="Script" path="res://puzzle_grid.gd" id="4_bkivc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5i6rp"]
 shader = ExtResource("1_2ygnb")
@@ -58,10 +57,12 @@ script = ExtResource("4_88di5")
 [node name="Left_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
 position = Vector2(50, 100)
 scale = Vector2(0.8, 0.8)
-script = ExtResource("4_saghk")
+script = ExtResource("4_bkivc")
 
-[node name="Grid" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer" instance=ExtResource("3_l0p8p")]
+[node name="Right_Grid" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
 position = Vector2(400, 50)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("4_bkivc")
 
 [node name="Reference" type="Sprite2D" parent="CenterContainer/CanvasLayer/PanelContainer/CenterContainer"]
 visible = false
