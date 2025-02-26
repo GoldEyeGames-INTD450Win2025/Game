@@ -47,10 +47,10 @@ func _ready():
 		print(\"Connected to music signal: Activator1_Area2D\")
 		
 	# Find the Activator2 (Area2D) and connect its signal
-	var zone_Activator2_Area2D = get_node(\"../../Activator2_Area2D\")  # Adjust path as needed
-	if zone_Activator2_Area2D:
-		zone_Activator2_Area2D.player_near_Activator2_Area2D.connect(_on_player_nearby_Activator2)
-		print(\"Connected to music signal: Activator2_Area2D\")
+	var zone_Activator3_Area2D = get_node(\"../../Activator3_Area2D\")  # Adjust path as needed
+	if zone_Activator3_Area2D:
+		zone_Activator3_Area2D.player_near_Activator3_Area2D.connect(_on_player_nearby_Activator3)
+		print(\"Connected to music signal: Activator3_Area2D\")
 
 func set_music_layer(index: int, volume_db: float):
 	if index >= 0 and index < tracks.size():
@@ -89,7 +89,7 @@ func set_music_scene_2():
 	set_music_layer(1, full)
 	set_music_layer(2, mute)
 	set_music_layer(3, mute) 
-	set_music_layer(4, full) 
+	set_music_layer(4, full*0.5) 
 	set_music_layer(5, mute)
 	set_music_layer(6, mute)
 
@@ -115,7 +115,7 @@ func _on_player_nearby_Activator1():
 	#set_music_scene_4()
 	pass
 
-func _on_player_nearby_Activator2():
+func _on_player_nearby_Activator3():
 	set_music_scene_2()
 "
 

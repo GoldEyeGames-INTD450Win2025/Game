@@ -97,10 +97,12 @@ max_value = 1.0
 step = 0.001
 
 [node name="Button_Confirm" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Save and Close"
 
 [node name="Button_Resume" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Resume"
 

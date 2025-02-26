@@ -1,7 +1,34 @@
 [gd_resource type="Shader" format=3 uid="uid://bweqk1tsbehxw"]
 
 [resource]
-code = "shader_type canvas_item;
+code = "//shader_type canvas_item;
+//render_mode blend_mix;
+//
+//// Wind settings.
+//uniform float speed = 1.0;
+//uniform float minStrength : hint_range(0.0, 1.0);
+//uniform float maxStrength : hint_range(0.0, 1.0);
+//uniform float strengthScale = 100.0;
+//uniform float interval = 3.5;
+//uniform float detail = 1.0;
+//uniform float distortion : hint_range(0.0, 1.0);
+//uniform float heightOffset = 0.0;
+//
+//float getWind(vec2 vertex, vec2 uv, float timer){
+	//vec2 pos = mix(vec2(1.0), vertex, distortion).xy;
+	//float time = timer * speed + pos.x * pos.y;
+	//float diff = pow(maxStrength - minStrength, 2.0);
+	//float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+	//float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+	//
+	//return wind;
+	//}
+//
+//void vertex() {
+	//VERTEX.x += getWind(VERTEX.xy, UV, TIME);
+//}
+
+shader_type canvas_item;
 
 uniform float speed = 2.0;    // How fast the sway happens
 uniform float strength = 5.0; // How much the trees sway
@@ -19,4 +46,24 @@ void vertex() {
 
     float wave = sin(TIME * speed + VERTEX.y * frequency) * strength * factor;
     VERTEX.x += wave;
-}"
+}
+
+//shader_type canvas_item;
+//
+//// Wind properties
+//uniform vec2 wind_direction = vec2(1, 0);
+//uniform float wind_speed = 1.0;
+//uniform float wind_strength = 0.1;
+//
+//// Sway properties
+//uniform float sway_frequency = 1.0;
+//uniform float sway_magnitude = 0.1;
+//
+//void vertex() {
+    //// Calculate the sway based on the vertex's height and the sway properties
+    //float sway_factor = (1.0 - VERTEX.y) * sway_magnitude;
+    //float sway_offset = wind_direction.x * sway_factor * sin(TIME * sway_frequency + VERTEX.y);
+    //
+    //// Apply the sway offset to the vertex position
+    //VERTEX.x += sway_offset;
+//}"

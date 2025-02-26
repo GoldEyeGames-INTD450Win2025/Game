@@ -3,15 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="1_mwilj"]
 
 [node name="PointLight2D" type="PointLight2D"]
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(1543, -6418)
 color = Color(0.403922, 0.286275, 1, 1)
-energy = 0.74
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.5
 shadow_item_cull_mask = 2
 texture = ExtResource("1_mwilj")
-texture_scale = 0.87

@@ -55,11 +55,36 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = SubResource("GDScript_v4oy0")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 81.0
-offset_bottom = 23.0
-text = "Hit P to Pause, Hit SPACE if at action zone (e.g. mural).
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 1292.0
+offset_bottom = 38.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Hit P to Pause
+"
+
+[node name="Label2" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 12.0
+offset_top = 35.0
+offset_right = 1248.0
+offset_bottom = 96.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Hit SPACE if at action points (e.g. Mural) 
+Mural Pieces missing:
+"
+
+[node name="Label3" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 231.0
+offset_top = 63.0
+offset_right = 352.0
+offset_bottom = 100.0
+theme_override_font_sizes/normal_font_size = 20
+text = "3
 "
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_iht1a")]

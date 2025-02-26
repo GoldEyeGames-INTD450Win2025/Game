@@ -1,18 +1,50 @@
-﻿Trigger,Character,DialogueText,Next
-testtrigger1,Masika,(Brushing leaves/sand away; rising to her feet) “Ohhh; my head. Why is everything spinning?”,yes
-,Masika,(Stand; slow spin in circle) “Where am I? This looks like home; but something’s not right.”,yes
-,Masika,“It’s different here. I feel lighter. Less grounded. That; plus my memory… I understand now.”,
-testtrigger2,Masika,(Spin again; cat walks up) “Oh; hello there! Aren’t you a beautiful one? What are you doing here?”,yes
-,Masika,“Wait. Why do I feel like I should know you? Where do I know you from? What’s your name?”,yes
-,Masika,(Crouch? Approach cat?) “May I call you Eshe?”,yes
-,Masika,“It seems appropriate to have Life accompany me through this place. That is; of course; if you’re willing?”,yes
-,Eshe,(Silence),yes
-,Masika,"“Right. I guess even in the land of the dead, cats don’t wish to communicate with humans.”",yes
-,Masika,“Shall we go? I’ve heard there’s much to see here.”,
-testtrigger3,Masika,There was something about Thebes… I remember!,yes
-,Masika,When I left home I went to Thebes to break out of the cycle of my small village that was threatening to swallow me whole.,yes
-,Masika,It had loomed so large from so far; sprawling farther than I could see and growing more imposing with every step down the track I’d travelled.,yes
-,Masika,My father’s voice had followed me the entire way; reminding me where my true home was and reciting a list of approved men from the village.,yes
-,Masika,I’d shaken the voice away every time it grew loud and kept walking.,yes
-,Masika,Maybe I hadn’t had a plan for what to do when I got to Thebes; but I knew I wanted to be there and I had faith the city’s opportunities would reveal themselves to me in time.,yes
-,Masika,I know that they did; but… what were they?,
+﻿Trigger;Character;DialogueText;Next;
+testtrigger1;Masika;Ohhh, my head. Why is everything spinning?;yes;
+;Masika;Where am I? This looks like somewhere I used to know, but something’s not right.;yes;
+;Masika;It’s different here. I feel lighter. Less grounded. That, combined with the memories clouded within my mind… I understand now.;;
+testtrigger2;Masika;Oh, hello there! Aren’t you a beautiful one? What are you doing here?;yes;
+;Masika;Wait. Why do I feel like I should know you? Where do I know you from? What’s your name?;yes;
+;Masika;May I call you Eshe?;yes;
+;Masika;It seems appropriate to have Life accompany me through this place. That is, of course, if you’re willing?;yes;
+;Eshe;…;yes;
+;Masika;Right. I guess even in the land of the dead, cats don’t wish to communicate with humans.;yes;
+;Masika;Shall we go? I’ve heard there’s much to see here.;;
+testtrigger3;Masika;There was something about Thebes, a grand city… I remember!;yes;
+;Masika;When I left home, my small village, I went to Thebes to break out of the cycle that was threatening to swallow me whole. ;yes;
+;Masika;It had loomed so large from so far, sprawling farther than I could see and growing more imposing with every step down the track I’d travelled.;yes;
+;Masika;My father’s voice had followed me the entire way, reminding me where my true home was and reciting a list of approved men from the village. ;yes;
+;Masika;I’d shaken the voice away every time it grew loud and kept walking. ;yes;
+;Masika;So maybe I hadn’t had a plan for what to do when I got to Thebes, but I knew I wanted to be there. ;yes;
+;Masika;And more importantly, I had faith the city’s opportunities would reveal themselves to me in time. ;yes;
+;Masika;I remember that they did, but… I can’t remember what they were.;;
+testtrigger4;Masika;I remember that my parents… ;yes;
+;Masika;They’d never fulfilled my greatest wish in life. They’d never fully accepted my individuality and always tried to push one marriage on me or another. ;yes;
+;Masika;While my father’s behaviour was worse, my mother’s passivity had brought with it its own evils. ;yes;
+;Masika;My father had never hidden his distaste for my decisions, especially as I grew old enough to have my choices remain the actions I followed. ;yes;
+;Masika;Where he wanted me to find a husband and remain in our village, stay at home, I was never content with that image.;yes;
+;Masika;I wanted to roam, be my own person, and most of all avoid every supposedly eligible suitor my father pushed in my direction to ‘fix my outlook on marriage.';;
+testtrigger5;Masika;I’d never really liked going home since it just gave my parents the opportunity to push suitors from the village at me.;yes;
+;Masika;They’d always tell me how home would always welcome me back when Thebes became too imposing. My sister, though… ;yes;
+;Masika;She’d truly loved my independence and drive to plow my own path. Her journey was so different from my own but we still kept incredibly close until I moved away. ;yes;
+;Masika;Our last talk was one of the best of my life. ;yes;
+;Masika;The best older sister I could have asked for, Rehema was always pushing me to do what I wanted instead of what was expected of me. ;yes;
+;Masika;Only two years separated us but there were times she felt like the mother I’d dreamt of.;yes;
+;Masika;She was not only gentle and accepting of who it was I wanted to be, but encouraged me to chase after that vision.;;
+testtrigger6;Masika;My sister was the only reason I visited home, as sporadic as the trips were, it wasn’t worth the aura of disapproval from my parents otherwise.;yes;
+;Masika;Besides, it was much more productive to keep building my life in Thebes than have that life be ripped apart by harsh opinions. ;yes;
+;Masika;My last trip back, Rehema and I talked for a long time. I’d forgotten… I loved speaking with my sister on the soft sand as the sun set over the hills. ;yes;
+;Masika;It was a hard conversation since Zuberi had just died. They’d been married for years and known each other since, well, forever. ;yes;
+;Masika;I’d cried alongside her as she told me about it, our emotions pouring into the dusk and onto the plain around us. And then she’d asked me a question…;yes;
+;Masika;It was something that had changed my plan for everything but in a good way, the best way… what was it?;;
+testtrigger7;Masika;Rehema, that day on the sand. She’d asked me how Thebes was, really asked, not just made polite small talk. ;yes;
+;Masika;And I’d told her that it was good, but hard. Harder than I’d thought. That I didn’t know what to do with myself, but that I knew my future was there. ;yes;
+;Masika;I’d felt it my first night there and when I tried to express my confidence she’d just nodded. Huffed a laugh and nodded like she truly knew what I meant. ;yes;
+;Masika;She told me then how Zuberi’s death had passed his business into her hands, and that she could run it from behind the scenes regarding the mathematics. ;yes;
+;Masika;For years she’d done that and enjoyed that aspect, but the mathematics was useless without someone selling from his stall.;yes;
+;Masika;She’d wanted me to do it! ;yes;
+;Masika;Wanted to trust me with the responsibility of his stall, his business, his standing and reputation for quality artisanal products. ;yes;
+;Masika;Me! Her little sister! ;yes;
+;Masika;I’d have jumped for joy but better sense prevailed and I’d simply told Rehema it would be my honor to stand in his place instead. ;yes;
+;Masika;My time in Thebes had taught me much about life at the market as a buyer, and she gave me what I needed to get started on the other side of the stall. ;yes;
+;Masika;The next day I left home. That… that was the last I ever saw her, though I didn’t know it at the time. I wish I could have said a proper goodbye to her.;yes;
+;Masika;Still, I was and am forever grateful for the gift she’d given me: my reason to root deeper in Thebes and build a life not even my father could disagree with.;;

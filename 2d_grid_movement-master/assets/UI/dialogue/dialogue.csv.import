@@ -2,14 +2,12 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://6sadbb7fe2ie"
+uid="uid://dfwf8vwe0xynt"
+valid=false
 
 [deps]
 
-files=["res://assets/UI/dialogue/dialogue.Character.translation", "res://assets/UI/dialogue/dialogue.DialogueText.translation", "res://assets/UI/dialogue/dialogue.Next.translation"]
-
 source_file="res://assets/UI/dialogue/dialogue.csv"
-dest_files=["res://assets/UI/dialogue/dialogue.Character.translation", "res://assets/UI/dialogue/dialogue.DialogueText.translation", "res://assets/UI/dialogue/dialogue.Next.translation"]
 
 [params]
 
