@@ -9,7 +9,7 @@ func _on_visibility_changed() -> void:
 	var _canvas: CanvasLayer = $CenterContainer/CanvasLayer
 	_canvas.visible = self.visible
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
 		one_time_activator = true
 		demo_done_label.show()
