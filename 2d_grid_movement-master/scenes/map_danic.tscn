@@ -1158,7 +1158,7 @@ script/source = "extends Area2D
 signal player_near_Activator3_Area2D  # Define signal to later emit
 var one_time_trigger = false
 var player_inside = false
-@onready var mural_piece_placeholder: ColorRect = $ColorRect2
+@onready var mural_piece_placeholder: CanvasLayer = $ColorRect2
 func _on_body_entered(body):
 	if body.name == \"Player_Char2D\":
 		player_inside = true
@@ -1494,6 +1494,7 @@ offset_bottom = -91.0
 color = Color(1, 1, 0, 1)
 
 [node name="ColorRect2" parent="Activator3_Area2D" instance=ExtResource("15_dwdn3")]
+visible = false
 
 [node name="Activator5_Area2D" type="Area2D" parent="."]
 z_index = 2
@@ -1526,10 +1527,10 @@ material = SubResource("ShaderMaterial_es3ea")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -384.0
-offset_top = -364.5
-offset_right = 384.0
-offset_bottom = 364.5
+offset_left = -261.0
+offset_top = -544.0
+offset_right = 507.0
+offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_76hww")
