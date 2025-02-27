@@ -8,6 +8,7 @@ func _ready():
 func _on_visibility_changed() -> void:
 	var _canvas: CanvasLayer = $CenterContainer/CanvasLayer
 	_canvas.visible = self.visible
+	Global.puzzle_open = self.visible
 
 func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):

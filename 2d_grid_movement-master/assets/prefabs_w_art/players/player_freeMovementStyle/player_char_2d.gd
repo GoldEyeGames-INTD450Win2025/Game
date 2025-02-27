@@ -70,5 +70,6 @@ func get_player_input(delta: float) -> void:
 	animated_sprited_2d.play()
 	
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
-	get_player_input(delta)
-	move_and_slide()
+	if not Global.puzzle_open:
+		get_player_input(delta)
+		move_and_slide()
