@@ -32,7 +32,7 @@ func _initialize(sliding_grid):
 func _process(delta: float) -> void:
 	_update(delta)
 
-func _update(delta: float):
+func _update(_delta: float):
 	if exited == false and not Global.is_dragging and not Input.is_action_pressed("left_click") and not Input.is_action_pressed("right_click"):
 		draggable = true
 		

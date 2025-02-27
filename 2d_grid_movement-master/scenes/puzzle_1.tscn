@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjglu073m3mfx"]
+[gd_scene load_steps=9 format=3 uid="uid://do6n02b7sqkq3"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_2ygnb"]
 [ext_resource type="Script" path="res://scenes/update_puzzle_visibility.gd" id="2_h1eah"]
@@ -35,6 +35,25 @@ mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CenterContainer"]
 visible = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/CanvasLayer"]
+visible = false
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 370.0
+offset_top = 290.0
+offset_right = -368.0
+offset_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/CanvasLayer/PanelContainer2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[center]You beat the puzzle! That's our demo, thanks for testing! Feel free to quit, or explore the scenery more.[center]"
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/CanvasLayer"]
 custom_minimum_size = Vector2(960, 540)
