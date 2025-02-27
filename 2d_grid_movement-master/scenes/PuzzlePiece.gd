@@ -33,9 +33,9 @@ func _process(delta: float) -> void:
 	_update(delta)
 
 func _update(_delta: float):
-	if exited == false and not Global.is_dragging and not Input.is_action_pressed("right_click") and not Input.is_action_pressed("right_click"):
+	if (exited == false) and not Global.is_dragging and not Input.is_action_pressed("left_click") and not Input.is_action_pressed("right_click"):
 		draggable = true
-		
+	
 	if draggable:
 		_update_anker()
 		if not _update_left_click():
@@ -66,6 +66,7 @@ func _update_right_click() -> bool:
 	elif Input.is_action_just_released("right_click"):
 		_process_release()
 		has_released = true
+		draggable = not exited
 		return true
 		
 	return false
@@ -189,7 +190,8 @@ func _on_area_2d_mouse_exited() -> void:
 	if not is_swiping:
 		draggable = false
 	if currently_being_dragged:
-		_process_release()
+		draggable = true
+		#_process_release()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dropable"):
