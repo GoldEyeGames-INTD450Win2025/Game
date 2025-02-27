@@ -512,6 +512,7 @@ script = ExtResource("1_u85ke")
 speed = 10000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 4
 material = SubResource("ShaderMaterial_n2txi")
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_0a7o5")
