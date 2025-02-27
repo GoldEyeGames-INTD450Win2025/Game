@@ -2,7 +2,7 @@
 
 [sub_resource type="GDScript" id="GDScript_4jsyf"]
 script/source = "extends Control
-var textfile = \"res://assets/dialogue.txt\"
+var textfile = \"res://dialogue.txt\"
 var dialogue_data = []
 var matched_row = []
 var matched_index = -1
