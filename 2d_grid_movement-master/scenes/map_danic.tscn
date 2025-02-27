@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=48 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://de2t1ej2yfium" path="res://assets/art_drawn_tile/ruins_sprite_completed.png" id="8_76nb1"]
 [ext_resource type="Texture2D" uid="uid://chvv2eph44y20" path="res://assets/art_drawn_tile/oasis_sprites_new.png" id="9_4nqhh"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="10_mw70b"]
+[ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="15_dwdn3"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="16_kvmhi"]
 [ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="17_lk0eo"]
 [ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="17_wio1y"]
@@ -708,7 +709,7 @@ script/source = "extends Area2D
 signal player_near_Activator3_Area2D  # Define signal to later emit
 var one_time_trigger = false
 var player_inside = false
-@onready var mural_piece_placeholder: ColorRect = $ColorRect
+@onready var mural_piece_placeholder: ColorRect = $ColorRect2
 func _on_body_entered(body):
 	if body.name == \"Player_Char2D\":
 		player_inside = true
@@ -724,6 +725,7 @@ func _on_body_exited(body):
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed(\"action_mural\"):
 		mural_piece_placeholder.visible = not mural_piece_placeholder.visible
+		#Engine.time_scale = !(mural_piece_placeholder.visible) # Freeze/unfreeze game logic
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su01s"]
@@ -768,6 +770,7 @@ script/source = "extends Node2D
 @onready var label2_title : RichTextLabel  = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label2
 @onready var label3_num_left : RichTextLabel = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label3
 var pieces_left = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var zone_mural = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
@@ -796,27 +799,34 @@ func _on_player_nearby_Mural():
 	print(\"_on_player_nearby_Mural\")
 	label2_title.show()
 	label3_num_left.show()
+	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece1():
 	print(\"_on_player_nearby_Piece1\")
 	label2_title.show()
 	label3_num_left.show()
 	pieces_left = pieces_left - 1
+	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
+	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece2():
 	print(\"_on_player_nearby_Piece2\")
 	label2_title.show()
 	label3_num_left.show()
 	pieces_left = pieces_left - 1
+	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
+	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece3():
 	print(\"_on_player_nearby_Piece3\")
 	label2_title.show()
 	label3_num_left.show()
 	pieces_left = pieces_left - 1
+	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
+	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 #func _on_player_nearby_Piece4():
 	#print(\"_on_player_nearby_Piece4\")
@@ -1025,6 +1035,9 @@ offset_top = -191.0
 offset_right = 18.0
 offset_bottom = -91.0
 color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" parent="Activator3_Area2D" instance=ExtResource("15_dwdn3")]
+visible = false
 
 [node name="Activator5_Area2D" type="Area2D" parent="."]
 z_index = 2

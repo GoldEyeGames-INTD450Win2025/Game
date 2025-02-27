@@ -137,14 +137,17 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Done.\"
+			#Engine.time_scale = 0 # Freeze game logic
 			dialogue_box.show()
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
 			dialogue_box.hide()
+			#Engine.time_scale = 1 # unFreeze game logic
 		else:
 			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Next...\"
+			#Engine.time_scale = 0 # Freeze game logic
 			dialogue_box.show()
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
