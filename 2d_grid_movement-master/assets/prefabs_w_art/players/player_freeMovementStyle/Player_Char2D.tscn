@@ -512,7 +512,9 @@ script = ExtResource("1_u85ke")
 speed = 10000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 4
 material = SubResource("ShaderMaterial_n2txi")
+position = Vector2(-0.200001, -7.525)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_0a7o5")
 animation = &"run_down"
@@ -523,6 +525,7 @@ offset = Vector2(0, -70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
+position = Vector2(-0.200001, -7.525)
 shape = SubResource("RectangleShape2D_6cn8e")
 
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="."]
