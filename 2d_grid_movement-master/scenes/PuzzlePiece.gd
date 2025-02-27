@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	_update(delta)
 
 func _update(_delta: float):
-	if exited == false and not Global.is_dragging and not Input.is_action_pressed("left_click") and not Input.is_action_pressed("right_click"):
+	if exited == false and not Global.is_dragging and not Input.is_action_pressed("right_click") and not Input.is_action_pressed("right_click"):
 		draggable = true
 		
 	if draggable:
@@ -41,7 +41,7 @@ func _update(_delta: float):
 		if not _update_left_click():
 			_update_right_click()
 			
-	if Input.is_action_just_released("left_click"):
+	if Input.is_action_just_released("right_click"):
 		Global.is_dragging = false
 
 func _update_anker():
@@ -51,33 +51,33 @@ func _update_anker():
 			if is_inside_dropabale:
 				break
 
-func _update_left_click() -> bool:
-	if Input.is_action_just_pressed("left_click"):
+func _update_right_click() -> bool:
+	if Input.is_action_just_pressed("right_click"):
 		Global.is_dragging = true
 		offset = get_global_mouse_position() - global_position
 		currently_being_dragged = true
 		return true
 			
-	elif Input.is_action_pressed("left_click"):
+	elif Input.is_action_pressed("right_click"):
 		global_position = get_global_mouse_position() - offset
 		z_index = 10
 		return true
 		
-	elif Input.is_action_just_released("left_click"):
+	elif Input.is_action_just_released("right_click"):
 		_process_release()
 		has_released = true
 		return true
 		
 	return false
 
-func _update_right_click() -> bool:
-	if Input.is_action_pressed("right_click"):
+func _update_left_click() -> bool:
+	if Input.is_action_pressed("left_click"):
 		if not is_swiping:
 			is_swiping = true
 			swipe_start_pos = get_global_mouse_position()
 		return true
 			
-	elif Input.is_action_just_released("right_click") and is_swiping:
+	elif Input.is_action_just_released("left_click") and is_swiping:
 		is_swiping = false
 		draggable = not exited
 		_process_swipe()
