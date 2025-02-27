@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://cytlexciip26f"]
 
 [ext_resource type="Script" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/player_char_2d.gd" id="1_u85ke"]
-[ext_resource type="Shader" uid="uid://p038cpejvtm3" path="res://assets/scripts_backups/dissolve.tres" id="2_60i7r"]
+[ext_resource type="Shader" uid="uid://1dffvqpboonx" path="res://assets/scripts_backups/dissolve.tres" id="2_60i7r"]
 [ext_resource type="Texture2D" uid="uid://dg8pf33vfko5h" path="res://assets/art_drawn_tile/Masika_spritesheet.png" id="2_80e81"]
 [ext_resource type="Texture2D" uid="uid://gsr7hg4kl7xx" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/54300.png" id="2_watrc"]
 
