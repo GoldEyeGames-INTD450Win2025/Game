@@ -2,11 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
-[ext_resource type="PackedScene" uid="uid://bjglu073m3mfx" path="res://scenes/puzzle_1.tscn" id="5_gbvch"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="5_j4a5f"]
 [ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="5_rvc4n"]
 [ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="6_i4ivv"]
-[ext_resource type="PackedScene" path="res://assets/audio/music_manager.tscn" id="6_oop0u"]
+[ext_resource type="PackedScene" uid="uid://btvowrluapqrs" path="res://assets/audio/music_manager.tscn" id="6_oop0u"]
 [ext_resource type="Texture2D" uid="uid://drjvhrbejx0yq" path="res://assets/art_drawn_tile/ruins_sprite.png" id="7_a7usk"]
 [ext_resource type="Texture2D" uid="uid://dnam1jtnxw4nb" path="res://assets/art_drawn_tile/oasis_sprites_watersand.png" id="7_joed8"]
 [ext_resource type="Texture2D" uid="uid://2vfqbtq4ygcn" path="res://assets/art_drawn_tile/water_sprites.png" id="7_jxukp"]
@@ -1330,8 +1329,6 @@ offset_bottom = -136.5
 [node name="MusicManager" parent="Player_Char2D" instance=ExtResource("6_oop0u")]
 position = Vector2(-89.5, 99.5)
 scale = Vector2(0.5, 0.5)
-
-[node name="Puzzle_1" parent="Player_Char2D" instance=ExtResource("5_gbvch")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_as_relative = false
