@@ -1076,6 +1076,7 @@ texture_region_size = Vector2i(128, 128)
 7:1/0 = 0
 3:2/size_in_atlas = Vector2i(5, 6)
 3:2/0 = 0
+3:2/0/y_sort_origin = 360
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-90, 388, -186, 382, -160, 346, -134, 324, -92, 328, -54, 318, -28, 384)
 
 [sub_resource type="TileSet" id="TileSet_dx1bn"]
