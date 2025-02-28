@@ -11,9 +11,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sw7ij"]
 shader = ExtResource("1_2ygnb")
 shader_parameter/blur = 0.5
-shader_parameter/brightness = 0.9
+shader_parameter/brightness = 0.6
 
 [node name="PuzzleCanvas" type="CanvasLayer"]
+visible = false
 script = ExtResource("2_h1eah")
 
 [node name="ColorRect" type="ColorRect" parent="."]
