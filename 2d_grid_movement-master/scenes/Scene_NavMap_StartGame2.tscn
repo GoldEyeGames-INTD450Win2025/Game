@@ -1,10 +1,9 @@
-[gd_scene load_steps=198 format=4 uid="uid://dvy8ii0dyvted"]
+[gd_scene load_steps=197 format=4 uid="uid://dvy8ii0dyvted"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_act2j"]
 [ext_resource type="AudioStream" uid="uid://clh0vsodalpy6" path="res://assets/audio/audio_made_music/ethereal_background.wav" id="2_w3qwj"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_c1aca"]
 [ext_resource type="AudioStream" uid="uid://b0pjv6cxuevca" path="res://assets/audio/audio_free_music/OGASpringySpringo_sand/watch_the_sand.mp3" id="4_qfyq5"]
-[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="5_gmpf2"]
 [ext_resource type="PackedScene" uid="uid://27fdgijk4nqi" path="res://assets/prefabs_w_art/npcs/frog/Frog_CharBody2D.tscn" id="6_d1cp2"]
 [ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="7_i7gp2"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="8_kyfbn"]
@@ -10130,13 +10129,6 @@ bus = &"SFX"
 [node name="Audio_Music2" type="AudioStreamPlayer2D" parent="Player_Char2D"]
 stream = ExtResource("4_qfyq5")
 bus = &"Music"
-
-[node name="MainUI" parent="Player_Char2D" instance=ExtResource("5_gmpf2")]
-z_index = 100
-offset_left = -218.5
-offset_top = -176.5
-offset_right = -178.5
-offset_bottom = -136.5
 
 [node name="MusicManager" parent="Player_Char2D" instance=ExtResource("124_bt1ty")]
 position = Vector2(-89.5, 99.5)
