@@ -49,6 +49,7 @@ script = SubResource("GDScript_onco5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 modulate = Color(0.658131, 0.771447, 1, 1)
