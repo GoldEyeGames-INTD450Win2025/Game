@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=56 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -22,6 +22,7 @@
 [ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="17_wio1y"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
+[ext_resource type="PackedScene" uid="uid://jxqmfse2socd" path="res://scenes/fire.tscn" id="23_p1y7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjb16"]
 texture = ExtResource("7_joed8")
@@ -1571,6 +1572,34 @@ script = SubResource("GDScript_jb1ky")
 
 [node name="Sprite2D" parent="ActivatorPiece3left_Area2D" index="0"]
 visible = false
+
+[node name="fire" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(132, -526)
+scale = Vector2(0.25, 0.25)
+
+[node name="fire2" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(139, -617)
+scale = Vector2(0.25, 0.25)
+
+[node name="fire3" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(138, -698)
+scale = Vector2(0.25, 0.25)
+
+[node name="fire4" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(312, -709)
+scale = Vector2(0.25, 0.25)
+
+[node name="fire5" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(463, -710)
+scale = Vector2(0.25, 0.25)
+
+[node name="fire6" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(617, -533)
+scale = Vector2(0.25, 0.5)
+
+[node name="fire7" parent="." instance=ExtResource("23_p1y7g")]
+position = Vector2(131, -526)
+scale = Vector2(0.25, -0.02)
 
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
