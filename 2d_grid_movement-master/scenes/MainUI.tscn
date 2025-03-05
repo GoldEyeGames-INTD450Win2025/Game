@@ -63,7 +63,7 @@ offset_top = 10.0
 offset_right = 1292.0
 offset_bottom = 38.0
 theme_override_font_sizes/normal_font_size = 20
-text = "Hit P to Pause
+text = "Use P to Pause; Use WASD (or Arrow keys) to move; Use SPACE for actions (e.g. Dialogue)
 "
 
 [node name="Label2" type="RichTextLabel" parent="CanvasLayer"]
@@ -73,7 +73,7 @@ offset_top = 35.0
 offset_right = 1248.0
 offset_bottom = 96.0
 theme_override_font_sizes/normal_font_size = 20
-text = "Hit SPACE if at action locations (e.g. Mural) 
+text = "Use SPACE if at action locations (e.g. Mural) 
 Mural Pieces missing:
 "
 
@@ -87,10 +87,14 @@ theme_override_font_sizes/normal_font_size = 20
 text = "3
 "
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_iht1a")]
-layout_mode = 0
-offset_right = 0.0
-offset_bottom = 0.0
-
 [node name="DialogueBox" parent="." instance=ExtResource("2_3bnrt")]
 layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_iht1a")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
