@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw2nc8scgpxuh"
-path="res://.godot/imported/Desert_Sprites_1.png-d43891038ab5cd09e8a006f0fd70e98c.ctex"
+path="res://.godot/imported/Desert_Sprites_1.png-22810d4b2666559135938c315ace599e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art_drawn_tile/Desert_Sprites_1.png"
-dest_files=["res://.godot/imported/Desert_Sprites_1.png-d43891038ab5cd09e8a006f0fd70e98c.ctex"]
+source_file="res://assets/art_drawn_tile/archived/Desert_Sprites_1.png"
+dest_files=["res://.godot/imported/Desert_Sprites_1.png-22810d4b2666559135938c315ace599e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wr58x6ayiygf"
-path="res://.godot/imported/oasis_sprites - Copy.png-f1d8461227124be2f5baa90b6f7511a0.ctex"
+uid="uid://cm4wv1fe0tiq5"
+path="res://.godot/imported/oasis_sprites_26.png-603a8bbcabe631eca4246248dd3db662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art_drawn_tile/oasis_sprites - Copy.png"
-dest_files=["res://.godot/imported/oasis_sprites - Copy.png-f1d8461227124be2f5baa90b6f7511a0.ctex"]
+source_file="res://assets/art_drawn_tile/archived/oasis_sprites_26.png"
+dest_files=["res://.godot/imported/oasis_sprites_26.png-603a8bbcabe631eca4246248dd3db662.ctex"]
 
 [params]
 
