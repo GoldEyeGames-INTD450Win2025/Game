@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://do6n02b7sqkq3"]
+[gd_scene load_steps=12 format=3 uid="uid://do6n02b7sqkq3"]
 
 [ext_resource type="Shader" path="res://blur.gdshader" id="1_2ygnb"]
 [ext_resource type="Script" path="res://scenes/update_puzzle_visibility.gd" id="2_h1eah"]
 [ext_resource type="Texture2D" uid="uid://c3sdurchpcyjh" path="res://assets/art_drawn_tile/mural_1/mural.png" id="3_fmsjj"]
 [ext_resource type="Script" path="res://scenes/puzzle_logic.gd" id="4_88di5"]
 [ext_resource type="Script" path="res://scenes/puzzle_grid.gd" id="4_bkivc"]
+[ext_resource type="AudioStream" uid="uid://daeeudxo472dw" path="res://assets/audio/audio_free_sfx/stone_moves/stone_door.ogg" id="5_5ar10"]
 [ext_resource type="Texture2D" uid="uid://dqwlijh2f1qfq" path="res://assets/art_drawn_tile/click_and_drag_logo.png" id="6_kmspi"]
 [ext_resource type="Texture2D" uid="uid://dsishwu8lfnxf" path="res://assets/art_drawn_tile/slide_logo.png" id="7_qxwc4"]
+[ext_resource type="AudioStream" uid="uid://5oxvfbmo02ay" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk2.wav" id="8_3137d"]
+[ext_resource type="AudioStream" uid="uid://1qnt7461qc5c" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk1.wav" id="9_vooe4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5i6rp"]
 shader = ExtResource("1_2ygnb")
@@ -22,6 +25,21 @@ offset_bottom = 720.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 script = ExtResource("2_h1eah")
+
+[node name="Audio_PieceLift" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3137d")
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="Audio_PieceDrop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_vooe4")
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="Audio_PieceSlide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5ar10")
+pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1280, 720)

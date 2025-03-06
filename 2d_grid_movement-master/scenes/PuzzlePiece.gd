@@ -16,6 +16,10 @@ var offset: Vector2
 var dims = Vector2(1, 1)
 var right_grid
 
+@onready var audio_piecelift = $/root/Map_Danic/Activator3_Area2D/ColorRect2/Audio_PieceLift
+@onready var audio_piecedrop = $/root/Map_Danic/Activator3_Area2D/ColorRect2/Audio_PieceDrop
+@onready var audio_pieceslide = $/root/Map_Danic/Activator3_Area2D/ColorRect2/Audio_PieceSlide
+
 func _ready():
 	self.z_index = 5
 
@@ -42,6 +46,8 @@ func _update(_delta: float):
 			_update_right_click()
 			
 	if Input.is_action_just_released("left_click"):
+		if Global.puzzle_open == true:
+			audio_piecedrop.play()
 		Global.is_dragging = false
 
 func _update_anker():
@@ -53,6 +59,8 @@ func _update_anker():
 
 func _update_left_click() -> bool:
 	if Input.is_action_just_pressed("left_click"):
+		if Global.puzzle_open == true:
+			audio_piecelift.play()
 		Global.is_dragging = true
 		offset = get_global_mouse_position() - global_position
 		currently_being_dragged = true
@@ -73,6 +81,8 @@ func _update_left_click() -> bool:
 func _update_right_click() -> bool:
 	if Input.is_action_pressed("right_click"):
 		if not is_swiping:
+			if Global.puzzle_open == true:
+				audio_pieceslide.play()
 			is_swiping = true
 			swipe_start_pos = get_global_mouse_position()
 		return true
@@ -100,7 +110,6 @@ func _within_range(body: Node2D) -> bool:
 
 func _process_release():
 	currently_being_dragged = false
-	
 	if is_inside_dropabale:
 		anker_ref = to_anker
 		
