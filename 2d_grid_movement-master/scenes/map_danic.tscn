@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=59 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -22,7 +22,8 @@
 [ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="17_wio1y"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
-[ext_resource type="PackedScene" uid="uid://jxqmfse2socd" path="res://scenes/fire.tscn" id="23_p1y7g"]
+[ext_resource type="Shader" path="res://scenes/shine_overlay.gdshader" id="18_ko4ng"]
+[ext_resource type="Texture2D" uid="uid://bqax7hrt5pwi6" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/lake.png" id="19_2yawv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjb16"]
 texture = ExtResource("7_joed8")
@@ -1154,15 +1155,25 @@ func _on_body_entered(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
 size = Vector2(965, 81)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0pde"]
+shader = ExtResource("18_ko4ng")
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.1
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 1.0
+shader_parameter/wait_cycles = 1.0
+
 [sub_resource type="GDScript" id="GDScript_e8wkv"]
 script/source = "extends Area2D
 signal player_near_Activator3_Area2D  # Define signal to later emit
 var one_time_trigger = false
 var player_inside = false
 @onready var mural_piece_placeholder: ColorRect = $ColorRect2
+@onready var mural_action_notifier: ColorRect = $ColorRect
 func _on_body_entered(body):
 	if body.name == \"Player_Char2D\":
 		player_inside = true
+		mural_action_notifier.show()
 		if not one_time_trigger:
 			print(\"Entered by: \", body.name)
 			player_near_Activator3_Area2D.emit()
@@ -1171,6 +1182,7 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.name == \"Player_Char2D\":
 		player_inside = false
+		mural_action_notifier.hide()
 
 func _process(_delta):
 	if player_inside and Input.is_action_just_pressed(\"action_mural\"):
@@ -1179,7 +1191,15 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su01s"]
-size = Vector2(370, 128)
+size = Vector2(291, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_135qg"]
+shader = ExtResource("18_ko4ng")
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.1
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 1.0
+shader_parameter/wait_cycles = 1.0
 
 [sub_resource type="GDScript" id="GDScript_sjlwo"]
 script/source = "extends Area2D
@@ -1220,6 +1240,10 @@ script/source = "extends Node2D
 @onready var label2_title : RichTextLabel  = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label2
 @onready var label3_num_left : RichTextLabel = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label3
 var pieces_left = 3
+@onready var corner_pics : Node2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Node2D
+@onready var corner_pic1_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece1
+@onready var corner_pic2_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece2
+@onready var corner_pic3_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -1249,12 +1273,15 @@ func _on_player_nearby_Mural():
 	print(\"_on_player_nearby_Mural\")
 	label2_title.show()
 	label3_num_left.show()
+	corner_pics.show()
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece1():
 	print(\"_on_player_nearby_Piece1\")
 	label2_title.show()
 	label3_num_left.show()
+	corner_pics.show()
+	corner_pic1_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
@@ -1264,6 +1291,8 @@ func _on_player_nearby_Piece2():
 	print(\"_on_player_nearby_Piece2\")
 	label2_title.show()
 	label3_num_left.show()
+	corner_pics.show()
+	corner_pic2_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
@@ -1273,6 +1302,8 @@ func _on_player_nearby_Piece3():
 	print(\"_on_player_nearby_Piece3\")
 	label2_title.show()
 	label3_num_left.show()
+	corner_pics.show()
+	corner_pic3_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	label3_num_left.text = str(pieces_left)
@@ -1467,11 +1498,22 @@ shape = SubResource("RectangleShape2D_4ijvm")
 
 [node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
 position = Vector2(-581, 156)
+speed = 11000
 
 [node name="Mural" type="Node2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(-201, 1659)
+position = Vector2(-239, 1676)
+
+[node name="Mural_Dirt" type="Sprite2D" parent="."]
+modulate = Color(0.956863, 0.741176, 0.454902, 0.521569)
+z_index = -1
+z_as_relative = false
+material = SubResource("ShaderMaterial_h0pde")
+position = Vector2(-342, 1733)
+rotation = -0.174533
+scale = Vector2(0.552773, 0.452489)
+texture = ExtResource("19_2yawv")
 
 [node name="Activator3_Area2D" type="Area2D" parent="."]
 z_index = 2
@@ -1483,16 +1525,37 @@ collision_mask = 128
 script = SubResource("GDScript_e8wkv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator3_Area2D"]
-position = Vector2(40, -17)
+position = Vector2(42.5, 1)
 shape = SubResource("RectangleShape2D_su01s")
 
 [node name="ColorRect" type="ColorRect" parent="Activator3_Area2D"]
 visible = false
-offset_left = -82.0
-offset_top = -191.0
-offset_right = 18.0
-offset_bottom = -91.0
-color = Color(1, 1, 0, 1)
+material = SubResource("ShaderMaterial_135qg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -210.0
+offset_right = 44.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Activator3_Area2D/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = -12.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "  Open Mural"
+horizontal_alignment = 3
 
 [node name="ColorRect2" parent="Activator3_Area2D" instance=ExtResource("15_dwdn3")]
 
@@ -1572,34 +1635,6 @@ script = SubResource("GDScript_jb1ky")
 
 [node name="Sprite2D" parent="ActivatorPiece3left_Area2D" index="0"]
 visible = false
-
-[node name="fire" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(132, -526)
-scale = Vector2(0.25, 0.25)
-
-[node name="fire2" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(139, -617)
-scale = Vector2(0.25, 0.25)
-
-[node name="fire3" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(138, -698)
-scale = Vector2(0.25, 0.25)
-
-[node name="fire4" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(312, -709)
-scale = Vector2(0.25, 0.25)
-
-[node name="fire5" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(463, -710)
-scale = Vector2(0.25, 0.25)
-
-[node name="fire6" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(617, -533)
-scale = Vector2(0.25, 0.5)
-
-[node name="fire7" parent="." instance=ExtResource("23_p1y7g")]
-position = Vector2(131, -526)
-scale = Vector2(0.25, -0.02)
 
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
