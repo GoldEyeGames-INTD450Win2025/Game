@@ -105,8 +105,10 @@ func player_near_Activator3_Area2D():
 	current_state = State.GUIDING_PIECE1
 
 func _on_player_at_Piece1():
-	print(\"Player at piece1, cat moves to piece2\")
-	current_state = State.GUIDING_PIECE2
+	#print(\"Player at piece1, cat moves to piece2\")
+	#current_state = State.GUIDING_PIECE2
+	print(\"Player at piece1, cat sits at mural\")
+	current_state = State.GUIDING_AWAY_PLAYER
 
 #func _on_timer_timeout_Piece1():
 	#current_state = State.GUIDING_PIECE1

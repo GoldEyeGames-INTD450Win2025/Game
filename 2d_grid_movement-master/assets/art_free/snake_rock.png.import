@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsxpnu8g0s5s3"
-path="res://.godot/imported/snake_rock.png-2244d219e9c6a1d46134aef85779ef42.ctex"
+path="res://.godot/imported/snake_rock.png-0428330ffe2af299d98107a4c6424ec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art_drawn_tile/snake_rock.png"
-dest_files=["res://.godot/imported/snake_rock.png-2244d219e9c6a1d46134aef85779ef42.ctex"]
+source_file="res://assets/art_free/snake_rock.png"
+dest_files=["res://.godot/imported/snake_rock.png-0428330ffe2af299d98107a4c6424ec1.ctex"]
 
 [params]
 
