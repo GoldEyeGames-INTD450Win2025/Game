@@ -29,7 +29,8 @@ var mural: Node2D = null
 var mural_position: Vector2 = Vector2.ZERO
 var mural_closeness_trigger = 10
 var one_time_trigger__timer = 0
-var player_closeness_travel = 300
+var player_closeness_travel = 200
+var player_farthest_dist_followPlayer = 300
 
 var piece1: Node2D = null
 var piece2: Node2D = null
@@ -104,8 +105,10 @@ func player_near_Activator3_Area2D():
 	current_state = State.GUIDING_PIECE1
 
 func _on_player_at_Piece1():
-	print(\"Player at piece1, cat moves to piece2\")
-	current_state = State.GUIDING_PIECE2
+	#print(\"Player at piece1, cat moves to piece2\")
+	#current_state = State.GUIDING_PIECE2
+	print(\"Player at piece1, cat sits at mural\")
+	current_state = State.GUIDING_AWAY_PLAYER
 
 #func _on_timer_timeout_Piece1():
 	#current_state = State.GUIDING_PIECE1
@@ -153,10 +156,28 @@ func _physics_process(delta: float):
 			sfx_ambient.play()
 			timer.start()
 	elif current_state == State.GUIDING_AWAY_PLAYER:
-		if global_position.distance_to(player.global_position) > player_closeness_travel:
+		# Player too far, so cat follows player
+		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
+			var direction = (player.global_position - global_position).normalized()
+			velocity_vector = direction * speed * delta
+			if direction == Vector2(0, 0):
+				animated_sprite.animation = \"idle\"
+				sfx_moving.stop()
+			else:
+				if abs(direction.x) > abs(direction.y):
+					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+				else:
+					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+				sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+				if not sfx_moving.playing:  # prevents overlapping sounds
+					sfx_moving.play()
+			animated_sprite.play()
+		# Player is within buffer zone of cat to piece, so cat stays put
+		elif ( global_position.distance_to(player.global_position) <= player_farthest_dist_followPlayer) and (global_position.distance_to(player.global_position) > player_closeness_travel):
 			velocity_vector = Vector2.ZERO
 			animated_sprite.animation = \"idle\"
 			animated_sprite.play()
+		# Player is close to cat, so cat guides to piece
 		else: 
 			# Move down to puzzle
 			var direction = (mural_position - global_position).normalized()
@@ -180,10 +201,28 @@ func _physics_process(delta: float):
 				print(\"Cat is at mural!\")
 				current_state = State.IDLE
 	elif current_state == State.GUIDING_PIECE1:
-		if global_position.distance_to(player.global_position) > player_closeness_travel:
+		# Player too far, so cat follows player
+		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
+			var direction = (player.global_position - global_position).normalized()
+			velocity_vector = direction * speed * delta
+			if direction == Vector2(0, 0):
+				animated_sprite.animation = \"idle\"
+				sfx_moving.stop()
+			else:
+				if abs(direction.x) > abs(direction.y):
+					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+				else:
+					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+				sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+				if not sfx_moving.playing:  # prevents overlapping sounds
+					sfx_moving.play()
+			animated_sprite.play()
+		# Player is within buffer zone of cat to piece, so cat stays put
+		elif ( global_position.distance_to(player.global_position) <= player_farthest_dist_followPlayer) and (global_position.distance_to(player.global_position) > player_closeness_travel):
 			velocity_vector = Vector2.ZERO
 			animated_sprite.animation = \"idle\"
 			animated_sprite.play()
+		# Player is close to cat, so cat guides to piece
 		else: 
 			# Move down to puzzle
 			var direction = (piece1.global_position - global_position).normalized()
@@ -489,7 +528,7 @@ z_as_relative = false
 y_sort_enabled = true
 motion_mode = 1
 script = SubResource("GDScript_ho0mx")
-speed = 6000
+speed = 11000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

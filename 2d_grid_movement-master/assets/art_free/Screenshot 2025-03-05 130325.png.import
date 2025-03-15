@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvywcn6jwu807"
-path="res://.godot/imported/oasis_sprites_diff_color_water.png-38030e37d20153c8c6e72dc7b605a218.ctex"
+uid="uid://uv3qgqqwqhrf"
+path="res://.godot/imported/Screenshot 2025-03-05 130325.png-ef3ca6ef06fb02fa3a93ccf54bf3dfb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art_drawn_tile/oasis_sprites_diff_color_water.png"
-dest_files=["res://.godot/imported/oasis_sprites_diff_color_water.png-38030e37d20153c8c6e72dc7b605a218.ctex"]
+source_file="res://assets/art_free/Screenshot 2025-03-05 130325.png"
+dest_files=["res://.godot/imported/Screenshot 2025-03-05 130325.png-ef3ca6ef06fb02fa3a93ccf54bf3dfb3.ctex"]
 
 [params]
 

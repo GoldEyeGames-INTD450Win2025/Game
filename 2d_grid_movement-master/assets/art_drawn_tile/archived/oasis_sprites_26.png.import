@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2nc8scgpxuh"
-path="res://.godot/imported/Desert_Sprites_1.png-d43891038ab5cd09e8a006f0fd70e98c.ctex"
+uid="uid://cm4wv1fe0tiq5"
+path="res://.godot/imported/oasis_sprites_26.png-603a8bbcabe631eca4246248dd3db662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art_drawn_tile/Desert_Sprites_1.png"
-dest_files=["res://.godot/imported/Desert_Sprites_1.png-d43891038ab5cd09e8a006f0fd70e98c.ctex"]
+source_file="res://assets/art_drawn_tile/archived/oasis_sprites_26.png"
+dest_files=["res://.godot/imported/oasis_sprites_26.png-603a8bbcabe631eca4246248dd3db662.ctex"]
 
 [params]
 
