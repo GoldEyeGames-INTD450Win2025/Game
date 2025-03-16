@@ -38,6 +38,7 @@ var piece3left: Node2D = null
 var piece3up: Node2D = null
 
 func _ready():
+	Global.cat = self
 	# Find the Activator1 (Area2D) and connect its signal
 	#var zone_Activator1_Area2D = get_node_or_null(\"../Activator1_Area2D\")  # Adjust path as needed
 	#if zone_Activator1_Area2D:

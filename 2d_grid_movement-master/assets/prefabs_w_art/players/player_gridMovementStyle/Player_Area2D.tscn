@@ -1,6 +1,6 @@
 [gd_scene load_steps=69 format=3 uid="uid://b0wysm6c2nqgj"]
 
-[ext_resource type="Script" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/Player_Area2D.gd" id="1_0f6mg"]
+[ext_resource type="Script" uid="uid://woifefpyrwa6" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/Player_Area2D.gd" id="1_0f6mg"]
 [ext_resource type="Texture2D" uid="uid://gsr7hg4kl7xx" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/54300.png" id="2_7r3yo"]
 [ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/sokoban_character.png" id="2_7w7rk"]
 [ext_resource type="Texture2D" uid="uid://dg8pf33vfko5h" path="res://assets/art_drawn_tile/Masika_spritesheet.png" id="4_14aqc"]

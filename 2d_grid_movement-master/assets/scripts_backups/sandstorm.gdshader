@@ -1,19 +1,28 @@
 shader_type canvas_item;
 
-uniform float speed = 100.0;
+const float speed = 100.0;
 uniform float strength = 0.5;
 uniform vec4 overlay_color = vec4(0.6, 0.4, 0.2, 0.3);
+uniform vec4 colorA = vec4(0.95, 0.75, 0.45, 1);
+uniform vec4 colorB = vec4(0.9, 0.65, 0.40, 1);
+uniform vec4 colorC = vec4(0.7, 0.25, 0.18, 1);
+const float particle_size = 3.5;
+const float percentage_particles = 0.03;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-    vec2 uv_offset = UV + vec2(TIME * speed, 0.0);
-    float noise = fract(sin(dot(uv_offset, vec2(12.9898, 78.233))) * 43758.5453);
-    float grain = mix(0.0, noise, strength);
-    vec4 sand_effect = overlay_color * grain;
-    COLOR = sand_effect;
+    vec2 uv_offset = floor(UV * vec2(160.0, 90.0) * vec2(particle_size, particle_size));// + vec2(TIME / speed, 0.0);
+    float noise = fract(sin(dot(uv_offset.xy, vec2(12.345, 67.89))) * 98765.1234 + TIME/2.0);
+    //noise = mix(0.0, noise, strength);
+	float one_minus_p = (1.0 - percentage_particles);
+	float prob_a = one_minus_p + (percentage_particles * 0.4);
+	float prob_b = prob_a + (percentage_particles * 0.3);
+	float prob_c = prob_b + (percentage_particles * 0.2);
+    vec4 sand_effect = noise < one_minus_p ? colorA * 0.5:  noise < prob_a ? colorA : noise < prob_b ? colorB : colorC;
+    COLOR = sand_effect * strength;
 }
 
 //uniform sampler2D noise;
