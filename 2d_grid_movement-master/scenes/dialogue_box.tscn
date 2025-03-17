@@ -13,6 +13,8 @@ var matched_index = -1
 @onready var player_sprite = $/root/Map_Danic/Player_Char2D/AnimatedSprite2D
 @onready var transition_time = 6.0
 
+@onready var cutscene_holder : Control = $/root/Map_Danic/Player_Char2D/MainUI/CutsceneHolder
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#if player_sprite.material:
@@ -138,19 +140,24 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Done.\"
 			#Engine.time_scale = 0 # Freeze game logic
+			cutscene_holder.start_cutscene()
 			dialogue_box.show()
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
+			#wait_for_button_press()
 			dialogue_box.hide()
+			cutscene_holder.stop_cutscene()
 			#Engine.time_scale = 1 # unFreeze game logic
 		else:
 			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(\"res://assets/UI/%s.png\" % matched_row[1])
 			next_button.text = \"Next...\"
 			#Engine.time_scale = 0 # Freeze game logic
+			cutscene_holder.start_cutscene()
 			dialogue_box.show()
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
+			#wait_for_button_press()
 			matched_index += 1
 			
 			# Check if index is within bounds
@@ -163,7 +170,13 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 # Helper function to wait for the button press (using await instead of yield)
 func wait_for_button_press() -> void:
 	# Await until the button press signal is triggered
-	await next_button.pressed
+	await (next_button.pressed)
+	##await (next_button.pressed or Input.is_key_pressed(KEY_N))
+	#while true:
+		#if next_button.pressed:
+			#break
+		#elif Input.is_key_pressed(KEY_N):
+			#break
 	print(\"Proceeding to: next dialogue, or Done\")
 
 # Function to populate the dialogue box with the next row's data

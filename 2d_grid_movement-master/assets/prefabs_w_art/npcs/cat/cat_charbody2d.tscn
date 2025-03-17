@@ -37,6 +37,8 @@ var piece2: Node2D = null
 var piece3left: Node2D = null
 var piece3up: Node2D = null
 
+@onready var navagent2d: NavigationAgent2D = $NavigationAgent2D
+
 func _ready():
 	# Find the Activator1 (Area2D) and connect its signal
 	#var zone_Activator1_Area2D = get_node_or_null(\"../Activator1_Area2D\")  # Adjust path as needed
@@ -157,49 +159,61 @@ func _physics_process(delta: float):
 			timer.start()
 	elif current_state == State.GUIDING_AWAY_PLAYER:
 		# Player too far, so cat follows player
-		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
-			var direction = (player.global_position - global_position).normalized()
-			velocity_vector = direction * speed * delta
-			if direction == Vector2(0, 0):
-				animated_sprite.animation = \"idle\"
-				sfx_moving.stop()
+		#if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
+			###
+		#var direction = (player.global_position - global_position).normalized()
+		### new vector stuff
+		var perpline_direction = (mural.global_position - player.global_position).normalized()
+		var new_target_pos = player.global_position + (perpline_direction * player_closeness_travel)
+		navagent2d.target_position = new_target_pos
+		var direction = (new_target_pos - global_position).normalized()
+		### end of new vector stuff
+		velocity_vector = direction * speed * delta
+		#var accel = 7
+		#velocity_vector = velocity.lerp(direction * speed, accel * delta)
+		if (direction == Vector2(0, 0)) or navagent2d.is_navigation_finished() or (global_position.distance_to(new_target_pos) < 1): ###
+			velocity_vector = Vector2(0, 0) * speed * delta ###
+			#velocity_vector = velocity.lerp(Vector2(0, 0) * speed, accel * delta)
+			animated_sprite.animation = \"idle\"
+			sfx_moving.stop()
+		else:
+			if abs(direction.x) > abs(direction.y):
+				animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 			else:
-				if abs(direction.x) > abs(direction.y):
-					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
-				else:
-					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
-				sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
-				if not sfx_moving.playing:  # prevents overlapping sounds
-					sfx_moving.play()
+				animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+			sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+			if not sfx_moving.playing:  # prevents overlapping sounds
+				sfx_moving.play()
+			###
 			animated_sprite.play()
 		# Player is within buffer zone of cat to piece, so cat stays put
-		elif ( global_position.distance_to(player.global_position) <= player_farthest_dist_followPlayer) and (global_position.distance_to(player.global_position) > player_closeness_travel):
-			velocity_vector = Vector2.ZERO
-			animated_sprite.animation = \"idle\"
-			animated_sprite.play()
-		# Player is close to cat, so cat guides to piece
-		else: 
-			# Move down to puzzle
-			var direction = (mural_position - global_position).normalized()
-			#var direction = Vector2.DOWN
-			velocity_vector = direction * speed * delta
-			if direction == Vector2(0, 0):
-				animated_sprite.animation = \"idle\"
-				sfx_moving.stop()
-			else:
-				if abs(direction.x) > abs(direction.y):
-					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
-				else:
-					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
-				sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
-				if not sfx_moving.playing:  # prevents overlapping sounds
-					sfx_moving.play()
-			# Set animation
-			#animated_sprite.animation = \"run_to_frog\"
-			animated_sprite.play()
-			if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
-				print(\"Cat is at mural!\")
-				current_state = State.IDLE
+		#elif ( global_position.distance_to(player.global_position) <= player_farthest_dist_followPlayer) and (global_position.distance_to(player.global_position) > player_closeness_travel):
+			#velocity_vector = Vector2.ZERO
+			#animated_sprite.animation = \"idle\"
+			#animated_sprite.play()
+		## Player is close to cat, so cat guides to piece
+		#else: 
+			## Move down to puzzle
+			#var direction = (mural_position - global_position).normalized()
+			##var direction = Vector2.DOWN
+			#velocity_vector = direction * speed * delta
+			#if direction == Vector2(0, 0):
+				#animated_sprite.animation = \"idle\"
+				#sfx_moving.stop()
+			#else:
+				#if abs(direction.x) > abs(direction.y):
+					#animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
+				#else:
+					#animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
+				#sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+				#if not sfx_moving.playing:  # prevents overlapping sounds
+					#sfx_moving.play()
+			## Set animation
+			##animated_sprite.animation = \"run_to_frog\"
+			#animated_sprite.play()
+			#if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
+				#print(\"Cat is at mural!\")
+				#current_state = State.IDLE
 	elif current_state == State.GUIDING_PIECE1:
 		# Player too far, so cat follows player
 		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
@@ -526,6 +540,8 @@ size = Vector2(30, 30)
 modulate = Color(0.529067, 0.529067, 0.529067, 1)
 z_as_relative = false
 y_sort_enabled = true
+collision_layer = 129
+collision_mask = 6
 motion_mode = 1
 script = SubResource("GDScript_ho0mx")
 speed = 11000
@@ -546,7 +562,6 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rwq0c")
-disabled = true
 
 [node name="Audio_catwalking" type="AudioStreamPlayer2D" parent="."]
 visible = false
@@ -560,5 +575,9 @@ max_distance = 200.0
 bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
 one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 15.0
+debug_enabled = true

@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dax8ukhexcxl1"]
+[gd_scene load_steps=3 format=3 uid="uid://dax8ukhexcxl1"]
 
 [sub_resource type="GDScript" id="GDScript_onco5"]
 script/source = "extends Control
 
 @onready var slider_sfx = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_SFX
 @onready var slider_music = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_Music
+@onready var MainUIscript = get_parent()
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,11 +27,15 @@ func _on_button_confirm_pressed() -> void:
 	#AudioServer.set_bus_volume_db(2, linear_to_db(slider_sfx.value))
 
 func _on_button_resume_pressed():
-	pass
+	MainUIscript.toggle_pause()
 
 func _on_button_quit_pressed():
-	get_tree().quit()
+	#get_tree().quit()
+	MainUIscript.toggle_pause()
+	get_tree().change_scene_to_file(\"res://scenes/start_menu.tscn\")
 "
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -57,12 +62,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -232.0
-offset_right = 512.0
-offset_bottom = 232.0
+offset_left = -800.0
+offset_top = -362.5
+offset_right = 800.0
+offset_bottom = 362.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button_Resume" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 2
+offset_left = 1472.0
+offset_top = 5.0
+offset_right = 1592.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 75
+text = "X"
+icon = SubResource("ViewportTexture_oni5b")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -85,14 +100,16 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Use P to PauseUnpause; Use WASD (or Arrow keys) to move; Use SPACE for actions (e.g. Dialogue); 
-Use SPACE if at action locations (e.g. Mural) 
+theme_override_font_sizes/normal_font_size = 30
+text = "Use P to Pause; Use WASD (or Arrow keys) to move; Use N for dialogue actions;
+Use SPACE if at Mural
 "
 fit_content = true
 
 [node name="Label_SFX" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "SFX Level"
 vertical_alignment = 2
 
@@ -105,6 +122,7 @@ step = 0.001
 [node name="Label_Music" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 text = "Volume Level"
 vertical_alignment = 2
 
@@ -119,11 +137,6 @@ visible = false
 layout_mode = 2
 text = "Save and Close"
 
-[node name="Button_Resume" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Resume"
-
 [node name="Label_Spacefill" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -131,10 +144,11 @@ vertical_alignment = 2
 
 [node name="Button_Quit" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Quit Game"
 
+[connection signal="pressed" from="CanvasLayer/Panel/Button_Resume" to="." method="_on_button_resume_pressed"]
 [connection signal="drag_ended" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_SFX" to="." method="_on_h_slider_sfx_drag_ended"]
 [connection signal="drag_ended" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_Music" to="." method="_on_h_slider_music_drag_ended"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/Button_Confirm" to="." method="_on_button_confirm_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/Button_Resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]

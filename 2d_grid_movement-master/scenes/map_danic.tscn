@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=63 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -25,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
 [ext_resource type="Shader" path="res://scenes/shine_overlay.gdshader" id="18_ko4ng"]
 [ext_resource type="Texture2D" uid="uid://bqax7hrt5pwi6" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/lake.png" id="19_2yawv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ud0x8"]
+vertices = PackedVector2Array(24.7578, -749.031, 749.258, -751.953, 725.656, -413.891, 365.422, -409.891, 15.8984, -379.867, 349.367, -40.9297, 221.656, -25.8516, -114.547, -244.281, 233.07, 281.039, -612.969, 279.641, -614.93, 14, -502.977, 14, 357.469, 2961.01, -2319.93, 2963.98, -2312.04, 1666.19, -1692.67, 1541.12, 390.023, 2299.43, 479.867, 920.539, -1728.64, 629.75, -903.82, 523.539)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 4, 6, 8), PackedInt32Array(9, 10, 11, 8), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 16, 15, 18, 19), PackedInt32Array(8, 17, 19, 9), PackedInt32Array(8, 11, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(15, -759, 760, -762, 735, -404, 375, -400, 359, -32, 232, -17, 243, 279, 490, 919, 400, 2300, 367, 2971, -2330, 2974, -2322, 1658, -1703, 1533, -1739, 621, -908, 514, -623, 275, -625, 4, -506, 4, -121, -252, 6, -384)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjb16"]
 texture = ExtResource("7_joed8")
@@ -1283,14 +1288,14 @@ func _ready() -> void:
 func _on_player_nearby_Mural():
 	print(\"_on_player_nearby_Mural\")
 	label2_title.show()
-	label3_num_left.show()
+	#label3_num_left.show()
 	corner_pics.show()
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece1():
 	print(\"_on_player_nearby_Piece1\")
 	label2_title.show()
-	label3_num_left.show()
+	#label3_num_left.show()
 	corner_pics.show()
 	corner_pic1_revealed.show()
 	pieces_left = pieces_left - 1
@@ -1301,7 +1306,7 @@ func _on_player_nearby_Piece1():
 func _on_player_nearby_Piece2():
 	print(\"_on_player_nearby_Piece2\")
 	label2_title.show()
-	label3_num_left.show()
+	#label3_num_left.show()
 	corner_pics.show()
 	corner_pic2_revealed.show()
 	pieces_left = pieces_left - 1
@@ -1312,7 +1317,7 @@ func _on_player_nearby_Piece2():
 func _on_player_nearby_Piece3():
 	print(\"_on_player_nearby_Piece3\")
 	label2_title.show()
-	label3_num_left.show()
+	#label3_num_left.show()
 	corner_pics.show()
 	corner_pic3_revealed.show()
 	pieces_left = pieces_left - 1
@@ -1376,10 +1381,31 @@ z_as_relative = false
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_ud0x8")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(-955, 1056)
+radius = 39.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(-1090, 999)
+radius = 50.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(-1347, 995)
+radius = 50.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_os2bo")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(394, -572)
+position = Vector2(387, -551)
 collision_layer = 641
 collision_mask = 6
 
@@ -1432,6 +1458,8 @@ tile_set = SubResource("TileSet_dx1bn")
 z_as_relative = false
 y_sort_enabled = true
 texture_filter = 4
+position = Vector2(251, -1037)
+scale = Vector2(1.6, 1.6)
 tile_map_data = PackedByteArray("AAD8/wwABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_dx1bn")
 
@@ -1490,7 +1518,7 @@ shape = SubResource("RectangleShape2D_vrcud")
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(366, -562)
+position = Vector2(558, -828)
 collision_layer = 2
 collision_mask = 128
 script = SubResource("GDScript_aevhm")
@@ -1523,7 +1551,7 @@ y_sort_enabled = true
 position = Vector2(-239, 1676)
 
 [node name="Mural_Dirt" type="Sprite2D" parent="."]
-modulate = Color(0.124166, 0.0732771, 0.00910584, 0.521569)
+modulate = Color(0.12549, 0.0745098, 0.00784314, 0.156863)
 z_index = -1
 z_as_relative = false
 material = SubResource("ShaderMaterial_lymd2")
