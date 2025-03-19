@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwhkqois33mc"]
+
+[ext_resource type="Script" path="res://assets/boidstest/boids.gd" id="1_0cmwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yno1h"]
+
+[node name="Boids" type="CharacterBody2D"]
+script = ExtResource("1_0cmwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yno1h")

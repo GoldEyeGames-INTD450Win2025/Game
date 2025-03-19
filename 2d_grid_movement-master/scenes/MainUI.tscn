@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://428iyflu81nw"]
+[gd_scene load_steps=9 format=3 uid="uid://428iyflu81nw"]
 
 [ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/pause_menu.tscn" id="1_iht1a"]
 [ext_resource type="Shader" path="res://scenes/shine_overlay.gdshader" id="1_tek07"]
 [ext_resource type="PackedScene" uid="uid://bgmb47x40xceq" path="res://scenes/dialogue_box.tscn" id="2_3bnrt"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="2_y782s"]
+[ext_resource type="PackedScene" uid="uid://c0cqfaxr84bhm" path="res://scenes/endcredits/end_credits.tscn" id="4_isgn3"]
 [ext_resource type="PackedScene" uid="uid://djavkcbpv8yhx" path="res://assets/parallaxtest/cutscene_holder.tscn" id="5_clbmb"]
 
 [sub_resource type="GDScript" id="GDScript_v4oy0"]
@@ -141,6 +142,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_y782s")
 
 [node name="CutsceneHolder" parent="." instance=ExtResource("5_clbmb")]
+layout_mode = 1
+
+[node name="EndCredits" parent="." instance=ExtResource("4_isgn3")]
 layout_mode = 1
 
 [node name="DialogueBox" parent="." instance=ExtResource("2_3bnrt")]

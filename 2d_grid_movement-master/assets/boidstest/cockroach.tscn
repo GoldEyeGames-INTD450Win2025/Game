@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjnai3dc1vohs"]
+
+[ext_resource type="Texture2D" uid="uid://sunxxwombedh" path="res://assets/boidstest/cockroach-move.png" id="1_m2hfj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esum7"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58w5y"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53mv"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm4ts"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u1kw"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl3nm"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocar8"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u4e6"]
+atlas = ExtResource("1_m2hfj")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njhqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esum7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58w5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm4ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u1kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl3nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocar8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u4e6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 50.0
+}]
+
+[node name="Cockroach" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_njhqt")
+autoplay = "default"
+frame_progress = 0.551572
