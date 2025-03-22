@@ -38,6 +38,7 @@ project/assembly_name="grid_movement"
 [global_group]
 
 Player=""
+boid=""
 
 [input]
 

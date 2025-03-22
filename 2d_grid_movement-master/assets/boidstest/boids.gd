@@ -6,13 +6,13 @@ extends CharacterBody2D
 # these weights where defined through
 # trial and error. You can play with them
 # to check how they affect the flock.
-const SEPARATION_WEIGHT = 0.5
-const ALIGNMENT_WEIGHT = 0.5
-const COHESION_WEIGHT = 0.1
+const SEPARATION_WEIGHT = 0.01
+const ALIGNMENT_WEIGHT = 0.05
+const COHESION_WEIGHT = 0.0001
 
 
 var _max_speed = 2
-var _speed = 2
+var _speed = 1
 var _direction = Vector2(0, 1)
 var _separation_distance = 20
 
@@ -23,8 +23,10 @@ func _physics_process(_delta):
 	self.rotation = Vector2(0, 1).angle_to(_direction)
 	var collision = self.move_and_collide(_direction * _speed)
 	if collision:
-		if collision.collider is TileMap:
-			_direction = _collision_reaction_direction(collision)
+		#if collision.collider is TileMap:
+			#_direction = _collision_reaction_direction(collision)
+		var normal = collision.get_normal()  # Get the surface normal
+		_direction = _direction.bounce(normal)  # Reflect the direction
 	else:
 		_direction = _flock_direction()
 
@@ -55,7 +57,7 @@ func _flock_direction():
 		heading /= _local_flockmates.size()
 		cohesion /= _local_flockmates.size()
 		var center_direction = self.position.direction_to(cohesion)
-		var center_speed = _max_speed * self.position.distance_to(cohesion) / $detection_radius/CollisionShape2D.shape.radius
+		var center_speed = _max_speed * self.position.distance_to(cohesion) / $Area2D/CollisionShape2D.shape.radius
 		cohesion = center_direction * center_speed
 
 	return (
@@ -63,7 +65,7 @@ func _flock_direction():
 		separation * SEPARATION_WEIGHT +
 		heading * ALIGNMENT_WEIGHT +
 		cohesion * COHESION_WEIGHT
-	).clamped(_max_speed)
+	).limit_length(_max_speed)
 
 
 func get_direction():
@@ -74,14 +76,29 @@ func set_direction(direction):
 	_direction = direction
 
 
-func _on_detection_radius_body_entered(body):
+#func _on_detection_radius_body_entered(body):
+	#if body == self:
+		#return
+		#print(body.name + _local_flockmates)
+#
+	#if body.is_in_group("boid"):
+		#_local_flockmates.push_back(body)
+#
+#
+#func _on_detection_radius_body_exited(body):
+	#if body.is_in_group("boid"):
+		#_local_flockmates.erase(body)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		return
+		print(body.name + _local_flockmates)
 
 	if body.is_in_group("boid"):
 		_local_flockmates.push_back(body)
 
 
-func _on_detection_radius_body_exited(body):
+func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("boid"):
 		_local_flockmates.erase(body)
