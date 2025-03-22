@@ -31,22 +31,22 @@ func _process(delta: float) -> void:
 			cat_distance = Global.cat.global_position - player.global_position
 		if not up_exited and player.velocity.y < 0:
 			var player_pos = player.global_position
-			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y) - 8 + 128 +32)
+			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y))# - 8 + 128 +32)
 			up_exited = true
 			
 		elif not down_exited and player.velocity.y > 0:
 			var player_pos = player.global_position
-			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y) + 8 + 128 + 16 + 8 -4)
+			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y))# + 8 + 128 + 16 + 8 -4)
 			down_exited = true
 		
 		if not left_exited and player.velocity.x < 0:
 			var player_pos = player.global_position
-			player.global_position = Vector2((-1 * player_pos.x) + 8, player_pos.y)
+			player.global_position = Vector2((-1 * player_pos.x) + 32 +8, player_pos.y)
 			left_exited = true
 				
 		elif not right_exited and player.velocity.x > 0:
 			var player_pos = player.global_position
-			player.global_position = Vector2((-1 * player_pos.x) - 16 - 32 -2, player_pos.y)
+			player.global_position = Vector2((-1 * player_pos.x) - 16 , player_pos.y)
 			right_exited = true
 		if Global.cat != null:
 			Global.cat.global_position = player.global_position + cat_distance
