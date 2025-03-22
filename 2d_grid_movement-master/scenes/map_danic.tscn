@@ -270,27 +270,6 @@ z_as_relative = false
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_ud0x8")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
-position = Vector2(-955, 1056)
-radius = 39.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
-
-[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D"]
-position = Vector2(-1090, 999)
-radius = 50.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
-
-[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="NavigationRegion2D"]
-position = Vector2(-1347, 995)
-radius = 50.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
-
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_os2bo")]
 light_mask = 2
 visibility_layer = 2
@@ -625,21 +604,6 @@ y_sort_enabled = true
 [node name="CollisionShape2D" parent="ActivatorPiece3left_Area2D" index="1"]
 visible = false
 position = Vector2(10.8, -15.2)
-
-[node name="Boids" parent="." instance=ExtResource("26_0wxmo")]
-position = Vector2(602, -674)
-
-[node name="Boids2" parent="." instance=ExtResource("26_0wxmo")]
-position = Vector2(776, -421)
-
-[node name="Boids3" parent="." instance=ExtResource("26_0wxmo")]
-position = Vector2(612, -448)
-
-[node name="Boids4" parent="." instance=ExtResource("26_0wxmo")]
-position = Vector2(744, -615)
-
-[node name="Boids5" parent="." instance=ExtResource("26_0wxmo")]
-position = Vector2(543, -548)
 
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
