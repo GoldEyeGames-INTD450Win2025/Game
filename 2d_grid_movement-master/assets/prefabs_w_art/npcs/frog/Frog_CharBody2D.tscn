@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://27fdgijk4nqi"]
 
 [ext_resource type="Texture2D" uid="uid://bshfbm3bxs8nf" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet.png" id="1_kiyo8"]
-[ext_resource type="Script" path="res://assets/prefabs_w_art/npcs/frog/frog_char_body_2d.gd" id="1_p18vq"]
+[ext_resource type="Script" uid="uid://bq2qb08wbcubv" path="res://assets/prefabs_w_art/npcs/frog/frog_char_body_2d.gd" id="1_p18vq"]
 [ext_resource type="Texture2D" uid="uid://dc7egs0k3p3ju" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet_flipped.png" id="3_8njhm"]
 [ext_resource type="AudioStream" uid="uid://drhflhcbat1so" path="res://assets/prefabs_w_art/npcs/frog/frog.wav" id="3_ljefn"]
 [ext_resource type="Texture2D" uid="uid://b2byg2jqo3xkq" path="res://assets/prefabs_w_art/npcs/frog/frog_2d_animation_spritesheet_flipped_scared.png" id="4_4kdph"]

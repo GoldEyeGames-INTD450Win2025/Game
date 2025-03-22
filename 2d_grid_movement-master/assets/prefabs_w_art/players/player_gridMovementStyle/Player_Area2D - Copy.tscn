@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0wysm6c2nqgj"]
 
-[ext_resource type="Script" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/Player_Area2D.gd" id="1_0f6mg"]
+[ext_resource type="Script" uid="uid://woifefpyrwa6" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/Player_Area2D.gd" id="1_0f6mg"]
 [ext_resource type="Texture2D" uid="uid://fn3ats00hpd7" path="res://assets/prefabs_w_art/players/player_gridMovementStyle/sokoban_character.png" id="2_7w7rk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tia2a"]
@@ -72,10 +72,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e3qh4"]
 _data = {
-"down": SubResource("Animation_c7mrc"),
-"left": SubResource("Animation_88f3v"),
-"right": SubResource("Animation_7vjps"),
-"up": SubResource("Animation_1mx5g")
+&"down": SubResource("Animation_c7mrc"),
+&"left": SubResource("Animation_88f3v"),
+&"right": SubResource("Animation_7vjps"),
+&"up": SubResource("Animation_1mx5g")
 }
 
 [node name="Player_Area2D" type="Area2D"]

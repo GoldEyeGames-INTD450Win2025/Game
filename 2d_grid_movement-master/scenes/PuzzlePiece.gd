@@ -15,6 +15,7 @@ var body_list = []
 var offset: Vector2
 var dims = Vector2(1, 1)
 var right_grid
+var re_size = 0.98
 
 @onready var audio_piecelift = $/root/Map_Danic/Activator3_Area2D/ColorRect2/Audio_PieceLift
 @onready var audio_piecedrop = $/root/Map_Danic/Activator3_Area2D/ColorRect2/Audio_PieceDrop
@@ -39,13 +40,11 @@ func _process(delta: float) -> void:
 func _update(_delta: float):
 	if exited == false and not Global.is_dragging and not Input.is_action_pressed("left_click") and not Input.is_action_pressed("right_click"):
 		draggable = true
-		
 	if draggable:
 		_update_anker()
-		if not _update_left_click():
-			_update_right_click()
-			
-	if Input.is_action_just_released("left_click"):
+		if not _update_right_click():
+			_update_left_click()
+	if Input.is_action_just_released("right_click"):
 		if Global.puzzle_open == true:
 			audio_piecedrop.play()
 		Global.is_dragging = false
@@ -57,29 +56,29 @@ func _update_anker():
 			if is_inside_dropabale:
 				break
 
-func _update_left_click() -> bool:
-	if Input.is_action_just_pressed("left_click"):
+func _update_right_click() -> bool:
+	if Input.is_action_just_pressed("right_click"):
 		if Global.puzzle_open == true:
 			audio_piecelift.play()
 		Global.is_dragging = true
 		offset = get_global_mouse_position() - global_position
 		currently_being_dragged = true
-		return true
-			
-	elif Input.is_action_pressed("left_click"):
-		global_position = get_global_mouse_position() - offset
 		z_index = 10
 		return true
-		
-	elif Input.is_action_just_released("left_click"):
-		_process_release()
-		has_released = true
+			
+	elif Input.is_action_pressed("right_click"):
+		global_position = get_global_mouse_position() - offset
 		return true
 		
+	elif Input.is_action_just_released("right_click"):
+		has_released = true
+		draggable = not exited
+		_process_release()
+		return true
 	return false
 
-func _update_right_click() -> bool:
-	if Input.is_action_pressed("right_click"):
+func _update_left_click() -> bool:
+	if Input.is_action_just_pressed("left_click"):
 		if not is_swiping:
 			if Global.puzzle_open == true:
 				audio_pieceslide.play()
@@ -87,10 +86,10 @@ func _update_right_click() -> bool:
 			swipe_start_pos = get_global_mouse_position()
 		return true
 			
-	elif Input.is_action_just_released("right_click") and is_swiping:
+	elif Input.is_action_just_released("left_click") and is_swiping:
 		is_swiping = false
-		draggable = not exited
 		_process_swipe()
+		draggable = not exited
 		return true
 		
 	return false
@@ -128,8 +127,6 @@ func _set_pos(grid_tile, init=false) -> void:
 		self.z_index = 5
 		
 	else:
-		#grid_tile.get_parent()
-		#var piece_offset = grid_tile.get_parent().global_position - get_parent().global_position
 		global_position = grid_tile.global_position  + (Vector2(dims.y - 1, dims.x - 1) * (grid_scale * spacing)/2)
 		
 	anker_ref = grid_tile
@@ -148,21 +145,46 @@ func _process_swipe():
 	var curr_pos = get_global_mouse_position()
 	var swipe_vector = curr_pos - swipe_start_pos
 	var swipe_dir
-	var magnitude = floor(max(abs(swipe_vector.x), abs(swipe_vector.y)) / 85)
-	magnitude = max(magnitude, 1)
 	
 	if abs(swipe_vector.x) > 10 or abs(swipe_vector.y) > 10:
 		if abs(swipe_vector.x) > abs(swipe_vector.y):
 			swipe_dir = Vector2(swipe_vector.x / abs(swipe_vector.x), 0)
 		else:
 			swipe_dir = Vector2(0, swipe_vector.y / abs(swipe_vector.y))
-			
+		
+		var size_pixels = get_child(0).get_child(0).shape.extents * 2
+		var denom = max(abs(swipe_dir.x) * size_pixels.x, abs(swipe_dir.y) * size_pixels.y) / max(abs(swipe_dir.y) * dims.x, abs(swipe_dir.x) * dims.y)
+		denom = denom * get_parent().scale.x
+		
+		# calculate distance between end position of the slide and half a tile
+		# away from the edge of the tile to slide 
+		# (allows to calculate how many tiles to slide this one tile depending on how far the mouse was dragged)
+		# calculate center of tile
+		var center = global_position + Vector2((dims.y - 1) * denom/2, (dims.x - 1) * denom/2)
+		# calculate side of tile in direction of swipe
+		var side = center + Vector2(dims.y * swipe_dir.x * denom/2, dims.x * swipe_dir.y * denom/2)
+		# calculate point half a tile away from the side
+		var half_block_away = side - Vector2(swipe_dir.x * denom/2, swipe_dir.y * denom/2)
+		# calculate the difference between the start position and the half-tile away
+		var offset_ = half_block_away - swipe_start_pos
+		# calculate difference between end pos and half-tile
+		swipe_vector -= offset_
+		# number of units (tiles) to move this tile towards the end pos of mouse
+		var magnitude = round(max(abs(swipe_vector.x), abs(swipe_vector.y)) / denom)
+
 		var grid = anker_ref.get_parent()
+		var over_shot = false
 		for i in range(magnitude):
 			var target = Vector2(anker_ref.grid_pos.x + (swipe_dir.y), anker_ref.grid_pos.y + (swipe_dir.x))
 			if _within_grid_boundaries(target.x, target.y, grid):
 				is_inside_dropabale = _process_grid_swipe(grid.slots[target.x][target.y])
-				_process_release()
+				if is_inside_dropabale:
+					_process_release()
+				else:
+					over_shot = true
+					break
+		if not over_shot:
+			exited = false  # tile slid onto cursor, so cursor still on tile
 
 func _within_grid_boundaries(x, y, grid):
 	var size_x = grid.slots.size()
@@ -197,8 +219,10 @@ func _on_area_2d_mouse_exited() -> void:
 	exited = true
 	if not is_swiping:
 		draggable = false
+		
 	if currently_being_dragged:
-		_process_release()
+		draggable = true
+		#_process_release()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dropable"):

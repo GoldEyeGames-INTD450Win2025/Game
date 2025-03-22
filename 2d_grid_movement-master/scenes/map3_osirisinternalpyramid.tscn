@@ -11,18 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="7_cxwnu"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="8_doi1d"]
 [ext_resource type="Texture2D" uid="uid://drjvhrbejx0yq" path="res://assets/art_drawn_tile/ruins_sprite.png" id="9_7bpvd"]
-[ext_resource type="Shader" path="res://assets/scripts_backups/water_distortion.gdshader" id="10_s4apn"]
+[ext_resource type="Shader" uid="uid://c6khusoqo3yc8" path="res://assets/scripts_backups/water_distortion.gdshader" id="10_s4apn"]
 [ext_resource type="Texture2D" uid="uid://de2t1ej2yfium" path="res://assets/art_drawn_tile/ruins_sprite_completed.png" id="11_v1xl2"]
 [ext_resource type="Texture2D" uid="uid://chvv2eph44y20" path="res://assets/art_drawn_tile/oasis_sprites_new.png" id="12_7in62"]
 [ext_resource type="Texture2D" uid="uid://cl7mi6oatq8ve" path="res://assets/art_drawn_tile/Desert_Sprites_fixed.png" id="13_3cs8j"]
 [ext_resource type="Texture2D" uid="uid://b6y41en7ynkt7" path="res://assets/art_drawn_tile/oasis_sprites_diff_color_water_fixed.png" id="14_k1vya"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="15_k4b7u"]
-[ext_resource type="Script" path="res://scenes/border_logic.gd" id="16_ctlpc"]
+[ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="16_ctlpc"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="17_5h1bd"]
 [ext_resource type="Texture2D" uid="uid://dev730aic5mj" path="res://assets/art_free/scales.png" id="18_8pinu"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="18_dp0r8"]
 [ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="19_rrg07"]
-[ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="20_wbutp"]
+[ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="20_wbutp"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="21_8y8yf"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="22_um57h"]
 [ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://scenes/fire.tscn" id="23_80ylk"]
@@ -973,11 +973,11 @@ noise = SubResource("FastNoiseLite_o47vf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b3p4m"]
 shader = ExtResource("10_s4apn")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_evsuc")
 shader_parameter/refraction_stretch = Vector2(1, 1)
 shader_parameter/refraction_strength = 0.004
 shader_parameter/water_tint = Color(0.2, 0.6, 1, 0.1)
 shader_parameter/speed = 0.1
-shader_parameter/refraction_map = SubResource("NoiseTexture2D_evsuc")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf8np"]
 texture = ExtResource("9_7bpvd")

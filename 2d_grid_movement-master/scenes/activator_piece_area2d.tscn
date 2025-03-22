@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://crqhy8rpua2sg"]
 
-[ext_resource type="Shader" path="res://scenes/shine_overlay.gdshader" id="1_7lktd"]
+[ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="1_7lktd"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="1_mb4nu"]
 
 [sub_resource type="GDScript" id="GDScript_0esy8"]
