@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=36 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -43,7 +43,7 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alirh"]
-size = Vector2(155, 61)
+size = Vector2(63, 19)
 
 [sub_resource type="GDScript" id="GDScript_kmcta"]
 script/source = "extends Area2D
@@ -58,7 +58,13 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
-size = Vector2(965, 81)
+size = Vector2(965, 16.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28thc"]
+size = Vector2(300, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf1ri"]
+size = Vector2(350, 83)
 
 [sub_resource type="GDScript" id="GDScript_e8wkv"]
 script/source = "extends Area2D
@@ -423,6 +429,7 @@ script = SubResource("GDScript_aevhm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator1_Area2D"]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(-1.5, 14.5)
 shape = SubResource("RectangleShape2D_alirh")
 
 [node name="Activator2_Area2D" type="Area2D" parent="."]
@@ -435,7 +442,20 @@ collision_mask = 128
 script = SubResource("GDScript_kmcta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(0, -22.75)
 shape = SubResource("RectangleShape2D_4ijvm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(0, 84.625)
+shape = SubResource("RectangleShape2D_4ijvm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(-330, 31)
+shape = SubResource("RectangleShape2D_28thc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(308, 31.5)
+shape = SubResource("RectangleShape2D_bf1ri")
 
 [node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
 position = Vector2(-420, 1269)
