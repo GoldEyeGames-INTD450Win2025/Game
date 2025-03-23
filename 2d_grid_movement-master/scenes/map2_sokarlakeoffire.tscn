@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_l2ht6"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_xo8bq"]
-[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="3_yvd0o"]
+[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_yvd0o"]
 [ext_resource type="PackedScene" uid="uid://btvowrluapqrs" path="res://assets/audio/music_manager.tscn" id="4_4h1fe"]
 [ext_resource type="Texture2D" uid="uid://dnam1jtnxw4nb" path="res://assets/art_drawn_tile/oasis_sprites_watersand.png" id="5_53qrg"]
 [ext_resource type="Texture2D" uid="uid://2vfqbtq4ygcn" path="res://assets/art_drawn_tile/water_sprites.png" id="6_0eobj"]

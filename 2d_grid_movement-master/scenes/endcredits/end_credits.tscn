@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0cqfaxr84bhm"]
 
-[ext_resource type="Script" path="res://scenes/endcredits/end_credits.gd" id="1_e1wub"]
+[ext_resource type="Script" uid="uid://d4khau4wwi5ym" path="res://scenes/endcredits/end_credits.gd" id="1_e1wub"]
 
 [node name="EndCredits" type="Control"]
 layout_mode = 3

@@ -1,6 +1,7 @@
 extends CanvasLayer
 var one_time_activator = false
 @onready var demo_done_label = $PanelContainer2
+@onready var sprite_mural_done = $/root/Map_Danic/TileMapLayer2/Obstacles_Mural_Finished
 signal demo_done_music  # Define signal to later emit
 func _ready():
 	visibility_changed.connect(_on_visibility_changed)
@@ -14,6 +15,7 @@ func _on_visibility_changed() -> void:
 func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
 		one_time_activator = true
-		demo_done_label.show()
+		#demo_done_label.show()
+		sprite_mural_done.show()
 		demo_done_music.emit()
 		
