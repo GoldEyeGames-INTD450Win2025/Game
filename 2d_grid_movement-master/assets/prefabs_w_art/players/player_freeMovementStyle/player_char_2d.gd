@@ -70,6 +70,9 @@ func get_player_input(delta: float) -> void:
 	animated_sprited_2d.play()
 	
 func _physics_process(delta: float) -> void: # like "update every frame (i.e. delta)"
-	if not Global.puzzle_open:
+	if not Global.puzzle_open and not Global.pause_menu_open and not Global.dialogue_box_open:
 		get_player_input(delta)
 		move_and_slide()
+	else:
+		animated_sprited_2d.animation = "idle"
+		audio_sfx_walking.stop()

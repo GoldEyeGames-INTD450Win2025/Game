@@ -2,6 +2,8 @@ extends CanvasLayer
 var one_time_activator = false
 @onready var demo_done_label = $PanelContainer2
 @onready var sprite_mural_done = $/root/Map_Danic/TileMapLayer2/Obstacles_Mural_Finished
+@onready var completion_sound = $"../../TileMapLayer2/Obstacles_Mural_Finished/completion_sound"
+@onready var muralcomplete_detection_area = $"../../TileMapLayer2/Obstacles_Mural_Finished/Area2D"
 signal demo_done_music  # Define signal to later emit
 func _ready():
 	visibility_changed.connect(_on_visibility_changed)
@@ -17,5 +19,8 @@ func _process(_delta: float) -> void:
 		one_time_activator = true
 		#demo_done_label.show()
 		sprite_mural_done.show()
+		muralcomplete_detection_area.monitoring = true
+		muralcomplete_detection_area.monitorable = true
 		demo_done_music.emit()
+		completion_sound.play()
 		

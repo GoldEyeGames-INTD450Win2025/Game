@@ -61,43 +61,44 @@ text = "
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer"]
 visible = false
+position = Vector2(0, 127.16)
 
 [node name="RuinPiece4_black" type="Sprite2D" parent="CanvasLayer/Node2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(40, 87)
+position = Vector2(40, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 
 [node name="RuinPiece5_black" type="Sprite2D" parent="CanvasLayer/Node2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(98, 87)
+position = Vector2(98, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 
 [node name="RuinPiece6_black" type="Sprite2D" parent="CanvasLayer/Node2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(157, 87)
+position = Vector2(157, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 
 [node name="RuinPiece1" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_ore7p")
-position = Vector2(40, 87)
+position = Vector2(40, 127)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 
 [node name="RuinPiece2" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_ore7p")
-position = Vector2(98, 87)
+position = Vector2(98, 127)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 
 [node name="RuinPiece3" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_ore7p")
-position = Vector2(157, 87)
+position = Vector2(157, 127)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_y782s")
 

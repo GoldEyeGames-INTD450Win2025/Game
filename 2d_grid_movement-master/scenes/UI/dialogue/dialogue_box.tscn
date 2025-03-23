@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgmb47x40xceq"]
+[gd_scene load_steps=5 format=3 uid="uid://bgmb47x40xceq"]
 
 [sub_resource type="GDScript" id="GDScript_4jsyf"]
 script/source = "extends Control
@@ -146,10 +146,12 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 				#cutscene_called = matched_row[4]
 				#cutscene_holder.start_cutscene()
 			dialogue_box.show()
+			Global.dialogue_box_open = true
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
 			#wait_for_button_press()
 			dialogue_box.hide()
+			Global.dialogue_box_open = false
 			if cutscene_called != \"\":
 				cutscene_called = \"\"
 				cutscene_holder.stop_cutscene()
@@ -163,6 +165,7 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 				cutscene_called = matched_row[4]
 				cutscene_holder.start_cutscene(cutscene_called)
 			dialogue_box.show()
+			Global.dialogue_box_open = true
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
 			#wait_for_button_press()
@@ -179,12 +182,7 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 func wait_for_button_press() -> void:
 	# Await until the button press signal is triggered
 	await (next_button.pressed)
-	##await (next_button.pressed or Input.is_key_pressed(KEY_N))
-	#while true:
-		#if next_button.pressed:
-			#break
-		#elif Input.is_key_pressed(KEY_N):
-			#break
+	# * NOTE: This button also has Shortcut event of N input key (see button)
 	print(\"Proceeding to: next dialogue, or Done\")
 
 # Function to populate the dialogue box with the next row's data
@@ -195,6 +193,12 @@ func do_dialogue_next_action(index: int):
 "
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ct7gv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cu2h3"]
+physical_keycode = 78
+
+[sub_resource type="Shortcut" id="Shortcut_to680"]
+events = [SubResource("InputEventKey_cu2h3")]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -262,6 +266,7 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 27
+shortcut = SubResource("Shortcut_to680")
 text = "Next..."
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/Button_Next" to="." method="_on_button_next_pressed"]

@@ -28,20 +28,7 @@ func toggle_pause():
 	# * Stop Player Movement: Ensure that your player node's process_mode is set to PROCESS_MODE_PAUSABLE.
 	Engine.time_scale = !is_paused # Freeze game logic
 	pause_menu_visibility.visible = is_paused  # Show or hide menu
-	#if is_paused:
-		#disable_wasd()
-		#
-	#else:
-		#enable_wasd()
-
-#func disable_wasd():
-	#InputMap.action_erase_event("ui_up", InputEventKey.new())
-	#InputMap.action_erase_event("ui_down", InputEventKey.new())
-	#InputMap.action_erase_event("ui_left", InputEventKey.new())
-	#InputMap.action_erase_event("ui_right", InputEventKey.new())
-#
-#func enable_wasd():
-	#InputMap.load_from_project_settings()  # Reloads default inputs
+	Global.pause_menu_open = is_paused
 
 func _on_h_slider_sfx_drag_ended(_value_changed: bool) -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(slider_sfx.value))
