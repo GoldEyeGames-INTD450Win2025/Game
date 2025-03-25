@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=42 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -26,6 +26,33 @@ shader_parameter/line_width = 0.52
 shader_parameter/angle = 0.785398
 shader_parameter/speed = 3.5
 shader_parameter/wait_cycles = 1.0
+
+[sub_resource type="GDScript" id="GDScript_8kcp0"]
+script/source = "extends PointLight2D
+
+var rising = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#pass # Replace with function body.
+	do_flutter()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func do_flutter():
+	var tween = get_tree().create_tween()
+	if rising:
+		tween.tween_property(self, \"energy\", 10, 1.0) # Increase energy
+	else:
+		tween.tween_property(self, \"energy\", 5, 1.0) # Decrease energy
+	tween.tween_callback(func(): 
+		rising = !rising
+		do_flutter()
+	)
+"
 
 [sub_resource type="GDScript" id="GDScript_bf1ri"]
 script/source = "extends Area2D
@@ -198,7 +225,7 @@ var pieces_left = 3
 @onready var corner_pic1_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece1
 @onready var corner_pic2_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece2
 @onready var corner_pic3_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece3
-
+@onready var musicmanager = $\"../Player_Char2D/MusicManager\"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var zone_mural = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
@@ -273,6 +300,7 @@ func update_corner_pic_reveal():
 		corner_pic2_revealed.show()
 	elif pieces_left == 0:
 		corner_pic3_revealed.show()
+		musicmanager._on_demoDone()
 
 #func _on_player_nearby_Piece4():
 	#print(\"_on_player_nearby_Piece4\")
@@ -474,6 +502,7 @@ skew = -0.0244346
 color = Color(1, 0.309804, 0.239216, 1)
 energy = 10.0
 texture = ExtResource("8_bf1ri")
+script = SubResource("GDScript_8kcp0")
 
 [node name="Area2D" type="Area2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
 position = Vector2(-397.897, 1690.18)
@@ -596,6 +625,7 @@ shape = SubResource("RectangleShape2D_bf1ri")
 
 [node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
 position = Vector2(-420, 1269)
+speed = 10000
 
 [node name="Activator3_Area2D" type="Area2D" parent="."]
 z_index = 2

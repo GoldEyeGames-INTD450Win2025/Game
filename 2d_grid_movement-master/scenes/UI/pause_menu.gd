@@ -22,6 +22,7 @@ func _process(_delta):
 		#toggle_pause()
 
 func toggle_pause():
+	sfxtester.play()
 	is_paused = !is_paused
 	print("is_paused = " + str(is_paused))
 	#get_tree().paused = is_paused  # Freeze game logic
