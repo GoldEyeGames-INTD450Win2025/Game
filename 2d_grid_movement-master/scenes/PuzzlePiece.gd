@@ -91,7 +91,7 @@ func _update_left_click() -> bool:
 	elif Input.is_action_just_released("left_click") and is_swiping:
 		is_swiping = false
 		_process_swipe()
-		draggable = not exited
+		draggable = false#not exited
 		return true
 		
 	return false
@@ -187,6 +187,8 @@ func _process_swipe():
 				else:
 					over_shot = true
 					break
+			else:
+				over_shot = true
 		if not over_shot:
 			exited = false  # tile slid onto cursor, so cursor still on tile
 
