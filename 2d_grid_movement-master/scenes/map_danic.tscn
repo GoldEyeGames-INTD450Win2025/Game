@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=35 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://dyomyvg4v11m6" path="res://scenes/distorted_water_material.tres" id="7_4i7da"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="7_28thc"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="10_mw70b"]
+[ext_resource type="PackedScene" uid="uid://h5e42ertap6e" path="res://scenes/puzzle_2.tscn" id="13_bf1ri"]
 [ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="14_0pohi"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="15_dwdn3"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="16_kvmhi"]
@@ -494,7 +495,9 @@ text = "  Open Mural"
 horizontal_alignment = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" parent="Activator3_Area2D" instance=ExtResource("15_dwdn3")]
+[node name="ColorRect2_temp_name" parent="Activator3_Area2D" instance=ExtResource("15_dwdn3")]
+
+[node name="ColorRect2" parent="Activator3_Area2D" instance=ExtResource("13_bf1ri")]
 
 [node name="Activator5_Area2D" type="Area2D" parent="."]
 z_index = 2

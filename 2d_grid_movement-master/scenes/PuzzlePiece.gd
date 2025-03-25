@@ -73,6 +73,8 @@ func _update_right_click() -> bool:
 	elif Input.is_action_just_released("right_click"):
 		has_released = true
 		draggable = not exited
+		#if to_anker == null or (to_anker.get_parent().name == right_grid.name and to_anker.get_parent().name == anker_ref.get_parent().name):
+		#	is_inside_dropabale = false
 		_process_release()
 		return true
 	return false
@@ -96,7 +98,7 @@ func _update_left_click() -> bool:
 
 func _process_grid(body: Node2D) -> bool:
 	if ((not body.is_occupied) or (body in occupying)):
-		if (anker_ref.get_parent() != right_grid or anker_ref.get_parent() != body.get_parent()):
+		if (anker_ref.get_parent().name != right_grid.name or anker_ref.get_parent().name != body.get_parent().name):
 			if _within_range(body):
 				var neighbours = _valid_grid(body)
 				if neighbours:
@@ -105,7 +107,8 @@ func _process_grid(body: Node2D) -> bool:
 	return false
 	
 func _within_range(body: Node2D) -> bool:
-	return (abs(body.global_position.x - global_position.x) < (128 * 0.4)) and (abs(body.global_position.y - global_position.y) < (128 * 0.4))
+	var grid_scale = right_grid.get_parent().scale * right_grid.get_parent().get_parent().scale * right_grid.get_parent().get_parent().get_parent().scale
+	return (abs(body.global_position.x - global_position.x) < (128 * 0.4 * grid_scale.x)) and (abs(body.global_position.y - global_position.y) < (128 * 0.4 * grid_scale.y))
 
 func _process_release():
 	currently_being_dragged = false
@@ -116,7 +119,7 @@ func _process_release():
 
 func _set_pos(grid_tile, init=false) -> void:
 	var spacing = grid_tile.get_parent().spacing
-	var grid_scale = grid_tile.get_parent().scale
+	var grid_scale = grid_tile.get_parent().scale * grid_tile.get_parent().get_parent().scale * grid_tile.get_parent().get_parent().get_parent().scale
 	var neighbours = []
 	
 	if not init:
@@ -152,7 +155,8 @@ func _process_swipe():
 		else:
 			swipe_dir = Vector2(0, swipe_vector.y / abs(swipe_vector.y))
 		
-		var size_pixels = get_child(0).get_child(0).shape.extents * 2
+		var grid_scale = right_grid.get_parent().scale * right_grid.get_parent().get_parent().scale * right_grid.get_parent().get_parent().get_parent().scale
+		var size_pixels = (get_child(0).get_child(0).shape.extents * 2) * grid_scale
 		var denom = max(abs(swipe_dir.x) * size_pixels.x, abs(swipe_dir.y) * size_pixels.y) / max(abs(swipe_dir.y) * dims.x, abs(swipe_dir.x) * dims.y)
 		denom = denom * get_parent().scale.x
 		
