@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=43 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="18_ko4ng"]
+[ext_resource type="PackedScene" uid="uid://c27v03oui25sk" path="res://assets/art_free/snake_medium/snake.tscn" id="19_trnor"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trnor"]
 shader = ExtResource("18_ko4ng")
@@ -786,6 +787,9 @@ y_sort_enabled = true
 [node name="CollisionShape2D" parent="ActivatorPiece3left_Area2D" index="1"]
 visible = false
 position = Vector2(10.8, -15.2)
+
+[node name="snake" parent="." instance=ExtResource("19_trnor")]
+position = Vector2(-259, 1326)
 
 [connection signal="body_entered" from="TileMapLayer2/Obstacles_Mural_Finished/Area2D" to="TileMapLayer2/Obstacles_Mural_Finished/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]

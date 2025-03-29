@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://c44wdpji0bu3d"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://c44wdpji0bu3d"]
 
 [ext_resource type="Texture2D" uid="uid://drjvhrbejx0yq" path="res://assets/art_drawn_tile/ruins_sprite.png" id="1_4t2vi"]
 [ext_resource type="Texture2D" uid="uid://de2t1ej2yfium" path="res://assets/art_drawn_tile/ruins_sprite_completed.png" id="2_glo87"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="7_phvxl"]
 [ext_resource type="Texture2D" uid="uid://b3eym6aaxe2dr" path="res://assets/art_drawn_tile/ruins_sprite_wall.png" id="8_dl25v"]
 [ext_resource type="Texture2D" uid="uid://blourfgu71q7j" path="res://assets/art_drawn_tile/ruins_sprite_and_memories.png" id="9_6j1yb"]
+[ext_resource type="Texture2D" uid="uid://cwrvu8d5tbeuu" path="res://assets/art_drawn_tile/level_3_objects.png" id="10_glo87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf8np"]
 texture = ExtResource("1_4t2vi")
@@ -152,19 +153,36 @@ use_texture_padding = false
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-42.5, -21, -23.5, -40, -0.5, -52, 33.5, -40, 50.5, -16, 40.5, 26, 3.5, 47, -36.5, 19)
 3:3/size_in_atlas = Vector2i(2, 2)
 3:3/0 = 0
+3:3/0/y_sort_origin = 90
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.9415, -68.8658, -44.3112, -86.3645, 0.5, -93, 61.5, -76, 80.5, -99, 106.5, -96, 52.0311, -25.8118, 97.5, -9, 103.5, 5, 79.5, 11, 30.5, -3, -42.5, 96, -104.71, 104.428, 44.8757, -58.7053)
 5:3/size_in_atlas = Vector2i(3, 3)
 5:3/0 = 0
-5:3/0/y_sort_origin = -90
+5:3/0/y_sort_origin = 115
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(63, -78, 166, -74, 172, -56, 187, -48, 186.5, -29, 183.5, 12, 176.5, 87, 151.5, 130, 110.5, 125, 83.5, 111, -35.5, 123, -172.5, 127, -185.5, 55, -156.5, 32, -120.5, 20, -119.5, -59, -121.5, -76, -150.5, -79, -182.5, -74, -183.5, -104, 3, -93)
 4:6/size_in_atlas = Vector2i(4, 2)
 4:6/0 = 0
+4:6/0/y_sort_origin = 60
 0:5/size_in_atlas = Vector2i(4, 3)
 0:5/0 = 0
+0:5/0/y_sort_origin = 180
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-219.69, 34.5227, 210.275, 15.6921, 225.967, 172.614, -232.244, 166.337)
 0:0/size_in_atlas = Vector2i(4, 3)
 0:0/0 = 0
 0:0/0/y_sort_origin = 16
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-201.072, 125.781, -197.529, 74.4056, 160.326, -19.4872, 229.417, 51.3753, -163.869, 166.527)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n25cw"]
+texture = ExtResource("10_glo87")
+texture_region_size = Vector2i(128, 128)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/y_sort_origin = 115
+1:0/size_in_atlas = Vector2i(2, 1)
+1:0/0 = 0
+1:0/0/y_sort_origin = 45
+1:1/size_in_atlas = Vector2i(2, 2)
+1:1/0 = 0
+1:1/0/y_sort_origin = 115
 
 [resource]
 tile_size = Vector2i(128, 128)
@@ -181,3 +199,4 @@ sources/4 = SubResource("TileSetAtlasSource_rymfw")
 sources/5 = SubResource("TileSetAtlasSource_84k5h")
 sources/6 = SubResource("TileSetAtlasSource_qu3yt")
 sources/7 = SubResource("TileSetAtlasSource_tjfev")
+sources/8 = SubResource("TileSetAtlasSource_n25cw")

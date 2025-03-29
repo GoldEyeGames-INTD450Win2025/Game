@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_esd84"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_5x1gd"]
 [ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_kg6vn"]
-[ext_resource type="PackedScene" uid="uid://btvowrluapqrs" path="res://assets/audio/music_manager.tscn" id="4_e651m"]
+[ext_resource type="PackedScene" uid="uid://c0th8bf0nghs" path="res://assets/audio/music_manager_lvl3.tscn" id="4_dlqac"]
 [ext_resource type="Texture2D" uid="uid://bhrto455ihjt6" path="res://assets/art_free/stars-at-night-sky.png" id="5_7el7v"]
 [ext_resource type="Texture2D" uid="uid://dnam1jtnxw4nb" path="res://assets/art_drawn_tile/oasis_sprites_watersand.png" id="5_qu84h"]
 [ext_resource type="Texture2D" uid="uid://2vfqbtq4ygcn" path="res://assets/art_drawn_tile/water_sprites.png" id="6_65q3b"]
@@ -1215,9 +1215,11 @@ size = Vector2(7466.02, 1751)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_es3ea"]
 shader = ExtResource("20_wbutp")
-shader_parameter/speed = 2.0
 shader_parameter/strength = 0.0
 shader_parameter/overlay_color = Vector4(0.6, 0.4, 0.5, 0.3)
+shader_parameter/colorA = Vector4(0.95, 0.75, 0.45, 1)
+shader_parameter/colorB = Vector4(0.9, 0.65, 0.4, 1)
+shader_parameter/colorC = Vector4(0.7, 0.25, 0.18, 1)
 
 [sub_resource type="GDScript" id="GDScript_dhqr3"]
 script/source = "extends Node2D
@@ -1360,9 +1362,7 @@ offset_top = -176.5
 offset_right = -178.5
 offset_bottom = -136.5
 
-[node name="MusicManager" parent="Player_Char2D" instance=ExtResource("4_e651m")]
-position = Vector2(-89.5, 99.5)
-scale = Vector2(0.5, 0.5)
+[node name="MusicManager2" parent="Player_Char2D" instance=ExtResource("4_dlqac")]
 
 [node name="Stars-at-night-sky" type="Sprite2D" parent="."]
 z_index = -2
