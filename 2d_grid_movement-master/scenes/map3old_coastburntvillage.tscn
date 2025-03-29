@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="18_ko4ng"]
-[ext_resource type="PackedScene" uid="uid://c27v03oui25sk" path="res://assets/art_free/snake_medium/snake.tscn" id="19_trnor"]
+[ext_resource type="PackedScene" uid="uid://c27v03oui25sk" path="res://assets/art_free/snake_medium/snake_old.tscn" id="19_trnor"]
 [ext_resource type="Texture2D" uid="uid://cuiw7bfxqflpi" path="res://assets/art_drawn_tile/anubis_1.jpg" id="21_w3nsb"]
 [ext_resource type="Texture2D" uid="uid://biqifsxkehlxl" path="res://assets/art_free/scales_mural.jpg" id="22_77cth"]
 [ext_resource type="Texture2D" uid="uid://dev730aic5mj" path="res://assets/art_free/scales.png" id="23_1ia6j"]

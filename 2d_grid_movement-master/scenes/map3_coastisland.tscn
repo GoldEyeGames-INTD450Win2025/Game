@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://fde040lu81oq"]
+[gd_scene load_steps=50 format=4 uid="uid://fde040lu81oq"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_ni1fu"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_gmwgj"]
@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="8_774tp"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="9_e2tod"]
 [ext_resource type="Texture2D" uid="uid://bk7qwr6vhalhx" path="res://assets/art_free/osiris.jpg" id="10_47jpq"]
+[ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="11_almlv"]
 [ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="11_wc76w"]
+[ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="12_71usw"]
 [ext_resource type="Texture2D" uid="uid://bcosyipnqs6n4" path="res://assets/art_free/egypt-temple-background-ancient.png" id="12_iyony"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="12_lbthj"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="13_61nrp"]
@@ -19,7 +21,6 @@
 [ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="15_fpknf"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="16_6pv6x"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="17_rfujo"]
-[ext_resource type="PackedScene" uid="uid://c27v03oui25sk" path="res://assets/art_free/snake_medium/snake.tscn" id="18_sqtcy"]
 [ext_resource type="Texture2D" uid="uid://cuiw7bfxqflpi" path="res://assets/art_drawn_tile/anubis_1.jpg" id="19_wu517"]
 [ext_resource type="Texture2D" uid="uid://biqifsxkehlxl" path="res://assets/art_free/scales_mural.jpg" id="20_sdflm"]
 [ext_resource type="Texture2D" uid="uid://dev730aic5mj" path="res://assets/art_free/scales.png" id="21_xdte1"]
@@ -1696,6 +1697,8 @@ texture = ExtResource("5_ls4h1")
 0:47/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7g4v2"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_fqujm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trnor"]
@@ -2040,7 +2043,7 @@ metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_ni1fu")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-2784, 735)
+position = Vector2(-1466, 1040)
 collision_layer = 641
 collision_mask = 6
 
@@ -2048,7 +2051,7 @@ collision_mask = 6
 
 [node name="Audio_SFX_Walking" type="AudioStreamPlayer2D" parent="Player_Char2D"]
 stream = ExtResource("2_gmwgj")
-volume_db = -5.0
+volume_db = -29.0
 bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player_Char2D"]
@@ -2217,6 +2220,47 @@ material = SubResource("ShaderMaterial_1jgwa")
 tile_map_data = PackedByteArray("AADn//v/AgAEAAYAAADs//3/AgAEAAYAAADw/wgAAgAEAAYAAAD3/wwAAgAEAAYAAAAIAAwAAgAEAAYAAADs/w0AAgACAAQAAADw/w4AAgACAAQAAAD1/w8AAgAEAAQAAAD9/w8AAgAEAAQAAAD7/w0AAgAEAAQAAAAGAA8AAgAEAAQAAAAEAA0AAgAEAAQAAAAMAAAABQADAAAAAAD9/wIABQADAAAAAAD0//3/BQADAAAAAAD1//3/BQADAAAAAAAQAP3/BQADAAAAAAAAAAwABQADAAIAAAD3/w0ABQADAAIAAADr//n/BAAGAAIAAADn//z/BAAGAAIAAADv/woABAAGAAIAAAD8/wwABAAGAAIAAAAEAA4ABAAGAAIAAAAOAAwABAACAAIAAAD6/w4ABAACAAIAAADy/wsABAACAAIAAADx/woABAACAAIAAADo/wkABAACAAIAAADs/wIABAACAAIAAADr/wIABAAGAAIAAADp//n/BAACAAIAAAD0/wAABQAFAAAAAAD2/wAABQAFAAAAAAD7/wcABQAFAAAAAAD9/wcABQAFAAAAAAD8/wcABQADAAAAAAAUAAQABQADAAAAAAARAAQABQADAAAAAAARAAYABQAFAAAAAAASAAYABQAFAAAAAAATAAAABQAFAAAAAAATAAIABQAFAAAAAAAUAP7/BQAFAAAAAAATAP7/BQAFAAAAAAAOAPr/BQAFAAAAAAAMAPr/BQAFAAAAAAANAPr/BQAFAAAAAAD8//r/BQAFAAAAAAD7//r/BQAFAAAAAAD7//3/BQAFAAAAAAD6/wAABQAFAAAAAAD1/wQABQAFAAAAAAD3//3/BQADAAAAAAALAAYABQADAAAAAAAGAA0AAgACAAQAAAD+/w0AAgACAAQAAAANAA0AAgACAAQAAAALAAwABQADAAIAAAAMAA8AAgAEAAQAAAAJAP7/BAADAAAAAAAIAAIABAADAAAAAAD///7/BAADAAAAAAABAAIABAADAAAAAAADAAQABAADAAAAAAAGAAQABAADAAAAAAACAAQABAADAAEAAAAHAAQABAADAAEAAAAJAAEABAADAAEAAAAAAAEABAADAAEAAAD/////BAADAAEAAAAJAP//BAADAAEAAAAKAP7/BAADAAEAAAD+//7/BAADAAEAAAD+//v/BAADAAEAAAAKAPv/BAADAAEAAAAMAAYABQADAAAAAAA=")
 tile_set = ExtResource("5_fqujm")
 
+[node name="Boids_Snakes" parent="." instance=ExtResource("11_almlv")]
+position = Vector2(-2601, 1457)
+
+[node name="Boids_Snakes6" parent="." instance=ExtResource("11_almlv")]
+modulate = Color(1, 0.542055, 0.470063, 1)
+position = Vector2(-2833, 1416)
+
+[node name="Boids_Snakes5" parent="." instance=ExtResource("11_almlv")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-2697, 1324)
+
+[node name="Boids_Snakes4" parent="." instance=ExtResource("11_almlv")]
+position = Vector2(-2991, 1163)
+
+[node name="Boids_Snakes3" parent="." instance=ExtResource("11_almlv")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-2796, 1584)
+
+[node name="Boids_Snakes2" parent="." instance=ExtResource("11_almlv")]
+position = Vector2(-2753, 1065)
+
+[node name="Boids" parent="." instance=ExtResource("12_71usw")]
+position = Vector2(-1332, 1101)
+scale = Vector2(0.5, 0.5)
+
+[node name="Boids2" parent="." instance=ExtResource("12_71usw")]
+position = Vector2(-1257, 1047)
+scale = Vector2(0.5, 0.5)
+
+[node name="Boids3" parent="." instance=ExtResource("12_71usw")]
+position = Vector2(-1195, 1103)
+scale = Vector2(0.5, 0.5)
+
+[node name="Boids4" parent="." instance=ExtResource("12_71usw")]
+position = Vector2(-1325, 993)
+scale = Vector2(0.5, 0.5)
+
+[node name="Boids5" parent="." instance=ExtResource("12_71usw")]
+position = Vector2(-1178, 968)
+scale = Vector2(0.5, 0.5)
+
 [node name="Osiris" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
@@ -2245,6 +2289,7 @@ visibility_layer = 2147483647
 position = Vector2(0, -2304)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_iywuu")
+disabled = true
 one_way_collision_margin = 0.0
 
 [node name="Down" type="Area2D" parent="Map_Borders"]
@@ -2259,6 +2304,7 @@ visibility_layer = 2147483647
 position = Vector2(0, 2304)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_iywuu")
+disabled = true
 one_way_collision_margin = 0.0
 
 [node name="Left" type="Area2D" parent="Map_Borders"]
@@ -2270,6 +2316,7 @@ collision_layer = 2
 visible = false
 position = Vector2(-3072, 0)
 shape = SubResource("RectangleShape2D_vrcud")
+disabled = true
 
 [node name="Right" type="Area2D" parent="Map_Borders"]
 visible = false
@@ -2280,6 +2327,7 @@ collision_layer = 2
 visible = false
 position = Vector2(3072, 0)
 shape = SubResource("RectangleShape2D_vrcud")
+disabled = true
 
 [node name="Activator1_Area2D" type="Area2D" parent="."]
 z_index = 2
@@ -2499,9 +2547,6 @@ y_sort_enabled = true
 [node name="CollisionShape2D" parent="ActivatorPiece3left_Area2D" index="1"]
 visible = false
 position = Vector2(10.8, -15.2)
-
-[node name="snake" parent="." instance=ExtResource("18_sqtcy")]
-position = Vector2(217, 1697)
 
 [node name="Anubis1" type="Sprite2D" parent="."]
 visible = false

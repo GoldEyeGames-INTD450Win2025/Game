@@ -11,17 +11,17 @@ const ALIGNMENT_WEIGHT = 0.05
 const COHESION_WEIGHT = 0.0001
 
 
-var _max_speed = 4
+var _max_speed = 2
 var _speed = 1
 var _direction = Vector2(0, 1)
 var _separation_distance = 20
 
 var _local_flockmates = []
 
-@onready var animation = $AnimatedSprite2D2
+@onready var animation = $AnimatedSprite2D
 
 func _physics_process(_delta):
-	self.rotation = Vector2(0, 1).angle_to(_direction)
+	#self.rotation = Vector2(0, 1).angle_to(_direction)
 	var collision = self.move_and_collide(_direction * _speed)
 	if collision:
 		#if collision.collider is TileMap:
@@ -31,10 +31,10 @@ func _physics_process(_delta):
 	else:
 		_direction = _flock_direction()
 	
-	#if _direction.x > 0:
-		#animation.play("move_right")
-	#else:
-		#animation.play("move_left")
+	if _direction.x > 0:
+		animation.play("move_right")
+	else:
+		animation.play("move_left")
 
 
 

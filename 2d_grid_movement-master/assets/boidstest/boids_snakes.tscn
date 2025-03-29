@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://su084u2c57cy"]
+
+[ext_resource type="Script" uid="uid://cejei83sbaog" path="res://assets/boidstest/boids_snakes.gd" id="1_e0wee"]
+[ext_resource type="SpriteFrames" uid="uid://bky4iravbr0cd" path="res://assets/art_drawn_tile/snake/snake_anim.tres" id="2_e0wee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0wee"]
+size = Vector2(116, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv0ly"]
+radius = 144.54
+
+[node name="Boids_Snakes" type="CharacterBody2D" groups=["boid"]]
+z_as_relative = false
+y_sort_enabled = true
+texture_filter = 4
+collision_layer = 643
+collision_mask = 134
+motion_mode = 1
+script = ExtResource("1_e0wee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_e0wee")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -40.945)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.04)
+shape = SubResource("RectangleShape2D_e0wee")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tv0ly")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
