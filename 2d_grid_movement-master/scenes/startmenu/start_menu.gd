@@ -6,6 +6,7 @@ extends Control
 @onready var startmenu_sfx_start = $sfx_start
 var fade_duration = 3.0
 @onready var optionsmenu = $Starts_PauseMenu
+@onready var notemenu = $Starts_NoteMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,10 +14,6 @@ func _ready() -> void:
 	blackrect_fade.show()
 	startmenu_music.play()
 	start_animation()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 func start_animation():
 	var fade_tween = get_tree().create_tween()
@@ -32,6 +29,7 @@ func _on_button_start_pressed():
 	await fadeout_tween.finished
 	get_tree().change_scene_to_file("res://scenes/map_danic.tscn")
 
+
 func _on_button_options_pressed():
 	startmenu_sfx_nonstart.play()
 	optionsmenu.show()
@@ -39,6 +37,7 @@ func _on_button_options_pressed():
 func hide_options_menu():
 	startmenu_sfx_nonstart.play()
 	optionsmenu.hide()
+
 
 func _on_button_quit_pressed():
 	startmenu_sfx_nonstart.play()
@@ -48,3 +47,12 @@ func _on_button_quit_pressed():
 	fadeoutquit_tween.tween_property(blackrect_fade, "modulate:a", 1, fade_duration)
 	await fadeoutquit_tween.finished
 	get_tree().quit()
+
+
+func _on_button_note_pressed() -> void:
+	startmenu_sfx_nonstart.play()
+	notemenu.show()
+
+func hide_note_menu():
+	startmenu_sfx_nonstart.play()
+	notemenu.hide()

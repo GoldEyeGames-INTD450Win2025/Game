@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djaluin63tqk7"]
+[gd_scene load_steps=9 format=3 uid="uid://djaluin63tqk7"]
 
 [ext_resource type="Script" uid="uid://dtmjvpude32i5" path="res://scenes/startmenu/start_menu.gd" id="1_r6w2g"]
 [ext_resource type="Texture2D" uid="uid://b00a2avv84uuh" path="res://scenes/startmenu/Game_title_page_ver_2.png" id="2_nphkf"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dtu7ewvk6gi6b" path="res://scenes/startmenu/RPG - A Long Way From Home.mp3" id="4_nphkf"]
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="4_q6o8g"]
 [ext_resource type="PackedScene" uid="uid://c87obrsustkck" path="res://scenes/startmenu/startmenus_pausemenu.tscn" id="7_en0cg"]
+[ext_resource type="PackedScene" uid="uid://s3api7hoq1u5" path="res://scenes/startmenu/startmenus_notemenu.tscn" id="8_q6o8g"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -47,7 +48,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_nphkf")
 expand_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -55,37 +56,84 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -814.0
-offset_top = -171.77
+offset_top = -263.635
 offset_right = 814.0
-offset_bottom = -100.77
+offset_bottom = -64.635
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Button_Start" type="Button" parent="TextureRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button_Start" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 0.294118, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g72l3")
 theme_override_font_sizes/font_size = 62
 text = "START    GAME"
 
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 
-[node name="Button_Options" type="Button" parent="TextureRect/VBoxContainer"]
+[node name="Button_Options" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 0.294118, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g72l3")
 theme_override_font_sizes/font_size = 62
 text = "OPTIONS"
 
-[node name="Label2" type="Label" parent="TextureRect/VBoxContainer"]
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "                        "
+
+[node name="Button_Quit" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 0.294118, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g72l3")
+theme_override_font_sizes/font_size = 62
+text = "QUIT    GAME"
+
+[node name="Label3" type="Label" parent="TextureRect/VBoxContainer"]
 custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 
-[node name="Button_Quit" type="Button" parent="TextureRect/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button_Start" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2"]
+visible = false
+modulate = Color(1, 1, 0.294118, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g72l3")
+theme_override_font_sizes/font_size = 62
+text = "START    GAME"
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="Button_Note" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2"]
+modulate = Color(1, 0.682353, 0.294118, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g72l3")
+theme_override_font_sizes/font_size = 62
+text = "NOTICE"
+
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="Button_Quit" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2"]
+visible = false
 modulate = Color(1, 1, 0.294118, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g72l3")
@@ -105,6 +153,13 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[connection signal="pressed" from="TextureRect/VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/Button_Options" to="." method="_on_button_options_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[node name="Starts_NoteMenu" parent="." instance=ExtResource("8_q6o8g")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Options" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Note" to="." method="_on_button_note_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]
