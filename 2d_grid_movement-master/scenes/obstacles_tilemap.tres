@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://c44wdpji0bu3d"]
+[gd_resource type="TileSet" load_steps=26 format=3 uid="uid://c44wdpji0bu3d"]
 
 [ext_resource type="Texture2D" uid="uid://drjvhrbejx0yq" path="res://assets/art_drawn_tile/ruins_sprite.png" id="1_4t2vi"]
 [ext_resource type="Texture2D" uid="uid://de2t1ej2yfium" path="res://assets/art_drawn_tile/ruins_sprite_completed.png" id="2_glo87"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="3_n25cw"]
+[ext_resource type="Texture2D" uid="uid://ce4cawvrxxxci" path="res://assets/art_drawn_tile/pyramid_sprite_2.png" id="3_t1mtr"]
 [ext_resource type="Texture2D" uid="uid://chvv2eph44y20" path="res://assets/art_drawn_tile/oasis_sprites_new.png" id="4_t1mtr"]
 [ext_resource type="Texture2D" uid="uid://cl7mi6oatq8ve" path="res://assets/art_drawn_tile/Desert_Sprites_fixed.png" id="5_8uutn"]
 [ext_resource type="Texture2D" uid="uid://b6y41en7ynkt7" path="res://assets/art_drawn_tile/oasis_sprites_diff_color_water_fixed.png" id="6_w8fao"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b3eym6aaxe2dr" path="res://assets/art_drawn_tile/ruins_sprite_wall.png" id="8_dl25v"]
 [ext_resource type="Texture2D" uid="uid://blourfgu71q7j" path="res://assets/art_drawn_tile/ruins_sprite_and_memories.png" id="9_6j1yb"]
 [ext_resource type="Texture2D" uid="uid://cwrvu8d5tbeuu" path="res://assets/art_drawn_tile/level_3_objects.png" id="10_glo87"]
+[ext_resource type="Texture2D" uid="uid://b6vj3axekrx68" path="res://assets/art_drawn_tile/new_pyramid_sprite.png" id="12_8uutn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf8np"]
 texture = ExtResource("1_4t2vi")
@@ -29,6 +31,18 @@ texture_region_size = Vector2i(128, 128)
 0:0/size_in_atlas = Vector2i(3, 3)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(182, 78, 182, 60, 128, 28, -64, 32, -172, 102, -172, 116, -60, 172)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8fao"]
+texture = ExtResource("3_t1mtr")
+texture_region_size = Vector2i(128, 128)
+0:4/size_in_atlas = Vector2i(7, 5)
+0:4/0 = 0
+0:4/0/y_sort_origin = 260
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-244.636, 0, 189.037, -22.2397, 383.634, 194.597, 422.554, 294.676, -433.674, 294.676)
+0:0/size_in_atlas = Vector2i(3, 4)
+0:0/0 = 0
+0:0/0/y_sort_origin = 175
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150.645, -3.13843, 3.13843, -47.0764, 144.368, 34.5227, 156.921, 175.752, 40.7996, 251.074, -116.122, 203.998)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1twh"]
 texture = ExtResource("3_n25cw")
@@ -157,14 +171,14 @@ use_texture_padding = false
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.9415, -68.8658, -44.3112, -86.3645, 0.5, -93, 61.5, -76, 80.5, -99, 106.5, -96, 52.0311, -25.8118, 97.5, -9, 103.5, 5, 79.5, 11, 30.5, -3, -42.5, 96, -104.71, 104.428, 44.8757, -58.7053)
 5:3/size_in_atlas = Vector2i(3, 3)
 5:3/0 = 0
-5:3/0/y_sort_origin = 115
+5:3/0/y_sort_origin = 96
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(63, -78, 166, -74, 172, -56, 187, -48, 186.5, -29, 183.5, 12, 176.5, 87, 151.5, 130, 110.5, 125, 83.5, 111, -35.5, 123, -172.5, 127, -185.5, 55, -156.5, 32, -120.5, 20, -119.5, -59, -121.5, -76, -150.5, -79, -182.5, -74, -183.5, -104, 3, -93)
 4:6/size_in_atlas = Vector2i(4, 2)
 4:6/0 = 0
 4:6/0/y_sort_origin = 60
 0:5/size_in_atlas = Vector2i(4, 3)
 0:5/0 = 0
-0:5/0/y_sort_origin = 180
+0:5/0/y_sort_origin = 158
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-219.69, 34.5227, 210.275, 15.6921, 225.967, 172.614, -232.244, 166.337)
 0:0/size_in_atlas = Vector2i(4, 3)
 0:0/0 = 0
@@ -184,6 +198,17 @@ texture_region_size = Vector2i(128, 128)
 1:1/0 = 0
 1:1/0/y_sort_origin = 115
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_phvxl"]
+polygon = PackedVector2Array(-257.319, 4.595, 192.989, -18.3799, 404.358, 183.799, 422.738, 298.673, -422.738, 284.888)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dl25v"]
+texture = ExtResource("12_8uutn")
+texture_region_size = Vector2i(128, 128)
+0:0/size_in_atlas = Vector2i(7, 5)
+0:0/0 = 0
+0:0/0/y_sort_origin = 260
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_phvxl")
+
 [resource]
 tile_size = Vector2i(128, 128)
 uv_clipping = true
@@ -200,3 +225,5 @@ sources/5 = SubResource("TileSetAtlasSource_84k5h")
 sources/6 = SubResource("TileSetAtlasSource_qu3yt")
 sources/7 = SubResource("TileSetAtlasSource_tjfev")
 sources/8 = SubResource("TileSetAtlasSource_n25cw")
+sources/9 = SubResource("TileSetAtlasSource_dl25v")
+sources/10 = SubResource("TileSetAtlasSource_w8fao")

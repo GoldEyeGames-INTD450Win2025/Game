@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djaluin63tqk7"]
+[gd_scene load_steps=10 format=3 uid="uid://djaluin63tqk7"]
 
 [ext_resource type="Script" uid="uid://dtmjvpude32i5" path="res://scenes/startmenu/start_menu.gd" id="1_r6w2g"]
 [ext_resource type="Texture2D" uid="uid://b00a2avv84uuh" path="res://scenes/startmenu/Game_title_page_ver_2.png" id="2_nphkf"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="4_q6o8g"]
 [ext_resource type="PackedScene" uid="uid://c87obrsustkck" path="res://scenes/startmenu/startmenus_pausemenu.tscn" id="7_en0cg"]
 [ext_resource type="PackedScene" uid="uid://s3api7hoq1u5" path="res://scenes/startmenu/startmenus_notemenu.tscn" id="8_q6o8g"]
+[ext_resource type="PackedScene" uid="uid://chi5bd4bp8eiy" path="res://scenes/startmenu/startmenus_lvlselect.tscn" id="9_en0cg"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -132,13 +133,12 @@ custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 
-[node name="Button_Quit" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2"]
-visible = false
+[node name="Button_Lvl" type="Button" parent="TextureRect/VBoxContainer/HBoxContainer2"]
 modulate = Color(1, 1, 0.294118, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g72l3")
 theme_override_font_sizes/font_size = 62
-text = "QUIT    GAME"
+text = "LEVELS"
 
 [node name="Starts_PauseMenu" parent="." instance=ExtResource("7_en0cg")]
 visible = false
@@ -157,9 +157,13 @@ offset_bottom = 0.0
 visible = false
 layout_mode = 1
 
+[node name="Starts_LvlSelect" parent="." instance=ExtResource("9_en0cg")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Options" to="." method="_on_button_options_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Note" to="." method="_on_button_note_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer2/Button_Lvl" to="." method="_on_button_lvl_pressed"]

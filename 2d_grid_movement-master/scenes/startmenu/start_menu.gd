@@ -7,6 +7,7 @@ extends Control
 var fade_duration = 3.0
 @onready var optionsmenu = $Starts_PauseMenu
 @onready var notemenu = $Starts_NoteMenu
+@onready var lvlmenu = $Starts_LvlSelect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,3 +57,12 @@ func _on_button_note_pressed() -> void:
 func hide_note_menu():
 	startmenu_sfx_nonstart.play()
 	notemenu.hide()
+
+
+func _on_button_lvl_pressed() -> void:
+	startmenu_sfx_nonstart.play()
+	lvlmenu.show()
+
+func hide_lvl_menu():
+	startmenu_sfx_nonstart.play()
+	lvlmenu.hide()

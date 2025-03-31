@@ -6,11 +6,20 @@ extends Control
 @onready var signpost : TextureRect = $CanvasLayer/Container/lvl1_left
 @onready var house : TextureRect = $CanvasLayer/Container/lvl1_mid
 @onready var necklace : TextureRect = $CanvasLayer/Container/lvl1_right
+@onready var wholelvl1 : TextureRect = $CanvasLayer/Container/lvl1_left_post
 
-@onready var marketstall : TextureRect = $CanvasLayer/Container/lvl2_left
+@onready var stall : TextureRect = $CanvasLayer/Container/lvl2_left
 @onready var boat : TextureRect = $CanvasLayer/Container/lvl2_mid
-@onready var manor : TextureRect = $CanvasLayer/Container/lvl2_right
-@onready var marketstall_post : TextureRect = $CanvasLayer/Container/lvl2_left_post
+@onready var tallhouse : TextureRect = $CanvasLayer/Container/lvl2_right
+@onready var wholelvl2 : TextureRect = $CanvasLayer/Container/lvl2_left_post
+
+@onready var bucket : TextureRect = $CanvasLayer/Container/lvl3_left
+@onready var statue : TextureRect = $CanvasLayer/Container/lvl3_mid
+@onready var door : TextureRect = $CanvasLayer/Container/lvl3_right
+@onready var wholelvl3 : TextureRect = $CanvasLayer/Container/lvl3_left_post
+
+@onready var lvlfinal1 : TextureRect = $CanvasLayer/Container/lvlfinal1
+@onready var lvlfinal2 : TextureRect = $CanvasLayer/Container/lvlfinal2
 
 @onready var timer : Timer = $CanvasLayer/Timer_par
 var cutscenes_called = []
@@ -45,17 +54,25 @@ func start_cutscene(cutscene_name: String):
 	var tween = create_tween()
 	tween.tween_property(thisnodes_container, "modulate:a", 1.0, fade_duration)
 	var tween1 = create_tween()
-	if this_cutscene in ["signpost", "necklace", "house"]:
+	if this_cutscene in ["signpost", "necklace", "house", "wholelvl1"]:
 		cutscene_level = "lvl1"
-	elif this_cutscene in ["marketstall", "boat", "manor", "marketstall_post"]:
+	elif this_cutscene in ["tallhouse", "stall", "boat", "wholelvl2"]:
 		cutscene_level = "lvl2"
+	elif this_cutscene in ["bucket", "statue", "door", "wholelvl3"]:
+		cutscene_level = "lvl3"
+	elif this_cutscene in ["lvlfinal1"]:
+		cutscene_level = "lvlfinal1"
+	elif this_cutscene in ["lvlfinal2"]:
+		cutscene_level = "lvlfinal2"
 	if cutscene_level == "lvl1":
 		signpost.modulate.a = 1
 		house.modulate.a = 1
 		necklace.modulate.a = 1
+		wholelvl1.modulate.a = 0
 		if "signpost" in cutscenes_called:
-			signpost.show()
+			#signpost.show()
 			if this_cutscene == "signpost":
+				signpost.show()
 				while cutscene_running:
 					tween1 = create_tween()
 					tween1.tween_property(signpost, "modulate:a", 0, cutscene_slice_fade_duration)
@@ -63,9 +80,13 @@ func start_cutscene(cutscene_name: String):
 					tween1 = create_tween()
 					tween1.tween_property(signpost, "modulate:a", 1, cutscene_slice_fade_duration)
 					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(signpost, "modulate:a", 0, cutscene_slice_fade_duration)
+				signpost.hide()
 		if "necklace" in cutscenes_called:
-			necklace.show()
+			#necklace.show()
 			if this_cutscene == "necklace":
+				necklace.show()
 				while cutscene_running:
 					tween1 = create_tween()
 					tween1.tween_property(necklace, "modulate:a", 0, cutscene_slice_fade_duration)
@@ -73,9 +94,13 @@ func start_cutscene(cutscene_name: String):
 					tween1 = create_tween()
 					tween1.tween_property(necklace, "modulate:a", 1, cutscene_slice_fade_duration)
 					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(necklace, "modulate:a", 0, cutscene_slice_fade_duration)
+				necklace.hide()
 		if "house" in cutscenes_called:
-			house.show()
+			#house.show()
 			if this_cutscene == "house":
+				house.show()
 				while cutscene_running:
 					tween1 = create_tween()
 					tween1.tween_property(house, "modulate:a", 0, cutscene_slice_fade_duration)
@@ -83,6 +108,157 @@ func start_cutscene(cutscene_name: String):
 					tween1 = create_tween()
 					tween1.tween_property(house, "modulate:a", 1, cutscene_slice_fade_duration)
 					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(house, "modulate:a", 0, cutscene_slice_fade_duration)
+				house.hide()
+		if "wholelvl1" in cutscenes_called:
+			#wholelvl1.show()
+			if this_cutscene == "wholelvl1":
+				wholelvl1.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl1, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl1, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				wholelvl1.hide()
+	if cutscene_level == "lvl2":
+		tallhouse.modulate.a = 1
+		stall.modulate.a = 1
+		boat.modulate.a = 1
+		wholelvl2.modulate.a = 0
+		if "tallhouse" in cutscenes_called:
+			#tallhouse.show()
+			if this_cutscene == "tallhouse":
+				tallhouse.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(tallhouse, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(tallhouse, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(tallhouse, "modulate:a", 0, cutscene_slice_fade_duration)
+				tallhouse.hide()
+		if "stall" in cutscenes_called:
+			#stall.show()
+			if this_cutscene == "stall":
+				stall.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(stall, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(stall, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(stall, "modulate:a", 0, cutscene_slice_fade_duration)
+				stall.hide()
+		if "boat" in cutscenes_called:
+			#boat.show()
+			if this_cutscene == "boat":
+				boat.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(boat, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(boat, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(boat, "modulate:a", 0, cutscene_slice_fade_duration)
+				boat.hide()
+		if "wholelvl2" in cutscenes_called:
+			#wholelvl2.show()
+			if this_cutscene == "wholelvl2":
+				wholelvl2.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl2, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl2, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				wholelvl2.hide()
+	if cutscene_level == "lvl3":
+		bucket.modulate.a = 1
+		statue.modulate.a = 1
+		door.modulate.a = 1
+		wholelvl3.modulate.a = 0
+		if "bucket" in cutscenes_called:
+			#bucket.show()
+			if this_cutscene == "bucket":
+				bucket.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(bucket, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(bucket, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(bucket, "modulate:a", 0, cutscene_slice_fade_duration)
+				bucket.hide()
+		if "statue" in cutscenes_called:
+			#statue.show()
+			if this_cutscene == "statue":
+				statue.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(statue, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(statue, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(statue, "modulate:a", 0, cutscene_slice_fade_duration)
+				statue.hide()
+		if "door" in cutscenes_called:
+			#door.show()
+			if this_cutscene == "door":
+				door.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(door, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(door, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				tween1 = create_tween()
+				tween1.tween_property(door, "modulate:a", 0, cutscene_slice_fade_duration)
+				door.hide()
+		if "wholelvl3" in cutscenes_called:
+			#wholelvl3.show()
+			if this_cutscene == "wholelvl3":
+				wholelvl3.show()
+				while cutscene_running:
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl3, "modulate:a", 0, cutscene_slice_fade_duration)
+					await tween1.finished
+					tween1 = create_tween()
+					tween1.tween_property(wholelvl3, "modulate:a", 1, cutscene_slice_fade_duration)
+					await tween1.finished
+				wholelvl3.hide()
+	if cutscene_level == "lvlfinal1":
+		lvlfinal1.modulate.a = 0
+		if "lvlfinal1" in cutscenes_called:
+			#lvlfinal1.show()
+			if this_cutscene == "lvlfinal1":
+				lvlfinal1.show()
+				tween1 = create_tween()
+				tween1.tween_property(lvlfinal1, "modulate:a", 1, cutscene_slice_fade_duration)
+				await tween1.finished
+	if cutscene_level == "lvlfinal2":
+		lvlfinal2.modulate.a = 0
+		if "lvlfinal2" in cutscenes_called:
+			#lvlfinal2.show()
+			if this_cutscene == "lvlfinal2":
+				lvlfinal2.show()
+				tween1 = create_tween()
+				tween1.tween_property(lvlfinal2, "modulate:a", 1, cutscene_slice_fade_duration)
+				await tween1.finished
 
 	#var tween2 = create_tween()
 	#var tween3 = create_tween()

@@ -5,7 +5,7 @@ var is_paused = false
 @onready var slider_sfx = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_SFX
 @onready var slider_music = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_Music
 @onready var sfxtester = $SFXtester
-var scene_quittomain = "res://scenes/startmenu/start_menu.tscn"
+#var scene_quittomain = "res://scenes/startmenu/start_menu.tscn"
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,4 +44,4 @@ func _on_button_resume_pressed():
 
 func _on_button_quit_pressed():
 	toggle_pause()
-	get_tree().change_scene_to_file(scene_quittomain)
+	get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")

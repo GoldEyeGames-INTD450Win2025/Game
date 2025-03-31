@@ -9,3 +9,5 @@ var cat = null
 
 var pause_menu_open = false
 var dialogue_box_open = false
+
+var saved_current_music_lvl = 0
