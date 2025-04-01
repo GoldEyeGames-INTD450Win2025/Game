@@ -135,7 +135,7 @@ func _ready() -> void:
 		#_make_grid_occupied(pieces[i], init_grid[i], init_grid[i].get_parent())
 	
 	# placeholder pieces = 10 and 11
-	hidden_pieces = [pieces[12], pieces[13], pieces[14]]
+	hidden_pieces = [pieces[2], pieces[6], pieces[11], pieces[12], pieces[13], pieces[14]]
 	for hidden_piece in hidden_pieces:
 		hidden_piece.visible = false
 
