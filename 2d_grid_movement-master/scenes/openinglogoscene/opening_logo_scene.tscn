@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0hnvxvcbsayc"]
+
+[ext_resource type="Script" uid="uid://ccpwrq3bmyyxb" path="res://scenes/openinglogoscene/opening_logo_scene.gd" id="1_g6664"]
+[ext_resource type="Texture2D" uid="uid://d06do4kq0pyvx" path="res://assets/art_drawn_tile/goldeyegames_logo.png" id="2_12jrq"]
+[ext_resource type="AudioStream" uid="uid://3v6igg0keif2" path="res://scenes/openinglogoscene/silvercollector_oneshot.wav" id="3_g6664"]
+
+[node name="OpeningLogo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("1_g6664")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.5
+offset_top = -178.5
+offset_right = 202.5
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_12jrq")
+expand_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g6664")
+pitch_scale = 0.4

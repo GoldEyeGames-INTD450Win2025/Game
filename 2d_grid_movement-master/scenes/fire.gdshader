@@ -25,7 +25,7 @@ void fragment() {
 	float noise = (fire_noise * (fire_filter + UV.y) - fire_filter) * UV.y * fire_power * mask;
 	vec4 fire_color  = mix (edge_color, base_color, noise);
 	COLOR = vec4(fire_color.rgb * mask, fire_alpha * clamp(noise, 0.0, 1.0));
-	
+
 }
 
 //void light() {
