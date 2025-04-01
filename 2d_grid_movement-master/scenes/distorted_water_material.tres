@@ -6,6 +6,7 @@
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_soic6"]
 width = 2000
 height = 2000
+seamless = true
 noise = ExtResource("2_8tkbj")
 
 [resource]
