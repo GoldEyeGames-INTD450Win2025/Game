@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dnam1jtnxw4nb" path="res://assets/art_drawn_tile/oasis_sprites_watersand.png" id="1_afskp"]
 [ext_resource type="Texture2D" uid="uid://2vfqbtq4ygcn" path="res://assets/art_drawn_tile/water_sprites.png" id="2_bopy8"]
 [ext_resource type="Texture2D" uid="uid://dh065je7v4qp8" path="res://assets/art_drawn_tile/fire_sprites.png" id="2_vlqq5"]
-[ext_resource type="Texture2D" uid="uid://dh065je7v4qp8" path="res://assets/art_drawn_tile/fire_sprites.png" id="2_vlqq5"]
 [ext_resource type="Texture2D" uid="uid://eocs0g0irvb8" path="res://assets/art_drawn_tile/oasis_sprites.png" id="3_vlqq5"]
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="4_negu1"]
 [ext_resource type="Texture2D" uid="uid://dak1eilh78nh6" path="res://assets/art_drawn_tile/new_pyramid_sprite.png" id="4_vlqq5"]

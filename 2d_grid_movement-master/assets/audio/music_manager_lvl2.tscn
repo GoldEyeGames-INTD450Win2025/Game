@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dars8adghg70i"]
+[gd_scene load_steps=9 format=3 uid="uid://017slmhm3qtn"]
 
 [ext_resource type="AudioStream" uid="uid://baiueu8xcccim" path="res://assets/audio/audio_made_music/sandbackground-wsand.wav" id="1_mm33o"]
 [ext_resource type="AudioStream" uid="uid://cs2fu37jk5a2t" path="res://assets/audio/audio_made_music/ethereal_parts/002 Group B1.wav" id="2_h7y4d"]
@@ -41,13 +41,13 @@ func _ready():
 	initialize_starting_track_set()
 	
 	# Find the Activator1 (Area2D) and connect its signal
-	var zone_Activator1_Area2D = get_node(\"../../Activator1_Area2D\")  # Adjust path as needed
+	var zone_Activator1_Area2D = get_node(\"/root/Map_Danic/Activator1_Area2D\")  # Adjust path as needed
 	if zone_Activator1_Area2D:
 		zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
 		print(\"Connected to music signal: Activator1_Area2D\")
 		
 	# Find the Activator2 (Area2D) and connect its signal
-	var zone_Activator3_Area2D = get_node(\"../../Activator3_Area2D\")  # Adjust path as needed
+	var zone_Activator3_Area2D = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
 	if zone_Activator3_Area2D:
 		zone_Activator3_Area2D.player_near_Activator3_Area2D.connect(_on_player_nearby_Activator3)
 		print(\"Connected to music signal: Activator3_Area2D\")

@@ -95,7 +95,6 @@ text = "LEVEL 1 "
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 30
-text = "Level 2 unavailable"
 vertical_alignment = 2
 
 [node name="Button_lvl2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=49 format=4 uid="uid://c6hi5h7l1v40b"]
+[gd_scene load_steps=49 format=4 uid="uid://cwlic8xw54i2n"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_benpb"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_dahhg"]
 [ext_resource type="TileSet" uid="uid://cglbxh3f730bu" path="res://scenes/water_tileset.tres" id="3_1d6il"]
 [ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_k3kfo"]
-[ext_resource type="PackedScene" uid="uid://dars8adghg70i" path="res://assets/audio/music_manager_lvl2.tscn" id="4_uc2nc"]
+[ext_resource type="PackedScene" uid="uid://017slmhm3qtn" path="res://assets/audio/music_manager_lvl2.tscn" id="4_uc2nc"]
 [ext_resource type="Material" uid="uid://dyomyvg4v11m6" path="res://scenes/distorted_water_material.tres" id="4_ucq42"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="5_k3kfo"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="6_uc2nc"]
@@ -618,7 +618,7 @@ disabled = true
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(-7, 2062)
+position = Vector2(-8, 2055)
 collision_layer = 2
 collision_mask = 128
 script = SubResource("GDScript_aevhm")

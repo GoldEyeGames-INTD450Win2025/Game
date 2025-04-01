@@ -21,4 +21,4 @@ func start_transition():
 	current_music._fademusic_lvl1()
 	fadeout_tween.tween_property(blackrect_fade, "modulate:a", 1, fade_duration)
 	await fadeout_tween.finished
-	get_tree().change_scene_to_file("res://scenes/map3_coastisland.tscn")
+	get_tree().change_scene_to_file("res://scenes/map_2.tscn")

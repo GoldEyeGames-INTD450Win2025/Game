@@ -99,8 +99,8 @@ func set_direction(direction):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
+		#print(body.name + _local_flockmates)
 		return
-		print(body.name + _local_flockmates)
 
 	if body.is_in_group("boid"):
 		_local_flockmates.push_back(body)

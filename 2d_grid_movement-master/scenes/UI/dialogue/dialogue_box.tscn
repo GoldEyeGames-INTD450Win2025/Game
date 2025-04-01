@@ -19,7 +19,7 @@ var location_UI_icons = \"res://scenes/UI/dialogue/%s.png\"
 var cutscene_called = \"\"
 
 @onready var lvlend_transition1 = $/root/Map_Danic/Player_Char2D/LvlTransitionOut1
-@onready var lvlend_transition2 = $/root/Map_Danic/Player_Char2D/LvlTransitionOut2
+@onready var lvlend_transition2 = $/root/Map_Danic2/Player_Char2D/LvlTransitionOut2
 @onready var lvlend_transition3 = $/root/Map3/Player_Char2D/LvlTransitionOut3
 @onready var lvlend_transition_final1 = $/root/MapFinal1/Player_Char2D/LvlTransitionOutFinal1
 @onready var lvlend_transition_final2 = $/root/MapFinal2/Player_Char2D/LvlTransitionOutFinal2
@@ -63,26 +63,26 @@ func _ready() -> void:
 		print(\"Connected to signal: player_in_lvl1_finished_mural\")
 
 	#lvl2 fire lake sokar stuff readying
-	#var zone_lvl2_A1 = get_node(\"/root/Map_Danic/Map2_A1\")
-	#if zone_lvl2_A1:
-		#zone_lvl2_A1.player_near_Activator1_Area2D.connect(_on_player_near_lvl2_A1)
-		#print(\"Connected to dialogue signal: zone_lvl2_A1\")
-	#var zone_lvl2_AP1 = get_node(\"/root/Map_Danic/Map2_AP1\")
-	#if zone_lvl2_AP1:
-		#zone_lvl2_AP1.player_near_ActivatorPiece1_Area2D.connect(_on_player_near_lvl2_AP1)
-		#print(\"Connected to dialogue signal: zone_lvl2_AP1\")
-	#var zone_lvl2_AP2 = get_node(\"/root/Map_Danic/Map2_AP2\")
-	#if zone_lvl2_AP2:
-		#zone_lvl2_AP2.player_near_ActivatorPiece2_Area2D.connect(_on_player_near_lvl2_AP2)
-		#print(\"Connected to dialogue signal: zone_lvl2_AP2\")
-	#var zone_lvl2_AP3 = get_node(\"/root/Map_Danic/Map2_AP3\")
-	#if zone_lvl2_AP3:
-		#zone_lvl2_AP3.player_near_ActivatorPiece3_Area2D.connect(_on_player_near_lvl2_AP3)
-		#print(\"Connected to dialogue signal: zone_lvl2_AP3\")
-	#var zone_lvl2_end = get_node(\"/root/Map_Danic/TileMapLayer2/Obstacles_Mural_Finished/Area2D\")
-	#if zone_lvl2_end:
-		#zone_lvl2_end.player_in_lvl1_finished_mural.connect(_on_player_near_lvl2_end)
-		#print(\"Connected to dialogue signal: zone_lvl2_end\")
+	var zone_lvl2_A1 = get_node(\"/root/Map_Danic2/Map2_A1\")
+	if zone_lvl2_A1:
+		zone_lvl2_A1.player_near_Activator1_Area2D.connect(_on_player_near_lvl2_A1)
+		print(\"Connected to dialogue signal: zone_lvl2_A1\")
+	var zone_lvl2_AP1 = get_node(\"/root/Map_Danic2/ActivatorPiece1_Area2D\")
+	if zone_lvl2_AP1:
+		zone_lvl2_AP1.player_near_ActivatorPiece1_Area2D.connect(_on_player_near_lvl2_AP1)
+		print(\"Connected to dialogue signal: zone_lvl2_AP1\")
+	var zone_lvl2_AP2 = get_node(\"/root/Map_Danic2/ActivatorPiece2_Area2D\")
+	if zone_lvl2_AP2:
+		zone_lvl2_AP2.player_near_ActivatorPiece2_Area2D.connect(_on_player_near_lvl2_AP2)
+		print(\"Connected to dialogue signal: zone_lvl2_AP2\")
+	var zone_lvl2_AP3 = get_node(\"/root/Map_Danic2/ActivatorPiece3_Area2D\")
+	if zone_lvl2_AP3:
+		zone_lvl2_AP3.player_near_ActivatorPiece3_Area2D.connect(_on_player_near_lvl2_AP3)
+		print(\"Connected to dialogue signal: zone_lvl2_AP3\")
+	var zone_lvl2_end = get_node(\"/root/Map_Danic2/TileMapLayer2/Obstacles_Mural_Finished/Area2D\")
+	if zone_lvl2_end:
+		zone_lvl2_end.player_in_lvl2_finished_mural.connect(_on_player_near_lvl2_end)
+		print(\"Connected to dialogue signal: zone_lvl2_end\")
 
 	#lvl3 coast island stuff readying
 	var zone_lvl3_A1 = get_node(\"/root/Map3/Lvl3Activators/A1_Start\")
@@ -155,8 +155,8 @@ func _on_player_near_lvl2_AP1():
 	print(\"do_dialogue_trigger_action(testtrigger9)\")
 	do_dialogue_trigger_action(\"testtrigger9\")
 func _on_player_near_lvl2_AP2():
-	print(\"do_dialogue_trigger_action(testtrigger10)\")
-	do_dialogue_trigger_action(\"testtrigger10\")
+	print(\"do_dialogue_trigger_action(testtrigger 10)\")
+	do_dialogue_trigger_action(\"testtrigger 10\") #*NOTE naming
 func _on_player_near_lvl2_AP3():
 	print(\"do_dialogue_trigger_action(testtrigger11)\")
 	do_dialogue_trigger_action(\"testtrigger11\")
@@ -237,7 +237,7 @@ func load_csv_dialogue_data():
 		dialogue_data.append([trigger, character, dialogue_text, next_action, cutscene_tag])
 
 	file.close()
-	print(dialogue_data)  # Debugging to check if it loaded correctly
+	#print(dialogue_data)  # Debugging to check if it loaded correctly
 
 # Function to trigger dialogue and wait for button presses before advancing
 func do_dialogue_trigger_action(trigger: String) -> void:

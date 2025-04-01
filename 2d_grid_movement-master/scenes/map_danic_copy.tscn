@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=64 format=4 uid="uid://d0y30k5muqlfu"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]

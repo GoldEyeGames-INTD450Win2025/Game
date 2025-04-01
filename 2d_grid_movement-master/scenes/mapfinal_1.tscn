@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bfmnar62f51j2"]
+[gd_scene load_steps=47 format=4 uid="uid://gpvi1axeditt"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_l5hy0"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_28nid"]
@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="12_n0cyj"]
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="13_ypv0t"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="14_emt2b"]
-[ext_resource type="PackedScene" uid="uid://bbiib6h6kl4va" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d_lvl3.tscn" id="15_jx3i5"]
-[ext_resource type="Script" uid="uid://j8cgk66mx1i4" path="res://scenes/lvl_3_activators.gd" id="16_6pjv7"]
-[ext_resource type="PackedScene" uid="uid://ccm57no8dpaqa" path="res://scenes/puzzle_3.tscn" id="17_ot7v1"]
-[ext_resource type="Script" uid="uid://bo2fik6jbgfk5" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
+[ext_resource type="PackedScene" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d_lvl3.tscn" id="15_jx3i5"]
+[ext_resource type="Script" path="res://scenes/lvl_3_activators.gd" id="16_6pjv7"]
+[ext_resource type="PackedScene" path="res://scenes/puzzle_3.tscn" id="17_ot7v1"]
+[ext_resource type="Script" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
 [ext_resource type="Texture2D" uid="uid://flsptfcnkmu1" path="res://assets/art_free/night-scene-milky-way-background.png" id="19_l5hy0"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="19_udi1q"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="20_4tt7o"]
@@ -1976,6 +1976,13 @@ z_index = 1
 position = Vector2(-5, -1932)
 scale = Vector2(1.89466, 2.24643)
 texture = ExtResource("6_s3gl2")
+
+[node name="Label" type="Label" parent="Egypt-temple-background-ancient"]
+offset_left = -54.3633
+offset_top = 145.564
+offset_right = 81.6367
+offset_bottom = 168.564
+text = "Press N keyboard"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 z_as_relative = false
