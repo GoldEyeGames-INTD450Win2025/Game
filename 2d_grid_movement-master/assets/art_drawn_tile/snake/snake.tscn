@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch4ftgqmpjg3y"]
+
+[ext_resource type="Script" uid="uid://7v2hxv0t7lvj" path="res://assets/art_drawn_tile/snake/snake.gd" id="1_dj2nf"]
+[ext_resource type="SpriteFrames" uid="uid://bky4iravbr0cd" path="res://assets/art_drawn_tile/snake/snake_anim.tres" id="2_dj2nf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo30e"]
+size = Vector2(120, 24)
+
+[node name="snake" type="CharacterBody2D"]
+z_as_relative = false
+y_sort_enabled = true
+collision_layer = 131
+collision_mask = 134
+motion_mode = 1
+script = ExtResource("1_dj2nf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_dj2nf")
+animation = &"idle"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_yo30e")

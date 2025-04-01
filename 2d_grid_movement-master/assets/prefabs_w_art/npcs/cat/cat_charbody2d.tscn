@@ -8,7 +8,12 @@
 script/source = "extends CharacterBody2D
 
 # States
-enum State { IDLE, MOVING, RUNNING_TO_PLAYER, AT_PLAYER, GUIDING_AWAY_PLAYER,
+enum State { 
+IDLE, 
+MOVING, 
+RUNNING_TO_PLAYER, 
+AT_PLAYER, 
+GUIDING_AWAY_PLAYER,
 GUIDING_PIECE1,
 GUIDING_PIECE2,
 GUIDING_PIECE3left,
@@ -16,7 +21,7 @@ GUIDING_PIECE3up
 }
 
 @onready var timer: Timer = $Timer
-@export var speed: int = 200
+@export var speed: int = 11000
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sfx_moving: AudioStreamPlayer2D = $Audio_catwalking
 @onready var sfx_ambient: AudioStreamPlayer2D = $Audio_meowpurr
@@ -40,6 +45,7 @@ var piece3up: Node2D = null
 @onready var navagent2d: NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
+	Global.cat = self
 	# Find the Activator1 (Area2D) and connect its signal
 	#var zone_Activator1_Area2D = get_node_or_null(\"../Activator1_Area2D\")  # Adjust path as needed
 	#if zone_Activator1_Area2D:
@@ -100,16 +106,18 @@ func _on_player_nearby_Activator2():
 	current_state = State.RUNNING_TO_PLAYER
 	
 func _on_timer_timeout():
-	current_state = State.GUIDING_AWAY_PLAYER
+	print(\"cat at player, cat moves to piece1\")
+	current_state = State.GUIDING_PIECE1
 	
 func player_near_Activator3_Area2D():
-	print(\"Player at mural, cat moves to piece1\")
-	current_state = State.GUIDING_PIECE1
+	print(\"\")
+	#current_state = State.GUIDING_PIECE1
+	#current_state = State.GUIDING_AWAY_PLAYER
 
 func _on_player_at_Piece1():
 	#print(\"Player at piece1, cat moves to piece2\")
 	#current_state = State.GUIDING_PIECE2
-	print(\"Player at piece1, cat sits at mural\")
+	print(\"Player at piece1, cat guides to mural (and sits at mural)\")
 	current_state = State.GUIDING_AWAY_PLAYER
 
 #func _on_timer_timeout_Piece1():
@@ -117,11 +125,11 @@ func _on_player_at_Piece1():
 	
 func _on_player_at_Piece2():
 	print(\"Player at piece1, cat moves to piece2\")
-	current_state = State.GUIDING_PIECE3left
+	#current_state = State.GUIDING_PIECE3left
 	
 func _on_player_at_Piece3left():
 	print(\"Player at piece3left, cat moves to piece3up\")
-	current_state = State.GUIDING_PIECE3up
+	#current_state = State.GUIDING_PIECE3up
 
 func _physics_process(delta: float):
 	if current_state == State.RUNNING_TO_PLAYER:
@@ -132,7 +140,8 @@ func _physics_process(delta: float):
 			animated_sprite.animation = \"idle\"
 			sfx_moving.stop()
 		else:
-			if abs(direction.x) > abs(direction.y):
+			#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+			if abs(direction.x) > (abs(direction.y) +0.02):
 				animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 			else:
 				animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -177,7 +186,8 @@ func _physics_process(delta: float):
 			animated_sprite.animation = \"idle\"
 			sfx_moving.stop()
 		else:
-			if abs(direction.x) > abs(direction.y):
+			#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+			if abs(direction.x) > (abs(direction.y) +0.02):
 				animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 			else:
 				animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -211,9 +221,9 @@ func _physics_process(delta: float):
 			## Set animation
 			##animated_sprite.animation = \"run_to_frog\"
 			#animated_sprite.play()
-			#if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
-				#print(\"Cat is at mural!\")
-				#current_state = State.IDLE
+			if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
+				print(\"Cat is at mural!\")
+				current_state = State.IDLE
 	elif current_state == State.GUIDING_PIECE1:
 		# Player too far, so cat follows player
 		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
@@ -223,7 +233,8 @@ func _physics_process(delta: float):
 				animated_sprite.animation = \"idle\"
 				sfx_moving.stop()
 			else:
-				if abs(direction.x) > abs(direction.y):
+				#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+				if abs(direction.x) > (abs(direction.y) +0.02):
 					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 				else:
 					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -246,7 +257,8 @@ func _physics_process(delta: float):
 				animated_sprite.animation = \"idle\"
 				sfx_moving.stop()
 			else:
-				if abs(direction.x) > abs(direction.y):
+				#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+				if abs(direction.x) > (abs(direction.y) +0.02):
 					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 				else:
 					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -273,7 +285,8 @@ func _physics_process(delta: float):
 				animated_sprite.animation = \"idle\"
 				sfx_moving.stop()
 			else:
-				if abs(direction.x) > abs(direction.y):
+				#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+				if abs(direction.x) > (abs(direction.y) +0.02):
 					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 				else:
 					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -300,7 +313,8 @@ func _physics_process(delta: float):
 				animated_sprite.animation = \"idle\"
 				sfx_moving.stop()
 			else:
-				if abs(direction.x) > abs(direction.y):
+				#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+				if abs(direction.x) > (abs(direction.y) +0.02):
 					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 				else:
 					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -327,7 +341,8 @@ func _physics_process(delta: float):
 				animated_sprite.animation = \"idle\"
 				sfx_moving.stop()
 			else:
-				if abs(direction.x) > abs(direction.y):
+				#print(\"x=\" +str(direction.x) +\", y=\" +str(direction.y) )
+				if abs(direction.x) > (abs(direction.y) +0.02):
 					animated_sprite.animation = \"move_left\" if direction.x < 0 else \"move_right\"
 				else:
 					animated_sprite.animation = \"move_up\" if direction.y < 0 else \"move_down\"
@@ -544,7 +559,6 @@ collision_layer = 129
 collision_mask = 6
 motion_mode = 1
 script = SubResource("GDScript_ho0mx")
-speed = 11000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)

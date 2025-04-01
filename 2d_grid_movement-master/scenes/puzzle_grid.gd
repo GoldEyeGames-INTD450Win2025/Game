@@ -3,6 +3,7 @@ var rows = 4
 var cols = 5
 var spacing = 5
 var slots = []
+var parent_scale = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +19,7 @@ func _create(num_rows: int, num_cols: int, num_spacing: int) -> void:
 	rows = num_rows
 	cols = num_cols
 	spacing = num_spacing
-	
+	parent_scale = get_parent().get_parent().scale
 	for row in range(rows):
 		slots.append([])
 		slots[row] = []
@@ -27,5 +28,5 @@ func _create(num_rows: int, num_cols: int, num_spacing: int) -> void:
 			slots[row][column] = GridSquare.new()
 			slots[row][column].grid_pos = Vector2(row, column)
 			add_child(slots[row][column])
-			slots[row][column].global_position += Vector2((0.8 * (128 + spacing) * column + 64), (0.8 * (128 + spacing) * row) + 64)
+			slots[row][column].global_position += Vector2((0.8 * (128 + spacing) * column + 64) * parent_scale.x, ((0.8 * (128 + spacing) * row) + 64) * parent_scale.y)
 			slots[row][column].name = ("Slot[" + str(row) + "][" + str(column) + "]")

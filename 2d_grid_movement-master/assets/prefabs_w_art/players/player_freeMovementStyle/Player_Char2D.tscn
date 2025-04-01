@@ -1,6 +1,6 @@
 [gd_scene load_steps=72 format=3 uid="uid://cytlexciip26f"]
 
-[ext_resource type="Script" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/player_char_2d.gd" id="1_u85ke"]
+[ext_resource type="Script" uid="uid://b3d8wf6lhtdid" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/player_char_2d.gd" id="1_u85ke"]
 [ext_resource type="Shader" uid="uid://p038cpejvtm3" path="res://assets/scripts_backups/dissolve.tres" id="2_60i7r"]
 [ext_resource type="Texture2D" uid="uid://dg8pf33vfko5h" path="res://assets/art_drawn_tile/Masika_spritesheet.png" id="2_80e81"]
 [ext_resource type="Texture2D" uid="uid://gsr7hg4kl7xx" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/54300.png" id="2_watrc"]
@@ -13,8 +13,8 @@ noise = SubResource("FastNoiseLite_vuxxf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2txi"]
 shader = ExtResource("2_60i7r")
-shader_parameter/DissolveValue = 1.0
 shader_parameter/Noise = SubResource("NoiseTexture2D_8p07w")
+shader_parameter/DissolveValue = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbn7o"]
 atlas = ExtResource("2_80e81")
@@ -136,6 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cn8e"]
+size = Vector2(22, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10u8g"]
 atlas = ExtResource("2_watrc")
@@ -514,7 +515,7 @@ speed = 12000
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 material = SubResource("ShaderMaterial_n2txi")
-position = Vector2(-0.200001, -7.525)
+position = Vector2(-3, -7.525)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_0a7o5")
 animation = &"run_down"
@@ -525,7 +526,7 @@ offset = Vector2(0, -70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.200001, -7.525)
+position = Vector2(-2.7, 0)
 shape = SubResource("RectangleShape2D_6cn8e")
 
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="."]

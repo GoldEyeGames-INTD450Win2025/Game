@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://chi5bd4bp8eiy"]
+
+[ext_resource type="Script" uid="uid://cj2x0lp06elrs" path="res://scenes/startmenu/startmenus_lvlselect.gd" id="1_qims6"]
+[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://scenes/startmenu/MENU B_Select.wav" id="2_myery"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
+
+[node name="Starts_LvlSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qims6")
+
+[node name="SFXtester" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_myery")
+bus = &"SFX"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 0.137255, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -362.5
+offset_right = 800.0
+offset_bottom = 362.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Resume" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 1472.0
+offset_top = 5.0
+offset_right = 1592.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 75
+text = "X"
+icon = SubResource("ViewportTexture_oni5b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.062
+anchor_top = 0.138
+anchor_right = 0.937
+anchor_bottom = 0.862
+offset_left = 0.511997
+offset_top = -0.0320053
+offset_right = 0.511963
+offset_bottom = 0.0319824
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 30
+text = "For sake of demoing, we have level selecting.
+"
+fit_content = true
+
+[node name="Button_lvl0" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "BEGINNING"
+
+[node name="Label_Spacefill2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 2
+
+[node name="Button_lvl1" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LEVEL 1 "
+
+[node name="Label_Spacefill3" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 2
+
+[node name="Button_lvl2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LEVEL 2 "
+
+[node name="Label_Spacefill4" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 2
+
+[node name="Button_lvl3" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LEVEL 3"
+
+[node name="Label_Spacefill5" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 2
+
+[node name="Button_lvlfinal" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "FINAL SCENES"
+
+[node name="Label_Spacefill" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_alignment = 2
+
+[connection signal="pressed" from="Panel/Button_Resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button_lvl0" to="." method="_on_button_lvl_0_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button_lvl1" to="." method="_on_button_lvl_1_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button_lvl2" to="." method="_on_button_lvl_2_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button_lvl3" to="." method="_on_button_lvl_3_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button_lvlfinal" to="." method="_on_button_lvlfinal_pressed"]

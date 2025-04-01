@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0cqfaxr84bhm"]
 
-[ext_resource type="Script" path="res://scenes/endcredits/end_credits.gd" id="1_e1wub"]
+[ext_resource type="Script" uid="uid://d4khau4wwi5ym" path="res://scenes/endcredits/end_credits.gd" id="1_e1wub"]
 
 [node name="EndCredits" type="Control"]
 layout_mode = 3
@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel"]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0

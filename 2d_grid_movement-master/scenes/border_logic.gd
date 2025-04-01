@@ -26,40 +26,36 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player != null:
-		if not up_exited and Input.is_action_pressed("up"):
+		var cat_distance
+		if Global.cat != null:
+			cat_distance = Global.cat.global_position - player.global_position
+		if not up_exited and player.velocity.y < 0:
 			var player_pos = player.global_position
-			var off_set = _get_player_collision_box_size(player)
-			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y) + off_set)
+			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y))# - 8 + 128 +32)
 			up_exited = true
 			
-		elif not down_exited and Input.is_action_pressed("down"):
+		elif not down_exited and player.velocity.y > 0:
 			var player_pos = player.global_position
-			var off_set = _get_player_collision_box_size(player)
-			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y) - off_set)
+			player.global_position = Vector2(player_pos.x, (-1 * player_pos.y))# + 8 + 128 + 16 + 8 -4)
 			down_exited = true
 		
-		if not left_exited and Input.is_action_pressed("left"):
+		if not left_exited and player.velocity.x < 0:
 			var player_pos = player.global_position
-			var off_set = _get_player_collision_box_size(player)
-			player.global_position = Vector2((-1 * player_pos.x) + off_set, player_pos.y)
+			player.global_position = Vector2((-1 * player_pos.x) + 32 +8, player_pos.y)
 			left_exited = true
 				
-		elif not right_exited and Input.is_action_pressed("right"):
+		elif not right_exited and player.velocity.x > 0:
 			var player_pos = player.global_position
-			var off_set = _get_player_collision_box_size(player)
-			player.global_position = Vector2((-1 * player_pos.x) - off_set, player_pos.y)
+			player.global_position = Vector2((-1 * player_pos.x) - 16 , player_pos.y)
 			right_exited = true
+		if Global.cat != null:
+			Global.cat.global_position = player.global_position + cat_distance
+		
+		
 		
 
 func _is_player(body: Node2D) -> bool:
 	return body.is_in_group("Player")
-
-func _get_player_collision_box_size(player):
-	# Find the CollisionShape2D within the player's node
-	var collision_shape = player.get_node("CollisionShape2D")
-	var rectangle_shape = collision_shape.shape
-	var size = rectangle_shape.extents  # half of full size
-	return size.x * 2
 
 func _on_body_entered_left(body: Node2D) -> void:
 	if _is_player(body):

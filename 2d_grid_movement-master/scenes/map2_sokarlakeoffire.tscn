@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_l2ht6"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_xo8bq"]
-[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="3_yvd0o"]
+[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_yvd0o"]
 [ext_resource type="PackedScene" uid="uid://btvowrluapqrs" path="res://assets/audio/music_manager.tscn" id="4_4h1fe"]
 [ext_resource type="Texture2D" uid="uid://dnam1jtnxw4nb" path="res://assets/art_drawn_tile/oasis_sprites_watersand.png" id="5_53qrg"]
 [ext_resource type="Texture2D" uid="uid://2vfqbtq4ygcn" path="res://assets/art_drawn_tile/water_sprites.png" id="6_0eobj"]
@@ -11,28 +11,28 @@
 [ext_resource type="Texture2D" uid="uid://b6r8qdp8fdywk" path="res://assets/art_drawn_tile/Desert_Sprites_2.png" id="8_3n1he"]
 [ext_resource type="Texture2D" uid="uid://bpy1lawo1ndk" path="res://assets/art_free/cliffwall.png" id="8_amxtq"]
 [ext_resource type="Texture2D" uid="uid://drjvhrbejx0yq" path="res://assets/art_drawn_tile/ruins_sprite.png" id="9_rnnec"]
-[ext_resource type="Shader" path="res://assets/scripts_backups/water_distortion.gdshader" id="10_y5x0p"]
+[ext_resource type="Shader" uid="uid://c6khusoqo3yc8" path="res://assets/scripts_backups/water_distortion.gdshader" id="10_y5x0p"]
 [ext_resource type="Texture2D" uid="uid://de2t1ej2yfium" path="res://assets/art_drawn_tile/ruins_sprite_completed.png" id="11_mg14g"]
 [ext_resource type="Texture2D" uid="uid://chvv2eph44y20" path="res://assets/art_drawn_tile/oasis_sprites_new.png" id="12_sy6mn"]
 [ext_resource type="Texture2D" uid="uid://cl7mi6oatq8ve" path="res://assets/art_drawn_tile/Desert_Sprites_fixed.png" id="13_h3arb"]
 [ext_resource type="Texture2D" uid="uid://b6y41en7ynkt7" path="res://assets/art_drawn_tile/oasis_sprites_diff_color_water_fixed.png" id="14_se3ji"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="15_45hjh"]
 [ext_resource type="Texture2D" uid="uid://b3eym6aaxe2dr" path="res://assets/art_drawn_tile/ruins_sprite_wall.png" id="16_3tjev"]
-[ext_resource type="Script" path="res://scenes/border_logic.gd" id="16_q4d74"]
+[ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="16_q4d74"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="17_6bbs7"]
 [ext_resource type="Texture2D" uid="uid://yd3qepafya63" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/decor_1.png" id="18_r3qld"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="18_tt4xw"]
 [ext_resource type="Texture2D" uid="uid://bm3s8aepn7h45" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_5.png" id="19_kijn8"]
 [ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="19_tenfn"]
-[ext_resource type="Shader" path="res://assets/scripts_backups/sandstorm.gdshader" id="20_hxl26"]
+[ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="20_hxl26"]
 [ext_resource type="Texture2D" uid="uid://d0j2ufjmoo1hl" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_10.png" id="20_k53hs"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="21_orona"]
 [ext_resource type="Texture2D" uid="uid://cpfia2gojext2" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_11.png" id="21_wl7c5"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="22_wy8c2"]
 [ext_resource type="Texture2D" uid="uid://phl4b71s4mhm" path="res://assets/art_free/CraftpixDesert_tile/CraftpixDesert_scenic/stones_12.png" id="22_y0xnh"]
 [ext_resource type="Texture2D" uid="uid://dcxbir023bpy3" path="res://assets/art_free/SCBR4680-2_1800x1800.png" id="23_0knn0"]
-[ext_resource type="PackedScene" path="res://scenes/fire.tscn" id="23_mtrv2"]
-[ext_resource type="Shader" path="res://scenes/fire.gdshader" id="32_d76fp"]
+[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://scenes/fire.tscn" id="23_mtrv2"]
+[ext_resource type="Shader" uid="uid://cbjlwgpq1x4xu" path="res://scenes/fire.gdshader" id="32_d76fp"]
 [ext_resource type="Texture2D" uid="uid://cpcyk8tmi0cdj" path="res://scenes/black.png" id="33_d74i7"]
 [ext_resource type="Texture2D" uid="uid://cn2ec6wo7a6x3" path="res://assets/art_free/craiyon_122551_snake_with_pixel_art.png" id="34_u1dwh"]
 [ext_resource type="Texture2D" uid="uid://xfo01x0a5nbb" path="res://assets/art_free/vecteezy_cumulus-cloudy-white-clear-special-effect-3d-rendering-file_42726194.png" id="35_7valx"]
@@ -1668,11 +1668,11 @@ noise = SubResource("FastNoiseLite_ndwxe")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2soh"]
 shader = ExtResource("10_y5x0p")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_soic6")
 shader_parameter/refraction_stretch = Vector2(1, 1)
 shader_parameter/refraction_strength = 0.02
 shader_parameter/water_tint = Color(0.2, 0.6, 1, 0.1)
 shader_parameter/speed = 0.1
-shader_parameter/refraction_map = SubResource("NoiseTexture2D_soic6")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf8np"]
 texture = ExtResource("9_rnnec")
@@ -1932,9 +1932,11 @@ size = Vector2(7466.02, 1751)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_es3ea"]
 shader = ExtResource("20_hxl26")
-shader_parameter/speed = 2.0
 shader_parameter/strength = 0.0
 shader_parameter/overlay_color = Vector4(0.6, 0.4, 0.5, 0.3)
+shader_parameter/colorA = Vector4(0.95, 0.75, 0.45, 1)
+shader_parameter/colorB = Vector4(0.9, 0.65, 0.4, 1)
+shader_parameter/colorC = Vector4(0.7, 0.25, 0.18, 1)
 
 [sub_resource type="GDScript" id="GDScript_dhqr3"]
 script/source = "extends Node2D
@@ -2067,14 +2069,14 @@ noise = SubResource("FastNoiseLite_hkgf4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hqn6"]
 shader = ExtResource("32_d76fp")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_b3tjo")
+shader_parameter/mask_texture = SubResource("CurveTexture_ya1qq")
 shader_parameter/base_color = Color(0.994517, 0.735737, 0.293066, 1)
 shader_parameter/edge_color = Color(0.192095, 0.00397491, 6.01634e-09, 1)
 shader_parameter/fire_alpha = 1.0
 shader_parameter/fire_filter = 0.013
 shader_parameter/fire_power = 10.0
 shader_parameter/fire_speed = Vector2(0, 1)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_b3tjo")
-shader_parameter/mask_texture = SubResource("CurveTexture_ya1qq")
 
 [node name="Map2" type="Node2D"]
 z_as_relative = false

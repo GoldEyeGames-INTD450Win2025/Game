@@ -1,0 +1,172 @@
+[gd_scene load_steps=9 format=3 uid="uid://017slmhm3qtn"]
+
+[ext_resource type="AudioStream" uid="uid://baiueu8xcccim" path="res://assets/audio/audio_made_music/sandbackground-wsand.wav" id="1_mm33o"]
+[ext_resource type="AudioStream" uid="uid://cs2fu37jk5a2t" path="res://assets/audio/audio_made_music/ethereal_parts/002 Group B1.wav" id="2_h7y4d"]
+[ext_resource type="AudioStream" uid="uid://bwk6oclqejcfu" path="res://assets/audio/audio_made_music/ethereal_parts/003 Group C1.wav" id="3_gy41u"]
+[ext_resource type="AudioStream" uid="uid://cf063n1hsy5e7" path="res://assets/audio/audio_made_music/ethereal_parts/004 Group D1.wav" id="4_s46xs"]
+[ext_resource type="AudioStream" uid="uid://b8ybrk6jblekp" path="res://assets/audio/audio_made_music/ethereal_parts/005 Tambora Calientes Kit.wav" id="5_hxuua"]
+[ext_resource type="AudioStream" uid="uid://chwmf01y4waew" path="res://assets/audio/audio_made_music/ethereal_parts/006 Lion Kendang Kit.wav" id="6_sxkds"]
+[ext_resource type="AudioStream" uid="uid://2u7u56hkwmur" path="res://assets/audio/audio_made_music/ethereal_parts/007 Lion Kendang Kit.wav" id="7_stuls"]
+
+[sub_resource type="GDScript" id="GDScript_dttpn"]
+script/source = "extends Node2D
+
+var tracks = []
+var mute = -80
+var full = 8
+
+func _ready():
+	# Get all 7 AudioStreamPlayer children
+	for i in range(7):
+		var track = get_child(i)
+		if track is AudioStreamPlayer2D:
+			tracks.append(track)
+			print(track)
+		else:
+			print(\"not track\")
+	
+	# Ensure we have exactly 7 tracks
+	if tracks.size() != 7:
+		push_error(\"MusicManager requires exactly 7 AudioStreamPlayer2D nodes as children!\")
+		return
+	
+	# Initialize track volumes
+	initialize_music_layers()
+	
+	# Play all tracks
+	for track in tracks:
+		track.play()
+	
+	# Initialize starting track set
+	initialize_starting_track_set()
+	
+	# Find the Activator1 (Area2D) and connect its signal
+	var zone_Activator1_Area2D = get_node(\"/root/Map_Danic/Activator1_Area2D\")  # Adjust path as needed
+	if zone_Activator1_Area2D:
+		zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
+		print(\"Connected to music signal: Activator1_Area2D\")
+		
+	# Find the Activator2 (Area2D) and connect its signal
+	var zone_Activator3_Area2D = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
+	if zone_Activator3_Area2D:
+		zone_Activator3_Area2D.player_near_Activator3_Area2D.connect(_on_player_nearby_Activator3)
+		print(\"Connected to music signal: Activator3_Area2D\")
+		
+	# Change music for demo done (puzzle solved)
+	var sigd_demoDone = get_node(\"/root/Map_Danic/Activator3_Area2D/ColorRect2\")  # Adjust path as needed
+	if sigd_demoDone:
+		sigd_demoDone.demo_done_music.connect(_on_demoDone)
+		print(\"Connected to music signal: demo done\")
+
+func set_music_layer(index: int, volume_db: float):
+	if index >= 0 and index < tracks.size():
+		tracks[index].volume_db = volume_db
+	else:
+		push_error(\"Invalid track index: \" + str(index))
+
+func initialize_music_layers():
+	set_music_scene_0()
+	print(\"set_music_scene_0()\")
+
+func initialize_starting_track_set():
+	set_music_scene_1()
+	print(\"set_music_scene_1()\")
+
+func set_music_scene_0():
+	set_music_layer(0, mute) # Muted
+	set_music_layer(1, mute)
+	set_music_layer(2, mute)
+	set_music_layer(3, mute) 
+	set_music_layer(4, mute) 
+	set_music_layer(5, mute)
+	set_music_layer(6, mute)
+
+func set_music_scene_1():
+	set_music_layer(0, full) # Full
+	set_music_layer(1, mute)
+	set_music_layer(2, mute)
+	set_music_layer(3, mute) 
+	set_music_layer(4, mute) 
+	set_music_layer(5, mute)
+	set_music_layer(6, mute)
+
+func set_music_scene_2():
+	set_music_layer(0, mute)
+	set_music_layer(1, full)
+	set_music_layer(2, mute)
+	set_music_layer(3, mute) 
+	set_music_layer(4, full*0.5) 
+	set_music_layer(5, mute)
+	set_music_layer(6, mute)
+
+func set_music_scene_3():
+	set_music_layer(0, mute)
+	set_music_layer(1, mute)
+	set_music_layer(2, full)
+	set_music_layer(3, mute) 
+	set_music_layer(4, mute)
+	set_music_layer(5, full)
+	set_music_layer(6, mute)
+	
+func set_music_scene_4():
+	set_music_layer(0, mute)
+	set_music_layer(1, full)
+	set_music_layer(2, mute)
+	set_music_layer(3, mute) 
+	set_music_layer(4, full*0.5) 
+	set_music_layer(5, full*0.5)
+	set_music_layer(6, full*0.5)
+
+func _on_player_nearby_Activator1():
+	#set_music_scene_4()
+	pass
+
+func _on_player_nearby_Activator3():
+	set_music_scene_2()
+
+func _on_demoDone():
+	set_music_scene_4()
+"
+
+[node name="MusicManager" type="Node2D"]
+script = SubResource("GDScript_dttpn")
+
+[node name="AudioStreamPlayer2D1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_mm33o")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("2_h7y4d")
+volume_db = 2.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("3_gy41u")
+volume_db = 2.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("4_s46xs")
+volume_db = 2.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("5_hxuua")
+volume_db = 2.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("6_sxkds")
+volume_db = 2.0
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("7_stuls")
+volume_db = 2.0
+bus = &"Music"
