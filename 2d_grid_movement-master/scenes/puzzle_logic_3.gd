@@ -142,16 +142,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	#for i in range(Global.pieces_found):
-#		hidden_pieces[i].visible = true
-#	solved = _puzzle_solved()
+	for i in range(Global.pieces_found):
+		hidden_pieces[i].visible = true
+	solved = _puzzle_solved()
 	if solved:
 		Global.puzzle_solved = true
-	
-	if Input.is_action_just_pressed("middle_click"):
-		for piece in pieces:
-			print(piece.anker_ref.grid_pos)
-		print()
 
 func _make_grid_occupied(piece, init_grid_square, grid):
 	for x in range(piece.dims.x):
