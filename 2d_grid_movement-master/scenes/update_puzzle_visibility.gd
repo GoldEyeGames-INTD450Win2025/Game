@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
 		one_time_activator = true
 		#demo_done_label.show()
+		#demo_done_label.show()
 		sprite_mural_done.show()
 		muralcomplete_detection_area.monitoring = true
 		muralcomplete_detection_area.monitorable = true
