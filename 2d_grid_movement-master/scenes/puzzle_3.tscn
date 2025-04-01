@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccm57no8dpaqa"]
+[gd_scene load_steps=12 format=3 uid="uid://qtexwru578cp"]
 
 [ext_resource type="Script" uid="uid://c1ex2hn2hsd11" path="res://scenes/update_puzzle_visibility.gd" id="1_sikfs"]
 [ext_resource type="Shader" uid="uid://c231ni2hrec8i" path="res://blur.gdshader" id="2_ou5t7"]
 [ext_resource type="AudioStream" uid="uid://5oxvfbmo02ay" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk2.wav" id="3_7q8qr"]
 [ext_resource type="AudioStream" uid="uid://1qnt7461qc5c" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk1.wav" id="4_c74sr"]
 [ext_resource type="AudioStream" uid="uid://daeeudxo472dw" path="res://assets/audio/audio_free_sfx/stone_moves/stone_door.ogg" id="5_mg77q"]
-[ext_resource type="Script" uid="uid://dc4fsab1mbbbk" path="res://scenes/puzzle_logic.gd" id="6_vhdnm"]
+[ext_resource type="Script" uid="uid://fifq0mqookk1" path="res://scenes/puzzle_logic_3.gd" id="6_sikfs"]
 [ext_resource type="Script" uid="uid://dqjigs5pywwn1" path="res://scenes/puzzle_grid.gd" id="7_0tjj7"]
 [ext_resource type="Texture2D" uid="uid://pp1tv6obnds4" path="res://assets/art_drawn_tile/new_right_click.png" id="8_fk8co"]
 [ext_resource type="Texture2D" uid="uid://no2qq6ji3lpb" path="res://assets/art_drawn_tile/new_left_click.png" id="9_x5c8e"]
@@ -86,7 +86,7 @@ mouse_filter = 2
 
 [node name="Container" type="Container" parent="PanelContainer"]
 layout_mode = 2
-script = ExtResource("6_vhdnm")
+script = ExtResource("6_sikfs")
 
 [node name="Left_Grid" type="Sprite2D" parent="PanelContainer/Container"]
 position = Vector2(53, 160)
