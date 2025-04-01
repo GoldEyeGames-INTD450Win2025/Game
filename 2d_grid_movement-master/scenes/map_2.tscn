@@ -710,7 +710,7 @@ metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_433ec")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1230, -998)
+position = Vector2(-1111, 1555)
 collision_layer = 641
 collision_mask = 6
 

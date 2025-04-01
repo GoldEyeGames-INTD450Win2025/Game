@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://428iyflu81nw"]
 
-[ext_resource type="PackedScene" path="res://scenes/UI/pause_menu.tscn" id="1_iht1a"]
+[ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/UI/pause_menu.tscn" id="1_iht1a"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="1_tek07"]
 [ext_resource type="PackedScene" uid="uid://bgmb47x40xceq" path="res://scenes/UI/dialogue/dialogue_box.tscn" id="2_3bnrt"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="2_y782s"]
 [ext_resource type="PackedScene" uid="uid://c0cqfaxr84bhm" path="res://scenes/endcredits/end_credits.tscn" id="4_isgn3"]
-[ext_resource type="PackedScene" path="res://scenes/UI/parallaxtest/cutscene_holder.tscn" id="5_clbmb"]
+[ext_resource type="PackedScene" uid="uid://djavkcbpv8yhx" path="res://scenes/UI/parallaxtest/cutscene_holder.tscn" id="5_clbmb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ore7p"]
 shader = ExtResource("1_tek07")
