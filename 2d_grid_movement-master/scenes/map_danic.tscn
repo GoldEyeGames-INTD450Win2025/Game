@@ -1,12 +1,15 @@
-[gd_scene load_steps=34 format=4 uid="uid://bj1vbtbhnx4d3"]
+[gd_scene load_steps=43 format=4 uid="uid://bj1vbtbhnx4d3"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_os2bo"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="3_cvpwq"]
 [ext_resource type="TileSet" uid="uid://cglbxh3f730bu" path="res://scenes/water_tileset.tres" id="5_naj2j"]
-[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/MainUI.tscn" id="5_rvc4n"]
+[ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="5_rvc4n"]
+[ext_resource type="PackedScene" uid="uid://eu3mcuia153w" path="res://scenes/lvltransition/level_transition_out.tscn" id="5_trnor"]
 [ext_resource type="PackedScene" uid="uid://btvowrluapqrs" path="res://assets/audio/music_manager.tscn" id="6_oop0u"]
 [ext_resource type="Material" uid="uid://dyomyvg4v11m6" path="res://scenes/distorted_water_material.tres" id="7_4i7da"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="7_28thc"]
+[ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="8_bf1ri"]
+[ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="10_8kcp0"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="10_mw70b"]
 [ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="14_0pohi"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="15_dwdn3"]
@@ -16,6 +19,62 @@
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="18_ko4ng"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trnor"]
+shader = ExtResource("18_ko4ng")
+shader_parameter/shine_color = Color(1, 1, 1, 0.25)
+shader_parameter/line_width = 0.52
+shader_parameter/angle = 0.785398
+shader_parameter/speed = 3.5
+shader_parameter/wait_cycles = 1.0
+
+[sub_resource type="GDScript" id="GDScript_8kcp0"]
+script/source = "extends PointLight2D
+
+var rising = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#pass # Replace with function body.
+	do_flutter()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func do_flutter():
+	var thisfluttertween = get_tree().create_tween()
+	if rising:
+		thisfluttertween.tween_property(self, \"energy\", 10, 1.0) # Increase energy
+	else:
+		thisfluttertween.tween_property(self, \"energy\", 5, 1.0) # Decrease energy
+	thisfluttertween.tween_callback(func(): 
+		rising = !rising
+		do_flutter()
+	)
+"
+
+[sub_resource type="GDScript" id="GDScript_bf1ri"]
+script/source = "extends Area2D
+signal player_in_lvl1_finished_mural  # Define signal to later emit
+var one_time_trigger = 0
+@onready var placeholder_lvl1end_sprite = $ColorRect
+@onready var completion_sound = $\"../completion_sound\"
+
+func _on_body_entered(body):
+	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
+		print(\"player_in_lvl1_finished_mural Entered by: \", body.name)
+		# activate area triggers
+		one_time_trigger = 1
+		completion_sound.play()
+		player_in_lvl1_finished_mural.emit()
+		placeholder_lvl1end_sprite.show()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8kcp0"]
+radius = 36.104
+height = 82.7383
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jgwa"]
 shader = ExtResource("10_mw70b")
@@ -43,7 +102,7 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alirh"]
-size = Vector2(155, 61)
+size = Vector2(63, 19)
 
 [sub_resource type="GDScript" id="GDScript_kmcta"]
 script/source = "extends Area2D
@@ -58,7 +117,13 @@ func _on_body_entered(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ijvm"]
-size = Vector2(965, 81)
+size = Vector2(965, 16.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28thc"]
+size = Vector2(300, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf1ri"]
+size = Vector2(350, 83)
 
 [sub_resource type="GDScript" id="GDScript_e8wkv"]
 script/source = "extends Area2D
@@ -82,13 +147,14 @@ func _on_body_exited(body):
 		mural_action_notifier.hide()
 
 func _process(_delta):
-	if player_inside and Input.is_action_just_pressed(\"action_mural\"):
-		mural_piece_placeholder.visible = not mural_piece_placeholder.visible
-		#Engine.time_scale = !(mural_piece_placeholder.visible) # Freeze/unfreeze game logic
+	if not Global.dialogue_box_open and not Global.pause_menu_open:
+		if player_inside and Input.is_action_just_pressed(\"action_mural\"):
+			mural_piece_placeholder.visible = not mural_piece_placeholder.visible
+			#Engine.time_scale = !(mural_piece_placeholder.visible) # Freeze/unfreeze game logic
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su01s"]
-size = Vector2(233.454, 106.569)
+size = Vector2(176, 86)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_135qg"]
 shader = ExtResource("18_ko4ng")
@@ -142,14 +208,14 @@ shader_parameter/colorC = Vector4(0.5, 0.25, 0.18, 1)
 [sub_resource type="GDScript" id="GDScript_dhqr3"]
 script/source = "extends Node2D
 
-#@onready var label2_title : RichTextLabel  = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label2
+@onready var label2_title : RichTextLabel  = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label2
 #@onready var label3_num_left : RichTextLabel = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Label3
 var pieces_left = 3
 @onready var corner_pics : Node2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/Node2D
 @onready var corner_pic1_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece1
 @onready var corner_pic2_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece2
 @onready var corner_pic3_revealed : Sprite2D = $/root/Map_Danic/Player_Char2D/MainUI/CanvasLayer/RuinPiece3
-
+@onready var musicmanager = $\"../Player_Char2D/MusicManager\"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var zone_mural = get_node(\"/root/Map_Danic/Activator3_Area2D\")  # Adjust path as needed
@@ -176,43 +242,55 @@ func _ready() -> void:
 
 func _on_player_nearby_Mural():
 	print(\"_on_player_nearby_Mural\")
-	#label2_title.show()
+	label2_title.show()
 	#label3_num_left.show()
 	corner_pics.show()
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece1():
 	print(\"_on_player_nearby_Piece1\")
-	#label2_title.show()
+	label2_title.show()
 	#label3_num_left.show()
 	corner_pics.show()
-	corner_pic1_revealed.show()
+	#corner_pic1_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
+	update_corner_pic_reveal()
 	#label3_num_left.text = str(pieces_left)
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece2():
 	print(\"_on_player_nearby_Piece2\")
-	#label2_title.show()
+	label2_title.show()
 	#label3_num_left.show()
 	corner_pics.show()
-	corner_pic2_revealed.show()
+	#corner_pic2_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
+	update_corner_pic_reveal()
 	#label3_num_left.text = str(pieces_left)
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece3():
 	print(\"_on_player_nearby_Piece3\")
-	#label2_title.show()
+	label2_title.show()
 	#label3_num_left.show()
 	corner_pics.show()
-	corner_pic3_revealed.show()
+	#corner_pic3_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
+	update_corner_pic_reveal()
 	#label3_num_left.text = str(pieces_left)
 	print(\"Global.pieces_found\" + str(Global.pieces_found))
+
+func update_corner_pic_reveal():
+	if pieces_left == 2:
+		corner_pic1_revealed.show()
+	elif pieces_left == 1:
+		corner_pic2_revealed.show()
+	elif pieces_left == 0:
+		corner_pic3_revealed.show()
+		musicmanager._on_demoDone()
 
 #func _on_player_nearby_Piece4():
 	#print(\"_on_player_nearby_Piece4\")
@@ -273,7 +351,7 @@ metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_os2bo")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-58, 1471)
+position = Vector2(-135, 1471)
 collision_layer = 641
 collision_mask = 6
 
@@ -298,6 +376,8 @@ offset_bottom = -136.5
 [node name="MusicManager" parent="Player_Char2D" instance=ExtResource("6_oop0u")]
 scale = Vector2(0.5, 0.5)
 
+[node name="LvlTransitionOut1" parent="Player_Char2D" instance=ExtResource("5_trnor")]
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 z_as_relative = false
 y_sort_enabled = true
@@ -314,7 +394,6 @@ tile_set = ExtResource("5_naj2j")
 z_as_relative = false
 y_sort_enabled = true
 material = ExtResource("7_4i7da")
-position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("AAD0/wAABwABAAMAAAD0/wEABwABAAMAAAD1/wAABwABAAMAAAD1/wEABwABAAMAAAD2/wAABwABAAMAAAD2/wEABwABAAMAAAD3/wAABwABAAMAAAD3/wEABwABAAMAAAD4/wAABwABAAMAAAD4/wEABgAAAAYAAAD5/wAABwABAAMAAAAAAPf/BwAHAAYAAAAAAPj/BwAHAAYAAAABAPT/BwAHAAYAAAABAPX/BwAHAAYAAAABAPb/BwAHAAYAAAABAPf/BwAHAAYAAAABAPj/BwAHAAYAAAABAPn/BwAHAAYAAAACAPT/BwAHAAYAAAACAPX/BwAHAAYAAAACAPb/BwABAAMAAAACAPf/BwABAAMAAAACAPj/BgABAAYAAAACAPn/BwAHAAYAAAACAAAABwAHAAYAAAACAAEABwAHAAYAAAADAPT/BwAHAAYAAAADAPX/BwAHAAYAAAADAPb/BwABAAMAAAADAPf/BwABAAMAAAADAP3/BwAHAAYAAAADAP7/BwAHAAYAAAADAP//BwAHAAYAAAADAAAABwAHAAYAAAADAAEABwAHAAYAAAAEAPX/BwAHAAYAAAAEAPb/BwAHAAYAAAAEAPf/BwAHAAYAAAAEAP3/BwAHAAYAAAAEAP7/BwAHAAYAAAAEAP//BwAHAAYAAAAEAAAABwAHAAYAAAAFAPX/BwAHAAYAAAAFAPb/BwAHAAYAAAAFAPf/BwAHAAYAAAAFAP3/BwAHAAYAAAAFAP7/BgABAAYAAAAFAP//BgABAAUAAAAFAAAABwABAAMAAAAGAPX/BwAHAAYAAAAGAPb/BwAHAAYAAAAGAPf/BwAHAAYAAAAGAPz/BwAHAAYAAAAGAP3/BwAHAAYAAAAGAP7/BwAHAAYAAAAGAP//BwAHAAYAAAAGAAAABwAHAAYAAAAHAPr/BwAHAAYAAAAHAPv/BwAHAAYAAAAHAPz/BwAHAAYAAAAHAP3/BwAHAAYAAAAHAP7/BwAHAAYAAAAHAP//BwAHAAYAAAAHAAAABwAHAAYAAAAIAPr/BwAHAAYAAAAIAPv/BgACAAUAAAAIAPz/BgABAAYAAAAIAP3/BwAHAAYAAAAIAP7/BwAHAAYAAAAIAP//BwAHAAYAAAAIAAAABwAHAAYAAAAJAPr/BwAHAAYAAAAJAPv/BgABAAUAAAAJAPz/BwAHAAYAAAAJAP3/BwAHAAYAAAAJAP7/BgACAAYAAAAKAPr/BwAHAAYAAAAKAPv/BgACAAQAAAAKAPz/BwAHAAYAAAAKAP3/BwAHAAYAAAAKAP7/BwAHAAYAAAALAP3/BwAHAAYAAAALAP7/BwAHAAYAAADz/wEABwABAAMAAAD2/wIABwAHAAYAAAADAPn/BwAHAAYAAAADAPj/BwAHAAYAAAAEAPj/BwAHAAYAAAAFAPj/BwAHAAYAAAAGAPj/BwAHAAYAAAALAPr/BwAHAAYAAAALAPv/BwAHAAYAAAALAPz/BwAHAAYAAAAMAPz/BwAHAAYAAAAGAPv/BwAHAAYAAAAJAP//BwABAAMAAAAKAP//BwAHAAYAAAAMAPv/BwAHAAYAAAAEAAEABwAHAAYAAAD1////BwABAAMAAAD2////BwABAAMAAAD3//7/BwABAAMAAAD3////BwABAAMAAAD4//7/BwABAAMAAAD4////BwABAAMAAAD5//v/BwABAAMAAAD5//z/BwABAAMAAAD5//3/BwABAAMAAAD5//7/BwABAAMAAAD5////BwABAAMAAAD6//r/BwABAAMAAAD6//v/BwABAAMAAAD6//z/BwABAAMAAAD6//3/BwABAAMAAAD6//7/BwABAAMAAAD7//n/BwABAAMAAAD7//r/BwABAAMAAAD7//v/BwABAAMAAAD7//z/BwABAAMAAAD7//3/BwABAAMAAAD8//v/BwABAAMAAAD8//z/BwABAAMAAAD9//v/BwAHAAYAAAD9//z/BwAHAAYAAAD8//7/BwAHAAYAAAD8//3/BwAHAAYAAAD9//3/BwAHAAYAAAD+//3/BwAHAAYAAAD+//z/BwAHAAYAAAD///z/BwAHAAYAAAD///v/BwAHAAYAAAD+//v/BwAHAAYAAAD+//r/BwAHAAYAAAD9//r/BwAHAAYAAAD8//r/BwAHAAYAAAD8//n/BwAHAAYAAAD8//j/BwAHAAYAAAD7//j/BwAHAAYAAAD6//j/BwAHAAYAAAD6//n/BwAHAAYAAAD5//n/BwAHAAYAAAD5//r/BwAHAAYAAAD4//r/BwAHAAYAAAD4//v/BwAHAAYAAAD4//z/BwAHAAYAAAD4//3/BwAHAAYAAAD3//3/BwAHAAYAAAD2//3/BwAHAAYAAAD2//7/BwAHAAYAAAD1//7/BwAHAAYAAAD0//7/BwAHAAYAAAD0////BwAHAAYAAADz////BwAHAAYAAADz/wAABwAHAAYAAADy/wAABwAHAAYAAADy/wEABwAHAAYAAADy/wIABwAHAAYAAADz/wIABwAHAAYAAAD0/wIABwAHAAYAAAD1/wIABwAHAAYAAAD1/wMABwAHAAYAAAD2/wMABwAHAAYAAAD3/wMABwAHAAYAAAD3/wIABwAHAAYAAAD4/wIABwAHAAYAAAD5/wIABwAHAAYAAAD5/wEABwAHAAYAAAD6/wEABwAHAAYAAAD6/wAABwAHAAYAAAD6////BwAHAAYAAAD7////BwAHAAYAAAD7//7/BwAHAAYAAABk/wIAAgAFAAQAAABk/wMAAgAFAAQAAABk/wQAAgAFAAQAAABk/yIAAgAFAAQAAABk/yMAAgAFAAQAAABk/yQAAgAFAAQAAABl////AgAFAAQAAABl/wAABgABAAUAAABl/wEABgABAAUAAABl/wIABgAAAAYAAABl/wMABgABAAYAAABl/wQAAgABAAEAAABl/x8AAgAFAAQAAABl/yAABgABAAUAAABl/yEABgABAAUAAABl/yIABgAAAAYAAABl/yMABgABAAYAAABl/yQAAgABAAEAAABm/+v/BgABAAUAAABm/+z/BgABAAYAAABm////AgAFAAQAAABm/wAABgABAAUAAABm/wEABgABAAUAAABm/wIABgABAAYAAABm/wMABgABAAYAAABm/wQAAgABAAEAAABm/wsABgABAAUAAABm/wwABgABAAYAAABm/x8AAgAFAAQAAABm/yAABgABAAUAAABm/yEABgABAAUAAABm/yIABgABAAYAAABm/yMABgABAAYAAABm/yQAAgABAAEAAABn/+v/BgACAAUAAABn/+z/BgABAAYAAABn////AgAFAAQAAABn/wAAAgAFAAQAAABn/wEABgABAAYAAABn/wIABgACAAYAAABn/wMAAgABAAEAAABn/wQAAgABAAEAAABn/wgABgABAAUAAABn/wkABgABAAUAAABn/woABgABAAUAAABn/wsABgACAAUAAABn/wwABgABAAYAAABn/x8AAgAFAAQAAABn/yAAAgAFAAQAAABn/yEABgABAAYAAABn/yIABgACAAYAAABn/yMAAgABAAEAAABn/yQAAgABAAEAAABn/ygABgABAAUAAABn/ykABgABAAUAAABn/yoABgABAAUAAABo/+v/BgACAAcAAABo/+z/AgABAAEAAABo/wAAAgAFAAQAAABo/wEABgABAAUAAABo/wIABgABAAUAAABo/wMAAgABAAEAAABo/wgABgABAAUAAABo/wkABgABAAYAAABo/woABgABAAUAAABo/wsABgACAAcAAABo/wwAAgABAAEAAABo/yAAAgAFAAQAAABo/yEABgABAAUAAABo/yIABgABAAUAAABo/yMAAgABAAEAAABo/ygABgABAAUAAABo/ykABgABAAYAAABo/yoABgABAAUAAABp/+v/BgABAAUAAABp/wAAAgABAAEAAABp/wEABgACAAYAAABp/wIABgABAAUAAABp/wMAAgABAAEAAABp/wgABgABAAUAAABp/wkABgABAAYAAABp/woABgABAAUAAABp/wsABgABAAUAAABp/yAAAgABAAEAAABp/yEABgACAAYAAABp/yIABgABAAUAAABp/yMAAgABAAEAAABp/ygABgABAAUAAABp/ykABgABAAYAAABp/yoABgABAAUAAABq/+v/BgABAAUAAABq/wAAAgABAAEAAABq/wEAAgABAAEAAABq/wIAAgABAAEAAABq/wMAAgABAAEAAABq/wYABgABAAYAAABq/wcABgABAAUAAABq/wgABgABAAUAAABq/wkABgABAAYAAABq/woABgABAAYAAABq/wsABgABAAUAAABq/yAAAgABAAEAAABq/yEAAgABAAEAAABq/yIAAgABAAEAAABq/yMAAgABAAEAAABq/yYABgABAAYAAABq/ycABgABAAUAAABq/ygABgABAAUAAABq/ykABgABAAYAAABq/yoABgABAAYAAABr/+v/BgABAAUAAABr/wUABgACAAUAAABr/wYABgABAAUAAABr/wcABgAAAAYAAABr/wgABgABAAYAAABr/wkABgABAAYAAABr/woABgACAAYAAABr/wsABgABAAUAAABr/yUABgACAAUAAABr/yYABgABAAUAAABr/ycABgAAAAYAAABr/ygABgABAAYAAABr/ykABgABAAYAAABr/yoABgACAAYAAABs/+v/BgABAAUAAABs/wUABgABAAUAAABs/wYABgACAAUAAABs/wcABgABAAYAAABs/wgABgABAAYAAABs/wkABgABAAYAAABs/woABgABAAUAAABs/wsABgABAAUAAABs/yUABgABAAUAAABs/yYABgACAAUAAABs/ycABgABAAYAAABs/ygABgABAAYAAABs/ykABgABAAYAAABs/yoABgABAAUAAABt/wUABgABAAUAAABt/wYABgABAAUAAABt/wcABgAAAAcAAABt/wgABgABAAYAAABt/wkABgACAAYAAABt/woABgABAAYAAABt/yUABgABAAUAAABt/yYABgABAAUAAABt/ycABgAAAAcAAABt/ygABgABAAYAAABt/ykABgACAAYAAABt/yoABgABAAYAAABu/wUABgABAAUAAABu/wYABgACAAQAAABu/wcABgABAAUAAABu/wgABgACAAYAAABu/wkABgACAAMAAABu/woABgABAAYAAABu/yUABgABAAUAAABu/yYABgACAAQAAABu/ycABgABAAUAAABu/ygABgACAAYAAABu/ykABgACAAMAAABu/yoABgABAAYAAABv/wUABgABAAYAAABv/wYABgABAAYAAABv/wcABgABAAYAAABv/wgABgABAAUAAABv/wkABgACAAcAAABv/yUABgABAAYAAABv/yYABgABAAYAAABv/ycABgABAAYAAABv/ygABgABAAUAAABv/ykABgACAAcAAABw/wYAAgAFAAQAAABw/wcABgABAAYAAABw/yYAAgAFAAQAAABw/ycABgABAAYAAAB2/+v/AgABAAEAAAB2/+z/AgABAAEAAAB2/+3/AgAFAAQAAAB2/wsABwAHAAYAAAB2/wwABwAHAAYAAAB2/w0ABwAHAAYAAAB3/+v/AgABAAEAAAB3/+z/BgABAAYAAAB3/+3/AgABAAEAAAB3/woABwAHAAYAAAB3/wsABwAHAAYAAAB3/wwABwABAAMAAAB3/w0ABwAHAAYAAAB3/yoAAgABAAEAAAB4/+v/BgABAAUAAAB4/+z/BgABAAYAAAB4/+3/AgABAAEAAAB4/wkABwAHAAYAAAB4/woABwAHAAYAAAB4/wsABwABAAMAAAB4/wwABwABAAMAAAB4/w0ABwAHAAYAAAB4/ykAAgABAAEAAAB4/yoAAgABAAEAAAB5/+v/BgABAAUAAAB5/+z/BgABAAYAAAB5/+3/AgABAAEAAAB5/+7/AgAFAAQAAAB5/wkABwAHAAYAAAB5/woABwABAAMAAAB5/wsABwABAAMAAAB5/wwABwABAAMAAAB5/w0ABwAHAAYAAAB5/w4ABwAHAAYAAAB5/ykAAgABAAEAAAB5/yoABgAAAAYAAAB6/+v/BgABAAUAAAB6/+z/BgABAAYAAAB6/+3/BgABAAYAAAB6/+7/AgABAAEAAAB6/wgABwAHAAYAAAB6/wkABwAHAAYAAAB6/woABwABAAMAAAB6/wsABwABAAMAAAB6/wwABwABAAMAAAB6/w0ABwAHAAYAAAB6/w4ABwAHAAYAAAB6/ygAAgAFAAQAAAB6/ykAAgAFAAQAAAB6/yoABgABAAYAAAB7/+v/BgAAAAYAAAB7/+z/BgABAAUAAAB7/+3/AgABAAEAAAB7/+7/AgABAAEAAAB7/wgABwAHAAYAAAB7/wkABwABAAMAAAB7/woABwABAAMAAAB7/wsABwABAAMAAAB7/wwABwABAAMAAAB7/w0ABwAHAAYAAAB7/w4ABwAHAAYAAAB7/ygAAgABAAEAAAB7/ykABgABAAYAAAB7/yoABgABAAYAAAB8/+v/BgACAAcAAAB8/+z/BgAAAAYAAAB8/+3/AgAFAAQAAAB8/wUABwAHAAYAAAB8/wYABwAHAAYAAAB8/wcABwAHAAYAAAB8/wgABwAHAAYAAAB8/wkABwABAAMAAAB8/woABwABAAMAAAB8/wsABwABAAMAAAB8/wwABgAAAAYAAAB8/w0ABwAHAAYAAAB8/yUAAgABAAEAAAB8/yYAAgABAAEAAAB8/ycAAgABAAEAAAB8/ygAAgAFAAQAAAB8/ykABgACAAUAAAB8/yoABgACAAYAAAB9/+v/BgABAAUAAAB9/+z/AgAFAAQAAAB9/+3/AgABAAEAAAB9/wQABwAHAAYAAAB9/wUABwAHAAYAAAB9/wYABwABAAMAAAB9/wcABwABAAMAAAB9/wgABwABAAMAAAB9/wkABwABAAMAAAB9/woABwABAAMAAAB9/wsABwABAAMAAAB9/wwABwAHAAYAAAB9/w0ABwAHAAYAAAB+/+v/AgAFAAQAAAB+/+z/AgAFAAQAAAB+/wMABwAHAAYAAAB+/wQABwAHAAYAAAB+/wUABwABAAMAAAB+/wYABwABAAMAAAB+/wcABwABAAMAAAB+/wgABwABAAMAAAB+/wkABwABAAMAAAB+/woABwAHAAYAAAB+/wsABwAHAAYAAAB+/wwABwAHAAYAAADQ/xYABwAHAAYAAADQ/xcABwAHAAYAAADQ/xgABwAHAAYAAADT/xYABwAHAAYAAADT/xcABwAHAAYAAADT/xgABwAHAAYAAADT/xkABwAHAAYAAADU/xYABwAHAAYAAADU/xcABwAHAAYAAADU/xgABwABAAMAAADU/xkABwABAAMAAADV/xYABwAHAAYAAADV/xcABwAHAAYAAADV/xgABwABAAMAAADV/xkABwABAAMAAADW/xYABwABAAMAAADW/xcABwAHAAYAAADW/xgABwAHAAYAAADX/xYABwABAAMAAADX/xcABwAHAAYAAADX/xgABwAHAAYAAADY/xYABwAHAAYAAADY/xcABwAHAAYAAAAgAAAABwAHAAYAAAAgAAEABwAHAAYAAAAgAAIABwAHAAYAAAAhAAAABwAHAAYAAAAhAAEABwABAAMAAAAhAAIABwAHAAYAAAAiAAAABwABAAMAAAAiAAEABwABAAMAAAAiAAIABwAHAAYAAAAjAAAABwABAAMAAAAjAAEABwABAAMAAAAjAAIABwAHAAYAAAAjAAMABwAHAAYAAAAkAAAABwABAAMAAAAkAAEABwABAAMAAAAkAAIABwAHAAYAAAAkAAMABwAHAAYAAAAlAAAABwABAAMAAAAlAAEABwABAAMAAAAlAAIABwAHAAYAAAAlAAMABwAHAAYAAAAmAAAABwABAAMAAAAmAAEABgAAAAYAAAAmAAIABwAHAAYAAAAnAAAABwABAAMAAAAnAAEABwAHAAYAAAAnAAIABwAHAAYAAAAoAAAABwAHAAYAAAAoAAEABwAHAAYAAADy/97/BwAHAAYAAADy/9//BwAHAAYAAADy/+D/BwAHAAYAAADz/97/BwAHAAYAAADz/9//BwABAAMAAADz/+D/BwAHAAYAAAD0/97/BwABAAMAAAD0/9//BwABAAMAAAD0/+D/BwAHAAYAAAD1/97/BwABAAMAAAD1/9//BwABAAMAAAD1/+D/BwAHAAYAAAD1/+H/BwAHAAYAAAD2/97/BwABAAMAAAD2/9//BwABAAMAAAD2/+D/BwAHAAYAAAD2/+H/BwAHAAYAAAD3/97/BwABAAMAAAD3/9//BwABAAMAAAD3/+D/BwAHAAYAAAD3/+H/BwAHAAYAAAD4/97/BwABAAMAAAD4/9//BgAAAAYAAAD4/+D/BwAHAAYAAAD5/97/BwABAAMAAAD5/9//BwAHAAYAAAD5/+D/BwAHAAYAAAD6/97/BwAHAAYAAAD6/9//BwAHAAYAAAAgAN7/BwAHAAYAAAAgAN//BwAHAAYAAAAgAOD/BwAHAAYAAAAhAN7/BwAHAAYAAAAhAN//BwABAAMAAAAhAOD/BwAHAAYAAAAiAN7/BwABAAMAAAAiAN//BwABAAMAAAAiAOD/BwAHAAYAAAAjAN7/BwABAAMAAAAjAN//BwABAAMAAAAjAOD/BwAHAAYAAAAjAOH/BwAHAAYAAAAkAN7/BwABAAMAAAAkAN//BwABAAMAAAAkAOD/BwAHAAYAAAAkAOH/BwAHAAYAAAAlAN7/BwABAAMAAAAlAN//BwABAAMAAAAlAOD/BwAHAAYAAAAlAOH/BwAHAAYAAAAmAN7/BwABAAMAAAAmAN//BgAAAAYAAAAmAOD/BwAHAAYAAAAnAN7/BwABAAMAAAAnAN//BwAHAAYAAAAnAOD/BwAHAAYAAAAoAN7/BwAHAAYAAAAoAN//BwAHAAYAAADU/wAABwAHAAYAAADU/wEABwAHAAYAAADV/wAABwAHAAYAAADV/wEABwAHAAYAAADW/wAABwAHAAYAAADW/wEABwAHAAYAAADX/wAABwABAAMAAADY/wAABwAHAAYAAADZ/wAABwAHAAYAAADa/wAABwAHAAYAAAACAN7/BwAHAAYAAAACAN//BwAHAAYAAAADAN7/BwAHAAYAAAADAN//BwAHAAYAAAAEAN7/BwAHAAYAAAAEAN//BwAHAAYAAAAFAN7/BwABAAMAAAAGAN7/BwAHAAYAAAAHAN7/BwAHAAYAAAAIAN7/BwAHAAYAAADU/97/BwAHAAYAAADU/9//BwAHAAYAAADV/97/BwAHAAYAAADV/9//BwAHAAYAAADW/97/BwAHAAYAAADW/9//BwAHAAYAAADX/97/BwABAAMAAADY/97/BwAHAAYAAADZ/97/BwAHAAYAAADa/97/BwAHAAYAAAAAABkABwAHAAYAAAAAABoABwAHAAYAAAABABYABwAHAAYAAAABABcABwAHAAYAAAABABgABwAHAAYAAAABABkABwAHAAYAAAABABoABwAHAAYAAAABABsABwAHAAYAAAACABYABwAHAAYAAAACABcABwAHAAYAAAACABgABwABAAMAAAACABkABwABAAMAAAACABoABgABAAYAAAACABsABwAHAAYAAAADABYABwAHAAYAAAADABcABwAHAAYAAAADABgABwABAAMAAAADABkABwABAAMAAAADABoABwAHAAYAAAADABsABwAHAAYAAAADAB8ABwAHAAYAAAADACAABwAHAAYAAAADACEABwAHAAYAAAAEABcABwAHAAYAAAAEABgABwAHAAYAAAAEABkABwAHAAYAAAAEABoABwAHAAYAAAAEAB8ABwAHAAYAAAAEACAABwAHAAYAAAAEACEABwAHAAYAAAAFABcABwAHAAYAAAAFABgABwAHAAYAAAAFABkABwAHAAYAAAAFABoABwAHAAYAAAAFAB8ABwAHAAYAAAAFACAABgABAAYAAAAFACEABgABAAUAAAAGABcABwAHAAYAAAAGABgABwAHAAYAAAAGABkABwAHAAYAAAAGABoABwAHAAYAAAAGAB0ABwAHAAYAAAAGAB4ABwAHAAYAAAAGAB8ABwAHAAYAAAAGACAABwAHAAYAAAAGACEABwAHAAYAAAAHABwABwAHAAYAAAAHAB0ABwAHAAYAAAAHAB4ABwAHAAYAAAAHAB8ABwAHAAYAAAAHACAABwAHAAYAAAAHACEABwAHAAYAAAAIABwABwAHAAYAAAAIAB0ABgACAAUAAAAIAB4ABgABAAYAAAAIAB8ABwAHAAYAAAAIACAABwAHAAYAAAAIACEABwAHAAYAAAAJABwABwAHAAYAAAAJAB0ABgABAAUAAAAJAB4ABwAHAAYAAAAJAB8ABwAHAAYAAAAJACAABgACAAYAAAAJACEABwABAAMAAAAKABwABwAHAAYAAAAKAB0ABgACAAQAAAAKAB4ABwAHAAYAAAAKAB8ABwAHAAYAAAAKACAABwAHAAYAAAAKACEABwAHAAYAAAALABwABwAHAAYAAAALAB0ABwAHAAYAAAALAB4ABwAHAAYAAAALAB8ABwAHAAYAAAALACAABwAHAAYAAAAMAB0ABwAHAAYAAAAMAB4ABwAHAAYAAADS//f/BwAHAAYAAADS//j/BwAHAAYAAADT//T/BwAHAAYAAADT//X/BwAHAAYAAADT//b/BwAHAAYAAADT//f/BwAHAAYAAADT//j/BwAHAAYAAADT//n/BwAHAAYAAADU//T/BwAHAAYAAADU//X/BwAHAAYAAADU//b/BwABAAMAAADU//f/BwABAAMAAADU//j/BgABAAYAAADU//n/BwAHAAYAAADV//T/BwAHAAYAAADV//X/BwAHAAYAAADV//b/BwABAAMAAADV//f/BwABAAMAAADV//j/BwAHAAYAAADV//n/BwAHAAYAAADV//3/BwAHAAYAAADV//7/BwAHAAYAAADV////BwAHAAYAAADW//X/BwAHAAYAAADW//b/BwAHAAYAAADW//f/BwAHAAYAAADW//j/BwAHAAYAAADW//3/BwAHAAYAAADW//7/BwAHAAYAAADW////BwAHAAYAAADX//X/BwAHAAYAAADX//b/BwAHAAYAAADX//f/BwAHAAYAAADX//j/BwAHAAYAAADX//3/BwAHAAYAAADX//7/BgABAAYAAADX////BgABAAUAAADY//X/BwAHAAYAAADY//b/BwAHAAYAAADY//f/BwAHAAYAAADY//j/BwAHAAYAAADY//v/BwAHAAYAAADY//z/BwAHAAYAAADY//3/BwAHAAYAAADY//7/BwAHAAYAAADY////BwAHAAYAAADZ//r/BwAHAAYAAADZ//v/BwAHAAYAAADZ//z/BwAHAAYAAADZ//3/BwAHAAYAAADZ//7/BwAHAAYAAADZ////BwAHAAYAAADa//r/BwAHAAYAAADa//v/BgACAAUAAADa//z/BgABAAYAAADa//3/BwAHAAYAAADa//7/BwAHAAYAAADa////BwAHAAYAAADb//r/BwAHAAYAAADb//v/BgABAAUAAADb//z/BwAHAAYAAADb//3/BwAHAAYAAADb//7/BgACAAYAAADb////BwABAAMAAADc//r/BwAHAAYAAADc//v/BgACAAQAAADc//z/BwAHAAYAAADc//3/BwAHAAYAAADc//7/BwAHAAYAAADc////BwAHAAYAAADd//r/BwAHAAYAAADd//v/BwAHAAYAAADd//z/BwAHAAYAAADd//3/BwAHAAYAAADd//7/BwAHAAYAAADe//v/BwAHAAYAAADe//z/BwAHAAYAAADS/xkABwAHAAYAAADS/xoABwAHAAYAAADT/xoABwAHAAYAAADT/xsABwAHAAYAAADU/xoABgABAAYAAADU/xsABwAHAAYAAADV/xoABwAHAAYAAADV/xsABwAHAAYAAADV/x8ABwAHAAYAAADV/yAABwAHAAYAAADV/yEABwAHAAYAAADW/xkABwAHAAYAAADW/xoABwAHAAYAAADW/x8ABwAHAAYAAADW/yAABwAHAAYAAADW/yEABwAHAAYAAADX/xkABwAHAAYAAADX/xoABwAHAAYAAADX/x8ABwAHAAYAAADX/yAABgABAAYAAADX/yEABgABAAUAAADY/xgABwAHAAYAAADY/xkABwAHAAYAAADY/xoABwAHAAYAAADY/x0ABwAHAAYAAADY/x4ABwAHAAYAAADY/x8ABwAHAAYAAADY/yAABwAHAAYAAADY/yEABwAHAAYAAADZ/xwABwAHAAYAAADZ/x0ABwAHAAYAAADZ/x4ABwAHAAYAAADZ/x8ABwAHAAYAAADZ/yAABwAHAAYAAADZ/yEABwAHAAYAAADa/xwABwAHAAYAAADa/x0ABgACAAUAAADa/x4ABgABAAYAAADa/x8ABwAHAAYAAADa/yAABwAHAAYAAADa/yEABwAHAAYAAADb/xwABwAHAAYAAADb/x0ABgABAAUAAADb/x4ABwAHAAYAAADb/x8ABwAHAAYAAADb/yAABgACAAYAAADb/yEABwABAAMAAADc/xwABwAHAAYAAADc/x0ABgACAAQAAADc/x4ABwAHAAYAAADc/x8ABwAHAAYAAADc/yAABwAHAAYAAADc/yEABwAHAAYAAADd/xwABwAHAAYAAADd/x0ABwAHAAYAAADd/x4ABwAHAAYAAADd/x8ABwAHAAYAAADd/yAABwAHAAYAAADe/x0ABwAHAAYAAADe/x4ABwAHAAYAAADp/yEABgABAAcAAADz/yEABwAHAAYAAAD0/yAABwAHAAYAAAD0/yEABwAHAAYAAAD1/yAABwAHAAYAAAD1/yEABwABAAMAAAD2/x8ABwAHAAYAAAD2/yAABwAHAAYAAAD2/yEABwABAAMAAAD3/x8ABwAHAAYAAAD3/yAABwABAAMAAAD3/yEABwABAAMAAAD4/xwABwAHAAYAAAD4/x0ABwAHAAYAAAD4/x4ABwAHAAYAAAD4/x8ABwAHAAYAAAD4/yAABwABAAMAAAD4/yEABwABAAMAAAD5/xsABwAHAAYAAAD5/xwABwAHAAYAAAD5/x0ABwABAAMAAAD5/x4ABwABAAMAAAD5/x8ABwABAAMAAAD5/yAABwABAAMAAAD5/yEABwABAAMAAAD6/xoABwAHAAYAAAD6/xsABwAHAAYAAAD6/xwABwABAAMAAAD6/x0ABwABAAMAAAD6/x4ABwABAAMAAAD6/x8ABwABAAMAAAD6/yAABwABAAMAAAD6/yEABwAHAAYAAAD7/xoABwAHAAYAAAD7/xsABwABAAMAAAD7/xwABwABAAMAAAD7/x0ABwABAAMAAAD7/x4ABwABAAMAAAD7/x8ABwABAAMAAAD7/yAABwAHAAYAAAD7/yEABwAHAAYAAAD8/xoABwAHAAYAAAD8/xsABwAHAAYAAAD8/xwABwAHAAYAAAD8/x0ABwABAAMAAAD8/x4ABwABAAMAAAD8/x8ABwAHAAYAAAD8/yAABwAHAAYAAAD9/xwABwAHAAYAAAD9/x0ABwAHAAYAAAD9/x4ABwAHAAYAAAD9/x8ABwAHAAYAAAD+/xwABwAHAAYAAAD+/x0ABwAHAAYAAAD+/x4ABwAHAAYAAAD+/x8ABwAHAAYAAAD//x0ABwAHAAYAAAD//x4ABwAHAAYAAAD//yEABgABAAcAAAAhAP//BwAHAAYAAAAiAP7/BwAHAAYAAAAiAP//BwAHAAYAAAAjAP7/BwAHAAYAAAAjAP//BwABAAMAAAAkAP3/BwAHAAYAAAAkAP7/BwAHAAYAAAAkAP//BwABAAMAAAAlAP3/BwAHAAYAAAAlAP7/BwABAAMAAAAlAP//BwABAAMAAAAmAPr/BwAHAAYAAAAmAPv/BwAHAAYAAAAmAPz/BwAHAAYAAAAmAP3/BwAHAAYAAAAmAP7/BwABAAMAAAAmAP//BwABAAMAAAAnAPn/BwAHAAYAAAAnAPr/BwAHAAYAAAAnAPv/BwABAAMAAAAnAPz/BwABAAMAAAAnAP3/BwABAAMAAAAnAP7/BwABAAMAAAAnAP//BwABAAMAAAAoAPj/BwAHAAYAAAAoAPn/BwAHAAYAAAAoAPr/BwABAAMAAAAoAPv/BwABAAMAAAAoAPz/BwABAAMAAAAoAP3/BwABAAMAAAAoAP7/BwABAAMAAAAoAP//BwAHAAYAAAApAPj/BwAHAAYAAAApAPn/BwABAAMAAAApAPr/BwABAAMAAAApAPv/BwABAAMAAAApAPz/BwABAAMAAAApAP3/BwABAAMAAAApAP7/BwAHAAYAAAApAP//BwAHAAYAAAAqAPj/BwAHAAYAAAAqAPn/BwAHAAYAAAAqAPr/BwAHAAYAAAAqAPv/BwABAAMAAAAqAPz/BwABAAMAAAAqAP3/BwAHAAYAAAAqAP7/BwAHAAYAAAArAPr/BwAHAAYAAAArAPv/BwAHAAYAAAArAPz/BwAHAAYAAAArAP3/BwAHAAYAAAAsAPr/BwAHAAYAAAAsAPv/BwAHAAYAAAAsAPz/BwAHAAYAAAAsAP3/BwAHAAYAAAAtAPv/BwAHAAYAAAAtAPz/BwAHAAYAAAAhACEABwAHAAYAAAAiACAABwAHAAYAAAAiACEABwAHAAYAAAAjACAABwAHAAYAAAAjACEABwABAAMAAAAkAB8ABwAHAAYAAAAkACAABwAHAAYAAAAkACEABwABAAMAAAAlAB8ABwAHAAYAAAAlACAABwABAAMAAAAlACEABwABAAMAAAAmABwABwAHAAYAAAAmAB0ABwAHAAYAAAAmAB4ABwAHAAYAAAAmAB8ABwAHAAYAAAAmACAABwABAAMAAAAmACEABwABAAMAAAAnABsABwAHAAYAAAAnABwABwAHAAYAAAAnAB0ABwABAAMAAAAnAB4ABwABAAMAAAAnAB8ABwABAAMAAAAnACAABwABAAMAAAAnACEABwABAAMAAAAoABoABwAHAAYAAAAoABsABwAHAAYAAAAoABwABwABAAMAAAAoAB0ABwABAAMAAAAoAB4ABwABAAMAAAAoAB8ABwABAAMAAAAoACAABwABAAMAAAAoACEABwAHAAYAAAApABoABwAHAAYAAAApABsABwABAAMAAAApABwABwABAAMAAAApAB0ABwABAAMAAAApAB4ABwABAAMAAAApAB8ABwABAAMAAAApACAABwAHAAYAAAApACEABwAHAAYAAAAqABoABwAHAAYAAAAqABsABwAHAAYAAAAqABwABwAHAAYAAAAqAB0ABwABAAMAAAAqAB4ABwABAAMAAAAqAB8ABwAHAAYAAAAqACAABwAHAAYAAAArABwABwAHAAYAAAArAB0ABwAHAAYAAAArAB4ABwAHAAYAAAArAB8ABwAHAAYAAAAsABwABwAHAAYAAAAsAB0ABwAHAAYAAAAsAB4ABwAHAAYAAAAsAB8ABwAHAAYAAAAtAB0ABwAHAAYAAAAtAB4ABwAHAAYAAAA=")
 tile_set = ExtResource("5_naj2j")
 
@@ -349,7 +428,53 @@ skew = -0.174533
 tile_map_data = PackedByteArray("AAD8/wwABwAAAAAAAAA=")
 tile_set = ExtResource("7_28thc")
 
+[node name="ColorRect" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural"]
+visible = false
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_trnor")
+offset_left = -611.0
+offset_top = 1648.0
+offset_right = -607.0
+offset_bottom = 1747.0
+rotation = -0.0349066
+color = Color(0.572535, 0.185624, 0.519802, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural"]
+visible = false
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_trnor")
+offset_left = -508.0
+offset_top = 1623.0
+offset_right = -504.0
+offset_bottom = 1722.0
+rotation = -0.0261799
+color = Color(0.572535, 0.185624, 0.519802, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural"]
+visible = false
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_trnor")
+offset_left = -610.0
+offset_top = 1646.0
+offset_right = -502.0
+offset_bottom = 1649.0
+rotation = -0.218166
+color = Color(0.572535, 0.185624, 0.519802, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural"]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_trnor")
+offset_left = -605.0
+offset_top = 1745.0
+offset_right = -502.0
+offset_bottom = 1747.0
+rotation = -0.240855
+color = Color(0.572535, 0.185624, 0.519802, 1)
+
 [node name="Obstacles_Mural_Finished" type="TileMapLayer" parent="TileMapLayer2"]
+visible = false
 z_as_relative = false
 y_sort_enabled = true
 texture_filter = 4
@@ -359,6 +484,44 @@ scale = Vector2(1.35, 1.5)
 skew = -0.174533
 tile_map_data = PackedByteArray("AAD8/wwABwAEAAAAAAA=")
 tile_set = ExtResource("7_28thc")
+
+[node name="PointLight2D" type="PointLight2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
+position = Vector2(-402.539, 1677.17)
+rotation = -0.195477
+scale = Vector2(0.435675, 0.68413)
+skew = -0.0244346
+color = Color(1, 0.309804, 0.239216, 1)
+energy = 10.0
+texture = ExtResource("8_bf1ri")
+script = SubResource("GDScript_8kcp0")
+
+[node name="Area2D" type="Area2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
+position = Vector2(-395.64, 1690.5)
+rotation = -0.195477
+scale = Vector2(0.435675, 0.68413)
+skew = -0.0244347
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_bf1ri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer2/Obstacles_Mural_Finished/Area2D"]
+position = Vector2(-5.56701, 0.821636)
+rotation = 0.126075
+scale = Vector2(2.25861, 1.51923)
+skew = 0.209884
+shape = SubResource("CapsuleShape2D_8kcp0")
+
+[node name="ColorRect" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural_Finished/Area2D"]
+visible = false
+offset_left = 115.0
+offset_right = 408.0
+offset_bottom = 150.0
+color = Color(0.621306, 0.619549, 9.62615e-07, 1)
+
+[node name="completion_sound" type="AudioStreamPlayer2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
+position = Vector2(-486.653, 1665.39)
+stream = ExtResource("10_8kcp0")
+bus = &"SFX"
 
 [node name="Obstacles_Plants_Sway" type="TileMapLayer" parent="TileMapLayer2"]
 z_as_relative = false
@@ -415,7 +578,7 @@ shape = SubResource("RectangleShape2D_vrcud")
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(-60, 1455)
+position = Vector2(-139, 1455)
 collision_layer = 2
 collision_mask = 128
 script = SubResource("GDScript_aevhm")
@@ -423,6 +586,7 @@ script = SubResource("GDScript_aevhm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator1_Area2D"]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(-1.5, 14.5)
 shape = SubResource("RectangleShape2D_alirh")
 
 [node name="Activator2_Area2D" type="Area2D" parent="."]
@@ -435,18 +599,26 @@ collision_mask = 128
 script = SubResource("GDScript_kmcta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(0, -22.75)
 shape = SubResource("RectangleShape2D_4ijvm")
 
-[node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
-position = Vector2(-420, 1269)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(0, 84.625)
+shape = SubResource("RectangleShape2D_4ijvm")
 
-[node name="Mural" type="Node2D" parent="."]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(35, -567)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(-330, 31)
+shape = SubResource("RectangleShape2D_28thc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Activator2_Area2D"]
+position = Vector2(308, 31.5)
+shape = SubResource("RectangleShape2D_bf1ri")
+
+[node name="Cat_CharBody2D" parent="." instance=ExtResource("18_ebcbv")]
+position = Vector2(-448, 1137)
+speed = 10000
 
 [node name="Activator3_Area2D" type="Area2D" parent="."]
-visible = false
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
@@ -456,9 +628,7 @@ collision_mask = 128
 script = SubResource("GDScript_e8wkv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activator3_Area2D"]
-visible = false
-position = Vector2(-41, 3)
-rotation = -0.120428
+position = Vector2(-22, 32)
 shape = SubResource("RectangleShape2D_su01s")
 
 [node name="ColorRect" type="ColorRect" parent="Activator3_Area2D"]
@@ -467,18 +637,16 @@ material = SubResource("ShaderMaterial_135qg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -275.0
-offset_right = 62.0
-offset_bottom = -235.0
+offset_left = -103.0
+offset_top = -217.0
+offset_right = 47.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.0872665
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Activator3_Area2D/ColorRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -561,6 +729,11 @@ stretch_mode = 1
 [node name="SceneManager" type="Node2D" parent="."]
 script = SubResource("GDScript_dhqr3")
 
+[node name="Mural" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(69, -536)
+
 [node name="Piece1cat" type="Node2D" parent="."]
 position = Vector2(30, 730)
 
@@ -568,10 +741,10 @@ position = Vector2(30, 730)
 position = Vector2(-39, -799)
 
 [node name="Piece3leftcat" type="Node2D" parent="."]
-position = Vector2(745, -714)
+position = Vector2(-1790, 659)
 
 [node name="Piece3upcat" type="Node2D" parent="."]
-position = Vector2(327, -554)
+position = Vector2(-1708, 580)
 
 [node name="ActivatorPiece1_Area2D" parent="." instance=ExtResource("16_kvmhi")]
 z_index = 0
@@ -580,13 +753,13 @@ scale = Vector2(0.6, 0.6)
 
 [node name="ActivatorPiece2_Area2D" parent="." instance=ExtResource("16_kvmhi")]
 z_index = 0
-position = Vector2(1815, -1619)
+position = Vector2(-1710, 668)
 scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_0frnx")
 
 [node name="ActivatorPiece3_Area2D" parent="." instance=ExtResource("16_kvmhi")]
 z_index = 0
-position = Vector2(-1710, 668)
+position = Vector2(1833, -1631)
 scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_651m4")
 
@@ -605,6 +778,7 @@ y_sort_enabled = true
 visible = false
 position = Vector2(10.8, -15.2)
 
+[connection signal="body_entered" from="TileMapLayer2/Obstacles_Mural_Finished/Area2D" to="TileMapLayer2/Obstacles_Mural_Finished/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator1_Area2D" to="Activator1_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator2_Area2D" to="Activator2_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Activator3_Area2D" to="Activator3_Area2D" method="_on_body_entered"]
@@ -614,4 +788,5 @@ position = Vector2(10.8, -15.2)
 [connection signal="body_entered" from="Activator5_Area2D2" to="Activator5_Area2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="Activator5_Area2D2" to="Activator5_Area2D2" method="_on_body_exited"]
 
+[editable path="ActivatorPiece2_Area2D"]
 [editable path="ActivatorPiece3left_Area2D"]

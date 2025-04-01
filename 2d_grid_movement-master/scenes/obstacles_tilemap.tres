@@ -52,10 +52,6 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1twh"]
 texture = ExtResource("3_n25cw")
 texture_region_size = Vector2i(128, 128)
-3:1/0 = 0
-3:1/0/y_sort_origin = 50
-3:0/0 = 0
-3:0/0/y_sort_origin = 50
 6:2/size_in_atlas = Vector2i(2, 4)
 6:2/0 = 0
 6:2/0/texture_origin = Vector2i(0, 10)
@@ -72,6 +68,8 @@ texture_region_size = Vector2i(128, 128)
 4:6/0 = 0
 4:6/0/y_sort_origin = 95
 4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-42, 122, -36, 64, 32, 64, 50, 122)
+3:1/0 = 0
+3:1/0/y_sort_origin = 50
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vix4c"]
 texture = ExtResource("4_t1mtr")
@@ -90,8 +88,6 @@ texture = ExtResource("5_8uutn")
 texture_region_size = Vector2i(128, 128)
 3:0/0 = 0
 3:0/0/y_sort_origin = 50
-3:1/0 = 0
-3:1/0/y_sort_origin = 50
 6:2/size_in_atlas = Vector2i(2, 4)
 6:2/0 = 0
 6:2/0/y_sort_origin = 245
@@ -128,6 +124,8 @@ texture_region_size = Vector2i(128, 128)
 0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, 41, -12, 36, 7, 31, 21, 27, 30, 40, 37, 64, -36, 64)
 5:5/0 = 0
 5:5/0/y_sort_origin = 50
+3:1/0 = 0
+3:1/0/y_sort_origin = 50
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84k5h"]
 texture = ExtResource("6_w8fao")
@@ -174,10 +172,11 @@ use_texture_padding = false
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-42.5, -21, -23.5, -40, -0.5, -52, 33.5, -40, 50.5, -16, 40.5, 26, 3.5, 47, -36.5, 19)
 3:3/size_in_atlas = Vector2i(2, 2)
 3:3/0 = 0
+3:3/0/y_sort_origin = 90
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.9415, -68.8658, -44.3112, -86.3645, 0.5, -93, 61.5, -76, 80.5, -99, 106.5, -96, 52.0311, -25.8118, 97.5, -9, 103.5, 5, 79.5, 11, 30.5, -3, -42.5, 96, -104.71, 104.428, 44.8757, -58.7053)
 5:3/size_in_atlas = Vector2i(3, 3)
 5:3/0 = 0
-5:3/0/y_sort_origin = -90
+5:3/0/y_sort_origin = 96
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(63, -78, 166, -74, 172, -56, 187, -48, 186.5, -29, 183.5, 12, 176.5, 87, 151.5, 130, 110.5, 125, 83.5, 111, -35.5, 123, -172.5, 127, -185.5, 55, -156.5, 32, -120.5, 20, -119.5, -59, -121.5, -76, -150.5, -79, -182.5, -74, -183.5, -104, 3, -93)
 4:6/size_in_atlas = Vector2i(4, 2)
 4:6/0 = 0

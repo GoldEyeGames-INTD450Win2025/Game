@@ -26,7 +26,7 @@ shader_parameter/angle = 0.785398
 shader_parameter/speed = 1.0
 shader_parameter/wait_cycles = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_alirh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dmg8"]
 size = Vector2(65, 93)
 
 [node name="ActivatorPiece_Area2D" type="Area2D"]
@@ -45,6 +45,6 @@ texture = ExtResource("1_mb4nu")
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_alirh")
+shape = SubResource("RectangleShape2D_5dmg8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
