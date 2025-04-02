@@ -45,8 +45,8 @@ func _update(_delta: float):
 		if not _update_right_click():
 			_update_left_click()
 	if Input.is_action_just_released("right_click"):
-		#if Global.puzzle_open == true:
-			#audio_piecedrop.play()
+		if Global.puzzle_open == true:
+			SfxPuzzle.play_sfx_drop()
 		Global.is_dragging = false
 
 func _update_anker():
@@ -58,8 +58,8 @@ func _update_anker():
 
 func _update_right_click() -> bool:
 	if Input.is_action_just_pressed("right_click"):
-		#if Global.puzzle_open == true:
-			#audio_piecelift.play()
+		if Global.puzzle_open == true:
+			SfxPuzzle.play_sfx_lift()
 		Global.is_dragging = true
 		offset = get_global_mouse_position() - global_position
 		currently_being_dragged = true
@@ -82,8 +82,8 @@ func _update_right_click() -> bool:
 func _update_left_click() -> bool:
 	if Input.is_action_just_pressed("left_click"):
 		if not is_swiping:
-			#if Global.puzzle_open == true:
-				#audio_pieceslide.play()
+			if Global.puzzle_open == true:
+				SfxPuzzle.play_sfx_slide()
 			is_swiping = true
 			swipe_start_pos = get_global_mouse_position()
 		return true

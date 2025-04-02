@@ -22,6 +22,7 @@ buses/default_bus_layout="res://assets/audio/audio_settings/default_bus_layout.t
 [autoload]
 
 Global="*res://scenes/global.gd"
+SfxPuzzle="*res://assets/audio/sfx_puzzle.tscn"
 
 [display]
 

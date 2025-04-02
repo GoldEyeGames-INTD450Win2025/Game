@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cosx1egox4riv"]
+
+[ext_resource type="Script" uid="uid://cbdl1n6ttresa" path="res://assets/audio/sfx_puzzle.gd" id="1_yo7la"]
+[ext_resource type="AudioStream" uid="uid://5oxvfbmo02ay" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk2.wav" id="2_cnv06"]
+[ext_resource type="AudioStream" uid="uid://1qnt7461qc5c" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk1.wav" id="3_rb18v"]
+[ext_resource type="AudioStream" uid="uid://daeeudxo472dw" path="res://assets/audio/audio_free_sfx/stone_moves/stone_door.ogg" id="4_it6hl"]
+
+[node name="SFX_Puzzle" type="Node2D"]
+script = ExtResource("1_yo7la")
+
+[node name="Lift" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cnv06")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="Drop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rb18v")
+volume_db = 4.0
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="Slide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_it6hl")
+volume_db = 6.0
+pitch_scale = 4.0
+bus = &"SFX"
