@@ -13,7 +13,13 @@ var to_find = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_reset_puzzle()
+	
+func _reset_puzzle() -> void:
 	var puzzle_pieces = $Puzzle_Pieces
+	pieces = []
+	sprites = []
+	hidden_pieces = []
 	right_grid = $Right_Grid
 	right_grid._create(4, 5, 5)
 	left_grid = $Left_Grid
@@ -138,6 +144,16 @@ func _process(_delta: float) -> void:
 	solved = _puzzle_solved()
 	if solved:
 		Global.puzzle_solved = true
+	
+	if Input.is_action_just_pressed("reset_puzzle") and get_parent().get_parent().visible:
+		print("reseting puzzle")
+		right_grid.delete()
+		left_grid.delete()
+		for node in pieces:
+			for child in node.get_children():
+				child.queue_free()
+			node.queue_free()
+		_reset_puzzle()
 
 func _make_grid_occupied(piece, init_grid_square, grid):
 	for x in range(piece.dims.x):

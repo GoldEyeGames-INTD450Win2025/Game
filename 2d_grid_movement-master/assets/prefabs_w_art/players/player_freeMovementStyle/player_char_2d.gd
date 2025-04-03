@@ -8,6 +8,9 @@ extends CharacterBody2D
 func get_player_input(delta: float) -> void:
 	var vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = vector * speed * delta
+	if Input.is_action_pressed("shift"):
+		velocity *= 1.5
+		
 	if vector == Vector2(0, 0):
 		animated_sprited_2d.animation = "idle"
 		audio_sfx_walking.stop()

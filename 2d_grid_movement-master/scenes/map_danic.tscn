@@ -464,6 +464,7 @@ rotation = -0.218166
 color = Color(0.572535, 0.185624, 0.519802, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="TileMapLayer2/Obstacles_Mural"]
+visible = false
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_trnor")
 offset_left = -605.0

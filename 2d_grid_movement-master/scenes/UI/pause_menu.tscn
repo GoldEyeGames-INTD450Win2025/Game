@@ -73,9 +73,10 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 30
-text = "Use P to Pause; Use WASD (or Arrow keys) to move; Use N for dialogue actions;
-Use SPACE if at Mural
-"
+text = "Use P to Pause;
+Use WASD (or Arrow keys) to move; 
+Use N for dialogue actions;
+Use SPACE if at Mural"
 fit_content = true
 
 [node name="Label_SFX" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
@@ -113,6 +114,14 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit Game"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel"]
+show_behind_parent = true
+layout_mode = 2
+offset_right = 1600.0
+offset_bottom = 725.0
+mouse_filter = 2
+color = Color(0.454524, 0.454524, 0.454524, 1)
 
 [connection signal="pressed" from="CanvasLayer/Panel/Button_Resume" to="." method="_on_button_resume_pressed"]
 [connection signal="drag_ended" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_SFX" to="." method="_on_h_slider_sfx_drag_ended"]

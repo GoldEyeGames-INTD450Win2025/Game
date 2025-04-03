@@ -1,4 +1,4 @@
-﻿Trigger;Character;DialogueText;Next;Cutscene
+Trigger;Character;DialogueText;Next;Cutscene
 testtrigger1;Masika;Ohhh, my head. Why is everything spinning?;yes;
 ;Masika;Where am I? This looks like somewhere I used to know, but something’s not right.;yes;
 ;Masika;It’s different here. I feel lighter. Less grounded. That, combined with the memories clouded within my mind… I understand now.;;
@@ -71,7 +71,7 @@ testtrigger 10;Masika;My stall had looked like this. I’d had extra tables and 
 ;Masika;They never spoke against me, but never to me either, easy chatter between stalls during quiet moments of the day never quite reaching me.;yes;
 ;Masika;Something changed that, one day months after I began… Eshe?;;
 testtrigger11;Masika;I used to see boats like this all the time, but where…;yes;boat
-                                                                                                                                                                                                                                                                                                                                                                                                                             ;Masika;Oh! They sailed down the Nile late in the evening, and since I often took the long way home along the river, I saw them nearly every night.;yes;
+																																																																																																							 ;Masika;Oh! They sailed down the Nile late in the evening, and since I often took the long way home along the river, I saw them nearly every night.;yes;
 ;Masika;The walks helped to clear my head, watching the calm water and the boats gliding by with barely a ripple.;yes;
 ;Masika;The company was often wonderful too, Eshe, as far back in the shadows as you stayed.;yes;
 ;Eshe;…;yes;

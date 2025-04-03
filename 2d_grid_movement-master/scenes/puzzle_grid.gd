@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 
 
 func _create(num_rows: int, num_cols: int, num_spacing: int) -> void:
+	slots = []
 	rows = num_rows
 	cols = num_cols
 	spacing = num_spacing
@@ -30,3 +31,10 @@ func _create(num_rows: int, num_cols: int, num_spacing: int) -> void:
 			add_child(slots[row][column])
 			slots[row][column].global_position += Vector2((0.8 * (128 + spacing) * column + 64) * parent_scale.x, ((0.8 * (128 + spacing) * row) + 64) * parent_scale.y)
 			slots[row][column].name = ("Slot[" + str(row) + "][" + str(column) + "]")
+
+func delete() -> void:
+	for i in rows:
+		for j in cols:
+			for child in slots[i][j].get_children():
+				child.queue_free()
+			slots[i][j].queue_free()
