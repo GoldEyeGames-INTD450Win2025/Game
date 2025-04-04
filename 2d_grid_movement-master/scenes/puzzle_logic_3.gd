@@ -17,6 +17,9 @@ func _ready() -> void:
 	
 func _reset_puzzle() -> void:
 	var puzzle_pieces = $Puzzle_Pieces
+	pieces = []
+	sprites = []
+	hidden_pieces = []
 	right_grid = $Right_Grid
 	right_grid._create(4, 5, 5)
 	left_grid = $Left_Grid
@@ -120,11 +123,11 @@ func _reset_puzzle() -> void:
 	pieces[11].add_child(sprites[3][2])
 
 
-	init_grid = [right_grid.slots[2][1], right_grid.slots[3][0], left_grid.slots[2][0], 
+	init_grid = [right_grid.slots[2][1], right_grid.slots[3][0], left_grid.slots[2][1], 
 				   right_grid.slots[0][0], right_grid.slots[2][4], right_grid.slots[0][2], 
 				   left_grid.slots[1][1], right_grid.slots[1][0], right_grid.slots[1][3], 
 				   right_grid.slots[0][4], right_grid.slots[3][2], left_grid.slots[0][0],
-					left_grid.slots[0][1], left_grid.slots[1][0], left_grid.slots[2][1]]
+					left_grid.slots[0][1], left_grid.slots[1][0], left_grid.slots[2][0]]
 	
 	solved_grid = [right_grid.slots[0][0], right_grid.slots[0][1], right_grid.slots[1][1], 
 				   right_grid.slots[0][2], right_grid.slots[0][4], right_grid.slots[1][2], 

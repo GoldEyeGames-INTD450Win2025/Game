@@ -17,6 +17,9 @@ func _ready() -> void:
 
 func _reset_puzzle() -> void:
 	var puzzle_pieces = $Puzzle_Pieces
+	pieces = []
+	sprites = []
+	hidden_pieces = []
 	right_grid = $Right_Grid
 	right_grid._create(4, 5, 5)
 	left_grid = $Left_Grid
