@@ -601,7 +601,6 @@ var pieces_left = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.pieces_found = 3
 	Global.puzzle_solved = false
 	var zone_mural = get_node(\"/root/Map_Danic2/Activator3_Area2D\")  # Adjust path as needed
 	if zone_mural:
