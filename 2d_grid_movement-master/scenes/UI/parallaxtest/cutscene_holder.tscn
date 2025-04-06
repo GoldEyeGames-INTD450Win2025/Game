@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://djavkcbpv8yhx"]
+[gd_scene load_steps=12 format=3 uid="uid://djavkcbpv8yhx"]
 
 [ext_resource type="Script" uid="uid://bw5730gfnhth7" path="res://scenes/UI/parallaxtest/cutscene_holder.gd" id="1_vo33i"]
 [ext_resource type="Texture2D" uid="uid://b8pfr2g7jqkql" path="res://scenes/UI/parallaxtest/parallax_backgrounds/Parallax_Backgrounds_SnowyMountains/5.png" id="2_tykxv"]
-[ext_resource type="Texture2D" uid="uid://gfucqo71edjn" path="res://scenes/UI/parallaxtest/cutscene_lvl1_signpost.png" id="3_b8d6x"]
-[ext_resource type="Texture2D" uid="uid://bryufajlcua7" path="res://scenes/UI/parallaxtest/cutscene_lvl1_house.png" id="4_e8mjd"]
-[ext_resource type="Texture2D" uid="uid://bxgrl57r3lkbn" path="res://scenes/UI/parallaxtest/cutscene_lvl1_necklace.png" id="5_sbitr"]
-[ext_resource type="Texture2D" uid="uid://d4aouipuo1xkm" path="res://scenes/UI/parallaxtest/cutscene_lvl2_whole.png" id="6_gsfht"]
-[ext_resource type="Texture2D" uid="uid://cw0sgd7nrgj0f" path="res://scenes/UI/parallaxtest/cutscene_lvl2_tallhouse.png" id="7_ecney"]
-[ext_resource type="Texture2D" uid="uid://1pt16mb1aqv" path="res://scenes/UI/parallaxtest/hallofjudge1.jpg" id="8_sbitr"]
-[ext_resource type="Texture2D" uid="uid://de1bwjgg0gmvv" path="res://scenes/UI/parallaxtest/fieldofreeds2.png" id="9_gsfht"]
+[ext_resource type="Texture2D" uid="uid://gfucqo71edjn" path="res://assets/art_drawn_tile/cutscene_lvl1_signpost.png" id="3_b8d6x"]
+[ext_resource type="Texture2D" uid="uid://bryufajlcua7" path="res://assets/art_drawn_tile/cutscene_lvl1_house.png" id="4_e8mjd"]
+[ext_resource type="Texture2D" uid="uid://bxgrl57r3lkbn" path="res://assets/art_drawn_tile/cutscene_lvl1_necklace.png" id="5_sbitr"]
+[ext_resource type="Texture2D" uid="uid://d4aouipuo1xkm" path="res://assets/art_drawn_tile/cutscene_lvl2_whole.png" id="6_gsfht"]
+[ext_resource type="Texture2D" uid="uid://cw0sgd7nrgj0f" path="res://assets/art_drawn_tile/cutscene_lvl2_tallhouse.png" id="7_ecney"]
+[ext_resource type="Texture2D" uid="uid://d18evool8ywsk" path="res://assets/art_drawn_tile/level_3_cutscene.png" id="8_ecney"]
+[ext_resource type="Texture2D" uid="uid://d1m2pi6872bow" path="res://assets/art_drawn_tile/level_3_cutscene_right.png" id="9_renp4"]
+[ext_resource type="Texture2D" uid="uid://c5rbvcqu16m6v" path="res://assets/art_drawn_tile/final_cutscene.png" id="10_yuij5"]
+[ext_resource type="Texture2D" uid="uid://dvcbymi3a4of3" path="res://assets/art_drawn_tile/final_cutscene_2.png" id="11_ab71u"]
 
 [node name="CutsceneHolder" type="Control"]
 layout_mode = 3
@@ -146,7 +148,7 @@ offset_right = 640.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("6_gsfht")
+texture = ExtResource("8_ecney")
 expand_mode = 1
 stretch_mode = 2
 
@@ -159,7 +161,7 @@ offset_right = 1280.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("6_gsfht")
+texture = ExtResource("8_ecney")
 expand_mode = 1
 stretch_mode = 3
 
@@ -171,7 +173,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("7_ecney")
+texture = ExtResource("9_renp4")
 expand_mode = 1
 
 [node name="lvl3_left_post" type="TextureRect" parent="CanvasLayer/Container"]
@@ -182,7 +184,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("6_gsfht")
+texture = ExtResource("8_ecney")
 expand_mode = 1
 stretch_mode = 2
 
@@ -194,7 +196,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("8_sbitr")
+texture = ExtResource("10_yuij5")
 expand_mode = 1
 
 [node name="lvlfinal2" type="TextureRect" parent="CanvasLayer/Container"]
@@ -205,7 +207,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("9_gsfht")
+texture = ExtResource("11_ab71u")
 expand_mode = 1
 
 [connection signal="timeout" from="CanvasLayer/Timer_par" to="." method="_on_timer_timeout"]

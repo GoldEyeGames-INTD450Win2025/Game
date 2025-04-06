@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdel6ku1o5sq"
-path="res://.godot/imported/cutscene_lvl1_whole.png-50300557980c4b58093f7f6903e6cb67.ctex"
+uid="uid://bryufajlcua7"
+path="res://.godot/imported/cutscene_lvl1_house.png-c91f946b561e233cd40670a805f5d7cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/UI/parallaxtest/cutscene_lvl1_whole.png"
-dest_files=["res://.godot/imported/cutscene_lvl1_whole.png-50300557980c4b58093f7f6903e6cb67.ctex"]
+source_file="res://assets/art_drawn_tile/cutscene_lvl1_house.png"
+dest_files=["res://.godot/imported/cutscene_lvl1_house.png-c91f946b561e233cd40670a805f5d7cf.ctex"]
 
 [params]
 

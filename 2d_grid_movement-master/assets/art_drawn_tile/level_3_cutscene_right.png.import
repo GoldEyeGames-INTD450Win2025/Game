@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgrl57r3lkbn"
-path="res://.godot/imported/cutscene_lvl1_necklace.png-5aed801f112519bccc222041ffe4949e.ctex"
+uid="uid://d1m2pi6872bow"
+path="res://.godot/imported/level_3_cutscene_right.png-3b5ff55561c7930ebc0dfc966792c18c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/UI/parallaxtest/cutscene_lvl1_necklace.png"
-dest_files=["res://.godot/imported/cutscene_lvl1_necklace.png-5aed801f112519bccc222041ffe4949e.ctex"]
+source_file="res://assets/art_drawn_tile/level_3_cutscene_right.png"
+dest_files=["res://.godot/imported/level_3_cutscene_right.png-3b5ff55561c7930ebc0dfc966792c18c.ctex"]
 
 [params]
 

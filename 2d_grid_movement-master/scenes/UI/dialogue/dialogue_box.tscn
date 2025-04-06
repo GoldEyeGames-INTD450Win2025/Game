@@ -258,15 +258,10 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(location_UI_icons % matched_row[1])
 			next_button.text = \"Done.\"
-			#Engine.time_scale = 0 # Freeze game logic
-			#if matched_row[4].to_lower() != \"\":
-				#cutscene_called = matched_row[4]
-				#cutscene_holder.start_cutscene()
 			dialogue_box.show()
 			Global.dialogue_box_open = true
 			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
-			#wait_for_button_press()
 			dialogue_box.hide()
 			Global.dialogue_box_open = false
 			if cutscene_called != \"\":
@@ -276,22 +271,18 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 				else:
 					cutscene_called = \"\"
 					cutscene_holder.stop_cutscene()
-			#Engine.time_scale = 1 # unFreeze game logic
 			if lvlend != \"\":
 				do_lvl_end_change()
 		else:
 			dialoguebox_text.text = matched_row[2]  # Set dialogue text
 			npc_icon.texture = load(location_UI_icons % matched_row[1])
 			next_button.text = \"Next...\"
-			#Engine.time_scale = 0 # Freeze game logic
 			if matched_row[4].to_lower() != \"\":
 				cutscene_called = matched_row[4]
 				cutscene_holder.start_cutscene(cutscene_called)
 			dialogue_box.show()
 			Global.dialogue_box_open = true
-			# Call the next action (await the button press before continuing)
 			await wait_for_button_press()
-			#wait_for_button_press()
 			matched_index += 1
 			
 			# Check if index is within bounds
