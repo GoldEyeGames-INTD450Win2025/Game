@@ -1075,22 +1075,27 @@ position = Vector2(-2796, 1584)
 position = Vector2(-2753, 1065)
 
 [node name="Boids" parent="Animals" instance=ExtResource("19_vceer")]
+visible = false
 position = Vector2(-1332, 1101)
 scale = Vector2(0.5, 0.5)
 
 [node name="Boids2" parent="Animals" instance=ExtResource("19_vceer")]
+visible = false
 position = Vector2(-1257, 1047)
 scale = Vector2(0.5, 0.5)
 
 [node name="Boids3" parent="Animals" instance=ExtResource("19_vceer")]
+visible = false
 position = Vector2(-1195, 1103)
 scale = Vector2(0.5, 0.5)
 
 [node name="Boids4" parent="Animals" instance=ExtResource("19_vceer")]
+visible = false
 position = Vector2(-1325, 993)
 scale = Vector2(0.5, 0.5)
 
 [node name="Boids5" parent="Animals" instance=ExtResource("19_vceer")]
+visible = false
 position = Vector2(-1178, 968)
 scale = Vector2(0.5, 0.5)
 

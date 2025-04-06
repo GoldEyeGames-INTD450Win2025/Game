@@ -148,7 +148,7 @@ func _reset_puzzle() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	for i in range(3):#range(Global.pieces_found):
+	for i in range(Global.pieces_found):
 		hidden_pieces[i].visible = true
 	solved = _puzzle_solved()
 	if solved:
