@@ -1,6 +1,5 @@
 extends Control
 
-@onready var thisscene = $"."
 @onready var logo = $Control
 @onready var sound = $AudioStreamPlayer2D
 var scene_duration = 5.0
@@ -14,11 +13,6 @@ func _ready() -> void:
 	logo.scale = Vector2(0.001, 0.001)  
 	logo.rotation_degrees = 0
 	start_animation()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	#if InputEventAction.new()
-	pass
 
 func start_animation():
 	var grow_tween = get_tree().create_tween()
@@ -37,9 +31,7 @@ func _input(event):
 		finish_scene()
 
 func finish_scene():
-	#pass
 	var fade_tween = get_tree().create_tween()
 	fade_tween.tween_property(logo, "modulate:a", 0, fade_duration)
-	#fade_tween.tween_property(thisscene, "modulate:a", 0, fade_duration)
 	await fade_tween.finished
 	get_tree().change_scene_to_file(scene_startmenu_location)

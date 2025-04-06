@@ -14,7 +14,6 @@ varying vec2 globalposition;
 void vertex(){
 	globalposition = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
 }
-// 3399ff1a water tint
 
 void fragment()
 {

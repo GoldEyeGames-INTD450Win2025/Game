@@ -39,10 +39,6 @@ func _ready() -> void:
 	thisnodes_container.modulate.a = 0 #test
 	#thisnodes_container.show()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func start_cutscene(cutscene_name: String):
 	if cutscene_running:
 		return

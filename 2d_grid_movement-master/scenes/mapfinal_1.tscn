@@ -14,9 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="13_ypv0t"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="14_emt2b"]
 [ext_resource type="PackedScene" uid="uid://bbiib6h6kl4va" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d_lvl3.tscn" id="15_jx3i5"]
-[ext_resource type="Script" path="res://scenes/lvl_3_activators.gd" id="16_6pjv7"]
+[ext_resource type="Script" uid="uid://j8cgk66mx1i4" path="res://scenes/lvl_3_activators.gd" id="16_6pjv7"]
 [ext_resource type="PackedScene" uid="uid://ccm57no8dpaqa" path="res://scenes/puzzle_3.tscn" id="17_ot7v1"]
-[ext_resource type="Script" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
+[ext_resource type="Script" uid="uid://bo2fik6jbgfk5" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
 [ext_resource type="Texture2D" uid="uid://flsptfcnkmu1" path="res://assets/art_free/night-scene-milky-way-background.png" id="19_l5hy0"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="19_udi1q"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="20_4tt7o"]
@@ -1770,10 +1770,11 @@ height = 82.7383
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1jgwa"]
 shader = ExtResource("14_emt2b")
-shader_parameter/speed = 3.0
-shader_parameter/strength = 4.0
-shader_parameter/frequency = 3.0
-shader_parameter/tree_height = 0.0
+shader_parameter/wind_direction = Vector2(1, 0)
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_strength = 0.1
+shader_parameter/sway_frequency = 1.0
+shader_parameter/sway_magnitude = 0.1
 
 [sub_resource type="GDScript" id="GDScript_aevhm"]
 script/source = "extends Area2D
