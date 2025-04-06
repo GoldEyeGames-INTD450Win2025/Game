@@ -1,18 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://gpvi1axeditt"]
+[gd_scene load_steps=14 format=3 uid="uid://gpvi1axeditt"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_l5hy0"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_28nid"]
 [ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_lpxgd"]
 [ext_resource type="PackedScene" uid="uid://hcnr830rdb3s" path="res://scenes/lvltransition/level_transition_out_final1.tscn" id="5_l5hy0"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="10_5xakl"]
-[ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="11_w2hv1"]
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="12_n0cyj"]
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://assets/audio/audio_free_sfx/MESSAGE-B_Accept.wav" id="13_ypv0t"]
 [ext_resource type="PackedScene" uid="uid://bbiib6h6kl4va" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d_lvl3.tscn" id="15_jx3i5"]
-[ext_resource type="PackedScene" uid="uid://ccm57no8dpaqa" path="res://scenes/puzzle_3.tscn" id="17_ot7v1"]
-[ext_resource type="Script" uid="uid://bo2fik6jbgfk5" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
-[ext_resource type="Texture2D" uid="uid://flsptfcnkmu1" path="res://assets/art_free/night-scene-milky-way-background.png" id="19_l5hy0"]
-[ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="19_udi1q"]
 
 [sub_resource type="GDScript" id="GDScript_8kcp0"]
 script/source = "extends PointLight2D
@@ -44,15 +39,6 @@ var one_time_trigger = 0
 @onready var placeholder_lvl1end_sprite = $ColorRect
 @onready var completion_sound = $\"../completion_sound\"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_body_entered(body):
 	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
@@ -83,111 +69,10 @@ func _on_body_entered(body):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alirh"]
 size = Vector2(63, 19)
 
-[sub_resource type="GDScript" id="GDScript_e8wkv"]
-script/source = "extends Area2D
-signal player_near_lvl3_mural  # Define signal to later emit
-var one_time_trigger = false
-var player_inside = false
-@onready var mural_piece_placeholder: CanvasLayer = $ColorRect2
-@onready var mural_action_notifier: ColorRect = $ColorRect
-func _on_body_entered(body):
-	if body.name == \"Player_Char2D\":
-		player_inside = true
-		mural_action_notifier.show()
-		if not one_time_trigger:
-			print(\"Entered by: \", body.name)
-			player_near_lvl3_mural.emit()
-			one_time_trigger = true
-
-func _on_body_exited(body):
-	if body.name == \"Player_Char2D\":
-		player_inside = false
-		mural_action_notifier.hide()
-
-func _process(_delta):
-	if not Global.dialogue_box_open and not Global.pause_menu_open:
-		if player_inside and Input.is_action_just_pressed(\"action_mural\"):
-			mural_piece_placeholder.visible = not mural_piece_placeholder.visible
-			#Engine.time_scale = !(mural_piece_placeholder.visible) # Freeze/unfreeze game logic
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_su01s"]
-size = Vector2(176, 86)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_135qg"]
-shader = ExtResource("11_w2hv1")
-shader_parameter/shine_color = Color(1, 1, 1, 0.25)
-shader_parameter/line_width = 0.1
-shader_parameter/angle = 0.785398
-shader_parameter/speed = 1.0
-shader_parameter/wait_cycles = 1.0
-
-[sub_resource type="GDScript" id="GDScript_71usw"]
-script/source = "extends Area2D
-signal player_near_lvl3_AP1  # Define signal to later emit
-var one_time_trigger = 0
-@onready var this_sprite = $Sprite2D
-func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
-		print(\"player_near_lvl3_AP1 Entered by: \", body.name)
-		# activate area triggers
-		player_near_lvl3_AP1.emit()
-		# NOTE:setup puzzle to have that piece now
-		one_time_trigger = 1
-		this_sprite.hide()
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtjfn"]
-shader = ExtResource("11_w2hv1")
-shader_parameter/shine_color = Color(1, 1, 1, 0.25)
-shader_parameter/line_width = 1.0
-shader_parameter/angle = 0.785398
-shader_parameter/speed = 1.0
-shader_parameter/wait_cycles = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag228"]
-size = Vector2(65, 93)
-
-[sub_resource type="GDScript" id="GDScript_8j3kb"]
-script/source = "extends Area2D
-signal player_near_lvl3_AP2  # Define signal to later emit
-var one_time_trigger = 0
-@onready var this_sprite = $Sprite2D
-func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
-		print(\"player_near_lvl3_AP2 Entered by: \", body.name)
-		# activate area triggers
-		player_near_lvl3_AP2.emit()
-		# NOTE:setup puzzle to have that piece now
-		one_time_trigger = 1
-		this_sprite.hide()
-"
-
-[sub_resource type="GDScript" id="GDScript_st3cl"]
-script/source = "extends Area2D
-signal player_near_lvl3_AP3  # Define signal to later emit
-var one_time_trigger = 0
-@onready var this_sprite = $Sprite2D
-func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
-		print(\"player_near_lvl3_AP3 Entered by: \", body.name)
-		# activate area triggers
-		player_near_lvl3_AP3.emit()
-		# NOTE:setup puzzle to have that piece now
-		one_time_trigger = 1
-		this_sprite.hide()
-"
-
 [node name="MapFinal1" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [20618.0, -790.0, -8900.0]
-
-[node name="Night-scene-milky-way-background" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(22, -1365)
-scale = Vector2(3, 3)
-texture = ExtResource("19_l5hy0")
 
 [node name="Player_Char2D" parent="." groups=["Player"] instance=ExtResource("1_l5hy0")]
 light_mask = 2
@@ -213,6 +98,7 @@ visible = false
 [node name="LvlTransitionOutFinal1" parent="Player_Char2D" instance=ExtResource("5_l5hy0")]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
+visible = false
 z_as_relative = false
 y_sort_enabled = true
 
@@ -267,6 +153,7 @@ stream = ExtResource("13_ypv0t")
 bus = &"SFX"
 
 [node name="Cat_CharBody2D_Lvl3" parent="." instance=ExtResource("15_jx3i5")]
+visible = false
 position = Vector2(-2514, 534)
 
 [node name="LvlActivators_Final1" type="Node2D" parent="."]
@@ -286,131 +173,5 @@ y_sort_enabled = true
 position = Vector2(-1.5, 14.5)
 shape = SubResource("RectangleShape2D_alirh")
 
-[node name="Mural" type="Node2D" parent="LvlActivators_Final1"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(69, -536)
-
-[node name="A3_Mural" type="Area2D" parent="LvlActivators_Final1"]
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(489, -70)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_e8wkv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LvlActivators_Final1/A3_Mural"]
-position = Vector2(-22, 32)
-shape = SubResource("RectangleShape2D_su01s")
-
-[node name="ColorRect" type="ColorRect" parent="LvlActivators_Final1/A3_Mural"]
-visible = false
-material = SubResource("ShaderMaterial_135qg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -103.0
-offset_top = -217.0
-offset_right = 47.0
-offset_bottom = -177.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="LvlActivators_Final1/A3_Mural/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 3.0
-offset_right = -12.0
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 22
-text = "  Open Mural"
-horizontal_alignment = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect2" parent="LvlActivators_Final1/A3_Mural" instance=ExtResource("17_ot7v1")]
-script = ExtResource("18_edo2p")
-
-[node name="APiece1" type="Area2D" parent="LvlActivators_Final1"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-172, -60)
-scale = Vector2(0.6, 0.6)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_71usw")
-
-[node name="Sprite2D" type="Sprite2D" parent="LvlActivators_Final1/APiece1"]
-material = SubResource("ShaderMaterial_xtjfn")
-texture = ExtResource("19_udi1q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LvlActivators_Final1/APiece1"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_ag228")
-
-[node name="Piece1cat" type="Node2D" parent="LvlActivators_Final1"]
-position = Vector2(-2138, 468)
-
-[node name="APiece2" type="Area2D" parent="LvlActivators_Final1"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-85, 47)
-scale = Vector2(0.6, 0.6)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_8j3kb")
-
-[node name="Sprite2D" type="Sprite2D" parent="LvlActivators_Final1/APiece2"]
-material = SubResource("ShaderMaterial_xtjfn")
-texture = ExtResource("19_udi1q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LvlActivators_Final1/APiece2"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_ag228")
-
-[node name="APiece3" type="Area2D" parent="LvlActivators_Final1"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-78, 205)
-scale = Vector2(0.6, 0.6)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_st3cl")
-
-[node name="Sprite2D" type="Sprite2D" parent="LvlActivators_Final1/APiece3"]
-material = SubResource("ShaderMaterial_xtjfn")
-texture = ExtResource("19_udi1q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LvlActivators_Final1/APiece3"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_ag228")
-
-[node name="Piece2cat" type="Node2D" parent="LvlActivators_Final1"]
-position = Vector2(-593, 1497)
-
-[node name="Piece3leftcat" type="Node2D" parent="LvlActivators_Final1"]
-position = Vector2(-797, 1522)
-
-[node name="Piece3upcat" type="Node2D" parent="LvlActivators_Final1"]
-position = Vector2(-813, 1475)
-
 [connection signal="body_entered" from="TileMapLayer2/Obstacles_Mural_Finished/Area2D" to="TileMapLayer2/Obstacles_Mural_Finished/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="LvlActivators_Final1/A1_Start" to="LvlActivators_Final1/A1_Start" method="_on_body_entered"]
-[connection signal="body_entered" from="LvlActivators_Final1/A3_Mural" to="LvlActivators_Final1/A3_Mural" method="_on_body_entered"]
-[connection signal="body_exited" from="LvlActivators_Final1/A3_Mural" to="LvlActivators_Final1/A3_Mural" method="_on_body_exited"]
-[connection signal="body_entered" from="LvlActivators_Final1/APiece1" to="LvlActivators_Final1/APiece1" method="_on_body_entered"]
-[connection signal="body_entered" from="LvlActivators_Final1/APiece2" to="LvlActivators_Final1/APiece2" method="_on_body_entered"]
-[connection signal="body_entered" from="LvlActivators_Final1/APiece3" to="LvlActivators_Final1/APiece3" method="_on_body_entered"]

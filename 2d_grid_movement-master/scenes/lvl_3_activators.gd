@@ -8,6 +8,7 @@ var pieces_left = 3
 @onready var corner_pic2_revealed : Sprite2D = $/root/Map3/Player_Char2D/MainUI/CanvasLayer/RuinPiece2
 @onready var corner_pic3_revealed : Sprite2D = $/root/Map3/Player_Char2D/MainUI/CanvasLayer/RuinPiece3
 #@onready var musicmanager = $"../Player_Char2D/MusicManager3"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.pieces_found = 0
