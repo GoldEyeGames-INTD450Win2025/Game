@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://gpvi1axeditt"]
+[gd_scene load_steps=37 format=4 uid="uid://gpvi1axeditt"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_l5hy0"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_28nid"]
@@ -19,11 +19,6 @@
 [ext_resource type="Script" uid="uid://bo2fik6jbgfk5" path="res://scenes/update_puzzle_visibility_lvl3.gd" id="18_edo2p"]
 [ext_resource type="Texture2D" uid="uid://flsptfcnkmu1" path="res://assets/art_free/night-scene-milky-way-background.png" id="19_l5hy0"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="19_udi1q"]
-[ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="20_4tt7o"]
-[ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="21_ds0wy"]
-[ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="22_3rpbi"]
-[ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="23_jdh7l"]
-[ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="24_ut37y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqujm"]
 texture = ExtResource("9_ouxm5")
@@ -1886,63 +1881,6 @@ func _on_body_entered(body):
 		this_sprite.hide()
 "
 
-[sub_resource type="GDScript" id="GDScript_lr3y7"]
-script/source = "extends Area2D
-signal player_near_lvl3_AP3_left  # Define signal to later emit
-var one_time_trigger = 0
-
-func _on_body_entered(body):
-	if (body.name == \"Player_Char2D\") and (one_time_trigger == 0):   
-		print(\"player_near_lvl3_AP3_left Entered by: \", body.name)
-		# activate area triggers
-		player_near_lvl3_AP3_left.emit()
-		one_time_trigger = 1
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dmg8"]
-size = Vector2(65, 93)
-
-[sub_resource type="GDScript" id="GDScript_sjlwo"]
-script/source = "extends Area2D
-#signal player_near_Activator5_Area2D  # Define signal to later emit
-
-#@onready var sandstorm_layer = $\"../SandStorm_CanvasLayer\"
-@onready var sandstorm_audio = $Sandstorm_AudioStreamPlayer2D
-@onready var sandstorm_texture = $\"../SandStorm_CanvasLayer/TextureRect\"
-@onready var transition_time = 1.5
-
-func _on_body_entered(body):
-	if body.name == \"Player_Char2D\":  
-		Global.in_sandstorm += 1
-		print(\"player_near_Activator5_Area2D Entered by: \", body.name)
-		if (Global.in_sandstorm == 1):
-			body.speed /= 1.5
-			var tween = get_tree().create_tween()
-			tween.tween_property(sandstorm_texture.material, \"shader_parameter/strength\", 0.9, transition_time).set_trans(Tween.TRANS_LINEAR)
-			sandstorm_audio.play()
-
-func _on_body_exited(body):
-	if body.name == \"Player_Char2D\":  
-		Global.in_sandstorm -= 1
-		print(\"player_near_Activator5_Area2D Exited by: \", body.name)
-		if (Global.in_sandstorm == 0):
-			body.speed *= 1.5
-			var tween = get_tree().create_tween()
-			tween.tween_property(sandstorm_texture.material, \"shader_parameter/strength\", 0.0, transition_time).set_trans(Tween.TRANS_LINEAR)
-			sandstorm_audio.stop()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3jwi"]
-size = Vector2(8495.15, 1751)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_es3ea"]
-shader = ExtResource("23_jdh7l")
-shader_parameter/strength = 0.0
-shader_parameter/overlay_color = Vector4(0.6, 0.4, 0.5, 0.3)
-shader_parameter/colorA = Vector4(0.95, 0.75, 0.45, 1)
-shader_parameter/colorB = Vector4(0.9, 0.65, 0.4, 1)
-shader_parameter/colorC = Vector4(0.5, 0.25, 0.18, 1)
-
 [node name="MapFinal1" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -2288,19 +2226,6 @@ position = Vector2(-593, 1497)
 [node name="Piece3leftcat" type="Node2D" parent="LvlActivators_Final1"]
 position = Vector2(-797, 1522)
 
-[node name="APiece3left" type="Area2D" parent="LvlActivators_Final1"]
-position = Vector2(-2204, 359)
-scale = Vector2(5, 5)
-collision_layer = 2
-collision_mask = 128
-script = SubResource("GDScript_lr3y7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LvlActivators_Final1/APiece3left"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(10.8, -15.2)
-shape = SubResource("RectangleShape2D_5dmg8")
-
 [node name="Piece3upcat" type="Node2D" parent="LvlActivators_Final1"]
 position = Vector2(-813, 1475)
 
@@ -2309,124 +2234,6 @@ position = Vector2(22, -1365)
 scale = Vector2(3, 3)
 texture = ExtResource("19_l5hy0")
 
-[node name="Animals" type="Node2D" parent="."]
-visible = false
-
-[node name="Boids_Snakes" parent="Animals" instance=ExtResource("20_4tt7o")]
-position = Vector2(-2601, 1457)
-
-[node name="Boids_Snakes6" parent="Animals" instance=ExtResource("20_4tt7o")]
-modulate = Color(1, 0.542055, 0.470063, 1)
-position = Vector2(-2833, 1416)
-
-[node name="Boids_Snakes5" parent="Animals" instance=ExtResource("20_4tt7o")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-2697, 1324)
-
-[node name="Boids_Snakes4" parent="Animals" instance=ExtResource("20_4tt7o")]
-position = Vector2(-2991, 1163)
-
-[node name="Boids_Snakes3" parent="Animals" instance=ExtResource("20_4tt7o")]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(-2796, 1584)
-
-[node name="Boids_Snakes2" parent="Animals" instance=ExtResource("20_4tt7o")]
-position = Vector2(-2753, 1065)
-
-[node name="Boids" parent="Animals" instance=ExtResource("21_ds0wy")]
-position = Vector2(-1332, 1101)
-scale = Vector2(0.5, 0.5)
-
-[node name="Boids2" parent="Animals" instance=ExtResource("21_ds0wy")]
-position = Vector2(-1257, 1047)
-scale = Vector2(0.5, 0.5)
-
-[node name="Boids3" parent="Animals" instance=ExtResource("21_ds0wy")]
-position = Vector2(-1195, 1103)
-scale = Vector2(0.5, 0.5)
-
-[node name="Boids4" parent="Animals" instance=ExtResource("21_ds0wy")]
-position = Vector2(-1325, 993)
-scale = Vector2(0.5, 0.5)
-
-[node name="Boids5" parent="Animals" instance=ExtResource("21_ds0wy")]
-position = Vector2(-1178, 968)
-scale = Vector2(0.5, 0.5)
-
-[node name="Lvl3Activators_Scenery" type="Node2D" parent="."]
-visible = false
-
-[node name="Activator5_Area2D" type="Area2D" parent="Lvl3Activators_Scenery"]
-visible = false
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-43, 2389)
-scale = Vector2(0.309, 1)
-collision_layer = 2
-collision_mask = 128
-monitoring = false
-monitorable = false
-script = SubResource("GDScript_sjlwo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl3Activators_Scenery/Activator5_Area2D"]
-visible = false
-z_as_relative = false
-y_sort_enabled = true
-shape = SubResource("RectangleShape2D_h3jwi")
-
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lvl3Activators_Scenery/Activator5_Area2D"]
-stream = ExtResource("22_3rpbi")
-volume_db = 3.0
-pitch_scale = 1.25
-bus = &"SFX"
-
-[node name="Activator5_Area2D2" type="Area2D" parent="Lvl3Activators_Scenery"]
-visible = false
-z_index = 2
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(450, -4)
-scale = Vector2(0.309, 1)
-collision_layer = 2
-collision_mask = 128
-monitoring = false
-monitorable = false
-script = SubResource("GDScript_sjlwo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl3Activators_Scenery/Activator5_Area2D2"]
-visible = false
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(2940.13, 238)
-shape = SubResource("RectangleShape2D_h3jwi")
-
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lvl3Activators_Scenery/Activator5_Area2D2"]
-position = Vector2(145.631, -30)
-stream = ExtResource("22_3rpbi")
-volume_db = 3.0
-pitch_scale = 1.25
-bus = &"SFX"
-
-[node name="SandStorm_CanvasLayer" type="CanvasLayer" parent="Lvl3Activators_Scenery"]
-layer = 0
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="Lvl3Activators_Scenery/SandStorm_CanvasLayer"]
-texture_filter = 4
-material = SubResource("ShaderMaterial_es3ea")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -214.0
-offset_top = -409.0
-offset_right = 554.0
-offset_bottom = 320.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("24_ut37y")
-stretch_mode = 1
-
 [connection signal="body_entered" from="TileMapLayer2/Obstacles_Mural_Finished/Area2D" to="TileMapLayer2/Obstacles_Mural_Finished/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="LvlActivators_Final1/A1_Start" to="LvlActivators_Final1/A1_Start" method="_on_body_entered"]
 [connection signal="body_entered" from="LvlActivators_Final1/A3_Mural" to="LvlActivators_Final1/A3_Mural" method="_on_body_entered"]
@@ -2434,8 +2241,3 @@ stretch_mode = 1
 [connection signal="body_entered" from="LvlActivators_Final1/APiece1" to="LvlActivators_Final1/APiece1" method="_on_body_entered"]
 [connection signal="body_entered" from="LvlActivators_Final1/APiece2" to="LvlActivators_Final1/APiece2" method="_on_body_entered"]
 [connection signal="body_entered" from="LvlActivators_Final1/APiece3" to="LvlActivators_Final1/APiece3" method="_on_body_entered"]
-[connection signal="body_entered" from="LvlActivators_Final1/APiece3left" to="LvlActivators_Final1/APiece3left" method="_on_body_entered"]
-[connection signal="body_entered" from="Lvl3Activators_Scenery/Activator5_Area2D" to="Lvl3Activators_Scenery/Activator5_Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Lvl3Activators_Scenery/Activator5_Area2D" to="Lvl3Activators_Scenery/Activator5_Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="Lvl3Activators_Scenery/Activator5_Area2D2" to="Lvl3Activators_Scenery/Activator5_Area2D2" method="_on_body_entered"]
-[connection signal="body_exited" from="Lvl3Activators_Scenery/Activator5_Area2D2" to="Lvl3Activators_Scenery/Activator5_Area2D2" method="_on_body_exited"]
