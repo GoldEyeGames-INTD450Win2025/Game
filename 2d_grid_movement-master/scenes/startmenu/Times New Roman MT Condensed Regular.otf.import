@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bf7s1lcxqoa2c"
-path="res://.godot/imported/Hargalia.ttf-fd7fdf827d417edb7c2c2f2b0ac5d733.fontdata"
+uid="uid://blewd33ickyfj"
+path="res://.godot/imported/Times New Roman MT Condensed Regular.otf-61928b88b38322474ed8adcdd455b6f9.fontdata"
 
 [deps]
 
-source_file="res://scenes/startmenu/Hargalia.ttf"
-dest_files=["res://.godot/imported/Hargalia.ttf-fd7fdf827d417edb7c2c2f2b0ac5d733.fontdata"]
+source_file="res://scenes/startmenu/Times New Roman MT Condensed Regular.otf"
+dest_files=["res://.godot/imported/Times New Roman MT Condensed Regular.otf-61928b88b38322474ed8adcdd455b6f9.fontdata"]
 
 [params]
 
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

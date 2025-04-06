@@ -6,6 +6,7 @@ func _on_button_resume_pressed():
 	startmenu.hide_lvl_menu()
 
 func _on_button_lvl_0_pressed() -> void:
+	SfxUI.play_sfx_Start()
 	get_tree().change_scene_to_file("res://scenes/openinglogoscene/opening_logo_scene.tscn")
 
 func _on_button_lvl_1_pressed() -> void:

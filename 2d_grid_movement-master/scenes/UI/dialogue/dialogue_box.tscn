@@ -201,6 +201,7 @@ func _on_player_near_lvlfinal_2():
 # Regular function to handle the button press signal
 func _on_button_next_pressed() -> void:
 	print(\"Button pressed!\")
+	SfxUI.play_sfx_dialogue_advance()
 	# Call the dialogue function to continue the process
 	# If waiting on the button press, you'll handle the flow in do_dialogue_trigger_action
 	dialogue_box.hide()  # Hide dialogue box until next step (for example)

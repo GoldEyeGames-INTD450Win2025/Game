@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://chi5bd4bp8eiy"]
+[gd_scene load_steps=3 format=3 uid="uid://chi5bd4bp8eiy"]
 
 [ext_resource type="Script" uid="uid://cj2x0lp06elrs" path="res://scenes/startmenu/startmenus_lvlselect.gd" id="1_qims6"]
-[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://scenes/startmenu/MENU B_Select.wav" id="2_myery"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
@@ -19,10 +18,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qims6")
-
-[node name="SFXtester" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_myery")
-bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 0.137255, 1)

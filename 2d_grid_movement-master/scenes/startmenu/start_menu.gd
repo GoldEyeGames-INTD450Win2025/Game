@@ -2,8 +2,6 @@ extends Control
 
 @onready var blackrect_fade = $ColorRect
 @onready var startmenu_music = $music
-@onready var startmenu_sfx_nonstart = $sfx_nonstart
-@onready var startmenu_sfx_start = $sfx_start
 var fade_duration = 3.0
 @onready var optionsmenu = $Starts_PauseMenu
 @onready var notemenu = $Starts_NoteMenu
@@ -22,7 +20,7 @@ func start_animation():
 	await fade_tween.finished
 
 func _on_button_start_pressed():
-	startmenu_sfx_start.play()
+	SfxUI.play_sfx_start()
 	var fadeout_tween = get_tree().create_tween()
 	fadeout_tween.set_parallel(true)
 	fadeout_tween.tween_property(startmenu_music, "volume_db", -80.0, fade_duration)
@@ -32,16 +30,16 @@ func _on_button_start_pressed():
 
 
 func _on_button_options_pressed():
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	optionsmenu.show()
 
 func hide_options_menu():
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	optionsmenu.hide()
 
 
 func _on_button_quit_pressed():
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	var fadeoutquit_tween = get_tree().create_tween()
 	fadeoutquit_tween.set_parallel(true)
 	fadeoutquit_tween.tween_property(startmenu_music, "volume_db", -80.0, fade_duration)
@@ -51,18 +49,18 @@ func _on_button_quit_pressed():
 
 
 func _on_button_note_pressed() -> void:
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	notemenu.show()
 
 func hide_note_menu():
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	notemenu.hide()
 
 
 func _on_button_lvl_pressed() -> void:
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	lvlmenu.show()
 
 func hide_lvl_menu():
-	startmenu_sfx_nonstart.play()
+	SfxUI.play_sfx_action()
 	lvlmenu.hide()

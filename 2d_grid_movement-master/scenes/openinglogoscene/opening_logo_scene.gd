@@ -1,8 +1,6 @@
 extends Control
 
-@onready var thisscene = $"."
 @onready var logo = $Control
-@onready var sound = $AudioStreamPlayer2D
 var scene_duration = 5.0
 var is_clicked = false
 var fade_duration = 2
@@ -15,18 +13,14 @@ func _ready() -> void:
 	logo.rotation_degrees = 0
 	start_animation()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	#if InputEventAction.new()
-	pass
-
 func start_animation():
+	SfxUI.play_sfx_logo1()
 	var grow_tween = get_tree().create_tween()
 	grow_tween.set_parallel(true)
 	grow_tween.tween_property(logo, "scale", Vector2(2, 2), scene_duration).set_trans(Tween.TRANS_EXPO)
 	grow_tween.tween_property(logo, "rotation_degrees", 360, scene_duration).set_trans(Tween.TRANS_EXPO)
 	await grow_tween.finished
-	sound.play()
+	SfxUI.play_sfx_logo2()
 	is_clicked = true
 	finish_scene()
 
@@ -37,9 +31,7 @@ func _input(event):
 		finish_scene()
 
 func finish_scene():
-	#pass
 	var fade_tween = get_tree().create_tween()
 	fade_tween.tween_property(logo, "modulate:a", 0, fade_duration)
-	#fade_tween.tween_property(thisscene, "modulate:a", 0, fade_duration)
 	await fade_tween.finished
 	get_tree().change_scene_to_file(scene_startmenu_location)

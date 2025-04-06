@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dax8ukhexcxl1"]
+[gd_scene load_steps=5 format=3 uid="uid://dax8ukhexcxl1"]
 
-[ext_resource type="Script" uid="uid://brj34k1btat1c" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
+[ext_resource type="Script" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
 [ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://scenes/startmenu/MENU B_Select.wav" id="2_bl585"]
+[ext_resource type="FontFile" uid="uid://blewd33ickyfj" path="res://scenes/startmenu/Times New Roman MT Condensed Regular.otf" id="3_mko1u"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
@@ -72,17 +73,26 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 30
+theme_override_fonts/normal_font = ExtResource("3_mko1u")
+theme_override_font_sizes/normal_font_size = 40
 text = "Use P to Pause;
 Use WASD (or Arrow keys) to move; 
 Use N for dialogue actions;
 Use SPACE if at Mural"
 fit_content = true
 
+[node name="Label_blank" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_mko1u")
+theme_override_font_sizes/font_size = 40
+vertical_alignment = 2
+
 [node name="Label_SFX" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_mko1u")
+theme_override_font_sizes/font_size = 40
 text = "SFX Level"
 vertical_alignment = 2
 
@@ -95,7 +105,8 @@ step = 0.001
 [node name="Label_Music" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_mko1u")
+theme_override_font_sizes/font_size = 40
 text = "Volume Level"
 vertical_alignment = 2
 
@@ -112,7 +123,8 @@ vertical_alignment = 2
 
 [node name="Button_Quit" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_mko1u")
+theme_override_font_sizes/font_size = 40
 text = "Quit Game"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel"]
