@@ -10,7 +10,7 @@
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="6_7g4v2"]
 [ext_resource type="PackedScene" uid="uid://cnnd64x5s4s5m" path="res://scenes/lvltransition/level_transition_out3.tscn" id="6_xtjfn"]
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="7_b43s0"]
-[ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="8_774tp"]
+[ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://assets/audio/audio_free_sfx/MESSAGE-B_Accept.wav" id="8_774tp"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="9_e2tod"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="11_almlv"]
 [ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="12_71usw"]

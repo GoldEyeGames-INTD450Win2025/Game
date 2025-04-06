@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccpwrq3bmyyxb" path="res://scenes/openinglogoscene/opening_logo_scene.gd" id="1_g6664"]
 [ext_resource type="Texture2D" uid="uid://d06do4kq0pyvx" path="res://assets/art_drawn_tile/goldeyegames_logo.png" id="2_12jrq"]
-[ext_resource type="AudioStream" uid="uid://3v6igg0keif2" path="res://scenes/openinglogoscene/silvercollector_oneshot.wav" id="3_g6664"]
+[ext_resource type="AudioStream" uid="uid://3v6igg0keif2" path="res://assets/audio/audio_free_sfx/silvercollector_oneshot.wav" id="3_g6664"]
 
 [node name="OpeningLogo" type="Control"]
 layout_mode = 3

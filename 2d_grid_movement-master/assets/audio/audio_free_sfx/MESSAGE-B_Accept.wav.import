@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cykplnitlej1v"
-path="res://.godot/imported/MESSAGE-B_Accept.wav-b1a7c1366012310047ebc91917f67a65.sample"
+path="res://.godot/imported/MESSAGE-B_Accept.wav-fc3595a76e3ff759d6f196070ae75385.sample"
 
 [deps]
 
-source_file="res://scenes/startmenu/MESSAGE-B_Accept.wav"
-dest_files=["res://.godot/imported/MESSAGE-B_Accept.wav-b1a7c1366012310047ebc91917f67a65.sample"]
+source_file="res://assets/audio/audio_free_sfx/MESSAGE-B_Accept.wav"
+dest_files=["res://.godot/imported/MESSAGE-B_Accept.wav-fc3595a76e3ff759d6f196070ae75385.sample"]
 
 [params]
 

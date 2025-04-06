@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtu7ewvk6gi6b"
+path="res://.godot/imported/RPG - A Long Way From Home.mp3-8e5badd8dd21669cd444ede6e95d6b71.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/audio_free_music/RPG - A Long Way From Home.mp3"
+dest_files=["res://.godot/imported/RPG - A Long Way From Home.mp3-8e5badd8dd21669cd444ede6e95d6b71.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

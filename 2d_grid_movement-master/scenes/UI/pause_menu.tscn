@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dax8ukhexcxl1"]
 
 [ext_resource type="Script" uid="uid://brj34k1btat1c" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
-[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://scenes/startmenu/MENU B_Select.wav" id="2_bl585"]
+[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_bl585"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 

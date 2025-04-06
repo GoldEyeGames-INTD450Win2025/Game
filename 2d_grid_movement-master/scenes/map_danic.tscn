@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://dyomyvg4v11m6" path="res://scenes/distorted_water_material.tres" id="7_4i7da"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="7_28thc"]
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="8_bf1ri"]
-[ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://scenes/startmenu/MESSAGE-B_Accept.wav" id="10_8kcp0"]
+[ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://assets/audio/audio_free_sfx/MESSAGE-B_Accept.wav" id="10_8kcp0"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="10_mw70b"]
 [ext_resource type="Script" uid="uid://dc23c3sypxosn" path="res://scenes/border_logic.gd" id="14_0pohi"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="15_dwdn3"]
