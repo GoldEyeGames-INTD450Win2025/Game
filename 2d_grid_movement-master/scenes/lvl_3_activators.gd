@@ -29,52 +29,38 @@ func _ready() -> void:
 	if zone_piece3:
 		zone_piece3.player_near_lvl3_AP3.connect(_on_player_nearby_Piece3)
 		print("Connected to piece signal 3")
-	#var zone_piece4 = get_node("/root/Map_Danic/ActivatorPiece4_Area2D")  # Adjust path as needed
-	#if zone_piece4:
-		#zone_piece4.player_near_ActivatorPiece4_Area2D.connect(_on_player_nearby_Piece4)
-		#print("Connected to piece signal 4")
 
 func _on_player_nearby_Mural():
 	print("_on_player_nearby_Mural")
 	label2_title.show()
-	#label3_num_left.show()
 	corner_pics.show()
 	print("Global.pieces_found" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece1():
 	print("_on_player_nearby_Piece1")
 	label2_title.show()
-	#label3_num_left.show()
 	corner_pics.show()
-	#corner_pic1_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	update_corner_pic_reveal()
-	#label3_num_left.text = str(pieces_left)
 	print("Global.pieces_found" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece2():
 	print("_on_player_nearby_Piece2")
 	label2_title.show()
-	#label3_num_left.show()
 	corner_pics.show()
-	#corner_pic2_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	update_corner_pic_reveal()
-	#label3_num_left.text = str(pieces_left)
 	print("Global.pieces_found" + str(Global.pieces_found))
 
 func _on_player_nearby_Piece3():
 	print("_on_player_nearby_Piece3")
 	label2_title.show()
-	#label3_num_left.show()
 	corner_pics.show()
-	#corner_pic3_revealed.show()
 	pieces_left = pieces_left - 1
 	Global.pieces_found = 3 - pieces_left
 	update_corner_pic_reveal()
-	#label3_num_left.text = str(pieces_left)
 	print("Global.pieces_found" + str(Global.pieces_found))
 
 func update_corner_pic_reveal():
@@ -85,11 +71,3 @@ func update_corner_pic_reveal():
 	elif pieces_left == 0:
 		corner_pic3_revealed.show()
 		#musicmanager._on_demoDone()
-
-#func _on_player_nearby_Piece4():
-	#print("_on_player_nearby_Piece4")
-	#label2_title.show()
-	#label3_num_left.show()
-	#pieces_left = pieces_left - 1
-	#label3_num_left.text = str(pieces_left)
-	
