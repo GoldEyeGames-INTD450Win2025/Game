@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://dsusrm80h0a3e"]
+[gd_scene load_steps=71 format=4 uid="uid://dsusrm80h0a3e"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_433ec"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_fnks8"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://de1ldcvo0ob77" path="res://assets/art_free/neutral_point_light_texture.png" id="7_3y40f"]
 [ext_resource type="TileSet" uid="uid://c44wdpji0bu3d" path="res://scenes/obstacles_tilemap.tres" id="7_m5rp5"]
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="8_1m8sb"]
-[ext_resource type="Texture2D" uid="uid://biqifsxkehlxl" path="res://assets/art_free/scales_mural.jpg" id="8_433ec"]
 [ext_resource type="AudioStream" uid="uid://cykplnitlej1v" path="res://assets/audio/audio_free_sfx/MESSAGE-B_Accept.wav" id="9_fnks8"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="11_2iakg"]
 [ext_resource type="Texture2D" uid="uid://lp6snehvc1ur" path="res://assets/prefabs_w_art/npcs/cat/cat_sprite.png" id="12_ve5e8"]
@@ -21,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="17_ekqfn"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="18_xrvne"]
 [ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="19_vceer"]
+[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://assets/scripts_backups/fire.tscn" id="19_ve5e8"]
+[ext_resource type="PackedScene" uid="uid://bq451cexyfdej" path="res://assets/scripts_backups/fire_steam.tscn" id="20_oyq3d"]
 
 [sub_resource type="GDScript" id="GDScript_xrvne"]
 script/source = "extends PointLight2D
@@ -787,12 +788,6 @@ offset_right = 408.0
 offset_bottom = 150.0
 color = Color(0.621306, 0.619549, 9.62615e-07, 1)
 
-[node name="ScalesMural" type="Sprite2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(465, -297.748)
-scale = Vector2(0.0717475, 0.105342)
-texture = ExtResource("8_433ec")
-
 [node name="completion_sound" type="AudioStreamPlayer2D" parent="TileMapLayer2/Obstacles_Mural_Finished"]
 position = Vector2(379, -296.236)
 stream = ExtResource("9_fnks8")
@@ -1022,6 +1017,54 @@ z_index = 0
 position = Vector2(-2047, 1319)
 scale = Vector2(0.6, 0.6)
 script = SubResource("GDScript_651m4")
+
+[node name="fire" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(202, -1034)
+scale = Vector2(0.599999, 0.48)
+
+[node name="fire2" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(202, -1034)
+scale = Vector2(0.599999, -0.08)
+
+[node name="fire3" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(-101, -862)
+scale = Vector2(0.599999, 0.48)
+
+[node name="fire4" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(-101, -862)
+scale = Vector2(0.599999, -0.08)
+
+[node name="fire5" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(438, -865)
+scale = Vector2(0.599999, 0.48)
+
+[node name="fire6" parent="." instance=ExtResource("19_ve5e8")]
+position = Vector2(438, -865)
+scale = Vector2(0.599999, -0.08)
+
+[node name="steam1" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(1600, -1574)
+scale = Vector2(0.05, 0.15)
+
+[node name="steam2" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(2370, -1698)
+scale = Vector2(0.05, 0.15)
+
+[node name="steam3" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(-833, -155)
+scale = Vector2(0.05, 0.15)
+
+[node name="steam4" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(-1345, 1255)
+scale = Vector2(0.05, 0.15)
+
+[node name="steam5" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(-1979, 79)
+scale = Vector2(0.05, 0.15)
+
+[node name="steam6" parent="." instance=ExtResource("20_oyq3d")]
+position = Vector2(1733, -281)
+scale = Vector2(0.05, 0.15)
 
 [node name="Animals" type="Node2D" parent="."]
 position = Vector2(2316, -585)

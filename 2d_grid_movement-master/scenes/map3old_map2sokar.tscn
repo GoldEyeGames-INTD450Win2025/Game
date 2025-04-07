@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="17_erpr1"]
 [ext_resource type="Texture2D" uid="uid://cuiw7bfxqflpi" path="res://assets/art_drawn_tile/anubis_1.jpg" id="19_hbvsr"]
 [ext_resource type="Texture2D" uid="uid://biqifsxkehlxl" path="res://assets/art_free/scales_mural.jpg" id="20_cxjhb"]
-[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://scenes/fire.tscn" id="21_1d6il"]
+[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://assets/scripts_backups/fire.tscn" id="21_1d6il"]
 [ext_resource type="Texture2D" uid="uid://dev730aic5mj" path="res://assets/art_free/scales.png" id="21_ufvd2"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="22_ucq42"]
 [ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="23_k3kfo"]

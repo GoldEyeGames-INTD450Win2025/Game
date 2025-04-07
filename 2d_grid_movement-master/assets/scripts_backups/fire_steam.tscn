@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq451cexyfdej"]
+
+[ext_resource type="Shader" uid="uid://cbjlwgpq1x4xu" path="res://assets/scripts_backups/fire.gdshader" id="1_fpa4d"]
+[ext_resource type="Texture2D" uid="uid://cpcyk8tmi0cdj" path="res://scenes/black.png" id="2_4aspr"]
+
+[sub_resource type="Curve" id="Curve_1jwvv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.263158, 0.516483), 0.0, 0.0, 0, 0, Vector2(0.5, 0.967033), 0.0, 0.0, 0, 0, Vector2(0.780702, 0.505494), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ya1qq"]
+curve = SubResource("Curve_1jwvv")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hkgf4"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b3tjo"]
+seamless = true
+noise = SubResource("FastNoiseLite_hkgf4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hqn6"]
+shader = ExtResource("1_fpa4d")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_b3tjo")
+shader_parameter/mask_texture = SubResource("CurveTexture_ya1qq")
+shader_parameter/base_color = Color(0.851221, 0.781735, 0.62718, 1)
+shader_parameter/edge_color = Color(0.192095, 0.00397491, 6.01634e-09, 1)
+shader_parameter/fire_alpha = 0.555
+shader_parameter/fire_filter = 0.013
+shader_parameter/fire_power = 10.0
+shader_parameter/fire_speed = Vector2(0, 1)
+
+[node name="fire" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2hqn6")
+position = Vector2(0, -349)
+texture = ExtResource("2_4aspr")

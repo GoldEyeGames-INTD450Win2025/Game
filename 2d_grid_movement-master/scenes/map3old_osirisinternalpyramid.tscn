@@ -25,7 +25,7 @@
 [ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="20_wbutp"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="21_8y8yf"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="22_um57h"]
-[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://scenes/fire.tscn" id="23_80ylk"]
+[ext_resource type="PackedScene" uid="uid://bqkgnba2ejpsf" path="res://assets/scripts_backups/fire.tscn" id="23_80ylk"]
 [ext_resource type="Texture2D" uid="uid://bcosyipnqs6n4" path="res://assets/art_free/egypt-temple-background-ancient.png" id="27_8qror"]
 [ext_resource type="Texture2D" uid="uid://dcd10453374q6" path="res://assets/art_free/hieroglyph_sprites_by_asalga.png" id="28_j473g"]
 [ext_resource type="Texture2D" uid="uid://da8ge3lxoka3h" path="res://assets/art_free/prev_main_new.png" id="29_al5gs"]

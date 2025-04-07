@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqkgnba2ejpsf"]
 
-[ext_resource type="Shader" uid="uid://cbjlwgpq1x4xu" path="res://scenes/fire.gdshader" id="1_6su1l"]
+[ext_resource type="Shader" uid="uid://cbjlwgpq1x4xu" path="res://assets/scripts_backups/fire.gdshader" id="1_6su1l"]
 [ext_resource type="Texture2D" uid="uid://cpcyk8tmi0cdj" path="res://scenes/black.png" id="2_4ydsp"]
 
 [sub_resource type="Curve" id="Curve_1jwvv"]
