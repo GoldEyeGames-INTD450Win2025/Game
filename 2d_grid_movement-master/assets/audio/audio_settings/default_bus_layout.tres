@@ -1,4 +1,23 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://cikj2owf5ijm2"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://cikj2owf5ijm2"]
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_c34tn"]
+resource_name = "HighPassFilter"
+cutoff_hz = 1470.0
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_c34tn"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_c34tn"]
+resource_name = "Chorus"
+dry = 0.5
+wet = 0.0
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_2opjf"]
+resource_name = "HighPassFilter"
+cutoff_hz = 100.0
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_2opjf"]
+resource_name = "Chorus"
 
 [resource]
 bus/0/volume_db = -0.130497
@@ -14,3 +33,25 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -5.93425
 bus/2/send = &"Master"
+bus/3/name = &"SFXFootsteps"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"SFX"
+bus/3/effect/0/effect = SubResource("AudioEffectHighPassFilter_c34tn")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectLowPassFilter_c34tn")
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectChorus_c34tn")
+bus/3/effect/2/enabled = true
+bus/4/name = &"Heartbeat"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Music"
+bus/4/effect/0/effect = SubResource("AudioEffectHighPassFilter_2opjf")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectChorus_2opjf")
+bus/4/effect/1/enabled = true

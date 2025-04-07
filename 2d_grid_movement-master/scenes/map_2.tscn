@@ -14,10 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://lp6snehvc1ur" path="res://assets/prefabs_w_art/npcs/cat/cat_sprite.png" id="12_ve5e8"]
 [ext_resource type="PackedScene" uid="uid://h5e42ertap6e" path="res://scenes/puzzle_2.tscn" id="13_n63aa"]
 [ext_resource type="Texture2D" uid="uid://c43clf8u8j18r" path="res://assets/art_free/skristi_catgray/64x64/top-down/walk_4.png" id="13_oyq3d"]
-[ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="14_lkmhe"]
 [ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="14_m5rp5"]
 [ext_resource type="Shader" uid="uid://doj4w4gv5oei" path="res://assets/scripts_backups/ashstorm.gdshader" id="15_433ec"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="16_ej4sw"]
+[ext_resource type="AudioStream" uid="uid://ctdkcco6qlsj" path="res://assets/audio/audio_free_sfx/dark-ambient-loop-31306.mp3" id="16_m5rp5"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="17_ekqfn"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="18_xrvne"]
 [ext_resource type="PackedScene" uid="uid://bwwhkqois33mc" path="res://assets/boidstest/boids.tscn" id="19_vceer"]
@@ -541,7 +541,7 @@ script/source = "extends Area2D
 #signal player_near_Activator5_Area2D  # Define signal to later emit
 
 #@onready var sandstorm_layer = $\"../SandStorm_CanvasLayer\"
-@onready var sandstorm_audio = $Sandstorm_AudioStreamPlayer2D
+@onready var sandstorm_audio = $\"../SandStorm_CanvasLayer/Sandstorm_AudioStreamPlayer2D\"
 @onready var sandstorm_texture = $\"../SandStorm_CanvasLayer/TextureRect\"
 @onready var transition_time = 1.5
 
@@ -955,12 +955,6 @@ z_as_relative = false
 y_sort_enabled = true
 shape = SubResource("RectangleShape2D_h3jwi")
 
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Activator5_Area2D"]
-stream = ExtResource("14_lkmhe")
-volume_db = -6.0
-pitch_scale = 1.25
-bus = &"SFX"
-
 [node name="Activator5_Area2D2" type="Area2D" parent="."]
 visible = false
 z_index = 2
@@ -978,14 +972,14 @@ y_sort_enabled = true
 position = Vector2(446.602, 1222.25)
 shape = SubResource("RectangleShape2D_h3jwi")
 
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Activator5_Area2D2"]
-stream = ExtResource("14_lkmhe")
-volume_db = -6.0
-pitch_scale = 1.25
-bus = &"SFX"
-
 [node name="SandStorm_CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
+
+[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer" parent="SandStorm_CanvasLayer"]
+stream = ExtResource("16_m5rp5")
+volume_db = -12.0
+pitch_scale = 0.7
+bus = &"SFX"
 
 [node name="TextureRect" type="TextureRect" parent="SandStorm_CanvasLayer"]
 texture_filter = 4

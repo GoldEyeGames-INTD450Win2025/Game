@@ -141,8 +141,8 @@ func _on_player_nearby_Activator1():
 	print(\"do_dialogue_trigger_action(testtrigger1)\")
 	do_dialogue_trigger_action(\"testtrigger1\")
 	# do material phase effect from shader, use tween to change parameter
-	var tween = get_tree().create_tween()
-	tween.tween_property(player_sprite.material, \"shader_parameter/DissolveValue\", 1, transition_time).set_trans(Tween.TRANS_LINEAR)
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(player_sprite.material, \"shader_parameter/DissolveValue\", 1, transition_time).set_trans(Tween.TRANS_LINEAR)
 func _on_player_nearby_Activator2():
 	print(\"do_dialogue_trigger_action(testtrigger2)\")
 	do_dialogue_trigger_action(\"testtrigger2\")

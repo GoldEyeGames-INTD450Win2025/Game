@@ -1,9 +1,10 @@
-[gd_scene load_steps=72 format=3 uid="uid://cytlexciip26f"]
+[gd_scene load_steps=73 format=3 uid="uid://cytlexciip26f"]
 
 [ext_resource type="Script" uid="uid://b3d8wf6lhtdid" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/player_char_2d.gd" id="1_u85ke"]
 [ext_resource type="Shader" uid="uid://p038cpejvtm3" path="res://assets/scripts_backups/dissolve.tres" id="2_60i7r"]
 [ext_resource type="Texture2D" uid="uid://dg8pf33vfko5h" path="res://assets/art_drawn_tile/Masika_spritesheet.png" id="2_80e81"]
 [ext_resource type="Texture2D" uid="uid://gsr7hg4kl7xx" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/54300.png" id="2_watrc"]
+[ext_resource type="PackedScene" uid="uid://sd8c5vyeod51" path="res://assets/audio/sfx_footsteps.tscn" id="5_gv8xe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vuxxf"]
 frequency = 0.2469
@@ -14,7 +15,7 @@ noise = SubResource("FastNoiseLite_vuxxf")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2txi"]
 shader = ExtResource("2_60i7r")
 shader_parameter/Noise = SubResource("NoiseTexture2D_8p07w")
-shader_parameter/DissolveValue = 1.0
+shader_parameter/DissolveValue = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbn7o"]
 atlas = ExtResource("2_80e81")
@@ -529,9 +530,20 @@ texture_filter = 1
 position = Vector2(-2.7, 0)
 shape = SubResource("RectangleShape2D_6cn8e")
 
+[node name="AnimatedSprite2D_Still" type="AnimatedSprite2D" parent="."]
+texture_filter = 4
+position = Vector2(-3, -7.525)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_0a7o5")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -70)
+
 [node name="AnimatedSprite2D_old" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, -28.5)
 sprite_frames = SubResource("SpriteFrames_02cq5")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="SFX_Footsteps" parent="." instance=ExtResource("5_gv8xe")]

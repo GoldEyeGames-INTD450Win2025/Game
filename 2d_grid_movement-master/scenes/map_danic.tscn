@@ -15,7 +15,7 @@
 [ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="15_68ee0"]
 [ext_resource type="PackedScene" uid="uid://do6n02b7sqkq3" path="res://scenes/puzzle_1.tscn" id="15_dwdn3"]
 [ext_resource type="PackedScene" uid="uid://crqhy8rpua2sg" path="res://scenes/activator_piece_area2d.tscn" id="16_kvmhi"]
-[ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="17_lk0eo"]
+[ext_resource type="AudioStream" uid="uid://bhavq8uicnm3" path="res://assets/audio/audio_free_sfx/sandstorm-222741.mp3" id="17_68ee0"]
 [ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="17_wio1y"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="18_76hww"]
 [ext_resource type="PackedScene" uid="uid://dhu28sp1ltyqf" path="res://assets/prefabs_w_art/npcs/cat/cat_charbody2d.tscn" id="18_ebcbv"]
@@ -168,7 +168,7 @@ script/source = "extends Area2D
 #signal player_near_Activator5_Area2D  # Define signal to later emit
 
 #@onready var sandstorm_layer = $\"../SandStorm_CanvasLayer\"
-@onready var sandstorm_audio = $Sandstorm_AudioStreamPlayer2D
+@onready var sandstorm_audio = $\"../SandStorm_CanvasLayer/Sandstorm_AudioStreamPlayer2D\"
 @onready var sandstorm_texture = $\"../SandStorm_CanvasLayer/TextureRect\"
 @onready var transition_time = 1.5
 
@@ -660,13 +660,6 @@ z_as_relative = false
 y_sort_enabled = true
 shape = SubResource("RectangleShape2D_h3jwi")
 
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Activator5_Area2D"]
-stream = ExtResource("17_lk0eo")
-volume_db = 3.0
-pitch_scale = 1.25
-attenuation = 1e-05
-bus = &"SFX"
-
 [node name="Activator5_Area2D2" type="Area2D" parent="."]
 z_index = 2
 z_as_relative = false
@@ -683,16 +676,16 @@ y_sort_enabled = true
 position = Vector2(446.602, 238)
 shape = SubResource("RectangleShape2D_h3jwi")
 
-[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Activator5_Area2D2"]
-position = Vector2(145.631, -30)
-stream = ExtResource("17_lk0eo")
-volume_db = 3.0
-pitch_scale = 1.25
-attenuation = 1e-05
-bus = &"SFX"
-
 [node name="SandStorm_CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
+
+[node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SandStorm_CanvasLayer"]
+position = Vector2(-83, -2549)
+scale = Vector2(0.309, 1)
+stream = ExtResource("17_68ee0")
+pitch_scale = 0.7
+max_distance = 50000.0
+bus = &"SFX"
 
 [node name="TextureRect" type="TextureRect" parent="SandStorm_CanvasLayer"]
 texture_filter = 4
