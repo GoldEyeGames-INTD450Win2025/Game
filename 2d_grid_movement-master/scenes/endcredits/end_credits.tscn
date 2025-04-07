@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0cqfaxr84bhm"]
+[gd_scene load_steps=3 format=3 uid="uid://c0cqfaxr84bhm"]
 
 [ext_resource type="Script" uid="uid://d4khau4wwi5ym" path="res://scenes/endcredits/end_credits.gd" id="1_e1wub"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="2_p88q0"]
 
 [node name="EndCredits" type="Control"]
 layout_mode = 3
@@ -48,7 +49,8 @@ offset_right = 960.0
 offset_bottom = 1004.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 50
+theme_override_fonts/normal_font = ExtResource("2_p88q0")
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]
 Thanks for playing!

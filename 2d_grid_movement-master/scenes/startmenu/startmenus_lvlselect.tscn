@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chi5bd4bp8eiy"]
+[gd_scene load_steps=5 format=3 uid="uid://chi5bd4bp8eiy"]
 
 [ext_resource type="Script" uid="uid://cj2x0lp06elrs" path="res://scenes/startmenu/startmenus_lvlselect.gd" id="1_qims6"]
 [ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_myery"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="3_icto3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
@@ -25,7 +26,7 @@ stream = ExtResource("2_myery")
 bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 0.137255, 1)
+modulate = Color(0.976471, 0.866667, 0.65098, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,9 +34,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -800.0
-offset_top = -362.5
+offset_top = -275.0
 offset_right = 800.0
-offset_bottom = 362.5
+offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -70,14 +71,16 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 30
+theme_override_fonts/normal_font = ExtResource("3_icto3")
+theme_override_font_sizes/normal_font_size = 40
 text = "For sake of demoing, we have level selecting.
 "
 fit_content = true
 
 [node name="Button_lvl0" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_icto3")
+theme_override_font_sizes/font_size = 40
 text = "BEGINNING"
 
 [node name="Label_Spacefill2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
@@ -88,7 +91,8 @@ vertical_alignment = 2
 
 [node name="Button_lvl1" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_icto3")
+theme_override_font_sizes/font_size = 40
 text = "LEVEL 1 "
 
 [node name="Label_Spacefill3" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
@@ -99,7 +103,8 @@ vertical_alignment = 2
 
 [node name="Button_lvl2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_icto3")
+theme_override_font_sizes/font_size = 40
 text = "LEVEL 2 "
 
 [node name="Label_Spacefill4" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
@@ -110,7 +115,8 @@ vertical_alignment = 2
 
 [node name="Button_lvl3" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_icto3")
+theme_override_font_sizes/font_size = 40
 text = "LEVEL 3"
 
 [node name="Label_Spacefill5" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
@@ -121,7 +127,8 @@ vertical_alignment = 2
 
 [node name="Button_lvlfinal" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_icto3")
+theme_override_font_sizes/font_size = 40
 text = "FINAL SCENES"
 
 [node name="Label_Spacefill" type="Label" parent="Panel/MarginContainer/VBoxContainer"]

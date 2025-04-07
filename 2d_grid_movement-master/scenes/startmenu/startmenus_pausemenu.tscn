@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c87obrsustkck"]
+[gd_scene load_steps=5 format=3 uid="uid://c87obrsustkck"]
 
 [ext_resource type="Script" uid="uid://sv8y7uvf8o4b" path="res://scenes/startmenu/startmenus_pausemenu.gd" id="1_4iuy2"]
 [ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_myery"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="3_6fsld"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
@@ -25,7 +26,7 @@ stream = ExtResource("2_myery")
 bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 0.137255, 1)
+modulate = Color(0.976471, 0.866667, 0.65098, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,9 +34,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -800.0
-offset_top = -362.5
+offset_top = -269.0
 offset_right = 800.0
-offset_bottom = 362.5
+offset_bottom = 456.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -70,16 +71,25 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 30
-text = "Use P to Pause; Use WASD (or Arrow keys) to move; Use N for dialogue actions;
+theme_override_fonts/normal_font = ExtResource("3_6fsld")
+theme_override_font_sizes/normal_font_size = 40
+text = "Use P to Pause; 
+Use WASD (or Arrow keys) to move, with Shift to run; 
+Use N for dialogue actions;
 Use SPACE if at Mural
 "
 fit_content = true
 
+[node name="Label_Spacefill" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_alignment = 2
+
 [node name="Label_SFX" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_6fsld")
+theme_override_font_sizes/font_size = 40
 text = "SFX Level"
 vertical_alignment = 2
 
@@ -92,7 +102,8 @@ step = 0.001
 [node name="Label_Music" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_6fsld")
+theme_override_font_sizes/font_size = 40
 text = "Volume Level"
 vertical_alignment = 2
 
@@ -101,11 +112,6 @@ layout_mode = 2
 size_flags_vertical = 3
 max_value = 1.0
 step = 0.001
-
-[node name="Label_Spacefill" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-vertical_alignment = 2
 
 [connection signal="pressed" from="Panel/Button_Resume" to="." method="_on_button_resume_pressed"]
 [connection signal="drag_ended" from="Panel/MarginContainer/VBoxContainer/HSlider_SFX" to="." method="_on_h_slider_sfx_drag_ended"]

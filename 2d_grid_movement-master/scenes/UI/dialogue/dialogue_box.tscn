@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgmb47x40xceq"]
+[gd_scene load_steps=7 format=3 uid="uid://bgmb47x40xceq"]
+
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="1_c2vmq"]
+[ext_resource type="FontFile" uid="uid://bl45x80hpnqyq" path="res://assets/font_free/Times New Roman MT Condensed Italic.otf" id="2_smiwi"]
 
 [sub_resource type="GDScript" id="GDScript_4jsyf"]
 script/source = "extends Control
@@ -12,18 +15,12 @@ var num_of_columns = 5
 @onready var npc_icon = $CanvasLayer/DialogueBox/CharIcon
 var location_UI_icons = \"res://scenes/UI/dialogue/%s.png\"
 @onready var next_button = $CanvasLayer/DialogueBox/Button_Next
-#@onready var player_sprite = $/root/Map_Danic/Player_Char2D/AnimatedSprite2D
 @onready var player_sprite = get_tree().current_scene.get_node(\"Player_Char2D/AnimatedSprite2D\")
 @onready var transition_time = 6.0
 
 @onready var cutscene_holder = get_parent().get_node(\"CutsceneHolder\")
 var cutscene_called = \"\"
 
-#@onready var lvlend_transition1 = $/root/Map_Danic/Player_Char2D/LvlTransitionOut1
-#@onready var lvlend_transition2 = $/root/Map_Danic2/Player_Char2D/LvlTransitionOut2
-#@onready var lvlend_transition3 = $/root/Map3/Player_Char2D/LvlTransitionOut3
-#@onready var lvlend_transition_final1 = $/root/MapFinal1/Player_Char2D/LvlTransitionOutFinal1
-#@onready var lvlend_transition_final2 = $/root/MapFinal2/Player_Char2D/LvlTransitionOutFinal2
 var lvlend_transition1
 var lvlend_transition2
 var lvlend_transition3
@@ -393,8 +390,8 @@ offset_right = -40.0
 offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
+theme_override_fonts/normal_font = ExtResource("1_c2vmq")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
 
@@ -421,7 +418,8 @@ offset_right = -64.0
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("2_smiwi")
+theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_to680")
 text = "Next..."
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://428iyflu81nw"]
+[gd_scene load_steps=9 format=3 uid="uid://428iyflu81nw"]
 
 [ext_resource type="PackedScene" uid="uid://dax8ukhexcxl1" path="res://scenes/UI/pause_menu.tscn" id="1_iht1a"]
 [ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="1_tek07"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="1_xaukj"]
 [ext_resource type="PackedScene" uid="uid://bgmb47x40xceq" path="res://scenes/UI/dialogue/dialogue_box.tscn" id="2_3bnrt"]
 [ext_resource type="Texture2D" uid="uid://bptx2cxyafcsd" path="res://assets/art_drawn_tile/ruin_piece.png" id="2_y782s"]
 [ext_resource type="PackedScene" uid="uid://c0cqfaxr84bhm" path="res://scenes/endcredits/end_credits.tscn" id="4_isgn3"]
@@ -32,19 +33,19 @@ offset_left = 12.0
 offset_top = 10.0
 offset_right = 1408.0
 offset_bottom = 71.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Use P to Pause; Use WASD (or Arrow keys) to move; Use N for dialogue actions
+theme_override_fonts/normal_font = ExtResource("1_xaukj")
+theme_override_font_sizes/normal_font_size = 40
+text = "Use P to Pause; Use WASD (or Arrow keys) to move, with Shift to run; Use N for dialogue actions
 "
 
 [node name="Label2" type="RichTextLabel" parent="CanvasLayer"]
-visible = false
 offset_left = 12.0
 offset_top = 46.0
 offset_right = 1248.0
 offset_bottom = 151.0
-theme_override_font_sizes/normal_font_size = 30
+theme_override_fonts/normal_font = ExtResource("1_xaukj")
+theme_override_font_sizes/normal_font_size = 40
 text = "Use SPACE if at Mural
-
 "
 
 [node name="Label3" type="RichTextLabel" parent="CanvasLayer"]
@@ -53,8 +54,9 @@ offset_left = 231.0
 offset_top = 63.0
 offset_right = 352.0
 offset_bottom = 100.0
-theme_override_font_sizes/normal_font_size = 20
-text = "
+theme_override_fonts/normal_font = ExtResource("1_xaukj")
+theme_override_font_sizes/normal_font_size = 40
+text = "3
 "
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer"]

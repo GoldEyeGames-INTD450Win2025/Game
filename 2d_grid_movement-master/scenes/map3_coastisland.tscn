@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://ckha0o3yedwhl"]
+[gd_scene load_steps=42 format=4 uid="uid://ckha0o3yedwhl"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_ni1fu"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_gmwgj"]
@@ -14,6 +14,7 @@
 [ext_resource type="Shader" uid="uid://bweqk1tsbehxw" path="res://assets/scripts_backups/obstacles_sway_trees.tres" id="9_e2tod"]
 [ext_resource type="PackedScene" uid="uid://su084u2c57cy" path="res://assets/boidstest/boids_snakes.tscn" id="11_almlv"]
 [ext_resource type="AudioStream" uid="uid://b388nmjlyodd0" path="res://assets/audio/audio_free_sfx/sand_background_ambience.mp3" id="14_a5q8i"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="15_almlv"]
 [ext_resource type="Shader" uid="uid://cebkx6juvhvag" path="res://assets/scripts_backups/sandstorm.gdshader" id="15_fpknf"]
 [ext_resource type="Script" uid="uid://j8cgk66mx1i4" path="res://scenes/lvl_3_activators.gd" id="15_qvks4"]
 [ext_resource type="Texture2D" uid="uid://bwp2bj578s6xj" path="res://assets/scripts_backups/Sand4_S.jpg" id="16_6pv6x"]
@@ -32,14 +33,17 @@ func _ready() -> void:
 	do_flutter()
 
 func do_flutter():
+	if !is_inside_tree():
+		return
 	var tween = get_tree().create_tween()
 	if rising:
-		tween.tween_property(self, \"energy\", 10, 1.0) # Increase energy
+		tween.tween_property(self, \"energy\", 10, 1.0)
 	else:
-		tween.tween_property(self, \"energy\", 5, 1.0) # Decrease energy
-	tween.tween_callback(func(): 
-		rising = !rising
-		do_flutter()
+		tween.tween_property(self, \"energy\", 5, 1.0)
+	tween.tween_callback(func():
+		if is_inside_tree():
+			rising = !rising
+			do_flutter()
 	)
 "
 
@@ -448,7 +452,8 @@ offset_right = -12.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("15_almlv")
+theme_override_font_sizes/font_size = 28
 text = "  Open Mural"
 horizontal_alignment = 3
 metadata/_edit_use_anchors_ = true
@@ -589,9 +594,11 @@ y_sort_enabled = true
 shape = SubResource("RectangleShape2D_h3jwi")
 
 [node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lvl3Activators_Scenery/Activator5_Area2D"]
+visible = false
 stream = ExtResource("14_a5q8i")
 volume_db = 3.0
 pitch_scale = 1.25
+attenuation = 1e-05
 bus = &"SFX"
 
 [node name="Activator5_Area2D2" type="Area2D" parent="Lvl3Activators_Scenery"]
@@ -615,10 +622,12 @@ position = Vector2(2940.13, 238)
 shape = SubResource("RectangleShape2D_h3jwi")
 
 [node name="Sandstorm_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lvl3Activators_Scenery/Activator5_Area2D2"]
+visible = false
 position = Vector2(145.631, -30)
 stream = ExtResource("14_a5q8i")
 volume_db = 3.0
 pitch_scale = 1.25
+attenuation = 1e-05
 bus = &"SFX"
 
 [node name="SandStorm_CanvasLayer" type="CanvasLayer" parent="Lvl3Activators_Scenery"]

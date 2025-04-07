@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbyjsjid14lqh" path="res://scenes/startmenu/startmenus_notemenu.gd" id="1_fvyb3"]
 [ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_fvyb3"]
-[ext_resource type="FontFile" uid="uid://bme6qm1ycd64u" path="res://assets/font_free/Hargalia.otf" id="3_cj86a"]
+[ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="3_fvyb3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
@@ -26,7 +26,7 @@ stream = ExtResource("2_fvyb3")
 bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 0.137255, 1)
+modulate = Color(0.976471, 0.866667, 0.65098, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,9 +34,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -800.0
-offset_top = -362.5
+offset_top = -274.0
 offset_right = 800.0
-offset_bottom = 362.5
+offset_bottom = 451.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -71,8 +71,8 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("3_cj86a")
-theme_override_font_sizes/normal_font_size = 41
+theme_override_fonts/normal_font = ExtResource("3_fvyb3")
+theme_override_font_sizes/normal_font_size = 40
 text = "
 The Gold Eye Games team is aware that this game, while rooted in Egyptian beliefs stretching to antiquity, cannot fully incorporate the intricacies of the culture or demonstrate a perfectly accurate account of the Duat because such an account does not and cannot exist. 
 
