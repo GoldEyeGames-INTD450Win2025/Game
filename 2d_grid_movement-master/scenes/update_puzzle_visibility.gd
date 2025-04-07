@@ -4,6 +4,7 @@ var one_time_activator = false
 @onready var sprite_mural_done = $"../../TileMapLayer2/Obstacles_Mural_Finished"
 @onready var completion_sound = $"../../TileMapLayer2/Obstacles_Mural_Finished/completion_sound"
 @onready var muralcomplete_detection_area = $"../../TileMapLayer2/Obstacles_Mural_Finished/Area2D"
+#@onready var open_sound = $Audio_Open
 signal demo_done_music  # Define signal to later emit
 func _ready():
 	visibility_changed.connect(_on_visibility_changed)
@@ -13,6 +14,7 @@ func _on_visibility_changed() -> void:
 	#var _canvas: CanvasLayer = $CanvasLayer
 	#_canvas.visible = self.visible
 	Global.puzzle_open = self.visible
+	#open_sound.play()
 
 func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
