@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvqec25t5pixb"]
+[gd_scene load_steps=8 format=3 uid="uid://dvqec25t5pixb"]
 
 [ext_resource type="PackedScene" uid="uid://cytlexciip26f" path="res://assets/prefabs_w_art/players/player_freeMovementStyle/Player_Char2D.tscn" id="1_q3bew"]
 [ext_resource type="AudioStream" uid="uid://mjbp72l04a5u" path="res://assets/audio/audio_free_sfx/SnowWalk/SnowWalk2.ogg" id="2_wsvo1"]
 [ext_resource type="PackedScene" uid="uid://428iyflu81nw" path="res://scenes/UI/MainUI.tscn" id="3_bd77g"]
 [ext_resource type="PackedScene" uid="uid://oegp5wbvygsk" path="res://scenes/lvltransition/level_transition_out_final2.tscn" id="5_wsvo1"]
 [ext_resource type="AudioStream" uid="uid://75fbk12s4smm" path="res://assets/audio/audio_made_music/forestlightstrings.wav" id="6_bd77g"]
-[ext_resource type="Script" uid="uid://j8cgk66mx1i4" path="res://scenes/lvl_3_activators.gd" id="16_agwkc"]
 
 [sub_resource type="GDScript" id="GDScript_aevhm"]
 script/source = "extends Area2D
@@ -34,6 +33,9 @@ position = Vector2(3, -1135)
 collision_layer = 641
 collision_mask = 6
 
+[node name="AnimatedSprite2D" parent="Player_Char2D" index="0"]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
 
 [node name="Audio_SFX_Walking" type="AudioStreamPlayer2D" parent="Player_Char2D"]
@@ -56,7 +58,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="LvlActivators_Final2" type="Node2D" parent="."]
-script = ExtResource("16_agwkc")
 
 [node name="A1_Start" type="Area2D" parent="LvlActivators_Final2"]
 z_index = 2
@@ -74,3 +75,5 @@ position = Vector2(-1.5, 14.5)
 shape = SubResource("RectangleShape2D_alirh")
 
 [connection signal="body_entered" from="LvlActivators_Final2/A1_Start" to="LvlActivators_Final2/A1_Start" method="_on_body_entered"]
+
+[editable path="Player_Char2D"]

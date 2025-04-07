@@ -33,6 +33,9 @@ position = Vector2(-7, -1715)
 collision_layer = 641
 collision_mask = 6
 
+[node name="AnimatedSprite2D" parent="Player_Char2D" index="0"]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="Player_Char2D"]
 
 [node name="Audio_SFX_Walking" type="AudioStreamPlayer2D" parent="Player_Char2D"]
@@ -67,3 +70,5 @@ position = Vector2(-1.5, 14.5)
 shape = SubResource("RectangleShape2D_alirh")
 
 [connection signal="body_entered" from="LvlActivators_Final1/A1_Start" to="LvlActivators_Final1/A1_Start" method="_on_body_entered"]
+
+[editable path="Player_Char2D"]

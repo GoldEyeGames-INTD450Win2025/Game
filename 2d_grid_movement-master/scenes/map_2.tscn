@@ -29,13 +29,7 @@ var rising = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#pass # Replace with function body.
 	do_flutter()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func do_flutter():
 	var tween = get_tree().create_tween()
@@ -56,15 +50,6 @@ signal player_in_lvl2_finished_mural  # Define signal to later emit
 var one_time_trigger = 0
 @onready var placeholder_lvl1end_sprite = $ColorRect
 @onready var completion_sound = $\"../completion_sound\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_body_entered(body):
@@ -419,7 +404,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player != null:
 		var cat_distance
 		if Global.cat != null:
@@ -445,9 +430,7 @@ func _process(delta: float) -> void:
 			right_exited = true
 		if Global.cat != null:
 			Global.cat.global_position = player.global_position + cat_distance
-		
-		
-		
+
 
 func _is_player(body: Node2D) -> bool:
 	return body.is_in_group(\"Player\")
