@@ -39,29 +39,35 @@ var piece3up: Node2D = null
 
 func _ready():
 	Global.cat = self
+	# Find the Activator1 (Area2D) and connect its signal
+	#var zone_Activator1_Area2D = get_node_or_null("../Activator1_Area2D")  # Adjust path as needed
+	#if zone_Activator1_Area2D:
+		#zone_Activator1_Area2D.player_near_Activator1_Area2D.connect(_on_player_nearby_Activator1)
+		#print("Connected to signal: Activator1_Area2D")
 
+	# Frog interaction, using Area2D trigger: 
 	# Find the Area2D and connect the signal
-	#var zone_Activator2_Area2D = get_node_or_null("../Activator2_Area2D")  # Adjust path as needed
-	#if zone_Activator2_Area2D:
-		#zone_Activator2_Area2D.player_near_Activator2_Area2D.connect(_on_player_nearby_Activator2)
-		#print("Connected to signal: player_near_Activator2_Area2D")
-	#var zone_PlayerAtMural = get_node_or_null("../Activator3_Area2D")  # Adjust path as needed
-	#if zone_PlayerAtMural:
-		#zone_PlayerAtMural.player_near_Activator3_Area2D.connect(player_near_Activator3_Area2D)
-		#print("Connected to signal: player_near_Activator3_Area2D")
-	#var zone_PlayerAtPiece1 = get_node_or_null("../ActivatorPiece1_Area2D")  # Adjust path as needed
-	#if zone_PlayerAtPiece1:
-		#zone_PlayerAtPiece1.player_near_ActivatorPiece1_Area2D.connect(_on_player_at_Piece1)
-		#print("Connected to signal: player_near_ActivatorPiece1_Area2D")
-	#var zone_PlayerAtPiece2 = get_node_or_null("../ActivatorPiece2_Area2D")  # Adjust path as needed
-	#if zone_PlayerAtPiece2:
-		#zone_PlayerAtPiece2.player_near_ActivatorPiece2_Area2D.connect(_on_player_at_Piece2)
-		#print("Connected to signal: player_near_ActivatorPiece2_Area2D")
-	#var zone_PlayerAtPiece3left = get_node_or_null("../ActivatorPiece3left_Area2D")  # Adjust path as needed
-	#if zone_PlayerAtPiece3left:
-		#zone_PlayerAtPiece3left.player_near_ActivatorPiece3left_Area2D.connect(_on_player_at_Piece3left)
-		#print("Connected to signal: player_near_ActivatorPiece3left_Area2D")
-		#
+	var zone_Activator2_Area2D = get_node_or_null("../Activator2_Area2D")  # Adjust path as needed
+	if zone_Activator2_Area2D:
+		zone_Activator2_Area2D.player_near_Activator2_Area2D.connect(_on_player_nearby_Activator2)
+		print("Connected to signal: player_near_Activator2_Area2D")
+	var zone_PlayerAtMural = get_node_or_null("../Activator3_Area2D")  # Adjust path as needed
+	if zone_PlayerAtMural:
+		zone_PlayerAtMural.player_near_Activator3_Area2D.connect(player_near_Activator3_Area2D)
+		print("Connected to signal: player_near_Activator3_Area2D")
+	var zone_PlayerAtPiece1 = get_node_or_null("../ActivatorPiece1_Area2D")  # Adjust path as needed
+	if zone_PlayerAtPiece1:
+		zone_PlayerAtPiece1.player_near_ActivatorPiece1_Area2D.connect(_on_player_at_Piece1)
+		print("Connected to signal: player_near_ActivatorPiece1_Area2D")
+	var zone_PlayerAtPiece2 = get_node_or_null("../ActivatorPiece2_Area2D")  # Adjust path as needed
+	if zone_PlayerAtPiece2:
+		zone_PlayerAtPiece2.player_near_ActivatorPiece2_Area2D.connect(_on_player_at_Piece2)
+		print("Connected to signal: player_near_ActivatorPiece2_Area2D")
+	var zone_PlayerAtPiece3left = get_node_or_null("../ActivatorPiece3left_Area2D")  # Adjust path as needed
+	if zone_PlayerAtPiece3left:
+		zone_PlayerAtPiece3left.player_near_ActivatorPiece3left_Area2D.connect(_on_player_at_Piece3left)
+		print("Connected to signal: player_near_ActivatorPiece3left_Area2D")
+		
 	player = get_node_or_null("../Player_Char2D")
 	if player:
 		player_position = player.global_position
@@ -69,44 +75,47 @@ func _ready():
 		print(player.global_position)
 	else:
 		print("Warning: No player position found!")
-		
 	mural = get_node_or_null("../Mural")
 	if mural:
 		mural_position = mural.global_position
 	else:
 		print("Warning: No mural position found!")
-	#
-	#piece1 = get_node_or_null("../Piece1cat")
-	#if !piece1:
-		#print("Warning: No piece1 position found!")
-	#piece2 = get_node_or_null("../Piece2cat")
-	#if !piece2:
-		#print("Warning: No piece2 position found!")
-	#piece3left = get_node_or_null("../Piece3leftcat")
-	#if !piece3left:
-		#print("Warning: No piece3left position found!")
-	#piece3up = get_node_or_null("../Piece3upcat")
-	#if !piece3up:
-		#print("Warning: No piece3up position found!")
-	current_state = State.RUNNING_TO_PLAYER
-
-
+	
+	piece1 = get_node_or_null("../Piece1cat")
+	if !piece1:
+		print("Warning: No piece1 position found!")
+	piece2 = get_node_or_null("../Piece2cat")
+	if !piece2:
+		print("Warning: No piece2 position found!")
+	piece3left = get_node_or_null("../Piece3leftcat")
+	if !piece3left:
+		print("Warning: No piece3left position found!")
+	piece3up = get_node_or_null("../Piece3upcat")
+	if !piece3up:
+		print("Warning: No piece3up position found!")
+		
 func _on_player_nearby_Activator2():
 	print("Cat guide is activated")
 	current_state = State.RUNNING_TO_PLAYER
 	
 func _on_timer_timeout():
 	print("cat at player, cat moves to piece1")
-	#current_state = State.GUIDING_PIECE1
-	current_state = State.GUIDING_AWAY_PLAYER
-
+	current_state = State.GUIDING_PIECE1
+	
 func player_near_Activator3_Area2D():
 	print("")
+	#current_state = State.GUIDING_PIECE1
+	#current_state = State.GUIDING_AWAY_PLAYER
 
 func _on_player_at_Piece1():
+	#print("Player at piece1, cat moves to piece2")
+	#current_state = State.GUIDING_PIECE2
 	print("Player at piece1, cat guides to mural (and sits at mural)")
 	current_state = State.GUIDING_AWAY_PLAYER
 
+#func _on_timer_timeout_Piece1():
+	#current_state = State.GUIDING_PIECE1
+	
 func _on_player_at_Piece2():
 	print("Player at piece1, cat moves to piece2")
 	#current_state = State.GUIDING_PIECE3left
@@ -114,9 +123,6 @@ func _on_player_at_Piece2():
 func _on_player_at_Piece3left():
 	print("Player at piece3left, cat moves to piece3up")
 	#current_state = State.GUIDING_PIECE3up
-
-func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2):
-	velocity = safe_velocity
 
 func _physics_process(delta: float):
 	if current_state == State.RUNNING_TO_PLAYER:
@@ -154,60 +160,63 @@ func _physics_process(delta: float):
 			sfx_ambient.play()
 			timer.start()
 	elif current_state == State.GUIDING_AWAY_PLAYER:
-		
-		
-		mural_position = mural.global_position
-		var cat2player_distance = global_position.distance_to(player.global_position)
-		if cat2player_distance > 100 :
-			navagent2d.target_position = global_position
-		else:
-			navagent2d.target_position = mural_position
-		#navagent2d.target_position = mural_position
-		
-		var current_agent_position = global_position
-		var next_path_position = navagent2d.get_next_path_position()
-		velocity_vector = current_agent_position.direction_to(next_path_position)  * speed * delta
-		#velocity_vector = current_agent_position.direction_to(next_path_position)  * speed
-		
-		
-		if navagent2d.is_navigation_finished():
-			animated_sprite.animation = "idle"
-			animated_sprite.play()
-			return
-		
-		if navagent2d.avoidance_enabled:
-			navagent2d.set_velocity(velocity_vector)
-		else:
-			_on_navigation_agent_2d_velocity_computed(velocity_vector)
-		
-		#var perpline_direction = (mural.global_position - player.global_position).normalized()
-		#var new_target_pos = player.global_position + (perpline_direction * player_closeness_travel)
-		
-
-		
-
-		
-		#var direction = (new_target_pos - global_position).normalized()
-		#velocity_vector = direction * speed * delta
-		if (navagent2d.target_position == Vector2(0, 0)): ###
+		# Player too far, so cat follows player
+		#if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:
+			###
+		#var direction = (player.global_position - global_position).normalized()
+		### new vector stuff
+		var perpline_direction = (mural.global_position - player.global_position).normalized()
+		var new_target_pos = player.global_position + (perpline_direction * player_closeness_travel)
+		navagent2d.target_position = new_target_pos
+		var direction = (new_target_pos - global_position).normalized()
+		### end of new vector stuff
+		velocity_vector = direction * speed * delta
+		#var accel = 7
+		#velocity_vector = velocity.lerp(direction * speed, accel * delta)
+		if (direction == Vector2(0, 0)) or navagent2d.is_navigation_finished() or (global_position.distance_to(new_target_pos) < 1): ###
 			velocity_vector = Vector2(0, 0) * speed * delta ###
 			#velocity_vector = velocity.lerp(Vector2(0, 0) * speed, accel * delta)
 			animated_sprite.animation = "idle"
 			sfx_moving.stop()
 		else:
 			#print("x=" +str(direction.x) +", y=" +str(direction.y) )
-			if abs(navagent2d.target_position.x) > (abs(navagent2d.target_position.y) +0.02):
-				animated_sprite.animation = "move_left" if navagent2d.target_position.x > 0 else "move_right"
+			if abs(direction.x) > (abs(direction.y) +0.02):
+				animated_sprite.animation = "move_left" if direction.x < 0 else "move_right"
 			else:
-				animated_sprite.animation = "move_up" if navagent2d.target_position.y > 0 else "move_down"
+				animated_sprite.animation = "move_up" if direction.y < 0 else "move_down"
 			sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
 			if not sfx_moving.playing:  # prevents overlapping sounds
 				sfx_moving.play()
 			###
 			animated_sprite.play()
-			#if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
-				#print("Cat is at mural!")
-				#current_state = State.IDLE
+		# Player is within buffer zone of cat to piece, so cat stays put
+		#elif ( global_position.distance_to(player.global_position) <= player_farthest_dist_followPlayer) and (global_position.distance_to(player.global_position) > player_closeness_travel):
+			#velocity_vector = Vector2.ZERO
+			#animated_sprite.animation = "idle"
+			#animated_sprite.play()
+		## Player is close to cat, so cat guides to piece
+		#else: 
+			## Move down to puzzle
+			#var direction = (mural_position - global_position).normalized()
+			##var direction = Vector2.DOWN
+			#velocity_vector = direction * speed * delta
+			#if direction == Vector2(0, 0):
+				#animated_sprite.animation = "idle"
+				#sfx_moving.stop()
+			#else:
+				#if abs(direction.x) > abs(direction.y):
+					#animated_sprite.animation = "move_left" if direction.x < 0 else "move_right"
+				#else:
+					#animated_sprite.animation = "move_up" if direction.y < 0 else "move_down"
+				#sfx_moving.pitch_scale = randf_range(0.5, 1.5)  # Randomize pitch to make sound different
+				#if not sfx_moving.playing:  # prevents overlapping sounds
+					#sfx_moving.play()
+			## Set animation
+			##animated_sprite.animation = "run_to_frog"
+			#animated_sprite.play()
+			if global_position.distance_to(mural.global_position) < mural_closeness_trigger:  
+				print("Cat is at mural!")
+				current_state = State.IDLE
 	elif current_state == State.GUIDING_PIECE1:
 		# Player too far, so cat follows player
 		if global_position.distance_to(player.global_position) > player_farthest_dist_followPlayer:

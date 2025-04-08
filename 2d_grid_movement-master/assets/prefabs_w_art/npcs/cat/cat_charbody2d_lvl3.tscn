@@ -200,16 +200,9 @@ script = ExtResource("1_d6c0y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_eortx")
-animation = &"move_down"
-autoplay = "idle"
-frame_progress = 0.318556
-offset = Vector2(0, -48)
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_eortx")
 animation = &"idle"
 autoplay = "idle"
+offset = Vector2(0, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rwq0c")
@@ -229,6 +222,10 @@ bus = &"SFX"
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
 avoidance_enabled = true
-radius = 15.0
 debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
