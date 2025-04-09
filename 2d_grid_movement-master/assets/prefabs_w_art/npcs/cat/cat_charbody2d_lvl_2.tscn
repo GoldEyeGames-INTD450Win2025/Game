@@ -552,7 +552,6 @@ animations = [{
 size = Vector2(30, 30)
 
 [node name="Cat_CharBody2D" type="CharacterBody2D"]
-modulate = Color(0.529067, 0.529067, 0.529067, 1)
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 129

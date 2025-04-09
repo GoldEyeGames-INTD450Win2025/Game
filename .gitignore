@@ -20,3 +20,8 @@ mono_crash.*.json
 .directory
 .DS_Store
 *~
+
+#Godot build files
+build_web/
+build_macdesk/
+build_windesk/
