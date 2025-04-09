@@ -224,4 +224,3 @@ one_shot = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 15.0
-debug_enabled = true

@@ -142,7 +142,6 @@ func _physics_process(delta: float):
 		if direction == Vector2(0, 0):
 			animated_sprite.animation = "idle"
 		else:
-			#print("x=" +str(direction.x) +", y=" +str(direction.y) )
 			if abs(direction.x) > (abs(direction.y) +0.02):
 				animated_sprite.animation = "move_left" if direction.x < 0 else "move_right"
 			else:
