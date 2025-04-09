@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://btvowrluapqrs"]
+[gd_scene load_steps=10 format=3 uid="uid://btvowrluapqrs"]
 
-[ext_resource type="Script" uid="uid://5b75q4yqgbja" path="res://assets/audio/music_manager.gd" id="1_8iy2a"]
+[ext_resource type="Script" uid="uid://dvnnd40sfx2bs" path="res://assets/audio/music_manager_synced.gd" id="1_8iy2a"]
 [ext_resource type="AudioStream" uid="uid://c2s8s76ugoh84" path="res://assets/audio/audio_made_music/ethereal_parts/001 Group A1.wav" id="1_dcxdc"]
 [ext_resource type="AudioStream" uid="uid://cs2fu37jk5a2t" path="res://assets/audio/audio_made_music/ethereal_parts/002 Group B1.wav" id="2_iattw"]
 [ext_resource type="AudioStream" uid="uid://bwk6oclqejcfu" path="res://assets/audio/audio_made_music/ethereal_parts/003 Group C1.wav" id="3_wdbxo"]
@@ -9,33 +9,54 @@
 [ext_resource type="AudioStream" uid="uid://chwmf01y4waew" path="res://assets/audio/audio_made_music/ethereal_parts/006 Lion Kendang Kit.wav" id="6_rvpl1"]
 [ext_resource type="AudioStream" uid="uid://2u7u56hkwmur" path="res://assets/audio/audio_made_music/ethereal_parts/007 Lion Kendang Kit.wav" id="7_5dygk"]
 
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_8iy2a"]
+stream_count = 7
+stream_0/stream = ExtResource("1_dcxdc")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_iattw")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_wdbxo")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_vq84j")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("5_0oov0")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("6_rvpl1")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("7_5dygk")
+stream_6/volume = 0.0
+
 [node name="MusicManager" type="Node2D"]
 script = ExtResource("1_8iy2a")
 
-[node name="AudioStreamPlayer2D1" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamSynchronized_8iy2a")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2D1" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("1_dcxdc")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("2_iattw")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("3_wdbxo")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("4_vq84j")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("5_0oov0")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("6_rvpl1")
 bus = &"Music"
 
-[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="AudioStreamPlayer2D"]
 stream = ExtResource("7_5dygk")
 bus = &"Music"

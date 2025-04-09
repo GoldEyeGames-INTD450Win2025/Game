@@ -28,7 +28,7 @@ void vertex() {
     // Calculate the sway based on the vertex's height and the sway properties
     float sway_factor = (1.0 - VERTEX.y) * sway_magnitude;
     vec2 sway_offset = wind_direction * sway_factor * sin(TIME * sway_frequency + VERTEX.y);
-    
+
     // Apply the sway offset to the vertex position
     VERTEX.xy += sway_offset;
 }"
