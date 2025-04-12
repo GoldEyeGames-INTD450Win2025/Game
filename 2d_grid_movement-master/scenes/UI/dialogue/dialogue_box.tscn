@@ -422,6 +422,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_smiwi")
 theme_override_font_sizes/font_size = 40
 shortcut = SubResource("Shortcut_to680")
+shortcut_in_tooltip = false
 text = "Next..."
 
 [connection signal="pressed" from="CanvasLayer/DialogueBox/Button_Next" to="." method="_on_button_next_pressed"]
