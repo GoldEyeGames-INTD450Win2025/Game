@@ -28,6 +28,9 @@ var lvlend_transition_final1
 var lvlend_transition_final2
 var lvlend = \"\"
 
+var pause_menu
+var quit_awaiter : Signal
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_csv_dialogue_data()
@@ -37,6 +40,8 @@ func _ready() -> void:
 
 	#lvl1 oasis stuff readying
 	if root_name == \"Map_Danic\":
+		pause_menu = $/root/Map_Danic/Player_Char2D/MainUI/PauseMenu
+		
 		lvlend_transition1 = $/root/Map_Danic/Player_Char2D/LvlTransitionOut1
 		var zone_Activator1_Area2D = get_node(\"/root/Map_Danic/Activator1_Area2D\")
 		if zone_Activator1_Area2D:
@@ -134,6 +139,8 @@ func _ready() -> void:
 		if zone_lvlfinal_2:
 			zone_lvlfinal_2.player_near_lvlfinal_2.connect(_on_player_near_lvlfinal_2)
 			print(\"Connected to dialogue signal: player_near_lvlfinal_2\")
+	
+	quit_awaiter = pause_menu.dialogue_quit
 
 
 # Lvl1 activator functions
@@ -283,7 +290,12 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			dialogue_box.show()
 			Global.dialogue_box_open = true
 			# Call the next action (await the button press before continuing)
-			await wait_for_button_press()
+			print(\"wait_for_button_press() before\")
+			#await wait_for_button_press()
+			var continue_dialogue = await wait_for_button_press()
+			if not continue_dialogue:
+				print(\"Dialogue interrupted.\")
+				return
 			dialogue_box.hide()
 			Global.dialogue_box_open = false
 			if cutscene_called != \"\":
@@ -304,7 +316,12 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 				cutscene_holder.start_cutscene(cutscene_called)
 			dialogue_box.show()
 			Global.dialogue_box_open = true
-			await wait_for_button_press()
+			print(\"wait_for_button_press() before\")
+			#await wait_for_button_press()
+			var continue_dialogue = await wait_for_button_press()
+			if not continue_dialogue:
+				print(\"Dialogue interrupted.\")
+				return
 			matched_index += 1
 			
 			# Check if index is within bounds
@@ -315,11 +332,32 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 				expected_end = false  # Stop loop if out of bounds
 
 # Helper function to wait for the button press (using await instead of yield)
-func wait_for_button_press() -> void:
-	# Await until the button press signal is triggered
-	await (next_button.pressed)
-	# * NOTE: This button also has Shortcut event of N input key (see button)
-	print(\"Proceeding to: next dialogue, or Done\")
+#func wait_for_button_press() -> void:
+	#print(\"wait_for_button_press() after\")
+	## Await until the button press signal is triggered
+	#await (next_button.pressed)
+	## * NOTE: This button also has Shortcut event of N input key (see button)
+	#print(\"Proceeding to: next dialogue, or Done\")
+
+func wait_for_button_press() -> bool:
+	var button_awaiter = next_button.pressed
+	var awaiters = [button_awaiter, quit_awaiter]
+	var signal_result = await await_signal_multi(awaiters)
+	print(\"test................\")
+	if signal_result == quit_awaiter:
+		print(\"Next dialogue, or, Quit pressed and cancelling dialogue.\")
+		return false
+	else:
+		return true
+
+func await_signal_multi(signals: Array) -> Signal:
+	var awaiters = []
+	print(\"waiting\")
+	for s in signals:
+		awaiters.append(await s)
+	print(\"done waiting\")
+	return awaiters[0]
+
 
 # Function to populate the dialogue box with the next row's data
 func do_dialogue_next_action(index: int):

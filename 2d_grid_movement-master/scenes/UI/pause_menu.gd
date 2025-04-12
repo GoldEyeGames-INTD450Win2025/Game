@@ -1,11 +1,14 @@
 extends Control
 
+signal dialogue_quit
+
 @onready var pause_menu_visibility = $CanvasLayer/Panel
 var is_paused = false
 @onready var slider_sfx = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_SFX
 @onready var slider_music = $CanvasLayer/Panel/MarginContainer/VBoxContainer/HSlider_Music
 @onready var sfxtester = $SFXtester
 #var scene_quittomain = "res://scenes/startmenu/start_menu.tscn"
+@export var scene_quittomain : PackedScene
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,6 +45,19 @@ func _on_h_slider_music_drag_ended(_value_changed: bool) -> void:
 func _on_button_resume_pressed():
 	toggle_pause()
 
+
 func _on_button_quit_pressed():
 	toggle_pause()
-	get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")
+	Global.puzzle_open = false
+	#Global.dialogue_box_open  = false
+	print("_on_button_quit_pressed()")
+	#get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")
+	#get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")
+	#call_deferred("change_scene_safely")
+	#queue_free()
+	dialogue_quit.emit()
+	get_tree().change_scene_to_packed(scene_quittomain)
+	
+
+#func change_scene_safely():
+	#get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")
