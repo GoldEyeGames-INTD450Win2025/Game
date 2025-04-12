@@ -13,7 +13,11 @@ func _on_visibility_changed() -> void:
 	#var _canvas: CanvasLayer = $CanvasLayer
 	#_canvas.visible = self.visible
 	Global.puzzle_open = self.visible
-
+	if Global.puzzle_open:
+		SfxUi.play_sfx_open_close()
+	else:
+		SfxUi.play_sfx_open_close2()
+ 
 func _process(_delta: float) -> void:
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
 		one_time_activator = true
@@ -22,5 +26,6 @@ func _process(_delta: float) -> void:
 		muralcomplete_detection_area.monitoring = true
 		muralcomplete_detection_area.monitorable = true
 		demo_done_music.emit()
-		completion_sound.play()
+		#completion_sound.play()
+		SfxUi.play_transition_sound()
 		

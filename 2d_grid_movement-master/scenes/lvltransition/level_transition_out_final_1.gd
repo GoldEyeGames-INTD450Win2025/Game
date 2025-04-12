@@ -22,7 +22,7 @@ func _ready() -> void:
 func start_transition():
 	blackrect_fade.show()
 	heartbeat_background.stop()
-	startmenu_sfx_start.play()
+	#startmenu_sfx_start.play()
 	var fadeout_tween = get_tree().create_tween()
 	fadeout_tween.set_parallel(true)
 	#Global.saved_current_music_lvl = db_to_linear(AudioServer.get_bus_volume_db(1))

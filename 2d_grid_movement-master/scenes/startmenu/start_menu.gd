@@ -3,6 +3,7 @@ extends Control
 @onready var blackrect_fade = $ColorRect
 @onready var startmenu_music = $music
 @onready var startmenu_sfx_nonstart = $sfx_nonstart
+@onready var startmenu_sfx_nonstart2 = $sfx_nonstart2
 @onready var startmenu_sfx_start = $sfx_start
 var fade_duration = 3.0
 @onready var optionsmenu = $Starts_PauseMenu
@@ -36,7 +37,7 @@ func _on_button_options_pressed():
 	optionsmenu.show()
 
 func hide_options_menu():
-	startmenu_sfx_nonstart.play()
+	startmenu_sfx_nonstart2.play()
 	optionsmenu.hide()
 
 
@@ -55,7 +56,7 @@ func _on_button_note_pressed() -> void:
 	notemenu.show()
 
 func hide_note_menu():
-	startmenu_sfx_nonstart.play()
+	startmenu_sfx_nonstart2.play()
 	notemenu.hide()
 
 
@@ -64,5 +65,5 @@ func _on_button_lvl_pressed() -> void:
 	lvlmenu.show()
 
 func hide_lvl_menu():
-	startmenu_sfx_nonstart.play()
+	startmenu_sfx_nonstart2.play()
 	lvlmenu.hide()

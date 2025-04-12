@@ -2,9 +2,10 @@ extends Control
 
 @onready var logo = $Control
 @onready var sound = $AudioStreamPlayer2D
+@onready var sound2 = $AudioStreamPlayer2D2
 var scene_duration = 5.0
 var is_clicked = false
-var fade_duration = 2
+var fade_duration = 5
 var scene_startmenu_location = "res://scenes/startmenu/start_menu.tscn"
 
 # Called when the node enters the scene tree for the first time.
@@ -15,12 +16,15 @@ func _ready() -> void:
 	start_animation()
 
 func start_animation():
+	#sound2.play()
 	var grow_tween = get_tree().create_tween()
 	grow_tween.set_parallel(true)
 	grow_tween.tween_property(logo, "scale", Vector2(2, 2), scene_duration).set_trans(Tween.TRANS_EXPO)
 	grow_tween.tween_property(logo, "rotation_degrees", 360, scene_duration).set_trans(Tween.TRANS_EXPO)
+	await get_tree().create_timer(scene_duration / 6).timeout
+	sound2.play()
 	await grow_tween.finished
-	sound.play()
+	#sound.play()
 	is_clicked = true
 	finish_scene()
 

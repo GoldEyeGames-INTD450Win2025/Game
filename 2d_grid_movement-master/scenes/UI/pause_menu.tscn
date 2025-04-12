@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dax8ukhexcxl1"]
+[gd_scene load_steps=5 format=3 uid="uid://dax8ukhexcxl1"]
 
 [ext_resource type="Script" uid="uid://brj34k1btat1c" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
-[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_bl585"]
+[ext_resource type="AudioStream" uid="uid://vcn1lqnkjqw1" path="res://assets/audio/audio_made_sfx/menuopen1.wav" id="2_mko1u"]
+[ext_resource type="AudioStream" uid="uid://dhdmusl4cjtvx" path="res://assets/audio/audio_made_sfx/menuclose1.wav" id="3_feath"]
 [ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="3_mko1u"]
 
 [node name="PauseMenu" type="Control"]
@@ -20,7 +21,11 @@ grow_vertical = 2
 script = ExtResource("1_qo2fb")
 
 [node name="SFXtester" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_bl585")
+stream = ExtResource("2_mko1u")
+bus = &"SFX"
+
+[node name="SFXtester2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_feath")
 bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

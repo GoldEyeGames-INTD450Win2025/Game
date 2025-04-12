@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0hnvxvcbsayc"]
+[gd_scene load_steps=5 format=3 uid="uid://d0hnvxvcbsayc"]
 
 [ext_resource type="Script" uid="uid://ccpwrq3bmyyxb" path="res://scenes/openinglogoscene/opening_logo_scene.gd" id="1_g6664"]
 [ext_resource type="Texture2D" uid="uid://d06do4kq0pyvx" path="res://assets/art_drawn_tile/goldeyegames_logo.png" id="2_12jrq"]
 [ext_resource type="AudioStream" uid="uid://3v6igg0keif2" path="res://assets/audio/audio_free_sfx/silvercollector_oneshot.wav" id="3_g6664"]
+[ext_resource type="AudioStream" uid="uid://kh8p4g3eppuf" path="res://assets/audio/audio_made_sfx/piecegrab1.wav" id="4_12jrq"]
 
 [node name="OpeningLogo" type="Control"]
 layout_mode = 3
@@ -53,4 +54,8 @@ expand_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_g6664")
-pitch_scale = 0.4
+pitch_scale = 0.15
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_12jrq")
+pitch_scale = 0.7
