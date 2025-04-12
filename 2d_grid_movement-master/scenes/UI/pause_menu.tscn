@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dax8ukhexcxl1"]
+[gd_scene load_steps=4 format=3 uid="uid://dax8ukhexcxl1"]
 
 [ext_resource type="Script" uid="uid://brj34k1btat1c" path="res://scenes/UI/pause_menu.gd" id="1_qo2fb"]
 [ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="2_bl585"]
 [ext_resource type="FontFile" uid="uid://cgjxxygb2v5k1" path="res://assets/font_free/Times New Roman MT Condensed Regular.otf" id="3_mko1u"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_oni5b"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -50,7 +48,6 @@ offset_right = 1592.0
 offset_bottom = 119.0
 theme_override_font_sizes/font_size = 75
 text = "X"
-icon = SubResource("ViewportTexture_oni5b")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
