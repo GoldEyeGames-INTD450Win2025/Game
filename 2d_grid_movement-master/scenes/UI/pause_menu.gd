@@ -44,4 +44,5 @@ func _on_button_resume_pressed():
 
 func _on_button_quit_pressed():
 	toggle_pause()
+	Global.puzzle_open = false
 	get_tree().change_scene_to_file("res://scenes/startmenu/start_menu.tscn")
