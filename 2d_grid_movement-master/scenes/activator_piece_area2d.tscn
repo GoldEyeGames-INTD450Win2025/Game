@@ -16,6 +16,7 @@ func _on_body_entered(body):
 		# NOTE:setup puzzle to have that piece now
 		one_time_trigger = 1
 		this_sprite.hide()
+		SfxUi.play_sfx_piece()
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1h2qt"]

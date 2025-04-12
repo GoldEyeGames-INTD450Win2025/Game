@@ -1,14 +1,14 @@
 extends Node2D
 
-@onready var lift: AudioStreamPlayer2D = $Lift
-@onready var drop: AudioStreamPlayer2D = $Drop
-@onready var slide: AudioStreamPlayer2D = $Slide
+@onready var sound1: AudioStreamPlayer = $Piece
+@onready var sound2: AudioStreamPlayer = $Dialo
+@onready var sound3: AudioStreamPlayer = $PuzzleOpenClose
 
-func play_sfx_lift():
-	lift.play()
+func play_sfx_piece():
+	sound1.play()
 
-func play_sfx_drop():
-	drop.play()
+func play_sfx_dialo():
+	sound2.play()
 
-func play_sfx_slide():
-	slide.play()
+func play_sfx_puzzle_open_close():
+	sound3.play()

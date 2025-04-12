@@ -1,26 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3qx6ihykx4cx"]
 
 [ext_resource type="Script" uid="uid://b0jvq86612u6d" path="res://assets/audio/sfx_ui.gd" id="1_2rnav"]
-[ext_resource type="AudioStream" uid="uid://5oxvfbmo02ay" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk2.wav" id="2_w1pcv"]
-[ext_resource type="AudioStream" uid="uid://1qnt7461qc5c" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk1.wav" id="3_pv4vw"]
-[ext_resource type="AudioStream" uid="uid://daeeudxo472dw" path="res://assets/audio/audio_free_sfx/stone_moves/stone_door.ogg" id="4_fs1l2"]
+[ext_resource type="AudioStream" uid="uid://kh8p4g3eppuf" path="res://assets/audio/audio_made_sfx/piecegrab1.wav" id="2_2rnav"]
+[ext_resource type="AudioStream" uid="uid://b76x8k84cgq5i" path="res://assets/audio/audio_made_sfx/dialo1.wav" id="3_w1pcv"]
+[ext_resource type="AudioStream" uid="uid://c3tqtci64sk2y" path="res://assets/audio/audio_free_sfx/MENU B_Select.wav" id="4_2rnav"]
 
 [node name="SFX_UI" type="Node2D"]
 script = ExtResource("1_2rnav")
 
-[node name="Lift" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_w1pcv")
-volume_db = 8.0
+[node name="Piece" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2rnav")
+volume_db = -3.0
 bus = &"SFX"
 
-[node name="Drop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_pv4vw")
-volume_db = 4.0
-pitch_scale = 0.75
+[node name="Dialo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w1pcv")
+volume_db = -19.0
 bus = &"SFX"
 
-[node name="Slide" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_fs1l2")
-volume_db = 6.0
-pitch_scale = 4.0
+[node name="PuzzleOpenClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2rnav")
 bus = &"SFX"

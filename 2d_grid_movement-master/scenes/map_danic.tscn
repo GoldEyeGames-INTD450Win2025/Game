@@ -296,6 +296,7 @@ func _on_body_entered(body):
 		player_near_ActivatorPiece2_Area2D.emit()
 		one_time_trigger = 1
 		this_sprite.hide()
+		SfxUi.play_sfx_piece()
 "
 
 [sub_resource type="GDScript" id="GDScript_651m4"]
@@ -310,6 +311,7 @@ func _on_body_entered(body):
 		player_near_ActivatorPiece3_Area2D.emit()
 		one_time_trigger = 1
 		this_sprite.hide()
+		SfxUi.play_sfx_piece()
 "
 
 [sub_resource type="GDScript" id="GDScript_jb1ky"]
