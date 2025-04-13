@@ -149,6 +149,10 @@ reset_puzzle={
 2d_physics/layer_2="MapEdge"
 2d_physics/layer_3="Walls"
 
+[navigation]
+
+2d/default_cell_size=0.1
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

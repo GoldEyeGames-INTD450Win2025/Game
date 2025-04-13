@@ -12,9 +12,9 @@ script = ExtResource("1_2rnav")
 
 [node name="Piece" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_2rnav")
-volume_db = -6.0
+volume_db = -9.0
 pitch_scale = 0.9
-bus = &"SFX"
+bus = &"PieceGrab"
 
 [node name="Dialo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w1pcv")

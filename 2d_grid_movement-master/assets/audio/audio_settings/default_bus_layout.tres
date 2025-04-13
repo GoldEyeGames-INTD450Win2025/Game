@@ -1,4 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://cikj2owf5ijm2"]
+[gd_resource type="AudioBusLayout" load_steps=13 format=3 uid="uid://cikj2owf5ijm2"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_c34tn"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_2opjf"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_reff3"]
+resource_name = "Limiter"
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_c34tn"]
 resource_name = "HighPassFilter"
@@ -19,20 +28,40 @@ cutoff_hz = 100.0
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_2opjf"]
 resource_name = "Chorus"
 
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_c34tn"]
+resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_reff3"]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_c34tn"]
+resource_name = "HardLimiter"
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_c34tn"]
+resource_name = "Phaser"
+range_min_hz = 1500.0
+rate_hz = 0.1
+
 [resource]
 bus/0/volume_db = -0.130497
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_c34tn")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = -5.93425
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLimiter_2opjf")
+bus/1/effect/0/enabled = true
 bus/2/name = &"SFX"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -5.93075
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLimiter_reff3")
+bus/2/effect/0/enabled = true
 bus/3/name = &"SFXFootsteps"
 bus/3/solo = false
 bus/3/mute = false
@@ -55,3 +84,17 @@ bus/4/effect/0/effect = SubResource("AudioEffectHighPassFilter_2opjf")
 bus/4/effect/0/enabled = true
 bus/4/effect/1/effect = SubResource("AudioEffectChorus_2opjf")
 bus/4/effect/1/enabled = true
+bus/5/name = &"PieceGrab"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"SFX"
+bus/5/effect/0/effect = SubResource("AudioEffectStereoEnhance_c34tn")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectChorus_reff3")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectHardLimiter_c34tn")
+bus/5/effect/2/enabled = true
+bus/5/effect/3/effect = SubResource("AudioEffectPhaser_c34tn")
+bus/5/effect/3/enabled = true
