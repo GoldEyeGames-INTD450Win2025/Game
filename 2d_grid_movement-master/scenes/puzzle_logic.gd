@@ -135,6 +135,9 @@ func _reset_puzzle() -> void:
 	hidden_pieces = [pieces[8], pieces[2], pieces[1]]
 	for hidden_piece in hidden_pieces:
 		hidden_piece.visible = false
+	
+	#remove_shine_from_pieces()
+	Global.puzzle_solved_resettable = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -144,6 +147,8 @@ func _process(_delta: float) -> void:
 	solved = _puzzle_solved()
 	if solved:
 		Global.puzzle_solved = true
+		#add_shine_to_pieces()
+		Global.puzzle_solved_resettable = true
 	
 	if Input.is_action_just_pressed("reset_puzzle") and get_parent().get_parent().visible:
 		print("reseting puzzle")
@@ -168,3 +173,19 @@ func _puzzle_solved() -> bool:
 		if Global.pieces_found > to_find or pieces[i].anker_ref != solved_grid[i] or Global.is_dragging:
 			return false
 	return true
+
+#func add_shine_to_pieces():
+	#for piece in pieces:
+		#if piece == null:
+			#continue
+		#for child in piece.get_children():
+			#if child is Sprite2D:
+				#child.material = Global.shine_material
+
+#func remove_shine_from_pieces():
+	#for piece in pieces:
+		#if piece == null:
+			#continue
+		#for child in piece.get_children():
+			#if child is Sprite2D:
+				#child.material = null

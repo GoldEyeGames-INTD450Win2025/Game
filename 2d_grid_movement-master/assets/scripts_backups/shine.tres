@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqha7o51hlsjd"]
+
+[ext_resource type="Shader" uid="uid://brim165783qv1" path="res://scenes/shine_overlay.gdshader" id="1_w746s"]
+
+[resource]
+shader = ExtResource("1_w746s")
+shader_parameter/shine_color = Color(0.768627, 0.396078, 0.0588235, 1)
+shader_parameter/line_width = 1.14
+shader_parameter/angle = 5.23599
+shader_parameter/speed = 1.2
+shader_parameter/wait_cycles = 1.0

@@ -11,3 +11,7 @@ var pause_menu_open = false
 var dialogue_box_open = false
 
 var saved_current_music_lvl = 0
+
+var shine_material := preload("res://assets/scripts_backups/shine.tres")
+
+var puzzle_solved_resettable = false

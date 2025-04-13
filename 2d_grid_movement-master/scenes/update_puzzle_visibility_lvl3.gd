@@ -4,6 +4,7 @@ var one_time_activator = false
 @onready var sprite_mural_done = $/root/Map3/TileMapLayer2/Obstacles_Mural_Finished
 @onready var completion_sound = $"/root/Map3/TileMapLayer2/Obstacles_Mural_Finished/completion_sound"
 @onready var muralcomplete_detection_area = $"/root/Map3/TileMapLayer2/Obstacles_Mural_Finished/Area2D"
+@onready var blankshineoverlay = $PanelContainer/Container/Right_Grid/ColorRect/BlankShineOverlay
 signal demo_done_music  # Define signal to later emit
 func _ready():
 	visibility_changed.connect(_on_visibility_changed)
@@ -19,6 +20,10 @@ func _on_visibility_changed() -> void:
 		SfxUi.play_sfx_open_close2()
  
 func _process(_delta: float) -> void:
+	if Global.puzzle_solved_resettable == true:
+		blankshineoverlay.show()
+	else:
+		blankshineoverlay.hide()
 	if (Global.puzzle_solved == true) and (one_time_activator == false):
 		one_time_activator = true
 		#demo_done_label.show()

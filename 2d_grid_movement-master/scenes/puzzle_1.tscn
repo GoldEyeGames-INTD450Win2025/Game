@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://do6n02b7sqkq3"]
+[gd_scene load_steps=14 format=3 uid="uid://do6n02b7sqkq3"]
 
 [ext_resource type="Shader" uid="uid://c231ni2hrec8i" path="res://blur.gdshader" id="1_2ygnb"]
 [ext_resource type="Script" uid="uid://c1ex2hn2hsd11" path="res://scenes/update_puzzle_visibility.gd" id="2_h1eah"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://pp1tv6obnds4" path="res://assets/art_drawn_tile/new_right_click.png" id="8_w5qhq"]
 [ext_resource type="Texture2D" uid="uid://no2qq6ji3lpb" path="res://assets/art_drawn_tile/new_left_click.png" id="9_g1vfp"]
 [ext_resource type="AudioStream" uid="uid://1qnt7461qc5c" path="res://assets/audio/audio_free_sfx/stone_moves/lightclunk1.wav" id="9_vooe4"]
+[ext_resource type="Material" uid="uid://dqha7o51hlsjd" path="res://assets/scripts_backups/shine.tres" id="10_sjxo2"]
+[ext_resource type="Texture2D" uid="uid://cpcyk8tmi0cdj" path="res://scenes/black.png" id="11_f0mvw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sw7ij"]
 shader = ExtResource("1_2ygnb")
@@ -221,9 +223,31 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.670588, 0.431373, 0.00784314, 0.552941)
 
+[node name="BlankShineOverlay" type="TextureRect" parent="PanelContainer/Container/Right_Grid/ColorRect"]
+visible = false
+modulate = Color(1, 1, 1, 0.266667)
+show_behind_parent = true
+z_index = 6
+material = ExtResource("10_sjxo2")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -280.0
+offset_right = 350.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_f0mvw")
+expand_mode = 1
+
 [node name="Reference" type="Sprite2D" parent="PanelContainer/Container"]
 visible = false
-position = Vector2(668, 251)
+position = Vector2(624, 302.667)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_fmsjj")
 

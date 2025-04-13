@@ -13,6 +13,7 @@ var pieces_left = 3
 func _ready() -> void:
 	Global.pieces_found = 0
 	Global.puzzle_solved = false
+	Global.puzzle_solved_resettable = false
 	var zone_mural = get_node("/root/Map3/Lvl3Activators/A3_Mural")  # Adjust path as needed
 	if zone_mural:
 		zone_mural.player_near_lvl3_mural.connect(_on_player_nearby_Mural)
