@@ -3,20 +3,19 @@ extends Control
 @onready var thisnodes_container = $CanvasLayer/Panel
 @onready var background : ColorRect = $CanvasLayer/Panel/ColorRect
 @onready var credits : RichTextLabel = $CanvasLayer/Panel/Control/RichTextLabel
+var scene_startmenu_location = "res://scenes/startmenu/start_menu.tscn"
 
-var fade_duration = 2
+var fade_duration = 3
 var credits_running = false
 var scroll_speed = 40.0  # Pixels per delta
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#start_creditroll()
-	pass
+var credits_end_y_position = -3578.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if credits_running:
 		credits.position.y -= scroll_speed * delta  # Move upward slowly
+		if credits.position.y < credits_end_y_position:
+			stop_cutscene()
 
 func start_creditroll():
 	if credits_running:
@@ -32,3 +31,6 @@ func stop_cutscene():
 	var tween5 = create_tween()
 	tween5.tween_property(thisnodes_container, "modulate:a", 0.0, fade_duration)
 	# return to title screen
+	await tween5.finished
+	thisnodes_container.hide()
+	get_tree().change_scene_to_file(scene_startmenu_location)

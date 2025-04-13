@@ -46,7 +46,7 @@ anchor_bottom = 1.0
 offset_left = -960.0
 offset_top = 1004.0
 offset_right = 960.0
-offset_bottom = 1004.0
+offset_bottom = 4244.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_p88q0")
@@ -58,6 +58,50 @@ Thanks for playing!
 Heart of Ka
 
 
+Developers:
+Keon Li - Artist
+Victoria Cairns - Writer; Design Producer
+Danic Crispin - Programmer
+Brandon Hoynick - Programmer; Audio
+
+Special Thanks :
+Yarrow - Executive Producer (Guidance and Support)
+
+References of assets used:
+Audio Music:
+“RPG - A Long Way From Home” - Hitctrl [https://opengameart.org/content/rpg-a-long-way-from-home ]
+Audio SFX:
+Cat Purr – Kerzoven [https://opengameart.org/content/cat-purr-meow ]
+Dark Ambient Loop (for Level2) - goulven [https://pixabay.com/sound-effects/dark-ambient-loop-31306/ ]
+Footsteps - Antoinemax [https://opengameart.org/content/nature-sounds-pack ] 
+Heartbeat (for Final Level 1) – BRVHRTZ [https://pixabay.com/sound-effects/heartbeat-02-225103/ ]
+Menu accept - ViRiX [https://opengameart.org/content/ui-sound-effects-pack ]
+Puzzle move sounds (slide) - bonebrah [https://opengameart.org/content/stone-door ]
+Puzzle move sounds (pick, drop) - BMacZero [https://opengameart.org/content/mechanical-sounds ]
+Sandstorm - Jurij [https://pixabay.com/sound-effects/sandstorm-222741/ ]
+Font:
+Times New Roman MT Condensed Italic - FreeFonts [https://freefonts.co/fonts/times-new-roman-mt-condensed-italic ]
+Times New Roman MT Condensed Regular - FreeFonts [https://freefonts.co/fonts/times-new-roman-mt-condensed-regular ]
+Procedures:
+Boids flocking algorithm implementation, for Snakes - This Is Vinny [https://www.youtube.com/watch?v=IO003UjrZEE ] 
+(original Boids concept by Craig Reynolds https://en.wikipedia.org/wiki/Boids )
+Shaders:
+Dissolve effect - Single-Minded Ryan [https://youtu.be/QfojEwv7iRk?si=yp-dqwAQYSkBKBnG&t=931 ]
+Fire / Steam effect – FencerDevLog [https://www.youtube.com/watch?v=CAyu18QPLIY ]
+Plants sway effect – LiterallyWize [https://godotshaders.com/shader/simple-sway/ ]
+Plants sway effect (alt) - Certain_Bit6001 [https://www.reddit.com/r/godot/comments/1bp5uhm/godot_42_shader_advice/ ]
+Shine effect - KingToot [https://godotshaders.com/shader/shine/ ]
+Water distortion effect – zeludtnecniv [https://godotshaders.com/shader/2d-water-distortion-effect-godot-4/ ]
+
+
+
+
+
+
+
+
+
+Thanks again for playing!
 
 [/center]"
 scroll_active = false
