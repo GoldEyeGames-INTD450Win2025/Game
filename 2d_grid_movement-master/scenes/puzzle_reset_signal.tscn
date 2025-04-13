@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0pw486poum3w"]
+
+[ext_resource type="Script" uid="uid://r46haxmsrao8" path="res://scenes/puzzle_reset_signal.gd" id="1_35c2d"]
+
+[node name="PuzzleResetSignal" type="Node2D"]
+script = ExtResource("1_35c2d")

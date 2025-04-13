@@ -28,12 +28,23 @@ var lvlend_transition_final1
 var lvlend_transition_final2
 var lvlend = \"\"
 
+var root_name
+@onready var dialogue_box_canvaslayer = $CanvasLayer
+var puzzle_dialogue_triggered = false
+var canvaslayer_at = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	dialogue_box_canvaslayer.layer = canvaslayer_at
 	load_csv_dialogue_data()
 	
-	var root_name = get_tree().current_scene.name
+	root_name = get_tree().current_scene.name
 	print(root_name)
+	
+	var puzzle_reset_dialogue = PuzzleResetSignal
+	if puzzle_reset_dialogue:
+		puzzle_reset_dialogue.puzzle_reset_signal_emitted.connect(_on_player_reset_puzzle)
+		print(\"Connected to dialogue signal: _on_player_reset_puzzle\")
 
 	#lvl1 oasis stuff readying
 	if root_name == \"Map_Danic\":
@@ -67,7 +78,6 @@ func _ready() -> void:
 			zone_PlayerBeatLvl1.player_in_lvl1_finished_mural.connect(_on_player_at_Lvl1end)
 			print(\"Connected to signal: player_in_lvl1_finished_mural\")
 
-
 	#lvl2 fire lake sokar stuff readying
 	elif root_name == \"Map_Danic2\":
 		lvlend_transition2 = $/root/Map_Danic2/Player_Char2D/LvlTransitionOut2
@@ -91,7 +101,6 @@ func _ready() -> void:
 		if zone_lvl2_end:
 			zone_lvl2_end.player_in_lvl2_finished_mural.connect(_on_player_near_lvl2_end)
 			print(\"Connected to dialogue signal: zone_lvl2_end\")
-
 
 	#lvl3 coast island stuff readying
 	elif root_name == \"Map3\":
@@ -215,6 +224,20 @@ func _on_player_near_lvlfinal_2():
 	lvlend = \"lvlfinal2\"
 	do_dialogue_trigger_action(\"testtrigger19\")
 
+func _on_player_reset_puzzle():
+	puzzle_dialogue_triggered = true
+	dialogue_box_canvaslayer.layer = canvaslayer_at + 1
+	if root_name ==  \"Map_Danic\":
+		print(\"do_dialogue_trigger_action(puzzlereset1)\")
+		do_dialogue_trigger_action(\"puzzlereset1\")
+	elif root_name == \"Map_Danic2\":
+		print(\"do_dialogue_trigger_action(puzzlereset2)\")
+		do_dialogue_trigger_action(\"puzzlereset2\")
+	elif root_name == \"Map3\":
+		print(\"do_dialogue_trigger_action(puzzlereset3)\")
+		do_dialogue_trigger_action(\"puzzlereset3\")
+
+
 
 
 # Regular function to handle the button press signal
@@ -287,6 +310,9 @@ func do_dialogue_trigger_action(trigger: String) -> void:
 			await wait_for_button_press()
 			dialogue_box.hide()
 			Global.dialogue_box_open = false
+			if puzzle_dialogue_triggered == true:
+				puzzle_dialogue_triggered = false
+				dialogue_box_canvaslayer.layer = canvaslayer_at
 			if cutscene_called != \"\":
 				if cutscene_called == \"lvlfinal2\":
 					cutscene_called = \"\"

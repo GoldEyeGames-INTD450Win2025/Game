@@ -24,6 +24,7 @@ buses/default_bus_layout="res://assets/audio/audio_settings/default_bus_layout.t
 Global="*res://scenes/global.gd"
 SfxPuzzle="*res://assets/audio/sfx_puzzle.tscn"
 SfxUi="*res://assets/audio/sfx_ui.tscn"
+PuzzleResetSignal="*res://scenes/puzzle_reset_signal.tscn"
 
 [display]
 

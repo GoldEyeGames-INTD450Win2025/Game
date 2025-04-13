@@ -5,7 +5,7 @@ testtrigger1;Masika;Ohhh, my head. Why is everything spinning?;yes;
 testtrigger2;Masika;Oh, hello there! Aren’t you a beautiful one? What are you doing here?;yes;
 ;Masika;Wait. Why do I feel like I should know you? Where do I know you from? What’s your name?;yes;
 ;Masika;May I call you Eshe?;yes;
-;Masika;It only seems appropriate to have Life accompany me through this place. That is, of course, if you’re willing?;yes;
+;Masika;It seems appropriate to have Life accompany me through this place. That is, of course, if you’re willing?;yes;
 ;Eshe;…;yes;
 ;Masika;Right. I guess even in the land of the dead, cats don’t wish to communicate with humans.;yes;
 ;Masika;Shall we go? I’d very much like to reach the Field of Reeds. I hope my memory returns along the way, I’d like to know what happened to me.;;
@@ -65,7 +65,7 @@ testtrigger9;Masika;I remember the home I had in Thebes, living in a place that 
 ;Eshe;…;yes;
 ;Masika;Regardless of how quickly you all dispersed though, you always reappeared the next morning at the market.;;
 testtrigger 10;Masika;My stall had looked like this. I’d had extra tables and crates around the sides, but this was my home away from home.;yes;stall
-;Masika;After I accepted the responsibility of working at Zuberi’s stall, life in Thebes got complicated. Especially at the market.;yes;
+;Masika;After I accepted the responsibility of working at Zuberi’s stall, life in Thebes got complicated. At the market especially.;yes;
 ;Masika;Many of the customers hadn’t liked me, true, but the other vendors were different in their dislike.;yes;
 ;Masika;They’d mistrusted me, my intentions, and my capabilities after spending day after day, season after season alongside Zuberi. ;yes;
 ;Masika;They never spoke against me, but never to me either, easy chatter between stalls during quiet moments of the day never quite reaching me.;yes;
@@ -76,7 +76,7 @@ testtrigger11;Masika;I used to see boats like this all the time, but where…;ye
 ;Masika;The company was often wonderful too, Eshe, as far back in the shadows as you stayed.;yes;
 ;Eshe;…;yes;
 ;Masika;Most times you all beat me home and I'd walked in to cats on every surface, but I'd enjoyed having feline shadows just out of sight the whole way home too.;yes;
-;Masika;I was nearly home on one particular night when something pushed me into a run… Ugh! What was it?;;
+;Masika;I was nearly home on one particular night when something that pushed me into a run… Ugh! What was it?;;
 testtrigger12;Masika;The empty spaces have filled, almost completely. My life had settled into a rhythm after I returned to Thebes to be a vendor at the market.;yes;wholelvl2
 ;Masika;At first, none of the other vendors had accepted me taking over for Zuberi, but Eshe and her friends changed that.;yes;
 ;Masika;Maybe they’d liked the frankincense I lit, or the soft places to sit, or the treats I snuck them when I was able.;yes;
@@ -100,7 +100,7 @@ testtrigger14;Masika;There had been a bucket brigade already going when I turned
 ;Masika;Seconds had dragged by as I'd sprinted towards the smoke and the crowd gathering.;yes;
 ;Masika;I'd rushed through them, asking if they’d seen the market cats leaving the building. If they knew anything.;yes;
 ;Masika;If someone had already gone through each home looking for those in need of aid.;yes;
-;Masika;No one knew anything, and it was clear the brigade wasn’t enough. The smoke had only grown more intense.;yes;
+;Masika;No one had known anything, but the brigade hadn’t done enough. The smoke had only grown more intense.;yes;
 ;Masika;Time had been swiftly running out.;yes;
 ;Masika;So I’d run towards my home, barely registering the shouts coming from behind me, and dove through the smoking opening.;;
 testtrigger15;Masika;That statue. It’s Bastet, goddess of cats and protector of all. I remember something strange, something about her from that night…;yes;statue
@@ -119,9 +119,9 @@ testtrigger16;Masika;I’d been surrounded by smoke, blocked by a door just like
 ;Masika;Four… Not five.;;
 testtrigger17;Masika;The smoke dissipates, my memories restored.;yes;wholelvl3
 ;Masika;That night, I’d seen the smoke and rounded the corner to see my home in flames.;yes;
-;Masika;I’d seen how the efforts made by nearby Thebans to extinguish the blaze were ineffectual.;yes;
-;Masika;Seen the fire and smoke grow stronger and realized no one knew where the market cats were – where my cats were.;yes;
-;Masika;I didn’t think, just dove into my home in search of them.;yes;
+;Masika;I’d seen how the efforts made by nearby Thebans to put out the blaze were ineffectual.;yes;
+;Masika;Realized no one knew where the market cats were – where my cats were.;yes;
+;Masika;I hadn’t thought, just dove into my home in search of them.;yes;
 ;Masika;Bastet had aided me in my rescue attempt… and she hasn’t stopped protecting me, has she? That’s why you’re here. You, Eshe, of all of them.;yes;
 ;Masika;Because when I got that door open, I’d known it was Eshe I hadn’t seen. Isis, then. I’d tried to call out but doubled over coughing instead.;yes;
 ;Masika;The space barely recognizable, I’d felt my way to my sleeping quarters. Isis had always liked it there.;yes;
@@ -132,20 +132,17 @@ testtrigger17;Masika;The smoke dissipates, my memories restored.;yes;wholelvl3
 ;Masika;That had been enough.;yes;
 ;Masika;A dark blur had shot past me and I’d heard the pattering of paws fading quickly. Scrambling to my feet myself, I’d darted after her as best I could.;yes;
 ;Masika;Making it to the stairs, I’d seen the long silhouette of Isis highlighted in the entryway before she veered immediately away from the crowd.;yes;
-;Masika;I was taking the stairs two at a time when a loud crash echoed above me.;yes;
-;Masika;I’d felt something hit me in the back of the head and everything had just… went black.;;
+;Masika;I was taking the stairs two at a time when a loud crash sounded above me.;yes;
+;Masika;I’d felt something hit me in the back of the head and everything had just… gone black.;;
 testtrigger18;Masika;Hello?;yes;lvlfinal1
 ;Osiris;Come forth, mortal, and be welcome.;yes;
 ;Osiris;You have surmised, by now, your purpose in this place and the purpose this place holds.;yes;
 ;Masika;I… Yes, I understand. This is the Hall of Judgment, and there is Ma’at, and there is Ammit.;yes;
-;Masika;You shall determine if my actions in life reward my passage into the Field of Reeds.;yes;
-;Osiris;Good. Let us begin.;;
+;Masika;You shall determine if my heart, weighted as it would be due to any sins I committed in life, is deserving of passing into the Field of Reeds.;yes;
+;Osiris;Then let us begin.;;
 testtrigger19;Osiris;Rarely have I seen a mortal of a caliber such as yours. The course of your life and death is plain to me, and I recognize the rarity of your conviction.;yes;lvlfinal2
 ;Osiris;Few would have acted as you did in the preservation of lives other than their own, and I know Bastet holds you in the highest regard for your decision.;yes;
 ;Osiris;My decision is clear. Your heart, weighted by strife and lightened by compassion…;yes;
 ;Osiris;Does not surpass the weight of Ma’at’s feather.;yes;
 ;Osiris;You may pass to my Field of Reeds, mortal.;yes;
 ;Masika;I shall forever conduct myself in accordance with this decision, great Osiris, Lord of the Underworld and Judge of the Dead. Thank you.;;
-puzzlereset1;Thoth;Ah, foolish mortal. Gotten yourself into a bind, hmmm? Better luck next time.;;
-puzzlereset2;Thoth;It is amusing to watch mortals fumble with what they do not understand. Fine! Go again.;;
-puzzlereset3;Thoth;Surely you know that’s not the finished image, right? Try that one more time.;;

@@ -158,6 +158,7 @@ func _process(_delta: float) -> void:
 			for child in node.get_children():
 				child.queue_free()
 			node.queue_free()
+		Global.puzzle_reset_triggering_dialogue = true
 		_reset_puzzle()
 
 func _make_grid_occupied(piece, init_grid_square, grid):

@@ -14,6 +14,7 @@ var to_find = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_reset_puzzle()
+
 	
 func _reset_puzzle() -> void:
 	var puzzle_pieces = $Puzzle_Pieces
@@ -167,6 +168,7 @@ func _process(_delta: float) -> void:
 			for child in node.get_children():
 				child.queue_free()
 			node.queue_free()
+		Global.puzzle_reset_triggering_dialogue = true
 		_reset_puzzle()
 
 func _make_grid_occupied(piece, init_grid_square, grid):
